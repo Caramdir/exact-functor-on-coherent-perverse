@@ -38,13 +38,13 @@ We will start by reviewing some general framework from category theory.
                 Any triangle (i.e.\ sequence $X → Y → Z → X[1]$) isomorphic to a distinguished triangle is distinguished.
                 Every morphism $u\colon X → Y$ is contained in a distinguished triangle $X \xrightarrow{u} Y → Z → X[1]$.
                 Every triangle of the form $X \xrightarrow{\id} X → 0 → X[1]$ is distinguished.
-            \item[(TR~2)]
+            \item[(TR~2; rotation)]
                 A triangle $X \xrightarrow{u} Y \xrightarrow{v} Z \xrightarrow{w} X[1]$ is distinguished, if and only if $Y \xrightarrow{v} Z \xrightarrow{w} X[1] \xrightarrow{-u[1]} Y[1]$ is distinguished.
-            \item[(TR~3)] 
+            \item[(TR~3; morphisms)] 
                 If $X \xrightarrow{u} Y \xrightarrow{v} Z \xrightarrow{w} X[1]$ and
                 $X' \xrightarrow{u'} Y' \xrightarrow{v'} Z' \xrightarrow{w'} X'[1]$
                 are distinguished, then for each morphism $(f,g)\colon u → u'$ there exists a morphism $h\colon Z → Z'$ such that $(f,g,h)$ is a morphism of triangles (where a morphism of triangles is defined as the obvious commutative diagram).
-            \item[(TR~4)]
+            \item[(TR~4; octahedral axiom)]
                 If $X \xrightarrow{u} Y \xrightarrow{u} Z' → X[1]$,
                 $Y \xrightarrow{v} Z \xrightarrow{} X' \xrightarrow{j} Y[1]$, and
                 $X \xrightarrow{w} Z \xrightarrow{} Y' \xrightarrow{} X[1]$
@@ -59,7 +59,7 @@ We will start by reviewing some general framework from category theory.
 \end{Def}
 
 The notion of triangulated categories was first formalized in \cite{Verdier:1977:CategoriesDerivees}.
-Some explanation of the axiom TR~4 (also called octahedral axiom) can be found in \cite[Section~1.1]{BeilinsonBernsteinDeligne:1982:FaisceauxPervers}.
+Some explanation of the octahedral axiom can be found in \cite[Section~1.1]{BeilinsonBernsteinDeligne:1982:FaisceauxPervers}.
 Of course, the theory can also be found in many textbooks, e.g. \cite{KashiwaraSchapira:2006:CategoriesAndSheaves} or \cite{Weibel:1994:IntroToHomologicalAlgebra}.
 
 \begin{Ex}
@@ -80,7 +80,7 @@ Of course, the theory can also be found in many textbooks, e.g. \cite{KashiwaraS
 \end{Def}
 
 \begin{Ex}
-    For any $X ∈ \cat D$ the functors $\Hom_{\cat D}(\cdot, X)$ and $\Hom_{\cat D}(X,\cdot)$ and $\Hom_{\cat D}(\cdot, X)$  are cohomological (the second one being defined on the opposite triangulated category (with translation functor the inverse of $T$ and reading distinguished triangles the other way).
+    For any $X ∈ \cat D$ the functors $\Hom_{\cat D}(X,\cdot)$ and $\Hom_{\cat D}(\cdot, X)$  are cohomological (the second one being defined on the opposite triangulated category (with translation functor the inverse of $T$ and reading distinguished triangles the other way)).
     Hence, if $F\colon \cat D → \cat A$ is cohomological, it induces a long exact sequence
     \[
     \dotsc → FX → FY → FZ → FTX → FTY → \dotsc
@@ -93,8 +93,8 @@ Of course, the theory can also be found in many textbooks, e.g. \cite{KashiwaraS
 \begin{Def}
     A \emph{t-category} is a triangulated category $\cat D$ together with a pair $(\cat D^{≤0},\cat D^{≥0})$ of full subcategories, called a \emph{t-structure}, such that, writing $\cat D^{≤n} = \cat D^{≤0}[n]$ and $\cat D^{≥n} = \cat D^{≥0}[n]$, the following conditions hold:
     \begin{enumerate}
-        \item if $X ∈ \cat D^{≤0}$ and $Y ∈ \cat D^{≥0}$, then $\Hom_{\cat D}(X,Y) = 0$;
-        \item $\cat D^{≤0} ⊂ \cat D^{≤1}$ and $\cat D^{≥0} ⊃ \cat D^{≥1}$;
+        \item if $X ∈ \cat D^{≤0}$ and $Y ∈ \cat D^{≥1}$, then $\Hom_{\cat D}(X,Y) = 0$;
+        \item $\cat D^{≤0} ⊆ \cat D^{≤1}$ and $\cat D^{≥0} ⊇ \cat D^{≥1}$;
         \item for each $X ∈ \cat D$ there exists a distinguished triangle $A → X → B → A[1]$ such that $A ∈ \cat D^{≤0}$ and $B ∈ \cat D^{≥1}$.
     \end{enumerate}
 
@@ -107,14 +107,14 @@ Modern references include almost any book that describes perverse sheaves, e.g. 
 \begin{Ex}
     If $\cat A$ is an Abelian category, then its derived category $\derived \cat A$ admits a standard t-structure given by
     \begin{align*}
-        \derived \cat A^{≤0} &= \{ F^\cx ∈ \derived\cat A : H^j(F\cx) = 0 \text{ for all } j > 0 \}, \\
-        \derived \cat A^{≥0} &= \{ F^\cx ∈ \derived\cat A : H^j(F\cx) = 0 \text{ for all } j < 0 \}.
+        \derived \cat A^{≤0} &= \{ F ∈ \derived\cat A : H^j(F) = 0 \text{ for all } j > 0 \}, \\
+        \derived \cat A^{≥0} &= \{ F ∈ \derived\cat A : H^j(F) = 0 \text{ for all } j < 0 \}.
         \qedhere
     \end{align*}
 \end{Ex}
 
 \begin{Prop}
-    The inclusion $\cat D^{≤n} → \cat D$ (resp.~$\cat D^{≥n} → \cat D$) admits a right (resp.~left) adjoint $τ^{≤n}\colon \cat D → \cat D^{≤n}$ (resp.\ $τ^{≥n}\colon \cat D → \cat D^{≥n}$, called the \emph{truncation functors}.
+    The inclusions $\cat D^{≤n} → \cat D$ (resp.~$\cat D^{≥n} → \cat D$) admits a right (resp.~left) adjoint $τ^{≤n}\colon \cat D → \cat D^{≤n}$ (resp.\ $τ^{≥n}\colon \cat D → \cat D^{≥n}$), called the \emph{truncation functors}.
 \end{Prop}
 
 These functors $τ^{≤0}$ and $τ^{≥1}$ are given by the third property of the definition of a t-structure. 
@@ -124,10 +124,10 @@ The other truncation functors are just translates.
     For the standard t-structure of a derived category the truncation functors are the usual (non-naive) truncation functors.
 \end{Ex}
 
-The main result about t-structures in the following theorem the provides a convenient way to identify Abelian subcategories.
+The main result about t-structures in the following theorem that provides a convenient way to identify Abelian subcategories.
 
 \begin{Thm}
-    The heart of a t-category if an Abelian category.
+    The heart of a t-category is an Abelian category.
 \end{Thm}
 
 \begin{Prop}
@@ -165,7 +165,7 @@ Let $\O$ be a sheaf of rings on $X$.
     where $i_S \colon S \hookrightarrow X$ is the inclusion.
 \end{Def}
 
-Recall that $i_S^*$ is the derived functor of $i_S^*(\sheaf G) = f^{-1}\sheaf G \otimes_{f^{-1}\O_S} \O_X$ and $i_S^!(\sheaf G) =  f^*\sheaf H$, where $\sheaf H(U) = \{ s ∈ G(U) : \supp s ⊆ X\}$ (for $S$ locally closed).
+Recall that $i_S^*$ is the derived functor of $i_S^*(\sheaf G) = f^{-1}\sheaf G \otimes_{f^{-1}\O_S} \O_X$ and $i_S^!(\sheaf G) =  f^*\sheaf H$, where $\sheaf H(U) = \{ s ∈ G(U) : \supp s ⊆ U\}$ (for $S$ locally closed).
 
 \begin{Thm}
     $(\perv\derived^{≤0}(X,\O),  \perv\derived^{≥0}(X,\O))$ is a t-structure on $\derived (X,\O)$ and induces one on $\derived^*(X,\O)$ for $*={+},{-},{b}$.
@@ -178,13 +178,13 @@ The objects in the heart of this t-structure are called \emph{perverse sheaves} 
 This definition is more general than what we need for our purposes.
 From now on let $X$ be a complex algebraic variety or a complex manifold.
 Instead of a general sheaf of rings $\O$, we will only consider the constant sheaf $ℂ_X$ on $X$.
-Let us also agree that all strata are smooth and equidimensional and that the value of the perversity $p$ only depends on the dimension of $S$.
+Let us also agree that all strata are smooth and equidimensional complex subvarieties/submanifolds and that the value of the perversity $p$ only depends on the dimension of $S$.
 
-Let $\derived D_{c-\setset S}(X)$ be the full subcategory of $\derived(\catModules{ℂ_X})$ consisting of objects with constructible cohomology with respect to $\setset S$ (a sheaf is constructible with respect to $\setset S$ if the restrictions to each stratum is a locally constant sheaf of $ℂ$-modules).
-Then the construction above gives a category of perverse sheaves on $X$ as the heart of the perverse t-structure on $X$ with respect to some perversity.
-We would however like to get notion of perverse sheaves that is independent of the stratification.
+Let $\derived_{c-\setset S}(X)$ be the full subcategory of $\derived(\catModules{ℂ_X})$ consisting of objects with constructible cohomology with respect to $\setset S$ (a sheaf is constructible with respect to $\setset S$ if the restrictions to each stratum is a locally constant sheaf of $ℂ$-modules).
+Then the construction above gives an Abelian category of perverse sheaves on $X$ as the heart of the perverse t-structure on $X$ with respect to some perversity.
+We would however like to get a notion of perverse sheaves that is independent of the stratification.
 
-For that we notice that a refinement of the stratification induces compatible t-structures on the categories $\derived D_{c-\setset S}(X)$.
+For that we notice that a refinement of the stratification induces compatible t-structures on the categories $\derived_{c-\setset S}(X)$.
 So we can try to take a limit over all stratifications.
 
 For this to work, we need to restrict the class of allowed perversities.
@@ -208,15 +208,15 @@ We will restrict our attention to $\derived^b_c(X)$.
     Then $(\perv\derived^{≤0}(X),\perv\derived^{≥0}(X))$ is a t-structure on $\derived_c^b(X)$.
 \end{Prop}
 
-Let $\mathbb D_X\colon \oppcat{\derived_c^b(X)} \isoto \derived_c^b(X)$ be the Verdier dual.
+Let $\mathbb D_X\colon \oppcat{\derived_c^b(X)} \isoto \derived_c^b(X)$ be the Verdier dual (see for example \cite[Section 13.1]{PetersSteenbrink:2008:MixedHodgeStructures} or \cite[Section 4.5]{HottaTakeuchiTanisaki:2008:DModulesPerverseSheavesRepresentationTheory}).
 
 \begin{Prop}
-    The Verdier dual exchanges $\perv\derived^{≤0}(X)$ and $\perv[p^*]\derived{≤0}(X)$.
+    The Verdier dual exchanges $\perv\derived^{≤0}(X)$ and $\perv[p^*]\derived^{≥0}(X)$.
 \end{Prop}
 
 In the complex case (which we are discussing) the most important perversity is the \emph{middle perversity} $p(2k) = k$ (the value on odd integers in irrelevant).
 This is the only self-dual perversity.
-In particular $\mathbb D_X\oppcat{\perv\derived^{≤0}(X)} = \perv\derived{≤0}(X)$.
+In particular $\mathbb D_X\oppcat{\perv\derived^{≤0}(X)} = \perv\derived^{≥0}(X)$.
 From now on, we will only consider this perversity.
 
 \begin{Prop}
@@ -247,8 +247,24 @@ From now on, we will only consider this perversity.
     More generally this is true for $X$ a pure-dimensional algebraic variety that is locally a complete intersection.
 \end{Ex}
 
+In general the (exceptional) pull-back and push-forward functors are not t-exact with respect to the perverse t-structure (see however, e.g., \cite[Corollary~8.1.44] for cases where they are exact).
+As explained above, to any functor $F\colon\derived_c^b(X) → \derived_c^b(Y)$ we can associate a functor $\perv F$ between the hearts of the perverse t-structures, i.e.~between the perverse sheaves on the two categories.
 
-\section{Intersection complexes}
+Let $j\colon U → X$ be the inclusion of a dense open subset.
+By adjunction, we have a natural morphism $j_! → j_*$ of functors.
+The \emph{intermediate extension} of a perverse sheaf $F$ on $U$ is defined to be
+\[
+\perv j_{!*} F = \im(\perv j_! F → \perv j_*F).
+\]
+The use of this functor is to recursively define the \emph{intersection complex}, which then calculates intersection cohomology (see \cite[Section~8.2]{HottaTakeuchiTanisaki:2008:DModulesPerverseSheavesRepresentationTheory}.
+It can also be used to describe the simple objects in the category of perverse sheaves \cite[Corollary~8.2.10]{HottaTakeuchiTanisaki:2008:DModulesPerverseSheavesRepresentationTheory}, \cite[Lemma~13.26]{PetersSteenbrink:2008:MixedHodgeStructures}.
+
+\subsection{Some notes on the literature}
+
+Perverse sheaves where first described in \cite{BeilinsonBernsteinDeligne:1982:FaisceauxPervers} and most fundamental results can be found there.
+If one is only interested in complex geometry (and the middle perversity), then \cite{HottaTakeuchiTanisaki:2008:DModulesPerverseSheavesRepresentationTheory} and \cite{PetersSteenbrink:2008:MixedHodgeStructures} contain nice introductions.
+For perverse sheaves on real and complex manifolds \cite{KashiwaraSchapira:1994:SheavesOnManifolds} is a detailed reference.
+For complex manifolds, \cite{KashiwaraSchapira:1994:SheavesOnManifolds} also contains a microlocal description of perverse sheaves.
 
 \printbibliography
 
