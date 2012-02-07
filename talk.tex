@@ -109,6 +109,7 @@ Modern references include almost any book that describes perverse sheaves, e.g. 
     \begin{align*}
         \derived \cat A^{≤0} &= \{ F^\cx ∈ \derived\cat A : H^j(F\cx) = 0 \text{ for all } j > 0 \}, \\
         \derived \cat A^{≥0} &= \{ F^\cx ∈ \derived\cat A : H^j(F\cx) = 0 \text{ for all } j < 0 \}.
+        \qedhere
     \end{align*}
 \end{Ex}
 
@@ -135,6 +136,16 @@ The main result about t-structures in the following theorem the provides a conve
 
 We set $H^n = H^0 ∘ [n]$.
 
+\begin{Def}
+    Let $F\colon \cat{D₁} → \cat{D₂}$ be a functor of triangulated categories.
+    We say that $F$ is \emph{left t-exact} (resp.\ \emph{right t-exact}) if $F(\cat{D₁}^{≥0}) ⊆ \cat{D₂}^{≥0}$ (resp.\ $F(\cat{D₁}^{≥0}) ⊆ \cat{D₂}^{≥0}$).
+    It is \emph{t-exact} if it is both left and right t-exact.
+\end{Def}
+
+\begin{Prop}
+    Let $i\colon \cat{D₁}^\heartsuit → \cat{D₁}$ be the inclusion.
+    If $F\colon \cat{D₁} → \cat{D₂}$ is left/right t-exact, then $H^0 ∘ F ∘ i\colon \cat{D₁}^\heartsuit → \cat{D₂}^\heartsuit$ is a left/right exact functor of Abelian categories.
+\end{Prop}
 
 \section{Perverse sheaves}
 
@@ -197,8 +208,44 @@ We will restrict our attention to $\derived^b_c(X)$.
     Then $(\perv\derived^{≤0}(X),\perv\derived^{≥0}(X))$ is a t-structure on $\derived_c^b(X)$.
 \end{Prop}
 
-    In the complex case (which we are discussing) the most important perversity is the \emph{middle perversity} $p(2k) = k$ (the value on odd integers in irrelevant).
-    This is the only self-dual perversity.
+Let $\mathbb D_X\colon \oppcat{\derived_c^b(X)} \isoto \derived_c^b(X)$ be the Verdier dual.
+
+\begin{Prop}
+    The Verdier dual exchanges $\perv\derived^{≤0}(X)$ and $\perv[p^*]\derived{≤0}(X)$.
+\end{Prop}
+
+In the complex case (which we are discussing) the most important perversity is the \emph{middle perversity} $p(2k) = k$ (the value on odd integers in irrelevant).
+This is the only self-dual perversity.
+In particular $\mathbb D_X\oppcat{\perv\derived^{≤0}(X)} = \perv\derived{≤0}(X)$.
+From now on, we will only consider this perversity.
+
+\begin{Prop}
+    Let $F ∈ \derived_c^b(X)$.
+    The following are equivalent:
+    \begin{enumerate}
+        \item $F ∈ \perv\derived^{≤0}(X)$;
+        \item $\dim\supp H^j(F) ≤ -j$ for all $j$.
+    \end{enumerate}
+    The following are equivalent:
+    \begin{enumerate}
+        \item $F ∈ \perv\derived^{≤0}(X)$;
+        \item $\dim\supp H^j(\mathbb D_X F) ≤ -j$ for all $j$.
+    \end{enumerate}
+    In particular, $\mathbb D_X$ is t-exact and induces a functor $\oppcat{\operatorname{Perv}(X)} \isoto \operatorname{Perv}(X)$.
+\end{Prop}
+
+\begin{Ex}
+    Let $X$ be smooth of dimension $d$ and $L$ a local system on $X$.
+    Then $L[d]$ is a perverse sheaf on $X$.
+
+    As, using that $ω_X \cong ℂ[2d]$,
+    \[
+    \mathbb D_X(L[d]) \cong
+    R\sheaf{Hom}_{ℂ}(L[d], ℂ[2d]) \cong
+    L^*[d].
+    \]
+    More generally this is true for $X$ a pure-dimensional algebraic variety that is locally a complete intersection.
+\end{Ex}
 
 
 \section{Intersection complexes}
