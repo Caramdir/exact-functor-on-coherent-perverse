@@ -9,7 +9,7 @@
 \author{Clemens Koppensteiner}
 
 \newcommand\derived{\mathbf D}
-\renewcommand\cat{\mathcal}
+\renewcommand\cat{\mathscr}
 \let\setset\cover
 
 \begin{document}
@@ -114,7 +114,7 @@ Modern references include almost any book that describes perverse sheaves, e.g. 
 \end{Ex}
 
 \begin{Prop}
-    The inclusions $\cat D^{≤n} → \cat D$ (resp.~$\cat D^{≥n} → \cat D$) admits a right (resp.~left) adjoint $τ^{≤n}\colon \cat D → \cat D^{≤n}$ (resp.\ $τ^{≥n}\colon \cat D → \cat D^{≥n}$), called the \emph{truncation functors}.
+    The inclusions $\cat D^{≤n} → \cat D$ (resp.~$\cat D^{≥n} → \cat D$) admit right (resp.~left) adjoint functors $τ^{≤n}\colon \cat D → \cat D^{≤n}$ (resp.\ $τ^{≥n}\colon \cat D → \cat D^{≥n}$), called the \emph{truncation functors}.
 \end{Prop}
 
 These functors $τ^{≤0}$ and $τ^{≥1}$ are given by the third property of the definition of a t-structure. 
@@ -247,11 +247,11 @@ From now on, we will only consider this perversity.
     More generally this is true for $X$ a pure-dimensional algebraic variety that is locally a complete intersection.
 \end{Ex}
 
-In general the (exceptional) pull-back and push-forward functors are not t-exact with respect to the perverse t-structure (see however, e.g., \cite[Corollary~8.1.44] for cases where they are exact).
+In general the (exceptional) pull-back and push-forward functors are not t-exact with respect to the perverse t-structure (see however, e.g., \cite[Corollary~8.1.44]{HottaTakeuchiTanisaki:2008:DModulesPerverseSheavesRepresentationTheory} for cases where they are exact).
 As explained above, to any functor $F\colon\derived_c^b(X) → \derived_c^b(Y)$ we can associate a functor $\perv F$ between the hearts of the perverse t-structures, i.e.~between the perverse sheaves on the two categories.
 
 Let $j\colon U → X$ be the inclusion of a dense open subset.
-By adjunction, we have a natural morphism $j_! → j_*$ of functors.
+We have a natural morphism $j_! → j_*$ of functors\footnote{Recall that $f_!\sheaf F(V) = \{ s ∈ F(f^{-1}V) : \res{f}{\supp s}\colon \supp s → U\text{ is proper}\}$.}.
 The \emph{intermediate extension} of a perverse sheaf $F$ on $U$ is defined to be
 \[
 \perv j_{!*} F = \im(\perv j_! F → \perv j_*F).
