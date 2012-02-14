@@ -72,6 +72,8 @@ Of course, the theory can also be found in many textbooks, e.g. \cite{KashiwaraS
     Let $\cat A$ be an additive category and $\mathbf K\cat A$ the category of complexes of objects of $\cat A$ and $\Hom_{\mathbf K\cat A}(K,L)$ the set of homotopy classes of morphisms of complexes from $K$ to $L$.
     Let $TK = K[1]$ be defined by $(K[1])^n = K^{n+1}$ (with a sign change in the differential).
     In $\mathbf K\cat A$ the distinguished triangles are gives by $K \xrightarrow{u} L → \operatorname{cone}(u) → K[1]$, giving $\mathbf K\cat A$ the structure of a triangulated category.
+    Here we need to work in the homotopy category of complexes, as otherwise the triangle $K \xrightarrow{\id} K → 0 → X[1]$ wouldn't be distinguished (the mapping cone of $\id$ is only quasi-isomorphic to 0).
+    Also note that if $u\colon K → L$ is injective, then $\operatorname{cone}(u) \cong L/K$, so that every short exact sequence of complexes is a distinguished triangle.
 
     If $\cat A$ is Abelian, this structure descends to the derived category $\derived \cat A$.
 \end{Ex}
@@ -133,7 +135,7 @@ The other truncation functors are just translates.
 The main result about t-structures in the following theorem that provides a convenient way to identify Abelian subcategories.
 
 \begin{Thm}
-    The heart of a t-category is an Abelian category.
+    The heart of a t-category is an Abelian category that is stable under extensions (i.e.\ for every distinguished triangle $X → Y → Z → X[1]$ with $X$ and $Z$ in the heart, also $Y$ is in the heart).
 \end{Thm}
 
 \begin{Prop}
@@ -192,6 +194,9 @@ Then the construction above gives an Abelian category of perverse sheaves on $X$
 \begin{Exercise}
     Let $X = ℂ$, $\setset S = \{\{0\},ℂ^\units\}$ and let $p(\{0\}) = 0$, $p(ℂ^\units) = -1$.
     Describe the perverse sheaves with respect to these data.
+    See \cite{GelfandMacPhersonVilonen:1996:PerverseSheavesAndQuivers} for a generalization of this example.
+
+    As a simplification, describe the $ℂ^\units$-invariant perverse sheaves on $ℂ$.
 \end{Exercise}
 
 We would like to get a notion of perverse sheaves that is independent of the stratification.
