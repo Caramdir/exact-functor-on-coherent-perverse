@@ -10,16 +10,23 @@
 \author{Clemens Koppensteiner}
 
 \newcommand\derived{\mathbf D}
-\renewcommand\cat{\mathscr}
+\newcommand\derivedcoh{\derived_{\mathrm{coh}}}
+%\renewcommand\cat{\mathscr}
 \let\setset\cover
+\newcommand\inv{\mathrm{inv}}
 
 \begin{document}
+
+\renewcommand\top{\mathrm{top}}
+\renewcommand\dual{\mathbb D}
 
 \maketitle
 
 \tableofcontents
 
 \section{Introduction}
+
+$X$, $X^\top$, $G$.
 
 \section{Preliminaries}
 
@@ -166,11 +173,36 @@ With respect to some stratification.
 Definition.
 Relation to quotient stacks.
 
+\subsection{Dualizing complexes}
+
 \section{Perverse coherent sheaves}
+
+With the notation introduced earlier, let $G$ act on $X$.
+Let $X^\inv$ be the subset of $X^\top$ consisting of the generic points of $G$-invariant subschemes, with the induced topology.
 
 \subsection{Definiton}
 
-Definition of the t-structure.
+\begin{Def}
+    A \emph{perversity function} on $X$ is a function $p\colon X^\inv → ℤ$, constant on $G$-orbits.
+    The \emph{dual perversity} is defined by $\bar p(x) = -\dim(x) - p(x)$.
+    A perversity function $p$ is \emph{(strictly) monotone} if $p(x) < p(x')$ (resp.\ $p(x) \le p(x')$) for $x' ∈ \bar x$.
+    It is \emph{(strictly) comonotone} if $\bar p$ is (strictly) monotone. 
+\end{Def}
+
+\begin{Def}
+    Let $p$ be a perversity function on $X$.
+    We define full subcategories $D^{p,\le0}(X) \subset \derivedcoh^-(X)$ and $D^{p,\ge 0}(X) \subset \derivedcoh^+(X)$ by:
+    \begin{itemize}
+        \item $\sheaf F ∈ D^{p,\le 0}(X)$ if $i_x^*(\sheaf F) ∈ \derived^{\le p(x)}(\catModules{\O_x})$ for all $x ∈ X^\inv$;
+        \item $\sheaf F ∈ D^{p,\ge 0}(X)$ if $i_x^!(\sheaf F) ∈ \derived^{\ge p(x)}(\catModules{\O_x})$ for all $x ∈ X^\inv$.
+    \end{itemize}
+\end{Def}
+
+\begin{Thm}
+    $(D^{p,\le0}(X),D^{p,\ge0}(X))$ defines a t-structure on $\derivedcoh(X)$.
+\end{Thm}
+
+Before we prove this, let's have a look at an example.
 
 \subsection{Example}
 
@@ -178,7 +210,98 @@ Sheaves on $[\as 2/\SL2]$.
 
 \subsection{Proof}
 
-Proof that the structure defined above really is a t-structure.
+\begin{Lem}\label{lem:induced_perversity}
+    \begin{enumerate}[(a)]
+        \item $\dual(D^{p,\le 0}(X)) = D^{\bar p,\ge 0}(X)$
+        \item
+            Let $i_Z$ be a locally closed $G$-invariant subscheme.
+            Then $p$ defines the induced perversity function $p_Z = p ∘ i_Z \colon Z^\inv → ℤ$.
+            Then $i_Z^*$ sends $D^{p,\le 0}(X)$ to $D^{p_Z,\le 0}(Z)$ and $i_Z^!$ sends $D^{p,\ge 0}(X)$ to $D^{p_Z,\ge 0}(Z)$.
+        \item
+            If $Z$ is closed, then ${i_Z}_*$ sends $D^{p_Z,\le 0}(Z)$ to $D^{p,\le 0}(X)$ and $D^{p_Z,\ge 0}(Z)$ to $D^{p,\ge 0}(X)$.
+    \end{enumerate}
+\end{Lem}
+
+\begin{Lem}\label{lem:Hom(F,G)=0}
+    If $\sheaf F ∈ D^{p,\le 0}(X)$ and $\sheaf G ∈ D^{p,\ge 1}(X)$, then $\Hom(\sheaf F,\sheaf G) = 0$.
+\end{Lem}
+
+
+\begin{Thm}
+    Suppose that the perversity function $p$ is monotone and comonotone.
+    Then $(D^{p,\le0}(X) \cap \derivedcoh^b(X), D^{p,\ge0}(X) \cap \derivedcoh^b(X))$ is a $t$-structure on $\derivedcoh^b(X)$.
+\end{Thm}
+
+\begin{proof}
+    In view of Lemma \ref{lem:Hom(F,G)=0}, we only need to show that for each object $\sheaf F ∈ \derivedcoh^b(X)$ there exists a distinguished triangle $\sheaf F' → \sheaf F → \sheaf F''$ with $\sheaf F' ∈ D^{p,\le 0}(X)$ and $F'' ∈ D^{p,\ge1}(X)$.
+    Symbolically, we need to show that
+    \[
+    \derivedcoh^b(X) = D^{p,\le 0}(X) * D^{p,\ge1}(X),
+    \]
+    where for two set of objects $D',D''$ of a triangulated category, $D' * D''$ denotes the set of objects $B$ such that there exists a distinguished triangle $A → B → C$ with $A ∈ D'$ and $B ∈ D''$.
+    The octahedral axiom ensures that the operation $*$ is associative \cite[Lemme~1.3.10]{BBD}.
+
+    For a closed $G$-invariant subscheme $i_Z\colon Z \hookrightarrow X$, we set $p_Z = p ∘ i_Z \colon Z^\inv → ℤ$.
+    By Noetherian induction, we can assume that the claim is true on every closed invariant subscheme $Z$ with perversity function $p_Z$.
+
+    By Lemma \ref{lem:induced_perversity} we have
+    \[
+    D^{p,\le0}(X) * {i_Z}_*\left(D^{p_Z,\le 0}(Z)\right) \subseteq D^{p,\le 0}(X) * D^{p,\le 0}(X) = D^{p,\le 0}(X)
+    \]
+    for every closed $G$-invariant subscheme $Z$ of $X$, and similarly of $D^{p,\ge 0}(X)$.
+    Hence,
+    \begin{align*}
+        D^{p,\le 0}(X) * D^{p,\ge1}(X)
+        & \supseteq \bigcup_Z \left(D^{p,\le0}(X) * {i_Z}_*\left(D^{p_Z,\le 0}(Z)\right)\right) * \left({i_Z}_*\left(D^{p_Z,\ge 0}(Z)\right) * D^{p,\ge0}(X)\right) \\
+        & = \bigcup_Z D^{p,\le0}(X) * \left( {i_Z}_*\left(D^{p_Z,\le 0}(Z)\right) * {i_Z}_*\left(D^{p_Z,\ge 0}(Z)\right) \right) * D^{p,\ge0}(X) \\
+        & = \bigcup_Z D^{p,\le0}(X) * {i_Z}_*\left(\derivedcoh^{b}(Z)\right) * D^{p,\ge0}(X), \\ 
+    \end{align*}
+    where the last equality follows by induction.
+    Thus it suffices to prove that 
+    \begin{equation}
+        \label{eq:main_theorem:claim}
+        \derivedcoh^b(X) = \bigcup_Z D^{p,\le0}(X) * {i_Z}_*\left(\derivedcoh^{b}(Z)\right) * D^{p,\ge0}(X).
+    \end{equation}
+
+    For simplicity let us assume that $X$ is irreducible and let $x$ be the generic point of $X$.
+    Let $F ∈ \derivedcoh^b(X)$ and set $\sheaf F^- = τ^{\mathrm{stand}}_{\le p(x)}(\sheaf F)$.
+    Then $\sheaf F^- ∈ D^{p,\le 0}(X)$ because $p$ is monotone.
+    Let $\sheaf F₁$ be the cone of the canonical morphism $\sheaf F^- → \sheaf F$.
+    Clearly $i_x^*(\sheaf F₁) ∈ \derived^{>p(x)}(\catModules{\O_x})$.
+
+    Now set 
+    \[
+    \sheaf F^+ = \dual\left( τ^{\mathrm{stand}}_{<\bar p(x)} \dual(\sheaf F₁) \right).
+    \]
+    Since $p$ is comonotone, $\sheaf F^+ ∈ D^{p,>0}(X)$.
+
+    \ldots
+\end{proof}
+
+\begin{Cor}
+    $(D^{p,\le0}(X),D^{p,\ge0}(X))$ defines a t-structure on $\derivedcoh(X)$.
+\end{Cor}
+
+\begin{proof}
+    We need to show that 
+    \[
+    \derivedcoh(X) = D^{p,\le 0}(X) * D^{p,\ge1}(X),
+    \]
+    Let $N$ be sufficiently large, so that we have
+    \[
+    D^{p,\le 0}(X) \supseteq \derivedcoh^{<-N}(X) 
+    \quad\text{and}\quad
+    D^{p,\ge 1}(X) \supseteq \derivedcoh^{>N}(X).
+    \]
+    Then,
+    \begin{align*}
+         D^{p,\le 0}(X) * D^{p,\ge1}(X)
+         & = \derivedcoh^{<-N}(X) *  D^{p,\le 0}(X) *  D^{p,\ge1}(X) * \derivedcoh^{>N}(X) \\
+         & \supseteq \derivedcoh^{<-N}(X) *  \derivedcoh^b(X) * \derivedcoh^{>N}(X) \\
+         & = \derivedcoh(X).
+         \qedhere
+     \end{align*}
+\end{proof}
 
 \section{Irreducible perverse sheaves}
 \subsection{In the constructible case}
