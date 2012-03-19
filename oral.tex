@@ -25,12 +25,18 @@
 
 \subsection{Category theory}
 
-\subsubsection{Triangulated categories}
+\subsubsection{Derived categories}\label{sec:derived_categories}
 
 \begin{Def}
     additive category,
-    Abelian category %TODO
+    Abelian category,
+    homotopy category of complexes,
+    derived category
 \end{Def}
+
+Derived category and roofs.
+
+\subsubsection{Triangulated categories}\label{sec:triangulated_categories}
 
 \begin{Def}
     A \emph{triangulated category} consists of an additive category $\cat D$ together with
@@ -73,7 +79,7 @@
     Here we need to work in the homotopy category of complexes, as otherwise the triangle $K \xrightarrow{\id} K → 0 → K[1]$ wouldn't be distinguished (the mapping cone of $\id$ is only quasi-isomorphic to 0).
     Also note that if $u\colon K → L$ is injective, then $\operatorname{cone}(u) \cong L/K$, so that every short exact sequence of complexes is a distinguished triangle.
 
-    If $\cat A$ is Abelian, this structure descends to the derived category $\derived \cat A$ (see \ref{sec:derived_categories}).
+    If $\cat A$ is Abelian, this structure descends to the derived category $\derived \cat A$.
 \end{Ex}
 
 \begin{Def}
@@ -90,7 +96,7 @@
     for each distinguished triangle $X → Y → Z → X[1]$ (using TR~2 repeatedly).
 \end{Ex}
 
-\subsubsection{t-categories}
+\subsubsection{t-categories}\label{sec:t-categories}
 
 \begin{Def}
     A \emph{t-category} is a triangulated category $\cat D$ together with a pair $(\cat D^{≤0},\cat D^{≥0})$ of full subcategories, called a \emph{t-structure}, such that, writing $\cat D^{≤n} = \cat D^{≤0}[n]$ and $\cat D^{≥n} = \cat D^{≥0}[n]$, the following conditions hold:
@@ -104,7 +110,7 @@
 \end{Def}
 
 \begin{Ex}
-    If $\cat A$ is an Abelian category, then its derived category $\derived \cat A$ (see \ref{sec:derived_categories} admits a standard t-structure given by
+    If $\cat A$ is an Abelian category, then its derived category $\derived \cat A$ admits a standard t-structure given by
     \begin{align*}
         \derived \cat A^{≤0} &= \{ F ∈ \derived\cat A : H^j(F) = 0 \text{ for all } j > 0 \}, \\
         \derived \cat A^{≥0} &= \{ F ∈ \derived\cat A : H^j(F) = 0 \text{ for all } j < 0 \}.
@@ -147,15 +153,32 @@ We set $H^n = H^0 ∘ [n]$.
 \end{Prop}
 
 
-\subsubsection{Derived categories}\label{sec:derived_categories}
+\subsection{Operations on sheaves}
+
+$f^*, f_*, f^!, f_!$ in topological and algebraic setting.
 
 \subsection{Perverse constructible sheaves}
+
+With respect to some stratification.
+
+\subsection{Equivariant sheaves}
+
+Definition.
+Relation to quotient stacks.
 
 \section{Perverse coherent sheaves}
 
 \subsection{Definiton}
+
+Definition of the t-structure.
+
 \subsection{Example}
-\subsection{Proofs}
+
+Sheaves on $[\as 2/\SL2]$.
+
+\subsection{Proof}
+
+Proof that the structure defined above really is a t-structure.
 
 \section{Irreducible perverse sheaves}
 \subsection{In the constructible case}
