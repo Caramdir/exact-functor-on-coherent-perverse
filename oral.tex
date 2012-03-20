@@ -14,6 +14,7 @@
 %\renewcommand\cat{\mathscr}
 \let\setset\cover
 \newcommand\inv{\mathrm{inv}}
+\newcommand\alg{\mathrm{alg}}
 
 \begin{document}
 
@@ -162,11 +163,43 @@ We set $H^n = H^0 ∘ [n]$.
 
 \subsection{Operations on sheaves}
 
-$f^*, f_*, f^!, f_!$ in topological and algebraic setting.
+For any morphism $f\colon X → Y$ of ringed spaces, $\sheaf F$ a sheaf of $\O_X$-modules and $\sheaf G$ a sheaf of $\O_Y$-modules, recall the definitions of the functors mentioned above:
+\begin{itemize}
+    \item $f_*\sheaf F(V) = \sheaf F(f^{-1}V)$, made into an $\O_Y$-module via the given map $\O_Y → f_*\O_X$.
+    \item $f^{-1}\sheaf G(U) = \varprojlim_{V ⊇ U} \sheaf G(U)$, is not an $\O_X$-module.
+    \item $f^*\sheaf G = f^{-1}\sheaf G \otimes_{f^{-1}\O_Y} \O_X$.
+    \item $f_!\sheaf F(V) = \{ s ∈ F(f^{-1}V) : \res{f}{\supp s}\colon \supp s → U\text{ is proper}\}$, in particular if $f$ is proper (e.g.\ a closed immersion), then $f_! = f_*$.
+        If $j\colon U → X$ is an open inclusion, then $j_!\sheaf F(V)$ is the sheafification of the presheaf $\sheaf H(V) = \sheaf F(V)$ if $V ⊆ U$ and $\sheaf H(V) = 0$ otherwise.
+    \item If $f\colon X → Y$ is an immersion of locally closed subspace, then $f^!\sheaf G = f^*\sheaf H$, where $\sheaf H(U) = \{ s ∈ G(U) : \supp s ⊆ X\}$.
+        In particular, if $f$ is an open immersion, then $f^! = f^*$.
+        In general one defines $Rf^!$ as the right adjoint to $Rf_!$ on the derived category.
+\end{itemize}
+
+TODO: distinguished triangles.
 
 \subsection{Perverse constructible sheaves}
 
-With respect to some stratification.
+Let $\setset S$ a finite stratification of $X$ with each stratum locally closed, smooth and equidimensional.
+Further we assume that the closure of each stratum is a union of strata.
+
+Let $\derived_{c-\setset S}(X)$ be the full subcategory of $\derived(\catModules{ℂ_X})$ consisting of objects with constructible cohomology with respect to $\setset S$ (a sheaf is constructible with respect to $\setset S$ if the restrictions to each stratum is a locally constant sheaf of $ℂ$-modules).
+
+\begin{Def}[{\cite[Définition~2.1.2]{BeilinsonBernsteinDeligne:1982:FaisceauxPervers}}]
+    A function $p\colon ℕ → ℤ$ is called a \emph{perversity}.
+    For $S ∈ \setset S$ set $p(S) = p(\dim_{\top} S) = p(2\dim_{\alg} S)$.
+    Define the following full subcategories of $\derived_{c-\setset S}(X)$:
+    \begin{align*}
+        \perv\derived^{≤0}(X,\O) & = \{ K ∈ \derived_{c-\setset S}(X)(X,) : H^ni_S^*K = 0 \text{ for each } S ∈ \setset S \text{ and } n > p(S) \}, \\
+        \perv\derived^{≥0}(X,\O) & = \{ K ∈ \derived^+_{c-\setset S}(X)(X) : H^ni_S^!K = 0 \text{ for each } S ∈ \setset S \text{ and } n < p(S) \},
+    \end{align*}
+    where $i_S \colon S \hookrightarrow X$ is the inclusion.
+\end{Def}
+
+\begin{Thm}
+    $(\perv\derived^{≤0}(X,\O),  \perv\derived^{≥0}(X,\O))$ is a t-structure on $\derived_{c-\setset S}(X)$ and induces one on $\derived^*_{\setset S}(X)$ for $*={+},{-},{b}$.
+\end{Thm}
+
+The objects in the heart of this t-structure are called \emph{perverse sheaves} (with respect to $\setset S$).
 
 \subsection{Equivariant sheaves}
 
@@ -176,6 +209,11 @@ Relation to quotient stacks.
 \subsection{Dualizing complexes}
 
 \section{Perverse coherent sheaves}
+
+In the coherent case we cannot define perverse sheaves for a fixed stratification.
+Indeed, the subcategory of $\derivedcoh(X)$ consisting of sheaves \enquote{smooth} along a stratification is not triangulated.
+For example if $f$ is a function whose divisor intersects the open stratum, then the cone of the morphism $\O \xrightarrow f \O$ has singularity on the open stratum.
+Therefor we have to define the perversity function on all subschemes.
 
 With the notation introduced earlier, let $G$ act on $X$.
 Let $X^\inv$ be the subset of $X^\top$ consisting of the generic points of $G$-invariant subschemes, with the induced topology.
@@ -226,6 +264,25 @@ Sheaves on $[\as 2/\SL2]$.
     If $\sheaf F ∈ D^{p,\le 0}(X)$ and $\sheaf G ∈ D^{p,\ge 1}(X)$, then $\Hom(\sheaf F,\sheaf G) = 0$.
 \end{Lem}
 
+\begin{proof}
+    By Noetherian induction we can assume that the statement is true on all closed $G$-invariant subschemes $Z \subsetneq X$ with the induced perversity function $p_Z$.
+
+    Let $x$ be a generic point of $X$.
+    By \cite[Lemma 2]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, there exists an open $G$-invariant subscheme $j\colon U \hookrightarrow X$ containing $x$ such that $j^*\sheaf F ∈ \derivedcoh^{\le p(x)}(U)$ and $j^*\sheaf G = j^!\sheaf G ∈ \derivedcoh^{>p(x)}(U)$.
+    Then $\Hom(j^*\sheaf F, j^*\sheaf G) = 0$.
+
+    Let $i\colon X^\inv \setminus U^\inv \hookrightarrow X^\inv$.
+    In $\derived^b(\catQCoh X)$ there is a distinguished triangle $i_*i^! \sheaf G → \sheaf G → j_*j^*\sheaf G$.
+    By \cite[Lemma~3(a)]{Bezrukavnikov:arXiv:PerverseCoherentSheaves} we have
+    \[
+    \Hom(\sheaf F, i_*i^!\sheaf G) = 
+    \varinjlim_Z \Hom(\sheaf F, {i_Z}_*{i_Z}^!\sheaf G) =
+    \varinjlim_Z \Hom({i_Z}^*\sheaf F, {i_Z}^!\sheaf G) = 0,
+    \]
+    where $Z$ runs over the set of closed $G$-invariant subschemes with underlying topological space $\colon X^\inv \setminus U^\inv$.
+    The last equality holds by the induction hypothesis and Lemma~\ref{lem:induced_perversity}.
+    As we just saw, $\Hom(\sheaf F, j_*j^*\sheaf G) = \Hom(j^*\sheaf F, j^*\sheaf G) = 0$, and hence $\Hom(\sheaf F,\sheaf G) = 0$.
+\end{proof}
 
 \begin{Thm}
     Suppose that the perversity function $p$ is monotone and comonotone.
@@ -239,7 +296,7 @@ Sheaves on $[\as 2/\SL2]$.
     \derivedcoh^b(X) = D^{p,\le 0}(X) * D^{p,\ge1}(X),
     \]
     where for two set of objects $D',D''$ of a triangulated category, $D' * D''$ denotes the set of objects $B$ such that there exists a distinguished triangle $A → B → C$ with $A ∈ D'$ and $B ∈ D''$.
-    The octahedral axiom ensures that the operation $*$ is associative \cite[Lemme~1.3.10]{BBD}.
+    The octahedral axiom ensures that the operation $*$ is associative \cite[Lemme~1.3.10]{BeilinsonBernsteinDeligne:1982:FaisceauxPervers}.
 
     For a closed $G$-invariant subscheme $i_Z\colon Z \hookrightarrow X$, we set $p_Z = p ∘ i_Z \colon Z^\inv → ℤ$.
     By Noetherian induction, we can assume that the claim is true on every closed invariant subscheme $Z$ with perversity function $p_Z$.
@@ -264,6 +321,7 @@ Sheaves on $[\as 2/\SL2]$.
     \end{equation}
 
     For simplicity let us assume that $X$ is irreducible and let $x$ be the generic point of $X$.
+    Let $i_x\colon \{x\} \hookrightarrow X$ be the inclusion.
     Let $F ∈ \derivedcoh^b(X)$ and set $\sheaf F^- = τ^{\mathrm{stand}}_{\le p(x)}(\sheaf F)$.
     Then $\sheaf F^- ∈ D^{p,\le 0}(X)$ because $p$ is monotone.
     Let $\sheaf F₁$ be the cone of the canonical morphism $\sheaf F^- → \sheaf F$.
@@ -274,8 +332,15 @@ Sheaves on $[\as 2/\SL2]$.
     \sheaf F^+ = \dual\left( τ^{\mathrm{stand}}_{<\bar p(x)} \dual(\sheaf F₁) \right).
     \]
     Since $p$ is comonotone, $\sheaf F^+ ∈ D^{p,>0}(X)$.
+    By local duality \cite[\S V.6]{Hartshorne:1966:ResiduesAndDuality}, $i_x^*(\dual \sheaf F₁) ∈ \derived^{< \bar p(x)}(\catModules{\O_X})$.
+    Thus $i_x^*(\dual\sheaf F^+) \cong i_x^*(\dual\sheaf F₁)$ and hence $i_x^*(\sheaf F^+) \cong i_x^*(\sheaf F₁)$.
 
-    \ldots
+    Set $\sheaf F^0 = \cone(\sheaf F₁ → \sheaf F^+)[-1]$, so that we have a distinguished triangle $\sheaf F^0 → \sheaf F₁ → \sheaf F^+$.
+    By the construction of $\sheaf F₁$, we also have a distinguished triangle $\sheaf F^- → \sheaf F → \sheaf F₁$.
+    Hence $\sheaf F ∈ \{\sheaf F^-\} * \{\sheaf F^0\} * \{\sheaf F^+\}$.
+
+    We have $i_x^*(\sheaf F^0) = 0$ and hence by \cite[Lemma 3(b)]{Bezrukavnikov:arXiv:PerverseCoherentSheaves} there exists a closed invariant subscheme $Z$ and a sheaf $\sheaf F_Z ∈ \derivedcoh^b(Z)$ such that $\sheaf F \cong {i_Z}_*(\sheaf F_Z)$.
+    This proves \eqref{eq:main_theorem:claim} and the theorem.
 \end{proof}
 
 \begin{Cor}
