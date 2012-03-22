@@ -27,7 +27,9 @@
 
 \section{Introduction}
 
-$X$, $X^\top$, $G$.
+In the following $X$ will always be complex variety and $G$ an affine complex group variety.
+We assume that $X$ has a dualizing complex (see Section \ref{sec:dualizing_complex}) that is $G$-equivariant (Section \ref{sec:equivariance}).
+This is not the most general setting, but should suffice for this introduction.
 
 \section{Preliminaries}
 
@@ -218,7 +220,7 @@ This isn't the shortest possible definition, but the one that most easily genera
     If the perversity function $p$ and the dual perversity $\bar p(n) = -n - p(n)$ are both decreasing, then  $(\perv\derived^{≤0}(X),  \perv\derived^{≥0}(X))$ is a t-structure on $\derived_{c}^b(X)$.
 \end{Thm}
 
-\subsection{Equivariant sheaves}
+\subsection{Equivariant sheaves}\label{sec:equivariance}
 
 Let $a\colon G×X → X$ be the action and $p\colon G×X → X$ the projection.
 
@@ -232,7 +234,18 @@ We will usually suppress $φ$ from the notation.
     The categories of $G$-equivariant coherent sheaves on $X$ and coherent sheaves on the quotient stack $[X/G]$ are equivalent.
 \end{Prop}
 
-\subsection{Dualizing complexes}
+\subsection{Dualizing complexes}\label{sec:dualizing_complex}
+
+\begin{Def}
+    A \emph{dualizing complex} is an object $\sheaf D ∈ \derivedcoh^b(X)$ such that
+    \begin{enumerate}
+        \item For all $\sheaf F ∈ \derivedcoh^b(X)$ the derived Hom-complex $\dual \sheaf F \coloneq \sheafHom(\sheaf F, \sheaf D)$ is in $\derivedcoh^b(X)$;
+        \item For all $\sheaf F ∈ \derivedcoh^b(X)$ the natural map $\sheaf F → \dual(\dual \sheaf F)$ is an isomorphism.
+    \end{enumerate}
+\end{Def}
+
+For each $x ∈ X^\top$, $i_x^*\sheaf D$ is concentrated in a single homological degree $d(x)$ (see \cite[\S V.7]{Hartshorne:1966:ResiduesAndDuality}).
+It is always possible to choose the dualizing complex such that $d(x) = -\dim(x)$ for all $x$ (and we will always do this).
 
 \section{Perverse coherent sheaves}
 
