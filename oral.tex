@@ -31,11 +31,16 @@ In the following $X$ will always be complex variety and $G$ an affine complex gr
 We assume that $X$ has a dualizing complex (see Section \ref{sec:dualizing_complex}) that is $G$-equivariant (Section \ref{sec:equivariance}).
 This is not the most general setting, but should suffice for this introduction.
 
+The presentation of perverse coherent sheaves is based upon \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}.
+We will use the language of equivariant sheaves (i.e.~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}), rather that stacks.
+
 \section{Preliminaries}
 
 \subsection{Category theory}
 
 \subsubsection{Derived categories}\label{sec:derived_categories}
+
+E.g., \cite{Verdier:1977:CategoriesDerivees}, \cite[Chapter~III]{GelfandManin:2003:MethodsOfHomologicalAlgebra} and \cite[Chapter 1]{Hartshorne:1966:ResiduesAndDuality}.
 
 \begin{Def}
     additive category,
@@ -47,6 +52,8 @@ This is not the most general setting, but should suffice for this introduction.
 Derived category and roofs.
 
 \subsubsection{Triangulated categories}\label{sec:triangulated_categories}
+
+References are \cite{Verdier:1977:CategoriesDerivees}, \cite[Chapter IV]{GelfandManin:2003:MethodsOfHomologicalAlgebra} and \cite[Section 1.1]{BeilinsonBernsteinDeligne:1982:FaisceauxPervers}.
 
 \begin{Def}
     A \emph{triangulated category} consists of an additive category $\cat D$ together with
@@ -108,6 +115,8 @@ Derived category and roofs.
 
 \subsubsection{t-categories}\label{sec:t-categories}
 
+References are \cite[Section 1.3]{BeilinsonBernsteinDeligne:1982:FaisceauxPervers} and \cite[Section IV.4]{GelfandManin:2003:MethodsOfHomologicalAlgebra}.
+
 \begin{Def}
     A \emph{t-category} is a triangulated category $\cat D$ together with a pair $(\cat D^{≤0},\cat D^{≥0})$ of full subcategories, called a \emph{t-structure}, such that, writing $\cat D^{≤n} = \cat D^{≤0}[n]$ and $\cat D^{≥n} = \cat D^{≥0}[n]$, the following conditions hold:
     \begin{enumerate}
@@ -116,7 +125,7 @@ Derived category and roofs.
         \item for each $X ∈ \cat D$ there exists a distinguished triangle $A → X → B → A[1]$ such that $A ∈ \cat D^{≤0}$ and $B ∈ \cat D^{≥1}$.
     \end{enumerate}
 
-    The full subcategory $\cat D^{≤0} ∩ \cat D^{≥0}$ is called the \emph{heart} of the t-structure, sometimes denoted $\cat D^\heartsuit$.
+    The full subcategory $\cat D^{≤0} ∩ \cat D^{≥0}$ is called the \emph{heart} or \emph{core} of the t-structure, sometimes denoted $\cat D^\heartsuit$.
 \end{Def}
 
 \begin{Ex}
@@ -177,9 +186,19 @@ For any morphism $f\colon X → Y$ of ringed spaces, $\sheaf F$ a sheaf of $\O_X
         In general one defines $Rf^!$ as the right adjoint to $Rf_!$ on the derived category.
 \end{itemize}
 
-TODO: distinguished triangles.
+Let $i\colon U \hookrightarrow X$ be an open subvariety and $j\colon X\setminus U \hookrightarrow X$ the complement.
+Then there are two sequences of adjoint functors $(j_!, j^! = j^*, j_*)$ and $(i^*, i_* = i_!, i^!)$.
+The adjunctions give a distinguished triangles (in $\derived^+(\catModules{\O_X})$)
+\[
+j_!j^*\sheaf F → \sheaf F → i_*i^* \sheaf F
+\quad\text{and}\quad
+i_*i^!\sheaf F → \sheaf F → j_*j^* \sheaf F.
+\]
 
 \subsection{Perverse constructible sheaves}
+
+Perverse sheaves were introduced in \cite{BeilinsonBernsteinDeligne:1982:FaisceauxPervers}.
+References include \cite[Chapter~8]{HottaTakeuchiTanisaki:2008:DModulesPerverseSheavesRepresentationTheory} and \cite[Chapter~13]{PetersSteenbrink:2008:MixedHodgeStructures}.
 
 Let $\setset S$ a finite stratification of $X$ with each stratum locally closed, smooth and equidimensional.
 Further we assume that the closure of each stratum is a union of strata.
@@ -235,6 +254,8 @@ We will usually suppress $φ$ from the notation.
 \end{Prop}
 
 \subsection{Dualizing complexes}\label{sec:dualizing_complex}
+
+The theory of dualizing complexes in developed in \cite{Hartshorne:1966:ResiduesAndDuality}, particularly in Chapter~V.
 
 \begin{Def}
     A \emph{dualizing complex} is an object $\sheaf D ∈ \derivedcoh^b(X)$ such that
