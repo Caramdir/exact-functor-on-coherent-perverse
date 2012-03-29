@@ -42,15 +42,6 @@ We will use the language of equivariant sheaves (i.e.~\cite{Bezrukavnikov:arXiv:
 
 E.g., \cite{Verdier:1977:CategoriesDerivees}, \cite[Chapter~III]{GelfandManin:2003:MethodsOfHomologicalAlgebra} and \cite[Chapter 1]{Hartshorne:1966:ResiduesAndDuality}.
 
-\begin{Def}
-    additive category,
-    Abelian category,
-    homotopy category of complexes,
-    derived category
-\end{Def}
-
-Derived category and roofs.
-
 \subsubsection{Triangulated categories}\label{sec:triangulated_categories}
 
 References are \cite{Verdier:1977:CategoriesDerivees}, \cite[Chapter IV]{GelfandManin:2003:MethodsOfHomologicalAlgebra} and \cite[Section 1.1]{BeilinsonBernsteinDeligne:1982:FaisceauxPervers}.
@@ -76,14 +67,32 @@ References are \cite{Verdier:1977:CategoriesDerivees}, \cite[Chapter IV]{Gelfand
                 $X' \xrightarrow{u'} Y' \xrightarrow{v'} Z' \xrightarrow{w'} X'[1]$
                 are distinguished, then for each morphism $(f,g)\colon u → u'$ there exists a morphism $h\colon Z → Z'$ such that $(f,g,h)$ is a morphism of triangles (where a morphism of triangles is defined as the obvious commutative diagram).
             \item[(TR~4; octahedral axiom)]
-                If $X \xrightarrow{u} Y \xrightarrow{u} Z' → X[1]$,
+                \remark{%
+                    \begin{tikzpicture}[x={(1cm,0)}, y={(0.5cm,-0.5cm)}, z={(0,1.8cm)},baseline={(0,1)}]
+                        \node (Y) at (0,0,1) {$Y$};
+                        \node (X) at (1,1,0) {$X$};
+                        \node (Z) at (1,-1,0) {$Z$};
+                        \node (X') at (-1,-1,0) {$X'$};
+                        \node (Z') at (-1,1,0) {$Z'$};
+                        \node (Y') at (0,0,-1) {$Y'$};
+
+                        \path[->]
+                            (X) edge (Z) edge (Y)
+                            (Z) edge (X') edge (Y')
+                            (X') edge[thick] (Y) edge[thick] (Z')
+                            (Z') edge[thick] (X) edge (Y')
+                            (Y) edge (Z) edge (Z')
+                            (Y') edge[thick] (X) edge (X');
+                    \end{tikzpicture}%
+                }
+                If $X \xrightarrow{u} Y \xrightarrow{i} Z' → X[1]$,
                 $Y \xrightarrow{v} Z \xrightarrow{} X' \xrightarrow{j} Y[1]$, and
                 $X \xrightarrow{w} Z \xrightarrow{} Y' \xrightarrow{} X[1]$
                 are distinguished triangles such that $w = v∘u$, then there exist morphisms $f\colon Z' → Y'$ and $g\colon Y' → X'$ such that
                 \begin{enumerate}[1)]
                     \item $(\id[X],v,f)$ is a morphism of triangles;
                     \item $(u, \id[Z],g)$ is a morphism of triangles;
-                    \item $Z' \xrightarrow{f} Y' \xrightarrow{g} X' \xrightarrow{i[1]} Z'[1]$ is a distinguished triangle.
+                    \item $Z' \xrightarrow{f} Y' \xrightarrow{g} X' \xrightarrow{i[1]∘j} Z'[1]$ is a distinguished triangle.
                 \end{enumerate}
     \end{enumerate}
     A \emph{functor of triangulated categories} is a functor of the underlying categories which commutes with the translation functors and sends distinguished triangles to distinguished triangles.
@@ -93,7 +102,7 @@ References are \cite{Verdier:1977:CategoriesDerivees}, \cite[Chapter IV]{Gelfand
     Let $\cat A$ be an additive category and $\mathbf K\cat A$ the category of complexes of objects of $\cat A$ and $\Hom_{\mathbf K\cat A}(K,L)$ the set of homotopy classes of morphisms of complexes from $K$ to $L$.
     Let $TK = K[1]$ be defined by $(K[1])^n = K^{n+1}$ (with a sign change in the differential).
     In $\mathbf K\cat A$ the distinguished triangles are gives by $K \xrightarrow{u} L → \operatorname{cone}(u) → K[1]$, giving $\mathbf K\cat A$ the structure of a triangulated category.
-    Here we need to work in the homotopy category of complexes, as otherwise the triangle $K \xrightarrow{\id} K → 0 → K[1]$ wouldn't be distinguished (the mapping cone of $\id$ is only quasi-isomorphic to 0).
+    Here we need to work in the homotopy category of complexes, as otherwise the triangle $K \xrightarrow{\id} K → 0 → K[1]$ wouldn't be distinguished (the mapping cone of $\id$ is only homotopic to 0).
     Also note that if $u\colon K → L$ is injective, then $\operatorname{cone}(u) \cong L/K$, so that every short exact sequence of complexes is a distinguished triangle.
 
     If $\cat A$ is Abelian, this structure descends to the derived category $\derived \cat A$.
@@ -151,7 +160,7 @@ The other truncation functors are just translates.
 The main result about t-structures in the following theorem that provides a convenient way to identify Abelian subcategories.
 
 \begin{Thm}
-    The heart of a t-category is an Abelian category that is stable under extensions (i.e.\ for every distinguished triangle $X → Y → Z → X[1]$ with $X$ and $Z$ in the heart, also $Y$ is in the heart).
+    The heart of a t-category is an Abelian category that is stable under extensions (i.e.\ for every distinguished triangle $X → Y → Z → X[1]$ with $X$ and $Z$ in the heart, $Y$ is also in the heart).
 \end{Thm}
 
 \begin{Prop}
@@ -162,7 +171,7 @@ We set $H^n = H^0 ∘ [n]$.
 
 \begin{Def}
     Let $F\colon \cat{D₁} → \cat{D₂}$ be a functor of triangulated categories.
-    We say that $F$ is \emph{left t-exact} (resp.\ \emph{right t-exact}) if $F(\cat{D₁}^{≥0}) ⊆ \cat{D₂}^{≥0}$ (resp.\ $F(\cat{D₁}^{≥0}) ⊆ \cat{D₂}^{≥0}$).
+    We say that $F$ is \emph{left t-exact} (resp.\ \emph{right t-exact}) if $F(\cat{D₁}^{≥0}) ⊆ \cat{D₂}^{≥0}$ (resp.\ $F(\cat{D₁}^{≤0}) ⊆ \cat{D₂}^{≤0}$).
     It is \emph{t-exact} if it is both left and right t-exact.
 \end{Def}
 
@@ -186,7 +195,7 @@ For any morphism $f\colon X → Y$ of ringed spaces, $\sheaf F$ a sheaf of $\O_X
         In general one defines $Rf^!$ as the right adjoint to $Rf_!$ on the derived category.
 \end{itemize}
 
-Let $i\colon U \hookrightarrow X$ be an open subvariety and $j\colon X\setminus U \hookrightarrow X$ the complement.
+Let $j\colon U \hookrightarrow X$ be an open subvariety and $i\colon X\setminus U \hookrightarrow X$ the complement.
 Then there are two sequences of adjoint functors $(j_!, j^! = j^*, j_*)$ and $(i^*, i_* = i_!, i^!)$.
 The adjunctions give a distinguished triangles (in $\derived^+(\catModules{\O_X})$)
 \[
@@ -228,9 +237,9 @@ Explicitly this leads to the following definition:
 \begin{Def}
     Let $p\colon ℕ → ℤ$ be a perversity function.
 
-    Let $\perv\derived^{≤0}(X)$ be the full subcategory of $\derived_c^b(X)$ consisting of objects $F$ for which $H^j(i_S^*F) = 0$ for every locally closed subvariety $S$ and any $j > p(S)$. 
-    
-    Let $\perv\derived^{≥0}(X)$ be the full subcategory of $\derived_c^b(X)$ consisting of objects $F$ for which $H^j(i_S^!F) = 0$ for every locally closed subvariety $S$ and any $j < p(S)$.
+    Let $\perv\derived^{≤0}(X)$ be the full subcategory of $\derived_c^b(X)$ consisting of objects $F$ for which $H^n(i_S^*F) = 0$ for every locally closed subvariety $S$ and any $n > p(S)$. 
+
+    Let $\perv\derived^{≥0}(X)$ be the full subcategory of $\derived_c^b(X)$ consisting of objects $F$ for which $H^n(i_S^!F) = 0$ for every locally closed subvariety $S$ and any $n < p(S)$.
 \end{Def}
 
 This isn't the shortest possible definition, but the one that most easily generalizes to the coherent setting.
@@ -284,7 +293,7 @@ Let $X^\inv$ be the subset of $X^\top$ consisting of the generic points of $G$-i
 \begin{Def}
     A \emph{perversity function} on $X$ is a function $p\colon X^\inv → ℤ$, constant on $G$-orbits.
     The \emph{dual perversity} is defined by $\bar p(x) = -\dim(x) - p(x)$.
-    A perversity function $p$ is \emph{(strictly) monotone} if $p(x) < p(x')$ (resp.\ $p(x) \le p(x')$) for $x' ∈ \bar x$.
+    A perversity function $p$ is \emph{(strictly) monotone} if $p(x) ≤ p(x')$ (resp.\ $p(x) < p(x')$) for $x' ∈ \bar x$.
     It is \emph{(strictly) comonotone} if $\bar p$ is (strictly) monotone. 
 \end{Def}
 
@@ -340,7 +349,7 @@ Sheaves on $[\as 2/\SL2]$.
     \varinjlim_Z \Hom(\sheaf F, {i_Z}_*{i_Z}^!\sheaf G) =
     \varinjlim_Z \Hom({i_Z}^*\sheaf F, {i_Z}^!\sheaf G) = 0,
     \]
-    where $Z$ runs over the set of closed $G$-invariant subschemes with underlying topological space $\colon X^\inv \setminus U^\inv$.
+    where $Z$ runs over the set of closed $G$-invariant subschemes with underlying topological space $X^\inv \setminus U^\inv$.
     The last equality holds by the induction hypothesis and Lemma~\ref{lem:induced_perversity}.
     As we just saw, $\Hom(\sheaf F, j_*j^*\sheaf G) = \Hom(j^*\sheaf F, j^*\sheaf G) = 0$, and hence $\Hom(\sheaf F,\sheaf G) = 0$.
 \end{proof}
@@ -372,7 +381,7 @@ Sheaves on $[\as 2/\SL2]$.
         D^{p,\le 0}(X) * D^{p,\ge1}(X)
         & \supseteq \bigcup_Z \left(D^{p,\le0}(X) * {i_Z}_*\left(D^{p_Z,\le 0}(Z)\right)\right) * \left({i_Z}_*\left(D^{p_Z,\ge 0}(Z)\right) * D^{p,\ge0}(X)\right) \\
         & = \bigcup_Z D^{p,\le0}(X) * \left( {i_Z}_*\left(D^{p_Z,\le 0}(Z)\right) * {i_Z}_*\left(D^{p_Z,\ge 0}(Z)\right) \right) * D^{p,\ge0}(X) \\
-        & = \bigcup_Z D^{p,\le0}(X) * {i_Z}_*\left(\derivedcoh^{b}(Z)\right) * D^{p,\ge0}(X), \\ 
+        & = \bigcup_Z D^{p,\le0}(X) * {i_Z}_*\left(\derivedcoh^{b}(Z)\right) * D^{p,\ge0}(X),
     \end{align*}
     where the last equality follows by induction.
     Thus it suffices to prove that 
@@ -436,7 +445,7 @@ Let $j\colon U → X$ be the inclusion of a dense open subset.
 We have a natural morphism $j_! → j_*$ of functors\footnote{Recall that $f_!\sheaf F(V) = \{ s ∈ F(f^{-1}V) : \res{f}{\supp s}\colon \supp s → U\text{ is proper}\}$.}.
 The \emph{minimal extension} of a perverse sheaf $\sheaf F$ on $U$ is defined to be
 \[
-\perv j_{!*} \sheaf F = \im(\perv j_!\sheaf  F → \perv j_*\sheaf F).
+j_{!*} \sheaf F = \im(\perv j_!\sheaf  F → \perv j_*\sheaf F).
 \]
 
 \begin{Thm}
@@ -453,7 +462,7 @@ Then we can define the \emph{minimal extension} functor in the following way.
 
 Let $j\colon U \hookrightarrow X$ be a $G$-invariant locally closed subscheme.
 Set $p^-(x) = p(x) = p^+(x)$ for $x ∈ U$ and $p^-(x) = p(x) - 1$, $p^+(x) = p(x) + 1$ for $x \notin U$.
-Let $\cat{P_{!*}(U)} = D^{p^-,≤0}(\bar U) ∩ D^{p^+,≥0}(\bar U)$, as a full subcategory of perverse sheaves on $\bar U$.
+Let $\cat{P_{!*}}(U) = D^{p^-,≤0}(\bar U) ∩ D^{p^+,≥0}(\bar U)$, as a full subcategory of perverse sheaves on $\bar U$.
 
 \begin{Thm}
     The functor $j^*$ induces an equivalence between $\cat{P_{!*}}(U)$ the category of perverse sheaves on $U$.
