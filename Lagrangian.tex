@@ -1,0 +1,60 @@
+\documentclass[english]{short-notes}
+
+\title{Perverse sheaves and Lagrangians}
+
+\usepackage{math-ag}
+
+\newcommand\me{\normalcolor}
+\newcommand\david{\color{black!60!green}}
+\let\David\david
+
+\begin{document}
+
+\maketitle
+
+\section{Traditional setting}
+
+\david
+Let $X$ be an $n$-dimensional complex smooth Kähler manifold.
+Let $p$ be a point in $X$.
+Let $f\colon X → ℂ$ be a \emph{generic} \emph{holomorphic} Morse function (note that everything is local, so that we can assume that non-constant holomorphic functions exist), such that
+\begin{itemize}
+    \item $f(p) = 0$;
+    \item $\res{df}p = 0$;
+    \item $\res{Hf}p $ is non-degenerate \me($Hf$ is the Hessian of $f$)\david.
+\end{itemize}
+Then there exist local coordinates such that $f \sim z₁² + z₂² + \dotsb + z_n² + (\text{h.o.\ terms})$.
+
+Consider $\Re f\colon X → ℝ$,
+\[
+\Re f \sim x₁² + \dotsb + x_n² - y₁² - \dotsb -y_n² + (\text{h.o.\ terms}).
+\]
+Let $C_{f,p}^-$, $C_{f,p}^+$ be cells of flow lines for the gradient of $\Re f$ with respect to the Kähler metric.
+\me(I assume that these are the same as the stable and unstable manifolds for the gradient of $\Re f$.)
+\David
+Note that $C_{f,p}^-$, $C_{f,p}^+$ are $n$-dimensional real manifolds, transversely intersecting at $p$.
+
+\begin{Prop}
+    $C_{f,p}^-$, $C_{f,p}^+$ are Lagrangian with respect to the Kähler form.
+\end{Prop}
+
+Let $i_p$ denote the inclusion of $p$ into $C_{f,p}^-$ and $C_{f,p}^+$.
+Let $j_{p,f}^\pm\colon C_{f,p}^\pm \hookrightarrow X$ be the inclusions.
+
+\begin{Thm}
+    Let $\sheaf F$ be a bounded complex of sheaves with constructible cohomology.
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item $\sheaf F$ is perverse;
+        \item For all $p ∈ X$ and $f$ as above, $i_p^* {j_{p,f}^+}^! \sheaf F$ and $i_p^!{j_{p,f}^-}^* \sheaf F$ are in degree $0$.
+    \end{enumerate}
+\end{Thm}
+
+Note that the roles of $+$ and $-$ can be reversed by multiplying $f$ by $\i$.
+
+\begin{Q}
+    Does a similar statement hold for any smooth Lagrangian?
+\end{Q}
+
+
+\end{document}
