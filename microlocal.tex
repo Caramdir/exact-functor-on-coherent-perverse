@@ -1,0 +1,44 @@
+\documentclass[english,paper=letter,no-theorem-numbers]{short-notes}
+\usepackage{math-ag}
+
+\addbibresource{global.bib}
+%\bibliography{global.bib}
+
+\title{Microlocal definition of perverse coherent sheaves}
+\author{Clemens Koppensteiner}
+
+\begin{document}
+
+\maketitle
+
+The following is a proposed definition for \enquote{microlocal perversity} in sense of \cite[Definition~10.3.7]{KashiwaraSchapira:1994:SheavesOnManifolds}.
+
+Let $G$ act on a scheme $X$ such that all orbits have even dimension. 
+We'll write $\cat D^b(X)$ for the derived category of equivariant sheaves with coherent cohomology.
+We want to give a microlocal description of perverse sheaves in this category with respect to the \enquote{middle perversity}.
+All categories of sheaves in the following should be interpreted as being the respective (bounded) derived categories.
+
+For $\sheaf F ∈ \catCoh{X}$ let $\singsupp \sheaf F$ be defined as in Arinkin's talk\todo{Give that definition}.
+Let $p ∈ H^{-1}(T^*X) ⊆ \Spec A[ξ₁,\dotsc,ξ_n]$ and define
+\[
+\cat D^b(X;p) = \rquot{\cat D^b(X)}{\left\{ \sheaf F ∈ \cat D^b(X) : p \notin \singsupp \sheaf F \right\}},
+\]
+where the notation $\cat C/N$ means the localization of $\cat C$ at the multiplicative system associated to the null-system $N$, i.e.~at
+\[
+\bigl\{ f\colon X → Y : \smash{\text{there is a d.t.~$X \xrightarrow{f} Y → Z \xrightarrow{+1}$ with $Z ∈ N$}} \bigr\}.
+\]
+
+Then we can make the following definition:
+\begin{Def}
+    Let $\perv[μ]\cat D^{≤0}(X)$ (resp.~$\perv[μ]\cat D^{≥0}(X)$) be the full subcategory of $\cat D^b(X)$ consisting of objects $\sheaf F$ such that:
+
+    For every non-singular point $p ∈ \singsupp \sheaf F$ such that $\singsupp \sheaf F → X$ has constant rank in a neighborhood of $p$, there exists an equidimensional $G$-invariant subvariety $j\colon Y \hookrightarrow X$ and $\sheaf L ∈ \catPerf{Y}$ such that $\sheaf F \cong j_*\sheaf L[\frac12\dim Y]$ in $\cat D^b(X;p)$ and $H^j(\sheaf L) = 0$ for $j>0$ (resp.~$j<0$).
+\end{Def}
+
+\begin{Claim}
+    $\perv[μ]\cat D^{≤0}(X) = \perv\cat D^{≤0}(X)$ and $\perv[μ]\cat D^{≥0}(X) = \perv\cat D^{≥0}(X)$, where $p$ is the middle perversity.
+\end{Claim}
+
+\printbibliography
+
+\end{document}
