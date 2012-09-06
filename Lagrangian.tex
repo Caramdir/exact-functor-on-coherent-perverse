@@ -4,6 +4,9 @@
 
 \usepackage{math-ag}
 
+\addbibresource{global.bib}
+%\bibliography{global.bib}
+
 \newcommand\me{\normalcolor}
 \newcommand\david{\color{black!60!green}}
 \let\David\david
@@ -56,5 +59,45 @@ Note that the roles of $+$ and $-$ can be reversed by multiplying $f$ by $\i$.
     Does a similar statement hold for any smooth Lagrangian?
 \end{Q}
 
+\me
+\section{Coherent setting}
+
+Let $X$ be a complex variety and $G$ a group acting on $X$ so that all orbits are even-dimensional. 
+
+\begin{Conjecture}
+    A $G$-equivariant sheaf $\sheaf F$ on $X$ is perverse if and only if for all Lagrangian subvarieties $L$ of $X$ and all $p ∈ L$ the complexes $i_p^*i_L^! \sheaf F$ and $i_p^!i_L^* \sheaf F$ are (cohomologically) concentrated in degree $0$.
+\end{Conjecture}
+
+\subsection{The two-dimensional case}
+
+We want to show that if $\sheaf F$ satisfies the Lagrangian condition, then it is perverse.
+
+Let $U$ be the open orbit.
+If $p ∈ U$ and $L$ be a Lagrangian through $p$.
+Then $p$ is non-characteristic \cite[Def.~5.4.12]{KashiwaraSchapira:1994:SheavesOnManifolds}\footnote{The remark after this definition appears to be incorrect. The word \enquote{smooth} should be replaced by \enquote{a submersion}} for $\sheaf F$ and hence by \cite[Proposition~5.4.13]{KashiwaraSchapira:1994:SheavesOnManifolds} we have an isomorphism $i_p^{!}i_L^*\sheaf F \cong i_p^*i_L^*\sheaf F \otimes ω_{p/L}$.
+Since $ω_{p/L}$ is concentrated in degree $1$, it follows that $\sheaf F_p$ is in degree $-1$ for all $p ∈ U$ and hence $\res{\sheaf F}U$ is in degree $-1$ as required.
+
+Now let $0$ be a fixed point of the action and let $L$ be a Lagrangian through $0$.
+Then for all $p ∈ L$ the complex $i_p^* i_L^!\sheaf F$ is in degree $0$.
+Hence $i_L^! \sheaf F$ is also in degree $0$ and thus $i_0^! \sheaf F = i_0^!i_L^! \sheaf F$ is in degrees $\ge 0$.
+
+Finally we have to show that $i_0^* \sheaf F$ is in degrees $\le 0$.
+By the preceding arguments, we know that $i_p^*i_L^*\sheaf F$ is concentrated in degree $-1$.
+So we need to show the following lemma.
+
+\begin{Lem}
+    Let $L$ be a curve, $0 ∈ L$ and $\sheaf F ∈ D^{\le 1}(L)$ so that the following conditions hold:
+    \begin{enumerate}
+        \item $\sheaf F_p$ is (cohomologically) in degree $-1$ for all $p \ne 0$.
+        \item $i_0^! \sheaf F$ is (cohomologically) in degree $0$.
+    \end{enumerate}
+    Then $\sheaf F ∈ D^{\le 0}(L)$.
+\end{Lem}
+
+Essentially, we know that $H^i(\sheaf F)$ is a skyscraper at $0$ for $i \ne -1$. 
+If $H^1(L) \ne 0$, then this implies that $i_0^!H¹(\sheaf F) = i_0^*H¹(\sheaf F) \ne 0$.
+We have to show that this contradicts that $H¹(i_0^!\sheaf F) = 0$.
+
+\printbibliography
 
 \end{document}
