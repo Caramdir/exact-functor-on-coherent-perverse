@@ -62,13 +62,48 @@ Note that the roles of $+$ and $-$ can be reversed by multiplying $f$ by $\i$.
 \me
 \section{Coherent setting}
 
-Let $X$ be a complex variety and $G$ a group acting on $X$ so that all orbits are even-dimensional. 
+Let $X$ be a complex variety.
+Until I understand how symplectic resolutions work, I will assume that $X$ is smooth and hence has the structure of a symplectic manifold.
+Let $G$ be an algebraic group acting on $X$ and assume that the action has finitely many orbits, all of which are even-dimensional.
+We will write $D_c^b(X)$ for the bounded derived category of $G$-equivariant sheaves on $X$ with coherent cohomology (which is equivalent to $D^b_c([X/G])$).
+The word \enquote{perverse sheaf} will mean an element of the heart of $D_c^b(X)$ with respect to the t-structure define by the middle perversity.
+
+\begin{Def}
+    Let $\sheaf F ∈ D_c^b(X)$.
+    The \emph{Lagrangian measurements} of $\sheaf F$ is the data consisting of $i_p^*i_L^! \sheaf F$ and $i_p^!i_L^! \sheaf F$ for each inclusion $i_L\colon L \hookrightarrow X$ of a Lagrangian into $X$ and each point $i_p\colon p \hookrightarrow L$ of $L$.
+    The element $\sheaf F$ is said to satisfy the \emph{Lagrangian measurement condition} (\emph{LMC}) if all Lagrangian measurements of $\sheaf F$ are cohomologically concentrated in degree $0$.
+\end{Def}
 
 \begin{Conjecture}
-    A $G$-equivariant sheaf $\sheaf F$ on $X$ is perverse if and only if for all Lagrangian subvarieties $L$ of $X$ and all $p ∈ L$ the complexes $i_p^*i_L^! \sheaf F$ and $i_p^!i_L^* \sheaf F$ are (cohomologically) concentrated in degree $0$.
+    An element $\sheaf F ∈ D_c^b(X)$ perverse if and only if it satisfies the Lagrangian measurement condition.
 \end{Conjecture}
 
 \subsection{The two-dimensional case}
+
+In this subsection we will prove the most basic case of the conjecture.
+Let $X$ be smooth two-dimensional complex variety and $G$ act on it with one open orbit $U$ and a finite number of fixed points.
+Since all questions are local, we can assume that there is only one fixed point, which we will call $0$.
+We will denote the inclusion of $U$ into $X$ by $j$.
+The perversity is then given by $p(U) = -1$ and $p(0) = 0$.
+
+\subsubsection{Perverse sheaves satisfy LMC}
+
+It suffices to show this for irreducible perverse sheaves.
+These are described explicitly by \cite[Proposition~4.11]{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves} (or in simpler terms by \cite[Corollary~4]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}; note that there is a sign error in both of these statements).
+
+An irreducible perverse sheaf $\sheaf F$ coming from the fixed point $0$ is a skyscraper sheaf at $0$ in degree $0$.
+Hence it satisfies LMC.
+
+Now let $\sheaf F = j_{!*}(L[1])$ for an irreducible $G$-equivariant vector bundle $L$.
+Let $p ∈ U$ and $L$ be a Lagrangian through $p$.
+Then $L$ (or rather $L ∩ U$) is non-characteristic\footnote{See \cite[Def.~5.4.12]{KashiwaraSchapira:1994:SheavesOnManifolds}} for $\sheaf F$ and $p$ is non-characteristic for $i_L^*\sheaf F$.
+Note that $ω_{p/L}$ and $ω_{L/X}$ are both concentrated in degree $1$.
+Thus, by \cite[Proposition~5.4.13]{KashiwaraSchapira:1994:SheavesOnManifolds}, $\sheaf F$ satisfies LMC.
+
+Now let $p = 0$.
+TODO: Prove this case.
+
+\subsubsection{LMC-sheaves are perverse}
 
 We want to show that if $\sheaf F$ satisfies the Lagrangian condition, then it is perverse.
 
