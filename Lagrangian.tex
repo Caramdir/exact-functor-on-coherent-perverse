@@ -105,33 +105,67 @@ TODO: Prove this case.
 
 \subsubsection{LMC-sheaves are perverse}
 
-We want to show that if $\sheaf F$ satisfies the Lagrangian condition, then it is perverse.
+We want to show that if $\sheaf F ∈ D_c^b(X)$ satisfies LMC, then it is perverse.
 
-Let $U$ be the open orbit.
-If $p ∈ U$ and $L$ be a Lagrangian through $p$.
-Then $p$ is non-characteristic \cite[Def.~5.4.12]{KashiwaraSchapira:1994:SheavesOnManifolds}\footnote{The remark after this definition appears to be incorrect. The word \enquote{smooth} should be replaced by \enquote{a submersion}} for $\sheaf F$ and hence by \cite[Proposition~5.4.13]{KashiwaraSchapira:1994:SheavesOnManifolds} we have an isomorphism $i_p^{!}i_L^*\sheaf F \cong i_p^*i_L^*\sheaf F \otimes ω_{p/L}$.
-Since $ω_{p/L}$ is concentrated in degree $1$, it follows that $\sheaf F_p$ is in degree $-1$ for all $p ∈ U$ and hence $\res{\sheaf F}U$ is in degree $-1$ as required.
+Let $U$ be the open orbit, $p ∈ U$ and $L$ a Lagrangian through $p$.
+Then $p$ is non-characteristic for $i_L^*\sheaf F$ and hence by \cite[Proposition~5.4.13]{KashiwaraSchapira:1994:SheavesOnManifolds} we have an isomorphism $i_p^{!}i_L^*\sheaf F \cong i_p^*i_L^*\sheaf F \otimes ω_{p/L}$.
+Since $ω_{p/L}$ is concentrated in degree $1$, it follows that $\sheaf F_p$ is in degree $-1$ for all $p ∈ U$ and hence $\res{\sheaf F}U = j^*\sheaf F = j^! \sheaf F$ is in degree $-1$ as required.
 
-Now let $0$ be a fixed point of the action and let $L$ be a Lagrangian through $0$.
+Now let $L$ be a Lagrangian through $0$.
 Then for all $p ∈ L$ the complex $i_p^* i_L^!\sheaf F$ is in degree $0$.
 Hence $i_L^! \sheaf F$ is also in degree $0$ and thus $i_0^! \sheaf F = i_0^!i_L^! \sheaf F$ is in degrees $\ge 0$.
 
 Finally we have to show that $i_0^* \sheaf F$ is in degrees $\le 0$.
-By the preceding arguments, we know that $i_p^*i_L^*\sheaf F$ is concentrated in degree $-1$.
-So we need to show the following lemma.
+By the preceding arguments, we know that $i_p^*i_L^*\sheaf F$ is concentrated in degree $-1$ for $p \ne 0$.
+Inductively applying the following lemma to $\sheaf G = \i_L^*\sheaf F$ we conclude that $i_0^*\sheaf F = i_0^* \sheaf G$ is in degrees $\le 0$.
 
 \begin{Lem}
-    Let $L$ be a curve, $0 ∈ L$ and $\sheaf F ∈ D^{\le 1}(L)$ so that the following conditions hold:
+    Let $L$ be a curve, $0 ∈ L$ a point and $\sheaf G ∈ D^{\le n}(L)$ ($n \ge 1$) so that the following conditions hold:
     \begin{enumerate}
-        \item $\sheaf F_p$ is (cohomologically) in degree $-1$ for all $p \ne 0$.
-        \item $i_0^! \sheaf F$ is (cohomologically) in degree $0$.
+        \item $\sheaf G_p$ is (cohomologically) in degree $-1$ for all $p \ne 0$.
+        \item $i_0^! \sheaf G$ is (cohomologically) in degree $0$.
     \end{enumerate}
-    Then $\sheaf F ∈ D^{\le 0}(L)$.
+    Then $\sheaf G ∈ D^{\le n-1}(L)$.
 \end{Lem}
 
-Essentially, we know that $H^i(\sheaf F)$ is a skyscraper at $0$ for $i \ne -1$. 
-If $H^1(L) \ne 0$, then this implies that $i_0^!H¹(\sheaf F) = i_0^*H¹(\sheaf F) \ne 0$.
-We have to show that this contradicts that $H¹(i_0^!\sheaf F) = 0$.
+\begin{proof}
+    Let $\sheaf G$ be represented by the complex
+    \[
+    \sheaf G^\cx \colon \cdots → \sheaf G^{n-2} → \sheaf G^{n-1} → \sheaf G^{n} → 0.
+    \]
+    Note that by the assumptions $H^n(\sheaf G^\cx)$ and $H^{n-1}(\sheaf G^\cx)$ are skyscraper sheaves at $0$.
+    Let $u \colon \sheaf G^\cx → H^n(\sheaf G^\cx)[-n]$ be the quotient map.
+    The cone of this map is given by $\cone(u) = \sheaf G^\cx[1] \oplus H^n(\sheaf G^\cx)[-n]$ and has no cohomology in degrees $\ge n-1$.
+    Applying $i_0^!$ we obtain a distinguished triangle
+    \[
+    i_0^!\sheaf G → \i_0^! H^n(\sheaf G)[-n] → i_0^! \cone(u)
+    \]
+    which yields an exact sequence (note that the second term is a skyscraper)
+    \[
+    H^n(i_0^!\sheaf G) → H^n(\sheaf G)_0 → H^n(i_0^! \cone(u)).
+    \]
+    Since the first term is $0$ by assumption, it suffices to prove that the third one is $0$ as well.
+
+    Let $\sheaf H = \cone(u)$ be represented by the complex
+    \[
+    \sheaf H^\cx \colon \cdots → \sheaf H^{n-4} → \sheaf H^{n-3} → \sheaf H^{n-2} → 0.
+    \]
+    We have $H^i(\sheaf H) = H^{i+1}(\sheaf G)$ for $i \le n-2$.
+    In particular $H^{n-2}(\sheaf H)$ is a skyscraper at $0$.
+    Consider $v\colon \sheaf H^\cx → H^{n-2}(\sheaf H)[-n+2]$.
+    Then $H^i(\cone(v)) = 0$ for $i \ge n-3$.
+    The distinguished triangle
+    \[
+    i_0^!\sheaf H^\cx → i_0^!H^{n-2}(\sheaf H)[-n+2] → i_0^!\cone(v)
+    \]
+    yields an exact sequence
+    \[
+    H^{n-1}(\cone(v)) → H^{n}(i_0^!\sheaf H) → H^n(i_0^!H^{n-2}(\sheaf H)[-n+2]).
+    \]
+    The last term is vanishes as $i_0^!H^{n-2}(\sheaf H)[-n+2]$ is in degree $n-2$.
+    By \cite[Proposition~3.2.2~(i)]{KashiwaraSchapira:1994:SheavesOnManifolds} every sheaf on a complex curve admits a $c$-soft resolution of length at most $2$.
+    Thus the first term (and hence also the middle term) vanishes as well.
+\end{proof}
 
 \printbibliography
 
