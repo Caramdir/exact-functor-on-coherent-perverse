@@ -60,6 +60,51 @@ Note that the roles of $+$ and $-$ can be reversed by multiplying $f$ by $\i$.
 \end{Q}
 
 \me
+
+\section{Equivariant \texorpdfstring{$ℂ$}{C}-modules on a complex manifold}
+
+As a warm-up to the coherent setting, it might be interesting to look at the following situation.
+The simplification should lie mainly in the fact that here we are not mixing topological ($i_x^!$) and algebraic structures (coherent $\O_X$-modules) as much.
+
+Let $X$ be a complex Kähler manifold and $G$ be a complex Lie group acting on $X$.
+We assume that the action has only finitely many orbits and that all orbits have even complex dimension.
+Let $\setset O$ be the set of orbits.
+We will write $D_ℂ^b(X)$ for the bounded derived category of $G$-equivariant $ℂ_X$-modules (where $ℂ_X$ is the constant sheaf on $X$ with fiber $ℂ$).
+For any submanifold $Y$ of $X$, we write $ι_Y$ for the inclusion of $Y$ into $X$.
+
+\begin{Def}
+    We define two full subcategories $\perv D^{\le 0}$ and $\perv D^{\ge 0}$ of $D_ℂ^b(X)$ by
+    \begin{align*}
+        \perv D^{\le 0} & = \{ \sheaf F ∈ D_ℂ^b(X) : ι_U^*\sheaf F ∈ D^{\le -\dim_ℂ U} \text{ for all } U ∈ \setset O\}, \\
+        \perv D^{\ge 0} & = \{ \sheaf F ∈ D_ℂ^b(X) : ι_U^!\sheaf F ∈ D^{\ge -\dim_ℂ U} \text{ for all } U ∈ \setset O\}.
+    \end{align*}
+\end{Def}
+
+\begin{Conjecture}
+    The pair $(\perv D^{\le 0}, \perv D^{\ge 0})$ forms a t-structure on $D_ℂ^b(X)$.
+\end{Conjecture}
+
+\begin{Def}
+    We define two full subcategories $\perv[L] D^{\le 0}$ and $\perv[L] D^{\ge 0}$ of $D_ℂ^b(X)$ by
+    \begin{align*}
+        \perv[L] D^{\le 0} & = \{ \sheaf F ∈ D_ℂ^b(X) : ι_p^!ι_L^*\sheaf F ∈ D^{\le 0}(ℂ_p) \text{ for all Lagrangians $L$ and all $p ∈ L$} \}, \\
+        \perv[L] D^{\ge 0} & = \{ \sheaf F ∈ D_ℂ^b(X) : ι_p^*ι_L^!\sheaf F ∈ D^{\ge 0}(ℂ_p) \text{ for all Lagrangians $L$ and all $p ∈ L$} \}. 
+    \end{align*}
+\end{Def}
+
+\begin{Conjecture}
+    The pair $(\perv[L] D^{\le 0}, \perv[L] D^{\ge 0})$ forms a t-structure on $D_ℂ^b(X)$.
+\end{Conjecture}
+
+\begin{Conjecture}
+    An object $\sheaf F ∈ D_ℂ^b(X)$ is in $\perv[L] D^{\le 0} \cap \perv[L] D^{\ge 0}$ if and only if 
+    both $ι_p^!ι_L^*\sheaf F $ and $ι_p^*ι_L^!\sheaf F$ are (cohomologically) concentrated in degree $0$ for all Lagrangians $L$ and all $p ∈ L$.
+\end{Conjecture}
+
+\begin{Conjecture}
+    The t-structures $(\perv D^{\le 0}, \perv D^{\ge 0})$ and $(\perv[L] D^{\le 0}, \perv[L] D^{\ge 0})$ coincide.
+\end{Conjecture}
+
 \section{Coherent setting}
 
 Let $X$ be a complex variety.
