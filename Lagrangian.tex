@@ -79,6 +79,53 @@ The word \enquote{perverse sheaf} will mean an element of the heart of $D_c^b(X)
     An element $\sheaf F ∈ D_c^b(X)$ perverse if and only if it satisfies the Lagrangian measurement condition.
 \end{Conjecture}
 
+\subsection{Some lemmas}
+
+The following lemma is mentioned in some note from a discussion with David.
+I should find a reference (or prove it).
+
+\david
+\begin{Lem}[Poincaré lemma for !-restriction]
+    Let $X$ be a smooth complex variety and $ι_Y\colon Y \hookrightarrow X$ a smooth subvariety.
+    Then
+    \[
+    ι_Y^!\O_X \cong \res{\O_X}Y \otimes_{\O_X} Ω_{Y/X}^{\mathrm{top}}[-\codim_X Y].
+    \]
+\end{Lem}
+\me
+
+\begin{proof}
+    ?
+\end{proof}
+
+From this it follows that if $\sheaf F$ is a locally free sheaf on $X$, then $ι_Y^!\sheaf F$ is concentrated in degree $\codim_X Y$.
+
+\begin{Lem}
+    Let $\sheaf F ∈ D_c^{\le 0}(X)$ and let $ι_Y\colon Y \hookrightarrow X$ a smooth subvariety.
+    Then $H^i(ι_Y^!\sheaf F) = 0$ for $i \ge \codim_X Y + 1$.
+\end{Lem}
+
+\begin{Lem}
+    Let $\sheaf F ∈ D_c^{\le 0}(X)$ such that $H^0(\sheaf F)$ is locally free and nowhere vanishing.
+    Let $ι_Y\colon Y \hookrightarrow X$ a smooth subvariety.
+    Then $H^{\codim_X Y}(ι_Y^! \sheaf F) \ne 0$.
+\end{Lem}
+
+\begin{proof}
+    Represent $\sheaf F$ by a complex of locally free sheaves that is $0$ in positive degrees.
+    Let $u\colon \sheaf F → H^0(\sheaf F)$ be the quotient map.
+    We obtain a distinguished triangle
+    \[
+    ι_Y^!\sheaf F → ι_Y^! H^0(\sheaf F) → ι_Y^!\cone(u).
+    \]
+    From this we get the exact sequence
+    \[
+    H^{\codim_X Y}(ι_Y^!\sheaf F) → H^{\codim_X Y}(ι_Y^! H^0(\sheaf F)) → H^{\codim_X Y}(ι_Y^!\cone(u)).
+    \]
+    Note that $\cone(u) ∈ D_c^{\le -2}(X)$ so that the last term vanishes by the preceding lemma.
+    By the Poincaré Lemma, the second term is non-zero, so that the first term must also be non-zero.
+\end{proof}
+
 \subsection{The two-dimensional case}
 
 In this subsection we will prove the most basic case of the conjecture.
@@ -97,9 +144,8 @@ Hence it satisfies LMC.
 
 Now let $\sheaf F = j_{!*}(L[1])$ for an irreducible $G$-equivariant vector bundle $L$.
 Let $p ∈ U$ and $L$ be a Lagrangian through $p$.
-Then $L$ (or rather $L ∩ U$) is non-characteristic\footnote{See \cite[Def.~5.4.12]{KashiwaraSchapira:1994:SheavesOnManifolds}} for $\sheaf F$ and $p$ is non-characteristic for $i_L^*\sheaf F$.
-Note that $ω_{p/L}$ and $ω_{L/X}$ are both concentrated in degree $1$.
-Thus, by \cite[Proposition~5.4.13]{KashiwaraSchapira:1994:SheavesOnManifolds}, $\sheaf F$ satisfies LMC.
+As $\sheaf F$ is concentrated in degree $-1$ and is locally free on $U$, $i_L^!\sheaf F$ is concentrated in degree $0$ by the Poincaré Lemma, and hence so is $i_p^*i_L^! \sheaf F$.
+TODO: $i_p^!i_L^*\sheaf F$.
 
 Now let $p = 0$.
 TODO: Prove this case.
@@ -108,9 +154,11 @@ TODO: Prove this case.
 
 We want to show that if $\sheaf F ∈ D_c^b(X)$ satisfies LMC, then it is perverse.
 
-Let $U$ be the open orbit, $p ∈ U$ and $L$ a Lagrangian through $p$.
-Then $p$ is non-characteristic for $i_L^*\sheaf F$ and hence by \cite[Proposition~5.4.13]{KashiwaraSchapira:1994:SheavesOnManifolds} we have an isomorphism $i_p^{!}i_L^*\sheaf F \cong i_p^*i_L^*\sheaf F \otimes ω_{p/L}$.
-Since $ω_{p/L}$ is concentrated in degree $1$, it follows that $\sheaf F_p$ is in degree $-1$ for all $p ∈ U$ and hence $\res{\sheaf F}U = j^*\sheaf F = j^! \sheaf F$ is in degree $-1$ as required.
+Let $U$ be the open orbit, Lagrangian in $U$.
+For all $p ∈ L$, the complex $i_p^*i_L^!\sheaf F$ is concentrated in degree $0$.
+Hence $i_L^!\sheaf F$ is in degree $0$.
+Thus $\sheaf F$ is in degrees $-1$ and $0$.
+But since it has locally free cohomology, it cannot be in degree $0$.
 
 Now let $L$ be a Lagrangian through $0$.
 Then for all $p ∈ L$ the complex $i_p^* i_L^!\sheaf F$ is in degree $0$.
