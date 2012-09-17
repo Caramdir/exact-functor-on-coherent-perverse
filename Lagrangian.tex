@@ -126,6 +126,42 @@ From this it follows that if $\sheaf F$ is a locally free sheaf on $X$, then $ι
     By the Poincaré Lemma, the second term is non-zero, so that the first term must also be non-zero.
 \end{proof}
 
+\begin{Lem}
+    \label{lem:measurement-turning}
+    Let $\sheaf F$ be a coherent sheaf on $X$.
+    Then $ι_p^*ι_L^! \sheaf F \cong {ι_p'}^!ι_{L'}$ for any two Lagrangians $L,L'$ with $L ∩ L' = p$, where
+    $ι_p$ and $ι_p'$ are the inclusions of $p$ into $L$ and $L'$ respectively.
+\end{Lem}
+
+\begin{proof}
+    By base change \cite[Prop.~3.1.9]{KashiwaraSchapira:1994:SheavesOnManifolds} we have
+    \[
+    ι_p^* ι_L^! (ι_{L'})_* ι_{L'}^* \sheaf F \cong
+    ι_p^* {ι_p'}_* ι_{p'}^! ι_{L'}^* \sheaf F \cong
+    ι_{p'}^! ι_{L'}^* \sheaf F.
+    \]
+    Thus we need to show that 
+    \begin{equation*}
+        \label{eqn:measurement-turning:main}
+        ι_p^* ι_L^! \sheaf F \cong ι_p^* ι_L^! (ι_{L'})_* ι_{L'}^* \sheaf F.
+    \end{equation*}
+    Let $j\colon X\setminus L' \hookrightarrow X$ and consider the distinguished triangle
+    \[
+    j_!j^*\sheaf F → \sheaf F → (ι_{L'})_* ι_{L'}^* \sheaf F.
+    \]
+    Thus the claim will follow if we can show that $ι_p^* ι_L^! j_!j^*\sheaf F = 0$.
+    By \cite[Proposition~2.5.4]{KashiwaraSchapira:1994:SheavesOnManifolds} and with the notation of \cite[Section~2.3]{KashiwaraSchapira:1994:SheavesOnManifolds} we have $j_!j^*\sheaf F = \sheaf F_{X\setminus L'}$.
+    By \cite[Proposition~2.3.6]{KashiwaraSchapira:1994:SheavesOnManifolds} with $Z = X \setminus L'$ and $Z' = L ∩ Z$ we have an exact sequence
+    \[
+    0 → \sheaf F_{X \setminus (L ∪ L')} → \sheaf F_{X \setminus L'} → \sheaf F_{L \setminus p} → 0.
+    \]
+    As $ι_L^! \sheaf F_{X \setminus (L ∪ L')} = 0$ we obtain an isomorphism
+    \[
+    ι_p^* ι_L^! j_!j^*\sheaf F = ι_p^*ι_L^! \sheaf F_{X \setminus L'} \cong ι_p^*ι_L^! \sheaf F_{L \setminus p} = 0,
+    \]
+    proving the claim.
+\end{proof}
+
 \subsection{The two-dimensional case}
 
 In this subsection we will prove the most basic case of the conjecture.
@@ -145,7 +181,7 @@ Hence it satisfies LMC.
 Now let $\sheaf F = j_{!*}(L[1])$ for an irreducible $G$-equivariant vector bundle $L$.
 Let $p ∈ U$ and $L$ be a Lagrangian through $p$.
 As $\sheaf F$ is concentrated in degree $-1$ and is locally free on $U$, $i_L^!\sheaf F$ is concentrated in degree $0$ by the Poincaré Lemma, and hence so is $i_p^*i_L^! \sheaf F$.
-TODO: $i_p^!i_L^*\sheaf F$.
+By Lemma~\ref{lem:measurement-turning}, $i_p^!i_L^*\sheaf F$ is then also concentrated in degree $0$.
 
 Now let $p = 0$.
 TODO: Prove this case.
