@@ -81,11 +81,46 @@ The word \enquote{perverse sheaf} will mean an element of the heart of $D_c^b(X)
 
 \subsection{Some lemmas}
 
+\begin{Lem}
+    Let $\sheaf F ∈ D^b(X)$.
+    Let $j\colon U \hookrightarrow X$ be an open subset and $i\colon X \setminus U \hookrightarrow X$ its complement.
+    If $j^* \sheaf F = 0$, then $i^!\sheaf F = i^* \sheaf F$.
+\end{Lem}
+
+\begin{proof}
+    Obvious (?)
+\end{proof}
+
+\begin{Lem}
+    \label{lem:skyscraper_in_lowest_degree}%
+    Let $\sheaf F ∈ D^{\ge k}(X)$.
+    Let $j\colon U \hookrightarrow X$ be an open subset and $i\colon X \setminus U \hookrightarrow X$ its complement.
+    Assume that $j^*H^k(\sheaf F) = 0$.
+    Then there is a canonical isomorphism $i^*H^k(\sheaf F) \cong H^k(i^! \sheaf F)$.
+\end{Lem}
+
+\begin{proof}
+    (Note: the following is actually just a statement about right-derived functors combined with the previous lemma.)
+    By shifting, we can assume that $k = 0$.
+    Let $u$ be the canonical map $H^0(\sheaf F) → \sheaf F$.
+    Then $\cone(u) \cong τ_{\ge 1} \sheaf F$, where $τ\ge 1$ is the standard (non-naive) truncation functor.
+    We obtain a distinguished triangle
+    \[
+    i^! H^0(\sheaf F) → i^! \sheaf F → i^! τ_{\ge 1} \sheaf F,
+    \]
+    and from that an exact sequence
+    \[
+    H^{-1}(i^! τ_{\ge 1} \sheaf F) → H^0(i^! H^0(\sheaf F)) → H^0(i^! \sheaf F) → H^0(i^! τ_{\ge 1} \sheaf F).
+    \]
+    The first and last terms vanish and the second term is the same as $i^* H^0(\sheaf F)$.
+\end{proof}
+
 The following lemma is mentioned in some note from a discussion with David.
 I should find a reference (or prove it).
 
 \david
 \begin{Lem}[Poincaré lemma for !-restriction]
+    \label{lem:poincarefor!}%
     Let $X$ be a smooth complex variety and $ι_Y\colon Y \hookrightarrow X$ a smooth subvariety.
     Then
     \[
@@ -104,6 +139,8 @@ From this it follows that if $\sheaf F$ is a locally free sheaf on $X$, then $ι
     Let $\sheaf F ∈ D_c^{\le 0}(X)$ and let $ι_Y\colon Y \hookrightarrow X$ a smooth subvariety.
     Then $H^i(ι_Y^!\sheaf F) = 0$ for $i \ge \codim_X Y + 1$.
 \end{Lem}
+
+% proof: represent by a perfect complex and resolve by currents.
 
 \begin{Lem}
     Let $\sheaf F ∈ D_c^{\le 0}(X)$ such that $H^0(\sheaf F)$ is locally free and nowhere vanishing.
