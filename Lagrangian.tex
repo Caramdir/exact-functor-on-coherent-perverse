@@ -11,6 +11,8 @@
 \newcommand\david{\color{black!60!green}}
 \let\David\david
 
+\newcommand\dualize{\mathbb D}
+
 \begin{document}
 
 \maketitle
@@ -288,6 +290,46 @@ Inductively applying the following lemma to $\sheaf G = \i_L^*\sheaf F$ we concl
     By \cite[Proposition~3.2.2~(i)]{KashiwaraSchapira:1994:SheavesOnManifolds} every sheaf on a complex curve admits a $c$-soft resolution of length at most $2$.
     Thus the first term (and hence also the middle term) vanishes as well.
 \end{proof}
+
+
+\subsection{Higher dimensions}
+
+Let $\dualize = \dualize_X$ be the Grothendieck-Serre duality functor on $X$, normalized as in \cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}.
+We will need the following claim that I cannot prove yet (maybe some approximation by $\O$-module functors will work).
+
+\begin{Claim}
+    $\sheaf F ∈ D^b_c(X)$ satisfies LMC if and only if $\dualize \sheaf F$ satisfies LMC.
+\end{Claim}
+
+\begin{Thm}
+    If $\sheaf F ∈ D^b_c(X)$ satisfies LMC, then $\sheaf F$ is perverse.
+\end{Thm}
+
+\begin{proof}
+    Since the question is local, we can assume that $X$ affine and set $X = \Spec A$.\remark{Can we really assume that?}
+    Using duality, it suffices to prove that $\sheaf F ∈ \perv D^{≤0}(X)$.
+    We will proceed by induction on the codimension of the orbit.
+
+    Let $U$ be the open orbit. 
+    Then it is clear by arguments like above that $\res{\sheaf F}U ∈ D^{≤-\frac12\dim U}(U)$ as required.
+
+    Let $Y$ be an orbit of codimension $d$ an assume that we already checked the statement for all orbits of higher dimension.
+    Let $n$ be the largest integer such that $i_Y^*H^n(\sheaf F) \ne 0$.
+    We have to show that $n ≤ -\frac12\dim Y$.
+    For contradiction assume that this is not the case.
+    Since $\sheaf F$ is concentrated in degrees at most $-\frac12\dim Y - 1$ on any larger orbits, $\supp H^n(\sheaf F) ⊆ \bar Y$.
+    By equivariance we also know that $\supp H^n(\sheaf F)$ contains at least $Y$, so that $\dim \supp H^n(\sheaf F) = \dim Y$.
+
+    Let $y$ be any point in $Y$ with corresponding maximal ideal $\ideal m$.
+    Let $L$ be an irreducible Langrangian (of the correct type) through $y$.
+    Set $L = V(\ideal p)$, $M = Γ(X,H^n(\sheaf F))$ and $d=\frac12\dim Y = \dim L$.
+    By the Grothendieck non-vanishing theorem \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}, $H^{n+d}_{\ideal p_{\ideal p}}(M_{\ideal p}) \ne 0$ (but all higher cohomology vanishes).
+    By the Flat Base Change Theorem \cite[Corollary~4.3.3]{BrodmannSharp:1998:LocalCohomology}, this is the same as $(H^{n+d}_{\ideal p}(M))_{\ideal p}$.
+    Hence $H^{n+d}_{\ideal p}(M) = H^{n+d}_L(X,\sheaf F) = Γ(L, H^{n+d}(i_L^!\sheaf F)) \ne 0$\remark{We also need to show that we can calculate the top cohomology by only looking at the top cohomology. This follows from the Grothendieck vanishing theorom, but should be made explicit.}.
+    But by assumption, $i_L^!\sheaf F$ is concentrated in degree $0$, so that $n+d = 0$ and hence $n = -\frac12\dim Y$, contradicting the assumption.
+\end{proof}
+
+
 
 \section{A t-structure?}
 
