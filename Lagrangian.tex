@@ -298,6 +298,7 @@ Let $\dualize = \dualize_X$ be the Grothendieck-Serre duality functor on $X$, no
 We will need the following claim that I cannot prove yet (maybe some approximation by $\O$-module functors will work).
 
 \begin{Claim}
+    \label{claim:LMCdualize}%
     $\sheaf F ∈ D^b_c(X)$ satisfies LMC if and only if $\dualize \sheaf F$ satisfies LMC.
 \end{Claim}
 
@@ -329,7 +330,21 @@ We will need the following claim that I cannot prove yet (maybe some approximati
     But by assumption, $i_L^!\sheaf F$ is concentrated in degree $0$, so that $n+d = 0$ and hence $n = -\frac12\dim Y$, contradicting the assumption.
 \end{proof}
 
+\begin{Thm}
+    If $\sheaf F ∈ D^b_c(X)$ is perverse, then it satisfies LMC.
+\end{Thm}
 
+\begin{proof}
+    By Claim~\ref{claim:LMCdualize}, it is enough to show that all Lagrangian measurements of perverse sheaves are in non-positive degrees.
+    Further, it is enough to check that this is true for irreducible perverse sheaves. 
+
+    Let $j\colon O \hookrightarrow X$ be a $G$-orbit, $\sheaf L$ an irreducible $G$-equivariant vector bundle on on $O$ and set $\sheaf F = j_{!*}(\sheaf L[\frac12\dim O])$.
+    Then $\sheaf F$ is supported on $\overline O$ and we can assume that $X = \overline O$.
+    Using the Grothendieck (non-)vanishing theorem for local cohomology together with $\sheaf F ∈ \sheaf P_{!*}(X)$ (i.e.\ that it is perverse for $p^\pm$), we can deduce that $\sheaf F$ is a coherent sheaf placed in degree $-\frac12 \dim X$.
+    
+    Let $L$ be a measuring subvariety. 
+    Then, by the Grothendieck vanishing theorem, $ι_L^!\sheaf F$ is in non-positive degrees, as required.
+\end{proof}
 
 \section{A t-structure?}
 
