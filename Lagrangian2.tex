@@ -1,0 +1,72 @@
+\documentclass[english]{short-notes}
+
+\title{Perverse sheaves and Lagrangians}
+\author{Clemens Koppensteiner}
+
+\usepackage{math-ag}
+
+\addbibresource{global.bib}
+%\bibliography{global.bib}
+
+\newcommand\dualize{\mathbb D}
+
+\newcommand\lm[2]{\csname lm#1#2\endcsname}
+\expandafter\def\csname lm*!\endcsname#1#2{%
+    Λ_{#1}Γ_{#2}%
+}
+\expandafter\def\csname lm!*\endcsname#1#2{%
+    Γ_{#1}Λ_{#2}%
+}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Setup and notation}
+
+Let $X$ be a complex\footnote{This assumption is probably not necessary.} algebraic variety.
+Let $G$ be a complex algebraic group acting on $X$ with finitely many orbits, so that all orbits are even-dimensional.
+We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
+The corresponding categories for $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) will be denoted $D(X^G)$, $D_{qc}(X^G)$ and $D_c(X^G)$.
+As usual, $D^b(X)$ (etc.) will be the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
+We functors will be derived, though we will usually drop the $R$ or $L$.
+
+We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see \cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized.
+For $\sheaf F ∈ D(X)$ (or $D(X^G)$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
+Then we have
+\begin{itemize}
+    \item $\dualize\colon D^b_{c}(X) → D^b_c(X)$ (resp.~$\dualize\colon D^b(X^G) → D^b(X^G)$).
+    \item For $\sheaf F ∈ D^b_c(X)$ (or $D^b_c(X^G)$), the natural morphism $\sheaf F → \dualize\dualize F$ is an isomorphism.
+    \item For $x ∈ X$, $\mathbf i_x^!(\sheaf R)$ is concentrated in $-\dim \bar x$ (where $\mathbf i_x^!$ is the topological $!$-restriction and $\dim$ is the Krull dimension), see \cite[Section~3.1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+\end{itemize}
+
+Let $Z$ be a closed subset of $X$, and $\sheaf I$ an ideal sheaf of $\O_X$ such that $Z = \supp(\rquot{\O_X}{\sheaf I})$.
+For an $\O_X$-module $\sheaf F$ we let $Γ_Z\sheaf F$ be subsheaf of $\sheaf F$ of sections with support in $Z$.
+If $\sheaf F$ is quasi-coherent, then by \cite[Theorem~V.4.1]{Hartshorne:1966:ResiduesAndDuality} we have
+\[
+Γ_Z\sheaf F = \varinjlim_n \sheafHom_{\O_X}(\rquot{\O_X}{\sheaf I^n}, \sheaf F).
+\]
+Let $RΓ_Z\colon D(X) → D(X)$ be the right-derived functor of $Γ_Z$.
+By \cite[Corollary~3.2.5(iii)], $RΓ_Z$ maps $D_{qc}(X)$ to itself.
+% measuring subvarieties
+% Λ and Γ
+% The Lagrangian t-structure
+
+\section{The t-structure}
+
+% Lemma: duality
+
+% Thm: the Lagrangian t-structure is indeed a t-structure
+
+\section{Agreement with perverse sheaves}
+
+% Thm: the Lagrangian t-structure agrees with the perverse t-structure.
+
+\section{A simple description of perverse sheaves}
+
+% Thm describing the core of the Lagrangian t-structure.
+
+\printbibliography
+
+\end{document}
