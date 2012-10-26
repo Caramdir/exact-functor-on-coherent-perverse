@@ -91,7 +91,20 @@ TODO: Existence of measuring pairs (and transversal pairs of measuring pairs).
 \end{Lem}
 
 \begin{proof}
-    TODO
+    Let $Z$ be a measuring subvariety and $\sheaf F ∈ D^b(X^G)$.
+    Then by \cite[Corollary~5.2.2]{TarrioLopezLipman:1997:LocalHomologyCohomologyOnSchemes} we have for any closed point $p ∈ Z$,
+    \[
+    Γ_pΛ_Z(\dualize \sheaf F) \cong 
+    Γ_p(\dualize Γ_Z \sheaf F) =
+    Γ_p\sheafHom_{\O_X}(Γ_Z\sheaf F, \sheaf R).
+    \]
+    By \cite[Proposition~5.2.1]{TarrioLopezLipman:1997:LocalHomologyCohomologyOnSchemes} and \cite[6.?]{Hartshorne:1966:ResiduesAndDuality} this is isomorphic to 
+    \[
+    \sheafHom_{\O_X}(Γ_Z\sheaf F, Γ_p\sheaf R) =
+    \sheafHom_{\O_X}(Γ_Z\sheaf F, \sheaf I(p)),
+    \]
+    where $\sheaf I(p)$ is the skyscraper sheaf with stalk at $p$ the injective hull of the residue field at $p$.
+    Thus $Γ_pΛ_Z\sheaf F$ is in non-negative degrees if and only if $(Γ_Z\sheaf F)_p$ is in non-positive degrees.
 \end{proof}
 
 % Thm: the Lagrangian t-structure is indeed a t-structure
