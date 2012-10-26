@@ -38,8 +38,12 @@ Then we have
 \begin{itemize}
     \item $\dualize\colon D^b_{c}(X) → D^b_c(X)$ (resp.~$\dualize\colon D^b(X^G) → D^b(X^G)$).
     \item For $\sheaf F ∈ D^b_c(X)$ (or $D^b_c(X^G)$), the natural morphism $\sheaf F → \dualize\dualize F$ is an isomorphism.
-    \item For $x ∈ X$, $\mathbf i_x^!(\sheaf R)$ is concentrated in $-\dim \bar x$ (where $\mathbf i_x^!$ is the topological $!$-restriction and $\dim$ is the Krull dimension), see \cite[Section~3.1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+    \item For $x ∈ X$, $\mathbf ι_x^!(\sheaf R)$ is concentrated in $-\dim \bar x$ (where $\mathbf ι_x^!$ is the topological $!$-restriction and $\dim$ is the Krull dimension, see below), see \cite[Section~3.1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
 \end{itemize}
+
+Let $p$ be the middle perversity on $X$, i.e.\ $p(U) = -\frac12 \dim U$ for each $G$-orbit $U$.
+The corresponding perverse t-structure on $D_c^b(X^G)$ will be denoted $(\perv D^{≤0}(X), \perv D^{≥0}(X))$ and elements of its heart will simply be called \emph{perverse sheaves} on $X$ (see \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves, ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves} for definitions).
+Note that $\dualize \perv D^{≤0}(X) = \perv D^{≥0}(X)$.
 
 Let $Z$ be a closed subset of $X$, and $\sheaf I$ an ideal sheaf of $\O_X$ such that $Z = \supp(\rquot{\O_X}{\sheaf I})$.
 For an $\O_X$-module $\sheaf F$ we let $Γ_Z\sheaf F$ be subsheaf of $\sheaf F$ of sections with support in $Z$.
@@ -48,24 +52,77 @@ If $\sheaf F$ is quasi-coherent, then by \cite[Theorem~V.4.1]{Hartshorne:1966:Re
 Γ_Z\sheaf F = \varinjlim_n \sheafHom_{\O_X}(\rquot{\O_X}{\sheaf I^n}, \sheaf F).
 \]
 Let $RΓ_Z\colon D(X) → D(X)$ be the right-derived functor of $Γ_Z$.
-By \cite[Corollary~3.2.5(iii)], $RΓ_Z$ maps $D_{qc}(X)$ to itself.
-% measuring subvarieties
-% Λ and Γ
-% The Lagrangian t-structure
+By \cite[Corollary~3.2.5(iii)]{TarrioLopezLipman:1997:LocalHomologyCohomologyOnSchemes} , $RΓ_Z$ maps $D_{qc}(X)$ to itself.
+We will usually simply write $Γ_Z$ for $RΓ_Z$.
 
-\section{The t-structure}
+Dually, for an $\O_X$-module $\sheaf F$, let $Λ_Z\sheaf F$ be its completion along $Z$, i.e.\
+\[
+Λ_Z\sheaf F = \varprojlim_n \left( (\rquot{\O_X}{\sheaf I^n}) \otimes \sheaf F \right).
+\]
+The functor $Λ_Z$ is exact on coherent sheaves.
+On quasi-coherent sheaves, we can still get a left-derived functor $LΛ_Z\colon D_{qc}(X) → D(X)$ (see \cite[Section~1]{TarrioLopezLipman:1997:LocalHomologyCohomologyOnSchemes}).
+We will usually simply write $Λ_Z$ for $LΛ_Z$.
 
-% Lemma: duality
+TODO: $\mathbf ι_Z^*$, $\mathbf ι_Z^!$.
+
+\section{Measuring subvarieties}
+
+\begin{Def}
+    A \emph{measuring subvariety} of $X$ is a subvariety $Z$ of $X$ such that $\dim(U ∩ Z) = \frac12 \dim U$ for each $G$-orbit $U$.
+    A \emph{measuring pair} is a pair $(p,Z)$, consisting of a measuring subvariety $Z$ and a closed point $p ∈ Z$.
+    Two measuring pairs $(p,Z)$ and $(p',Z')$ are called \emph{transversal} if $p = p'$ and $Z ∩ Z' = p$.
+\end{Def}
+
+TODO: Existence of measuring pairs (and transversal pairs of measuring pairs).
+
+\begin{Def}
+    Define two full subcategories of $D_c^b(X^G)$ by
+    \begin{align*}
+        \perv[L] D^{≤0}(X) &= \{ \sheaf F ∈ D_c^b(X^G) : Γ_Z \sheaf F ∈ D^{≤0}(X) \text{ for all measuring subvarieties $Z$}\}, \\
+        \perv[L] D^{≥0}(X) &= \{ \sheaf F ∈ D_c^b(X^G) : Γ_pΛ_Z \sheaf F ∈ D^{≥0}(X) \text{ for all measuring pairs $(p,Z)$}\}.
+    \end{align*}
+\end{Def}
+
+% The Lagrangian t-structures
+% comparing the t-structures
+
+\begin{Lem}
+    $\dualize \perv[L] D^{≤0}(X) = \perv[L] D^{≥0}(X)$.
+\end{Lem}
+
+\begin{proof}
+    TODO
+\end{proof}
 
 % Thm: the Lagrangian t-structure is indeed a t-structure
 
 \section{Agreement with perverse sheaves}
 
+\begin{Thm}
+    $\perv[L] D^{≤0}(X) = \perv D^{≤0}(X)$ and $\perv[L] D^{≥0}(X) = \perv D^{≥0}(X)$.
+\end{Thm}
+
+\begin{proof}
+    TODO
+\end{proof}
+
 % Thm: the Lagrangian t-structure agrees with the perverse t-structure.
 
 \section{A simple description of perverse sheaves}
 
-% Thm describing the core of the Lagrangian t-structure.
+\begin{Claim}
+    If $(p,Z)$ and $(p,Z')$ are two transversal measuring pairs and $\sheaf F ∈ D_c^b(X)$, then ${\mathbb ι_p}_*{\mathbb ι}_p^*Γ_Z \sheaf F \cong Γ_pΛ_Z \sheaf F$\footnote{Or some similar statement.}.
+\end{Claim}
+
+\begin{Cor}
+    Let $\sheaf F ∈ D^b_c(X^G)$.
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item $\sheaf F$ is perverse;
+        \item $Γ_Z \sheaf F$ is concentrated in degree $0$ for all measuring subvarieties $Z$;
+        \item $Γ_pΛ_Z \sheaf F$ is concentrated in degree $0$ for all measuring pairs $(p,Z)$;
+    \end{enumerate}
+\end{Cor}
 
 \printbibliography
 
