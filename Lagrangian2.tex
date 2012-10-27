@@ -68,7 +68,7 @@ TODO: $\mathbf ι_Z^*$, $\mathbf ι_Z^!$.
 \section{Measuring subvarieties}
 
 \begin{Def}
-    A \emph{measuring subvariety} of $X$ is a subvariety $Z$ of $X$ such that $\dim(U ∩ Z) = \frac12 \dim U$ for each $G$-orbit $U$.
+    A \emph{measuring subvariety} of $X$ is an irreducible subvariety $Z$ of $X$ such that $\dim(U ∩ Z) = \frac12 \dim U$ for each $G$-orbit $U$ with $U ∩ Z \ne \emptyset$.
     A \emph{measuring pair} is a pair $(p,Z)$, consisting of a measuring subvariety $Z$ and a closed point $p ∈ Z$.
     Two measuring pairs $(p,Z)$ and $(p',Z')$ are called \emph{transversal} if $p = p'$ and $Z ∩ Z' = p$.
 \end{Def}
@@ -87,6 +87,7 @@ TODO: Existence of measuring pairs (and transversal pairs of measuring pairs).
 % comparing the t-structures
 
 \begin{Lem}
+    \label{lem:duality}%
     $\dualize \perv[L] D^{≤0}(X) = \perv[L] D^{≥0}(X)$.
 \end{Lem}
 
@@ -116,10 +117,35 @@ TODO: Existence of measuring pairs (and transversal pairs of measuring pairs).
 \end{Thm}
 
 \begin{proof}
-    TODO
-\end{proof}
+    By Lemma~\ref{lem:duality} and the corresponding statement for the perverse t-structure \cite[Lemma~5(a)]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, it is sufficient to prove the first assertion.
+    All measurements are local, so we can assume that $X$ is affine and set $X = \Spec A$.
 
-% Thm: the Lagrangian t-structure agrees with the perverse t-structure.
+    Let us first show that $\perv[L]D^{≤0}(X) \subseteq \perv D^{≤0}(X)$.
+    Let $\sheaf F ∈ \perv[L]D^{≤0}(X)$ and write $\sheaf F = \widetilde M$ for some $M ∈ D_c^b(A)$.
+    Note that if $Z$ is a subvariety defined by the ideal $\ideal a$ of $M$, then $H^*(Γ_Z \sheaf F) = \widetilde{H^*_{\ideal a}(M)}$.
+    We will proceed by induction on the codimension $d$ of the orbit, i.e.\ we assume that $\mathbb i_U^* \sheaf F$ is concentrated in degrees at most $-\frac12 \dim U$ for all orbits $U$ of codimension less than $d$.
+
+    Let $Y$ be an orbit of codimension $d$ an assume that we already checked the statement for all orbits of higher dimension.
+    Let $n$ be the largest integer such that $i_Y^*H^n(\sheaf F) \ne 0$.
+    We have to show that $n ≤ -\frac12\dim Y$.
+    For contradiction assume that this is not the case.
+    Since $\sheaf F$ is concentrated in degrees at most $-\frac12\dim Y - 1$ on any larger orbits by induction, $\supp H^n(\sheaf F) ⊆ \bar Y$.
+    By equivariance we also know that $\supp H^n(\sheaf F)$ contains at least $Y$, so that $\dim \left( \supp H^n(\sheaf F) \right) = \dim Y$.
+
+    Let $Z$ be any measuring subvariety that intersects $Y$ non-trivially.
+    Set $Z = V(\ideal p)$, $E = Γ(X,H^n(\sheaf F))$ and $d=\frac12\dim Y = \dim (Z∩Y)$.
+    By the Grothendieck non-vanishing theorem \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}, $H^{n+d}_{\ideal p_{\ideal p}}(M_{\ideal p}) \ne 0$ (but all higher cohomology vanishes).
+    By the Flat Base Change Theorem \cite[Corollary~4.3.3]{BrodmannSharp:1998:LocalCohomology}, this is the same as $(H^{n+d}_{\ideal p}(M))_{\ideal p}$.
+    Hence $H^{n+d}_{\ideal p}(M) = H^{n+d}(Γ_L\sheaf F)) \ne 0$\remark{We also need to show that we can calculate the top cohomology by only looking at the top cohomology. This follows from the Grothendieck vanishing theorom, but should be made explicit.}.
+    But by assumption, $Γ_Z\sheaf F$ is concentrated in degree $0$, so that $n+d = 0$ and hence $n = -\frac12\dim Y$, contradicting the assumption.
+
+    Let us now show that $\perv D^{≤0}(X) ⊆ \perv[L] D^{≤0}(X)$.
+    It suffices to show that the condition hold for the perverse sheaves $\sheaf P(X) ⊆ \perv D^{≤0}(X)$.
+    Since $Γ_Z$ is a triangulated functor, we can further reduce to irreducible perverse sheaves.
+    We will use the description of irreducible perverse sheaves given in \cite[Corollary~4]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+
+    TODO.
+\end{proof}
 
 \section{A simple description of perverse sheaves}
 
