@@ -112,6 +112,65 @@ TODO: Existence of measuring pairs (and transversal pairs of measuring pairs).
 
 \section{Agreement with perverse sheaves}
 
+\begin{Lem}
+    \label{lem:supportAndLocalCohomology}%
+    Let $\sheaf F ∈ \catCoh{X^G}$ be a $G$-equivariant coherent sheaf on $X$ and let $n$ be an integer.
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item $\dim \supp \sheaf F ≤ 2n$;
+        \item $H^l(Γ_Z\sheaf F) = 0$ for all $l ≥ n+1$.
+    \end{enumerate}
+\end{Lem}
+
+\begin{proof}
+    TODO.
+\end{proof}
+
+\begin{Thm}
+    Let $\sheaf F ∈ D_c^b(X^G)$. 
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item $\sheaf F ∈ \perv D^{≤0}(X)$, i.e.\ $i_U^*\sheaf F ∈ D^{≤-\frac12 \dim U}(\catAbSheaves U)$;
+        \item $\dim \left( \supp H^{-n}(\sheaf F) \right) ≤ 2n$ for all $n$;
+        \item $\sheaf F ∈ \perv[L] D^{≤0}(X)$, i.e.\ $Γ_Z(\sheaf F) ∈ D^{≤0}(X)$.
+    \end{enumerate}
+    Consequently, $\perv[L] D^{≤0}(X) = \perv D^{≤0}(X)$ and $\perv[L] D^{≥0}(X) = \perv D^{≥0}(X)$.
+\end{Thm}
+
+The equivalence between (i) and (ii) is implicit in the definitions of the perverse t-structure given by Deligne and Arinkin--Bezrukavnikov \cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves,Bezrukavnikov:arXiv:PerverseCoherentSheaves} on the one hand and Kashiwara \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} on the other.
+However, I don't know any reference for this equivalence in the literature, so we will give a proof here.
+
+\begin{proof}
+    The last statement follows from the equivalence of (i) and (iii) by dualizing, i.e.\ with Lemma~\ref{lem:duality} and the corresponding statement for the perverse t-structure, see \cite[Lemma~5(a)]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+%    All measurements are local, so we can assume that $X$ is affine and set $X = \Spec A$.
+
+    TODO (i) <=> (ii)
+
+    We will now show the equivalence of (ii) and (iii).
+    To do so we will use induction on the largest $k$ such that $H^k(\sheaf F) \ne 0$.
+
+    The equivalence is trivial for $k \ll 0$.
+    For the induction step note that there is a distinguished triangle
+    \[
+    τ_{≤ k-1} \sheaf F → \sheaf F → H^k(\sheaf F)[-k] \xrightarrow{+1}.
+    \]
+    Applying the functor $Γ_Z$ and taking cohomology we obtain 
+    \begin{multline*}
+    \cdots →
+    H¹(Γ_Z(τ_{≤ k-1} \sheaf F)) →
+    H¹(Γ_Z\sheaf F) →
+    H^{k+1}(Γ_Z(H^k(\sheaf F))) → \\
+    H²(Γ_Z(τ_{≤ k-1} \sheaf F)) →
+    H²(Γ_Z\sheaf F) →
+    H^{k+2}(Γ_Z(H^k(\sheaf F))) →
+    \cdots.
+\end{multline*}
+    By induction, $H^\ell(Γ_Z(τ_{≤ k-1} \sheaf F))$ vanishes for $\ell ≥ 1$ so that $H^\ell(Γ_Z\sheaf F) \cong H^{k+\ell}(Γ_Z(H^k(\sheaf F)))$ for $\ell ≥ 1$.
+    Thus the statement follows from Lemma~\ref{lem:supportAndLocalCohomology}.
+\end{proof}
+
+
+\iffalse
 \begin{Thm}
     $\perv[L] D^{≤0}(X) = \perv D^{≤0}(X)$ and $\perv[L] D^{≥0}(X) = \perv D^{≥0}(X)$.
 \end{Thm}
@@ -142,10 +201,9 @@ TODO: Existence of measuring pairs (and transversal pairs of measuring pairs).
     Let us now show that $\perv D^{≤0}(X) ⊆ \perv[L] D^{≤0}(X)$.
     It suffices to show that the condition hold for the perverse sheaves $\sheaf P(X) ⊆ \perv D^{≤0}(X)$.
     Since $Γ_Z$ is a triangulated functor, we can further reduce to irreducible perverse sheaves.
-    We will use the description of irreducible perverse sheaves given in \cite[Corollary~4]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
-
-    TODO.
+    But then the statement follows immediately from Lemma~\ref{lem:locationOfIrreducibles} and the Grothendieck vanishing theorem for local cohomology.
 \end{proof}
+\fi
 
 \section{A simple description of perverse sheaves}
 
