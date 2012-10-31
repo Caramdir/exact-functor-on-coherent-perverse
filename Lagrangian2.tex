@@ -27,6 +27,7 @@
 
 Let $X$ be a complex\footnote{This assumption is probably not necessary.} algebraic variety.
 Let $G$ be a complex algebraic group acting on $X$ with finitely many orbits, so that all orbits are even-dimensional.
+If $U_{2n}$ is the union of all $2n$-dimensional orbits, then we assume that $\bigcup_{n < k} U_{2n}$ is always closed\footnote{Is this always true? Is there a simple condition for this to be true?}.
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
 The corresponding categories for $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) will be denoted $D(X^G)$, $D_{qc}(X^G)$ and $D_c(X^G)$.
 As usual, $D^b(X)$ (etc.) will be the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
@@ -123,37 +124,31 @@ TODO: Existence of measuring pairs (and transversal pairs of measuring pairs).
 \end{Lem}
 
 \begin{proof}
-    Since $\supp \sheaf F$ is always a union of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
-    Set $\dim X = 2d$.
-    Further we can assume that $X$ is affine and write $X = \Spec A$.\footnote{There should be a reference for local cohomology of schemes where this assumption is not necessary.}
-    
-    First assume that $\dim X = 2d ≤ 2n$ and let let $Z$ be an irreducible half-dimensional subvariety, i.e.\ $\dim Z = d$, and write $X = V(\ideal p)$.
-    We will prove the statement by induction on $d$.
-    The base case $d = 0$ is trivial.
-    For the general case we have to show that $\mathbb ι_x^* H^{\ell}(Γ_Z \sheaf F) = 0$ for all $\ell ≥ n + 1$ and all closed points $x ∈ X$.
-    By flat base change for local cohomology \cite[Corollary~4.3.3]{BrodmannSharp:1998:LocalCohomology},
-    \[
-    \mathbf ι_x^* H^{\ell}(Γ_Z \sheaf F)  = 
-    \left(H_{\ideal p}^\ell( Γ(X,\sheaf F)) \right)_{\ideal m_x} =
-    H_{\ideal p_{\ideal m_x}}^\ell( Γ(X,\sheaf F)_{\ideal m_x}).
-    \]
-    If $x$ is in the open orbit $U$, this is the same as
-    \[
-    H_{\ideal p_{\ideal m_x}}^\ell( Γ(U,\sheaf F)_{\ideal m_x}) =
-    \mathbf ι_x^* H^{\ell}(Γ_{Z∩U} \res{\sheaf F}U).
-    \]
-    But $\res{\sheaf F}U$ is locally free thus the local cohomology vanishes above degree $n = \codim_ZU$ (TODO: Add a lemma or reference that proves that).
-    If $x$ is in $Y = X \setminus U$, then we can restrict in the same way to $Y$:
-    \[
-    \mathbf ι_x^* H^{\ell}(Γ_Z \sheaf F)  = 
-    H_{\ideal p_{\ideal m_x}}^\ell( Γ(Y,\sheaf F)_{\ideal m_x}) =
-    \mathbf ι_x^* H^{\ell}(Γ_{Z∩Y} \mathbf ι_Y^*\sheaf F),
-    \]
-    which vanishes for $\ell ≥ n+1$ by induction.
+    First we will show that (i) implies to (ii).
+    We will do so by induction on $n$.
+    The statement is trivial for $n = 0$.
 
-    Now assume that $H^\ell(Γ_Z\sheaf F) = 0$ for all $\ell ≥ n+1$ and all measuring subvarieties $Z$.
-    We have to show that $\dim \supp \sheaf F = \dim X ≤ 2n$.
-    Assume that this is not true, so that $d ≥ n+1$.
+    Since $\supp \sheaf F$ is always a union of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
+    If $\dim X < 2n$, we are done by induction, so let us assume that $\dim X = 2n$.
+    Let $U$ be the union of all $2n$-dimensional orbits and let $Y$ be its complement.
+    By assumption $U$ is open and $Y$ closed.
+    Give $Y$ the reduced subscheme structure.
+    From adjunction we get a surjective morphism $φ\colon \sheaf F → {ι_Y}_* {ι_Y}^* \sheaf F$ (here ${ι_Y}_*$ and ${ι_Y}^*$ are the underived $\O$-module operations).
+    Let $\sheaf G$ be the kernel of this map, so that we get a short exact sequence
+    \[
+    0 → \sheaf G → \sheaf F → {ι_Y}_* {ι_Y}^* \sheaf F → 0
+    \]
+    in $\catCoh{X^G}$.
+    By induction, $H^\ell(Γ_Z{ι_Y}_* {ι_Y}^*\sheaf F) = $ for all $\ell > n-1$.
+    So we only need to show that $H^\ell(Γ_Z\sheaf G) = 0$ for all $\ell > n$.
+    Since $\sheaf G$ is supported on the open set $U$, we can restrict to $U$ and compute $Γ_{Z∩U}\res{\sheaf G}U$.
+    As $\sheaf G$ is a coherent $G$-equivariant sheaf on the smooth variety $U$, it is locally free\footnote{Reference?}.
+    Thus $H^\ell(Γ_{Z∩U}\res{\sheaf G}U = 0$ for $\ell > n = \codim_ZU$, as required.
+
+    Now assume conversely that $H^\ell(Γ_Z\sheaf F) = 0$ for all $\ell ≥ n+1$ and all measuring subvarieties $Z$.
+    We have to show that $\dim \supp \sheaf F ≤ 2n$.
+    Assume that this is not true, so that $d = \frac12 \dim \supp \sheaf F ≥ n+1$.
+    We can assume that $X$ is affine and write $X = \Spec A$.\footnote{There should be a reference for local cohomology of schemes where this assumption is not necessary.} 
     By flat base change,
     \[
     Γ(X,H^d(Γ_Z \sheaf F))_{\ideal p} = 
