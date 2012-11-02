@@ -1,6 +1,6 @@
 \documentclass[english]{short-notes}
 
-\title{Perverse sheaves and Lagrangians}
+\title{Perverse sheaves and half-dimensional subvarieties}
 \author{Clemens Koppensteiner}
 
 \usepackage{math-ag}
@@ -9,14 +9,6 @@
 %\bibliography{global.bib}
 
 \newcommand\dualize{\mathbb D}
-
-\newcommand\lm[2]{\csname lm#1#2\endcsname}
-\expandafter\def\csname lm*!\endcsname#1#2{%
-    Λ_{#1}Γ_{#2}%
-}
-\expandafter\def\csname lm!*\endcsname#1#2{%
-    Γ_{#1}Λ_{#2}%
-}
 
 \begin{document}
 
@@ -53,7 +45,6 @@ If $\sheaf F$ is quasi-coherent, then by \cite[Theorem~V.4.1]{Hartshorne:1966:Re
 Γ_Z\sheaf F = \varinjlim_n \sheafHom_{\O_X}(\rquot{\O_X}{\sheaf I^n}, \sheaf F).
 \]
 Let $RΓ_Z\colon D(X) → D(X)$ be the right-derived functor of $Γ_Z$.
-%By \cite[Corollary~3.2.5(iii)]{TarrioLopezLipman:1997:LocalHomologyCohomologyOnSchemes} , $RΓ_Z$ maps $D_{qc}(X)$ to itself.
 We will usually simply write $Γ_Z$ for $RΓ_Z$.
 
 TODO: define $\mathbf ι_Z^*$, $\mathbf ι_Z^!$.
@@ -95,6 +86,7 @@ The first one is an immediate consequence of \cite[Lemma~5]{Bezrukavnikov:arXiv:
 \end{Cor}
 
 \begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
+    \label{lem:supportAndLocalCohomology+}%
     Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$ and $n$ an integer.
     Then $Γ_Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $-\dim(Z∩\supp(H^k(\dualize \sheaf F))) ≥ k + n$ for all $k$.
 \end{Lem}
@@ -107,53 +99,12 @@ The first one is an immediate consequence of \cite[Lemma~5]{Bezrukavnikov:arXiv:
 
 \begin{Def}
     A \emph{measuring subvariety} of $X$ is an irreducible subvariety $Z$ of $X$ such that $\dim(U ∩ Z) = \frac12 \dim U$ for each $G$-orbit $U$ with $U ∩ Z \ne \emptyset$.
-    A \emph{measuring pair} is a pair $(p,Z)$, consisting of a measuring subvariety $Z$ and a closed point $p ∈ Z$.
-    Two measuring pairs $(p,Z)$ and $(p',Z')$ are called \emph{transversal} if $p = p'$ and $Z ∩ Z' = p$.
 \end{Def}
 
-TODO: Existence of measuring pairs.% (and transversal pairs of measuring pairs).
-
-\iffalse
-\begin{Def}
-    Define two full subcategories of $D_c^b(X^G)$ by
-    \begin{align*}
-        \perv[L] D^{≤0}(X) &= \{ \sheaf F ∈ D_c^b(X^G) : Γ_Z \sheaf F ∈ D^{≤0}(X) \text{ for all measuring subvarieties $Z$}\}, \\
-        \perv[L] D^{≥0}(X) &= \{ \sheaf F ∈ D_c^b(X^G) : Γ_pΛ_Z \sheaf F ∈ D^{≥0}(X) \text{ for all measuring pairs $(p,Z)$}\}.
-    \end{align*}
-\end{Def}
-
-% The Lagrangian t-structures
-% comparing the t-structures
+TODO: Existence of measuring subvarieties.% (and transversal pairs of measuring pairs).
 
 \begin{Lem}
-    \label{lem:duality}%
-    $\dualize\left(\perv[L] D^{≤0}(X)\right) = \perv[L] D^{≥0}(X)$.
-\end{Lem}
-
-\begin{proof}
-    Let $Z$ be a measuring subvariety and $\sheaf F ∈ D^b(X^G)$.
-    Then by \cite[Corollary~5.2.2]{TarrioLopezLipman:1997:LocalHomologyCohomologyOnSchemes} we have for any closed point $p ∈ Z$,
-    \[
-    Γ_pΛ_Z(\dualize \sheaf F) \cong 
-    Γ_p(\dualize Γ_Z \sheaf F) =
-    Γ_p\sheafHom_{\O_X}(Γ_Z\sheaf F, \sheaf R).
-    \]
-    By \cite[Proposition~5.2.1]{TarrioLopezLipman:1997:LocalHomologyCohomologyOnSchemes} and \cite[Proposition~V.6.1]{Hartshorne:1966:ResiduesAndDuality} this is isomorphic to 
-    \[
-    \sheafHom_{\O_X}(Γ_Z\sheaf F, Γ_p\sheaf R) =
-    \sheafHom_{\O_X}(Γ_Z\sheaf F, \sheaf I(p)),
-    \]
-    where $\sheaf I(p)$ is the skyscraper sheaf with stalk at $p$ the injective hull of the residue field at $p$.
-    Thus $Γ_pΛ_Z\sheaf F$ is in non-negative degrees if and only if $(Γ_Z\sheaf F)_p$ is in non-positive degrees.
-\end{proof}
-
-% Thm: the Lagrangian t-structure is indeed a t-structure
-
-\section{Agreement with perverse sheaves}
-\fi
-
-\begin{Lem}
-    \label{lem:supportAndLocalCohomology}%
+    \label{lem:supportAndLocalCohomology-}%
     Let $\sheaf F ∈ \catCoh{X^G}$ be a $G$-equivariant coherent sheaf on $X$ and let $n$ be an integer.
     Then the following are equivalent:
     \begin{enumerate}
@@ -197,25 +148,9 @@ TODO: Existence of measuring pairs.% (and transversal pairs of measuring pairs).
     By the Grothendieck non-vanishing theorem \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology} this is non-zero\footnote{Do I need to argue that $Γ(X,\sheaf F)_{\ideal p} \ne 0$? It must be true for at least one $Z$, so just pick one that lies in the open orbit?}, and hence $Γ(X,H^d(Γ_Z \sheaf F)) \ne 0$, contradicting the assumption.
 \end{proof}
 
-\iffalse
-\begin{Thm}
-    Let $\sheaf F ∈ D_c^b(X^G)$. 
-    Then the following are equivalent:
-    \begin{enumerate}
-        \item $\sheaf F ∈ \perv[m] D^{≤0}(X)$, i.e.\ $i_U^*\sheaf F ∈ D^{≤-\frac12 \dim U}(\catAbSheaves U)$;
-        \item $\dim \left( \supp H^{-n}(\sheaf F) \right) ≤ 2n$ for all $n$;
-        \item $\sheaf F ∈ \perv[L] D^{≤0}(X)$, i.e.\ $Γ_Z(\sheaf F) ∈ D^{≤0}(X)$.
-    \end{enumerate}
-    Consequently, $\perv[L] D^{≤0}(X) = \perv[m] D^{≤0}(X)$ and $\perv[L] D^{≥0}(X) = \perv[m] D^{≥0}(X)$.
-\end{Thm}
-
-The equivalence between (i) and (ii) is implicit in the definitions of the perverse t-structure given by Deligne and Arinkin--Bezrukavnikov \cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves,Bezrukavnikov:arXiv:PerverseCoherentSheaves} on the one hand and Kashiwara \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} on the other.
-However, I don't know any reference for this equivalence in the literature, so we will give a proof here.
-\fi
-
 \begin{Thm}
     Let $\sheaf F ∈ D_c^b(X^G)$.
-    Then $\sheaf F$ is perverse with respect to the middle perversity if and only if $Γ_Z\sheaf F$ is cohomologically concentrated in degree $0$ for each measuring subvariety $Z$.
+    Then $\sheaf F$ is perverse with respect to the middle perversity if and only if\/ $Γ_Z\sheaf F$ is cohomologically concentrated in degree $0$ for each measuring subvariety $Z$.
     More precisely,
     \begin{enumerate}
         \item $\perv[m] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : Γ_Z\sheaf F ∈ D^{≤0}(X) \text{ for all measuring subvarieties $Z$}\}$;
@@ -250,31 +185,36 @@ However, I don't know any reference for this equivalence in the literature, so w
         \cdots.
     \end{multline*}
     By induction, $H^\ell(Γ_Z(τ_{≤ k-1} \sheaf F))$ vanishes for $\ell ≥ 1$ so that $H^\ell(Γ_Z\sheaf F) \cong H^{k+\ell}(Γ_Z(H^k(\sheaf F)))$ for $\ell ≥ 1$.
-    Thus the statement follows from Lemma~\ref{lem:supportAndLocalCohomology}.
+    Thus the statement follows from Lemma~\ref{lem:supportAndLocalCohomology-}.
 \item 
-    TODO
+    By Proposition~\ref{prop:equivDeligneKashiwara} and Lemma~\ref{lem:supportAndLocalCohomology+}, $\sheaf F ∈ \perv[m] D^{≥0}$ if and only if
+    \begin{equation}
+        \label{eq:main:+supp1}%
+        \dim\left( \bar x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ \frac12\dim x - k \qquad \text{ for all $x ∈ X^{\mathrm{top}}$ and all $k$}.
+    \end{equation}
+    Using Lemma~\ref{lem:supportAndLocalCohomology+} for $Γ_Z\sheaf F ∈ D^{≥0}(X)$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with
+    \begin{equation}
+        \label{eq:main:+supp2}%
+        \dim\left( Z ∩ \bar x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k \qquad \text{ for all $x ∈ X^{\mathrm{top}}$, all $k$ and all measuring $Z$}.
+    \end{equation}
+    Fix a $k$.
+    Let us first show the implication from \eqref{eq:main:+supp1} to \eqref{eq:main:+supp2}.
+    Since $H^k(\dualize \sheaf F)$ is $G$-equivariant, it suffices to show \eqref{eq:main:+supp2} assuming that $\overline x ⊆ \supp H^k(\dualize F)$.
+    But then $\overline x ∩ \supp\left( H^k(\dualize F) \right) = \overline x$ and $Z ∩ \bar x ∩ \supp\left( H^k(\dualize F) \right) = Z ∩ \overline x$ and $\dim(Z ∩ \overline x) = \frac 12 \dim x$, yielding the implication.
+
+    Conversely, assume that \eqref{eq:main:+supp2} holds.
+    If $\overline x ⊆ \supp H^k(\dualize F)$, then the exact same argument as before shows that \eqref{eq:main:+supp1} holds for $x$.
+    Otherwise $\overline x ∩ \supp\left( H^k(\dualize F) \right) = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$.
+    Then \eqref{eq:main:+supp1} holds for $y$ and hence
+    \[
+    \dim\left( \bar x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤
+    \frac12\dim y - k <
+    \frac12\dim x - k.
+    \qedhere
+    \]
 \end{enumerate}
 \end{proof}
 
-\iffalse
-\section{A simple description of perverse sheaves}
-
-\begin{Claim}
-    If $(p,Z)$ and $(p,Z')$ are two transversal measuring pairs and $\sheaf F ∈ D_c^b(X)$, then ${\mathbb ι_p}_*{\mathbb ι}_p^*Γ_Z \sheaf F \cong Γ_pΛ_Z \sheaf F$\footnote{Or some similar statement.}.
-\end{Claim}
-(\cite{AlonsoJeremiasLipman:1999:DualityAndFlatBaseChangeOnFormalSchemes} will probably be useful here.)
-
-
-\begin{Cor}
-    Let $\sheaf F ∈ D^b_c(X^G)$.
-    Then the following are equivalent:
-    \begin{enumerate}
-        \item $\sheaf F$ is perverse;
-        \item $Γ_Z \sheaf F$ is concentrated in degree $0$ for all measuring subvarieties $Z$;
-        \item $Γ_pΛ_Z \sheaf F$ is concentrated in degree $0$ for all measuring pairs $(p,Z)$;
-    \end{enumerate}
-\end{Cor}
-\fi
 \printbibliography
 
 \end{document}
