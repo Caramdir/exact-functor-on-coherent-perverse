@@ -9,6 +9,7 @@
 %\bibliography{global.bib}
 
 \newcommand\dualize{\mathbb D}
+\newcommand\lc[1]{\Gamma_{\mkern-3mu#1}}
 
 \begin{document}
 
@@ -30,16 +31,16 @@ As usual, $D^b(X)$ (etc.) will be the full subcategory of $D(X)$ consisting of c
 All functors will be derived, though we will usually drop the $R$ or $L$.
 
 Let $Z$ be a closed subset of $X$, and $\sheaf I$ an ideal sheaf of $\O_X$ such that $Z = \supp(\rquot{\O_X}{\sheaf I})$.
-For an $\O_X$-module $\sheaf F$ we let $Γ_Z\sheaf F$ be subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
+For an $\O_X$-module $\sheaf F$ we let $\lc Z\sheaf F$ be subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 %If $\sheaf F$ is quasi-coherent, then by \cite[Theorem~V.4.1]{Hartshorne:1966:ResiduesAndDuality} we have
 %\[
-%Γ_Z\sheaf F = \varinjlim_n \sheafHom_{\O_X}(\rquot{\O_X}{\sheaf I^n}, \sheaf F).
+%\lc Z\sheaf F = \varinjlim_n \sheafHom_{\O_X}(\rquot{\O_X}{\sheaf I^n}, \sheaf F).
 %\]
-By abuse of notation, we will usually simply write $Γ_Z$ for the right-derived functor $RΓ_Z\colon D(X) → D(X)$.
+By abuse of notation, we will usually simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D(X) → D(X)$.
 
 Let $x$ be a (not necessarily closed) point of $x$ and $\sheaf F ∈ D^b(X)$.
 Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ will denote the (derived) functor of talking stalks.
-We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*Γ_{\overline x}$.
+We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$.
 
 We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see \cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized.
 For $\sheaf F ∈ D(X)$ (or $D(X^G)$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
@@ -85,7 +86,7 @@ So we will prove it in the following proposition:
         \perv D^{≤0}(X) & = 
         \{ \sheaf F ∈ D_c^b(X^G) : p(\dim \supp H^{k}(\sheaf F)) ≥ k \text{ for all $k$}\}; \\
         \perv D^{≥0}(X) & = 
-        \{ \sheaf F ∈ D_c^b(X^G) : Γ_{\overline x}\sheaf F ∈ D^{≥p(x)}(X) \text{ for all $x ∈ X^{\mathrm{top}}$}\}.
+        \{ \sheaf F ∈ D_c^b(X^G) : \lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X) \text{ for all $x ∈ X^{\mathrm{top}}$}\}.
     \end{align*}
 \end{Prop}
 
@@ -101,12 +102,12 @@ So we will prove it in the following proposition:
 
     Now assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
     We proceed by induction on $\dim x$.
-    If $\dim x = 0$, then $\mathbf ι_x^!\sheaf F = Γ(X,Γ_{\overline x})$ and thus $Γ_{\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ by assumption.
+    If $\dim x = 0$, then $\mathbf ι_x^!\sheaf F = Γ(X,\lc {\overline x})$ and thus $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ by assumption.
     For the induction step there are two cases:
-    If $\supp Γ_{\overline x} = \overline x$, then $H^k(\mathbf ι_x^!\sheaf F) = H^k(\mathbf ι_x^*Γ_{\overline x} \sheaf F)$ vanishes if and only if $H^k(Γ_{\overline x})$ vanishes and we are done.
-    If $\supp Γ_{\overline x} ⊆ \overline x$ then the implication follows by induction and monotonicity of the perversity.
+    If $\supp \lc {\overline x} = \overline x$, then $H^k(\mathbf ι_x^!\sheaf F) = H^k(\mathbf ι_x^*\lc {\overline x} \sheaf F)$ vanishes if and only if $H^k(\lc {\overline x})$ vanishes and we are done.
+    If $\supp \lc {\overline x} ⊆ \overline x$ then the implication follows by induction and monotonicity of the perversity.
 
-    The last implication follows directly from the relation $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*Γ_{\overline x} \sheaf F$.
+    The last implication follows directly from the relation $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x} \sheaf F$.
 \end{proof}
 
 We need to show that several results from \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} hold in the non-regular case, with $\sheafHom(-,\O_X)$ replaced by $\dualize_X(-)$.
@@ -135,7 +136,7 @@ Our main theorem will easily follow from the next two lemmas.
     Then the following are equivalent:
     \begin{enumerate}
         \item $\dim \supp \sheaf F ≤ 2n$;
-        \item $H^\ell(Γ_Z\sheaf F) = 0$ for all $\ell ≥ n+1$ and all measuring subvarieties $Z$.
+        \item $H^\ell(\lc Z\sheaf F) = 0$ for all $\ell ≥ n+1$ and all measuring subvarieties $Z$.
     \end{enumerate}
 \end{Lem}
 
@@ -155,29 +156,29 @@ Our main theorem will easily follow from the next two lemmas.
     0 → \sheaf G → \sheaf F → {ι_Y}_* {ι_Y}^* \sheaf F → 0
     \]
     in $\catCoh{X^G}$.
-    By induction, $H^\ell(Γ_Z{ι_Y}_* {ι_Y}^*\sheaf F) = 0$ for all $\ell > n-1$.
-    So we only need to show that $H^\ell(Γ_Z\sheaf G) = 0$ for all $\ell > n$.
-    Since $\sheaf G$ is supported on the open set $U$, we can restrict to $U$ and compute $Γ_{Z∩U}\res{\sheaf G}U$.
+    By induction, $H^\ell(\lc Z{ι_Y}_* {ι_Y}^*\sheaf F) = 0$ for all $\ell > n-1$.
+    So we only need to show that $H^\ell(\lc Z\sheaf G) = 0$ for all $\ell > n$.
+    Since $\sheaf G$ is supported on the open set $U$, we can restrict to $U$ and compute $\lc {Z∩U}\res{\sheaf G}U$.
     As $\sheaf G$ is a coherent $G$-equivariant sheaf on the smooth variety $U$, it is locally free\footnote{Reference?}.
-    Thus\footnote{Add reference or lemma.} $H^\ell(Γ_{Z∩U}\res{\sheaf G}U) = 0$ for $\ell > n = \codim_ZU$, as required.
+    Thus\footnote{Add reference or lemma.} $H^\ell(\lc {Z∩U}\res{\sheaf G}U) = 0$ for $\ell > n = \codim_ZU$, as required.
 
-    Now assume conversely that $H^\ell(Γ_Z\sheaf F) = 0$ for all $\ell ≥ n+1$ and all measuring subvarieties $Z$.
+    Now assume conversely that $H^\ell(\lc Z\sheaf F) = 0$ for all $\ell ≥ n+1$ and all measuring subvarieties $Z$.
     We have to show that $\dim \supp \sheaf F ≤ 2n$.
     Assume that this is not true, so that $d = \dim Z = \frac12 \dim \supp \sheaf F ≥ n+1$.
     We can assume that $X$ is affine and write $X = \Spec A$.\footnote{There should be a reference for local cohomology of schemes where this assumption is not necessary.} 
     By flat base change,
     \[
-    Γ(X,H^d(Γ_Z \sheaf F))_{\ideal p} = 
+    Γ(X,H^d(\lc Z \sheaf F))_{\ideal p} = 
     \left(H_{\ideal p}^d(Γ(X,\sheaf F))\right)_{\ideal p} =
     H_{\ideal p_{\ideal p}}^d(Γ(X,\sheaf F)_{\ideal p})
     \]
-    By the Grothendieck non-vanishing theorem \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology} this is non-zero\footnote{Do I need to argue that $Γ(X,\sheaf F)_{\ideal p} \ne 0$? It must be true for at least one $Z$, so just pick one that lies in the open orbit?}, and hence $Γ(X,H^d(Γ_Z \sheaf F)) \ne 0$, contradicting the assumption.
+    By the Grothendieck non-vanishing theorem \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology} this is non-zero\footnote{Do I need to argue that $Γ(X,\sheaf F)_{\ideal p} \ne 0$? It must be true for at least one $Z$, so just pick one that lies in the open orbit?}, and hence $Γ(X,H^d(\lc Z \sheaf F)) \ne 0$, contradicting the assumption.
 \end{proof}
 
 \begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
     \label{lem:supportAndLocalCohomology+}%
     Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$ and $n$ an integer.
-    Then $Γ_Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $-\dim(Z∩\supp(H^k(\dualize \sheaf F))) ≥ k + n$ for all $k$.
+    Then $\lc Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $-\dim(Z∩\supp(H^k(\dualize \sheaf F))) ≥ k + n$ for all $k$.
 \end{Lem}
 
 \begin{proof}
@@ -186,11 +187,11 @@ Our main theorem will easily follow from the next two lemmas.
 
 \begin{Thm}
     Let $\sheaf F ∈ D_c^b(X^G)$.
-    Then $\sheaf F$ is perverse with respect to the middle perversity if and only if\/ $Γ_Z\sheaf F$ is cohomologically concentrated in degree $0$ for each measuring subvariety $Z$.
+    Then $\sheaf F$ is perverse with respect to the middle perversity if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each measuring subvariety $Z$.
     More precisely,
     \begin{enumerate}
-        \item $\perv[m] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : Γ_Z\sheaf F ∈ D^{≤0}(X) \text{ for all measuring subvarieties $Z$}\}$;
-        \item $\perv[m] D^{≥0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : Γ_Z\sheaf F ∈ D^{≥0}(X) \text{ for all measuring subvarieties $Z$}\}$.
+        \item $\perv[m] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all measuring subvarieties $Z$}\}$;
+        \item $\perv[m] D^{≥0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all measuring subvarieties $Z$}\}$.
     \end{enumerate}
 \end{Thm}
 
@@ -202,25 +203,25 @@ Our main theorem will easily follow from the next two lemmas.
     \[
     \perv[m] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \dim\left( \supp H^{-n}(\sheaf F) \right) ≤ 2n \text{ for all $n$}\}.
     \]
-    We will use induction on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv[m]D^{≤0}$ if and only if $Γ_Z\sheaf F ∈ D^{≤0}(X)$ for all measuring subvarieties $Z$.
+    We will use induction on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv[m]D^{≤0}$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all measuring subvarieties $Z$.
 
     The equivalence is trivial for $k \ll 0$.
     For the induction step note that there is a distinguished triangle
     \[
     τ_{≤ k-1} \sheaf F → \sheaf F → H^k(\sheaf F)[-k] \xrightarrow{+1}.
     \]
-    Applying the functor $Γ_Z$ and taking cohomology we obtain 
+    Applying the functor $\lc Z$ and taking cohomology we obtain 
     \begin{multline*}
         \cdots →
-        H¹(Γ_Z(τ_{≤ k-1} \sheaf F)) →
-        H¹(Γ_Z\sheaf F) →
-        H^{k+1}(Γ_Z(H^k(\sheaf F))) → \\
-        H²(Γ_Z(τ_{≤ k-1} \sheaf F)) →
-        H²(Γ_Z\sheaf F) →
-        H^{k+2}(Γ_Z(H^k(\sheaf F))) →
+        H¹(\lc Z(τ_{≤ k-1} \sheaf F)) →
+        H¹(\lc Z\sheaf F) →
+        H^{k+1}(\lc Z(H^k(\sheaf F))) → \\
+        H²(\lc Z(τ_{≤ k-1} \sheaf F)) →
+        H²(\lc Z\sheaf F) →
+        H^{k+2}(\lc Z(H^k(\sheaf F))) →
         \cdots.
     \end{multline*}
-    By induction, $H^\ell(Γ_Z(τ_{≤ k-1} \sheaf F))$ vanishes for $\ell ≥ 1$ so that $H^\ell(Γ_Z\sheaf F) \cong H^{k+\ell}(Γ_Z(H^k(\sheaf F)))$ for $\ell ≥ 1$.
+    By induction, $H^\ell(\lc Z(τ_{≤ k-1} \sheaf F))$ vanishes for $\ell ≥ 1$ so that $H^\ell(\lc Z\sheaf F) \cong H^{k+\ell}(\lc Z(H^k(\sheaf F)))$ for $\ell ≥ 1$.
     Thus the statement follows from Lemma~\ref{lem:supportAndLocalCohomology-}.
 \item 
     By Proposition~\ref{prop:equivDeligneKashiwara} and Lemma~\ref{lem:supportAndLocalCohomology+}, $\sheaf F ∈ \perv[m] D^{≥0}$ if and only if
@@ -228,7 +229,7 @@ Our main theorem will easily follow from the next two lemmas.
         \label{eq:main:+supp1}%
         \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ \frac12\dim x - k \qquad \text{ for all $x ∈ X^{\mathrm{top}}$ and all $k$}.
     \end{equation}
-    Using Lemma~\ref{lem:supportAndLocalCohomology+} for $Γ_Z\sheaf F ∈ D^{≥0}(X)$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with
+    Using Lemma~\ref{lem:supportAndLocalCohomology+} for $\lc Z\sheaf F ∈ D^{≥0}(X)$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with
     \begin{equation}
         \label{eq:main:+supp2}%
         \dim\left( Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k \qquad \text{ for all $x ∈ X^{\mathrm{top}}$, all $k$ and all measuring $Z$}.
