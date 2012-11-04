@@ -21,8 +21,7 @@
 Let $X$ be a complex\footnote{This assumption is probably not necessary.} algebraic variety.
 We write $\O = \O_X$ for the structure sheaf of $X$.
 Let $G$ be a complex algebraic group acting on $X$.
-Except in Section~\ref{sec:Kashiwara}, we will assume that the $G$-action has finitely many orbits, and all orbits are even-dimensional.
-If $U_{2n}$ is the union of all $2n$-dimensional orbits, then we assume that $\bigcup_{n < k} U_{2n}$ is always closed\footnote{Is this always true? Is there a simple condition for this to be true?}.
+For the moment we include the possibility of the action being trivial.
 We write $X^{\mathrm{top}}$ for the subset of the topological space of $X$ consisting of generic points of $G$-invariant subschemes.
 
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
@@ -30,7 +29,7 @@ The corresponding categories for $G$-equivariant sheaves (i.e.\ the categories f
 As usual, $D^b(X)$ (etc.) will be the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
 All functors will be derived, though we will usually drop the $R$ or $L$.
 
-Let $Z$ be a closed subset of $X$, and $\sheaf I$ an ideal sheaf of $\O_X$ such that $Z = \supp(\rquot{\O_X}{\sheaf I})$.
+Let $Z$ be a closed subset of $X$.
 For an $\O_X$-module $\sheaf F$ we let $\lc Z\sheaf F$ be subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 %If $\sheaf F$ is quasi-coherent, then by \cite[Theorem~V.4.1]{Hartshorne:1966:ResiduesAndDuality} we have
 %\[
@@ -40,38 +39,32 @@ By abuse of notation, we will usually simply write $\lc Z$ for the right-derived
 
 Let $x$ be a (not necessarily closed) point of $x$ and $\sheaf F ∈ D^b(X)$.
 Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ will denote the (derived) functor of talking stalks.
-We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$.
+We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\cite[Varition~8 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 
 We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see \cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized.
 For $\sheaf F ∈ D(X)$ (or $D(X^G)$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
-Then we have
+Then,
 \begin{itemize}
-    \item $\dualize\colon D^b_{c}(X) → D^b_c(X)$ (resp.~$\dualize\colon D^b(X^G) → D^b(X^G)$).
-    \item For $\sheaf F ∈ D^b_c(X)$ (or $D^b_c(X^G)$), the natural morphism $\sheaf F → \dualize\dualize F$ is an isomorphism.
-    \item For $x ∈ X$, $\mathbf ι_x^!(\sheaf R)$ is concentrated in $-\dim x$ (where $\dim x = \dim\overline x$), see \cite[Section~3.1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+    \item the functor $\dualize$ takes $D^b_{c}(X)$ to $D^b_c(X)$ (resp.~$D_c^b(X^G)$ to $D_c^b(X^G)$);
+    \item for $\sheaf F ∈ D^b_c(X)$ (or $D^b_c(X^G)$), the natural morphism $\sheaf F → \dualize\dualize F$ is an isomorphism;
+    \item for $x ∈ X$, $\mathbf ι_x^!(\sheaf R)$ is concentrated in $-\dim x$ (where $\dim x \coloneq \dim\overline x$).
 \end{itemize}
 
-Recall that Bezrukavnikov defined a t-structure on $D_c^b(X^G)$ in the following way.
-Let $p\colon X^{\mathrm{top}} → ℤ$ be a function, called $\emph{perversity}$.
+Recall that Bezrukavnikov defines a t-structure on $D_c^b(X^G)$ in the following way.
+Let $p\colon X^{\mathrm{top}} → ℤ$ be a function, called perversity.
 We assume that $p$ is monotone (i.e.\ if $x' ∈ \overline x$, then $p(x') ≥ p(x)$) and comonotone (i.e.\ $\overline p(x) = -\dim x - p(x)$ is monotone).
-Then the two full subcategories of $D_c^b(X^G)$ by 
+Then the two full subcategories of $D_c^b(X^G)$ defined by 
 \begin{align*}
     \perv[p] D^{≤0}(X) & = 
     \{ \sheaf F ∈ D_c^b(X^G) : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}, \\
     \perv[p] D^{≥0}(X) & = 
     \{ \sheaf F ∈ D_c^b(X^G) : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}
 \end{align*}
-defines a t-structure on $D_c^b(X^G)$.
+give a t-structure on $D_c^b(X^G)$.
 The heart of this t-structure is called the category of perverse sheaves (with respect to the perversity $p$).
-
-Our goal is to give a new description of the category of perverse sheaves with respect to the middle perversity $m$ defined by $m(x) = -\frac12 \dim x$.
-Note that $m = \overline m$ and hence $\dualize \perv[m] D^{≤0}(X) = \perv[m] D^{≥0}(X)$ \cite[Lemma~5(a)]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
 
 \section{Kashiwara's definition}
 \label{sec:Kashiwara}%
-
-For this section we do not assume that the $G$-action has finitely many even-dimensional orbits.
-In particular the action may be trivial (this case is used in the proof of Lemma~\ref{lem:supportAndLocalCohomology+}.
 
 In \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gave a definition of a perverse t-structure on $D^b_{coh}(X)$.
 The two definitions match (up to a shift by $\dim X$), but there doesn't seem to be a reference for this is the literature.
@@ -91,9 +84,9 @@ So we will prove it in the following proposition:
 \end{Prop}
 
 \begin{proof}
-    First assume that $\sheaf F ∈ \perv D^{≤0}(X)$ and assume that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
+    First let $\sheaf F ∈ \perv D^{≤0}(X)$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
     Let $x$ be the generic point of an irreducible component of $\supp H^{k}(\sheaf F)$.
-    Then $\dim x = \supp H^{k}(\sheaf F)$ and $H^k(\mathbf ι_x^* \sheaf) \ne 0$.
+    Then $\dim x = \dim \supp H^{k}(\sheaf F)$ and $H^k(\mathbf ι_x^* \sheaf F) \ne 0$.
     But $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$, a contradiction.
 
     Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$ and let $x ∈ X^{\mathrm{top}}$.
@@ -104,23 +97,29 @@ So we will prove it in the following proposition:
     We proceed by induction on $\dim x$.
     If $\dim x = 0$, then $\mathbf ι_x^!\sheaf F = Γ(X,\lc {\overline x})$ and thus $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ by assumption.
     For the induction step there are two cases:
-    If $\supp \lc {\overline x} = \overline x$, then $H^k(\mathbf ι_x^!\sheaf F) = H^k(\mathbf ι_x^*\lc {\overline x} \sheaf F)$ vanishes if and only if $H^k(\lc {\overline x})$ vanishes and we are done.
-    If $\supp \lc {\overline x} ⊆ \overline x$ then the implication follows by induction and monotonicity of the perversity.
+    If $\supp \lc {\overline x} \sheaf F = \overline x$, then $H^k(\mathbf ι_x^!\sheaf F) = H^k(\mathbf ι_x^*\lc {\overline x} \sheaf F)$ vanishes if and only if $H^k(\lc {\overline x})$ vanishes and we are done.
+    If $\supp \lc {\overline x} \sheaf F ⊆ \overline x$ then the implication follows by induction and monotonicity of the perversity.
 
     The last implication follows directly from the relation $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x} \sheaf F$.
 \end{proof}
 
-We need to show that several results from \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} hold in the non-regular case, with $\sheafHom(-,\O_X)$ replaced by $\dualize_X(-)$.
-
-Combining the proposition with \cite[Lemma~5]{Bezrukavnikov:arXiv:PerverseCoherentSheaves} we obtain the following corollary as an immediate consequence.
-
-\begin{Cor}[{\cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
+\begin{Prop}[{\cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
     \label{cor:dualStandard}
     The dualizing functor $\dualize_X$ sends the standard t-structure on $D_c^b(X^G)$ to the one associated to the perversity $p(x) = -\dim x$.
-\end{Cor}
+\end{Prop}
 
+\begin{proof}
+    The standard t-structure is given by the constant perversity $p(x) = 0$.
+    Thus the statement follows immediately from $\dualize \perv[p] D^{≤0}(X) = \perv[\overline p] D^{≥0}(X)$ \cite[Lemma~5]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+\end{proof}
 
 \section{Measuring subvarieties}
+
+From now on we will assume that the $G$-action has finitely many orbits, and all orbits are even-dimensional.
+If $U_{2n}$ is the union of all $2n$-dimensional orbits, then we assume that $\bigcup_{n < k} U_{2n}$ is always closed\footnote{Is this always true? Is there a simple condition for this to be true?}.
+
+Our goal is to give a new description of the category of perverse sheaves with respect to the middle perversity $m$ defined by $m(x) = -\frac12 \dim x$.
+Note that $m = \overline m$ and hence $\dualize \perv[m] D^{≤0}(X) = \perv[m] D^{≥0}(X)$ \cite[Lemma~5(a)]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
 
 \begin{Def}
     A \emph{measuring subvariety} of $X$ is an irreducible subvariety $Z$ of $X$ such that $\dim(U ∩ Z) = \frac12 \dim U$ for each $G$-orbit $U$ with $U ∩ Z \ne \emptyset$.
@@ -227,12 +226,12 @@ Our main theorem will easily follow from the next two lemmas.
     By Proposition~\ref{prop:equivDeligneKashiwara} and Lemma~\ref{lem:supportAndLocalCohomology+}, $\sheaf F ∈ \perv[m] D^{≥0}$ if and only if
     \begin{equation}
         \label{eq:main:+supp1}%
-        \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ \frac12\dim x - k \qquad \text{ for all $x ∈ X^{\mathrm{top}}$ and all $k$}.
+        \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ \frac12\dim x - k \quad \text{ for all $x ∈ X^{\mathrm{top}}$ and all $k$}.
     \end{equation}
     Using Lemma~\ref{lem:supportAndLocalCohomology+} for $\lc Z\sheaf F ∈ D^{≥0}(X)$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with
     \begin{equation}
         \label{eq:main:+supp2}%
-        \dim\left( Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k \qquad \text{ for all $x ∈ X^{\mathrm{top}}$, all $k$ and all measuring $Z$}.
+        \dim\left( Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k \quad \text{ for all $x ∈ X^{\mathrm{top}}$, $k$ and measuring $Z$}.
     \end{equation}
     Fix a $k$.
     Let us first show the implication from \eqref{eq:main:+supp1} to \eqref{eq:main:+supp2}.
