@@ -50,7 +50,7 @@ Then,
     \item for $x ∈ X$, $\mathbf ι_x^!(\sheaf R)$ is concentrated in $-\dim x$ (where $\dim x \coloneq \dim\overline x$).
 \end{itemize}
 
-Recall that Bezrukavnikov defines a t-structure on $D_c^b(X^G)$ in the following way.
+Recall that Bezrukavnikov defines a t-structure on $D_c^b(X^G)$ in the following way \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}.
 Let $p\colon X^{\mathrm{top}} → ℤ$ be a function, called perversity.
 We assume that $p$ is monotone (i.e.\ if $x' ∈ \overline x$, then $p(x') ≥ p(x)$) and comonotone (i.e.\ $\overline p(x) = -\dim x - p(x)$ is monotone).
 Then the two full subcategories of $D_c^b(X^G)$ defined by 
@@ -122,10 +122,10 @@ Our goal is to give a new description of the category of perverse sheaves with r
 Note that $m = \overline m$ and hence $\dualize \perv[m] D^{≤0}(X) = \perv[m] D^{≥0}(X)$ \cite[Lemma~5(a)]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
 
 \begin{Def}
-    A \emph{measuring subvariety} of $X$ is an irreducible subvariety $Z$ of $X$ such that $\dim(U ∩ Z) = \frac12 \dim U$ for each $G$-orbit $U$ with $U ∩ Z \ne \emptyset$.
+    A \emph{measuring subvariety} of $X$ is an irreducible smooth subvariety $Z$ of $X$ such that $\dim(\overline x ∩ Z) = \frac12 \dim x$ for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$.
 \end{Def}
 
-TODO: Existence of measuring subvarieties.% (and transversal pairs of measuring pairs).
+TODO: Existence of measuring subvarieties.
 
 Our main theorem will easily follow from the next two lemmas.
 
@@ -158,8 +158,8 @@ Our main theorem will easily follow from the next two lemmas.
     By induction, $H^\ell(\lc Z{ι_Y}_* {ι_Y}^*\sheaf F) = 0$ for all $\ell > n-1$.
     So we only need to show that $H^\ell(\lc Z\sheaf G) = 0$ for all $\ell > n$.
     Since $\sheaf G$ is supported on the open set $U$, we can restrict to $U$ and compute $\lc {Z∩U}\res{\sheaf G}U$.
-    As $\sheaf G$ is a coherent $G$-equivariant sheaf on the smooth variety $U$, it is locally free\footnote{Reference?}.
-    Thus\footnote{Add reference or lemma.} $H^\ell(\lc {Z∩U}\res{\sheaf G}U) = 0$ for $\ell > n = \codim_ZU$, as required.
+    By regularity, $Z∩U$ is (locally) defined by $\codim_{Z∩U} U$ equations\footnote{Reference?}.
+    Thus \cite[Theorem~3.3.1]{BrodmannSharp:1998:LocalCohomology} says that $H^\ell(\lc {Z∩U}\res{\sheaf G}U) = 0$ for $\ell > n = \codim_ZU$, as required.
 
     Now assume conversely that $H^\ell(\lc Z\sheaf F) = 0$ for all $\ell ≥ n+1$ and all measuring subvarieties $Z$.
     We have to show that $\dim \supp \sheaf F ≤ 2n$.
@@ -171,7 +171,10 @@ Our main theorem will easily follow from the next two lemmas.
     \left(H_{\ideal p}^d(Γ(X,\sheaf F))\right)_{\ideal p} =
     H_{\ideal p_{\ideal p}}^d(Γ(X,\sheaf F)_{\ideal p})
     \]
-    By the Grothendieck non-vanishing theorem \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology} this is non-zero\footnote{Do I need to argue that $Γ(X,\sheaf F)_{\ideal p} \ne 0$? It must be true for at least one $Z$, so just pick one that lies in the open orbit?}, and hence $Γ(X,H^d(\lc Z \sheaf F)) \ne 0$, contradicting the assumption.
+    By the Grothendieck non-vanishing theorem
+    %\cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
+    \cite[Théorème V.3.1]{SGA2}
+    this is non-zero\footnote{Do I need to argue that $Γ(X,\sheaf F)_{\ideal p} \ne 0$? It must be true for at least one $Z$, so just pick one that lies in the open orbit?}, and hence $Γ(X,H^d(\lc Z \sheaf F)) \ne 0$, contradicting the assumption.
 \end{proof}
 
 \begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
