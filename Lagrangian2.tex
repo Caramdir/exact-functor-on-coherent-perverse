@@ -254,6 +254,24 @@ Our main theorem will easily follow from the next two lemmas.
 \end{enumerate}
 \end{proof}
 
+\section{For a general perversity}
+
+\begin{Def}
+    Let $p$ be a perversity.
+    A \emph{$p$-measuring subvariety} of $X$ is an irreducible smooth subvariety $Z$ of $X$ such that $\dim(\overline x ∩ Z) = p(x) + \dim x$ for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$.
+\end{Def}
+
+\begin{Conjecture}
+    Let $p$ be a perversity on $X$ such that $p(x)$ depends only on $\dim x$.
+    Assume that for each $x ∈ X^{\mathrm{top}}$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ \overline x \ne 0$.
+    Then $\sheaf F ∈ D_c^b(X^G)$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
+    More precisely,
+    \begin{enumerate}
+        \item $\perv[p] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$;
+        \item $\perv[p] D^{≥0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$.
+    \end{enumerate}
+\end{Conjecture}
+
 \printbibliography
 
 \end{document}
