@@ -119,16 +119,31 @@ If $U_{n}$ is the union of all $n$-dimensional orbits, then we assume that $\big
 
 \begin{Def}
     Let $p$ be a perversity.
-    A \emph{$p$-measuring subvariety} of $X$ is an irreducible smooth subvariety $Z$ of $X$ such that $\dim(\overline x ∩ Z) = p(x) + \dim x$ for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$.
+    A \emph{$p$-measuring subvariety} of $X$ is an irreducible smooth\footnote{Actually it should suffice that the intersection of $Z$ with each orbit is smooth. This should make it easier to show the existence of measuring subvarieties.} subvariety $Z$ of $X$ such that $\dim(\overline x ∩ Z) = p(x) + \dim x$ for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$.
 
     We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $x ∈ X^{\mathrm{top}}$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ \overline x \ne 0$.
 \end{Def}
 
-Note that comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
 
 \begin{Q}
     Under which conditions does $X$ have enough $p$-measuring subvarieties?
 \end{Q}
+
+\begin{Rem}
+    Let $Z$ be a $p$-measuring subvariety.
+    Then $\dim(\overline x ∩ Z) = -\overline p(x)$.
+    Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
+    Monotonicity of $p$ then further says that $\dim (\overline x ∩ Z) - \dim (\overline y ∩ Z) ≤ \dim x - \dim y$.
+    This makes it plausible that it should be possible to inductively construct $p$-measuring subvarieties.
+    
+    If the $G$-action has a fixed point, then clearly we need to insist on $p(0) = 0$.
+    By the monotonicity and comonotonicity of $p$ this is enough to have $\dim (\overline x ∩ Z) ≤ \dim x$ for all $x ∈ X^{\mathrm{top}}$.
+\end{Rem}
+
+\begin{Conjecture}
+    Let $p$ be a monotone and comonotone perversity such that $p(0) = 0$.
+    Then $X$ has enough $p$-measuring subvarieties.
+\end{Conjecture}
 
 Our main theorem will easily follow from the next two lemmas.
 
@@ -197,6 +212,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 \end{proof}
 
 \begin{Thm}
+    \label{thm:main}%
     Let $p$ be a monotone and comonotone perversity and assume that $X$ has enough $p$-measuring subvarieties.
     Let $\sheaf F ∈ D_c^b(X^G)$.
     Then $\sheaf F$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
@@ -279,6 +295,16 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     In interesting cases, it should be possible to obtain such subvarieties as Lagrangians for (the resolution of) a symplectic structure on $X$.
 \end{Ex}
 
+\begin{Ex}
+    If the perversity does not satisfy $-n ≤ p(n) ≤ 0$ (i.e.\ $0 ≤ \overline p(x) = \dim(Z∩\overline x) ≤ \dim x$), then we can sometimes still use Theorem~\ref{thm:main} by applying appropriate shifts.
+    For example, with the notation of \cite[Section~4]{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves},
+    \[
+    \mathcal{P}_{!*}(U) =
+    \mathcal P_{X,p^-} ∩ \mathcal P_{X,p^+} =
+    \mathcal P_{X,p^-+1}[-1] ∩ \mathcal P_{X,p^+-1}[1].
+    \qedhere
+    \]
+\end{Ex}
 \printbibliography
 
 \end{document}
