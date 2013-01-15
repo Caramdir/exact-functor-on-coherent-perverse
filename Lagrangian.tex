@@ -95,11 +95,29 @@ So we will prove it in the following proposition:
     Now assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
     We proceed by induction on $\dim x$.
     If $\dim x = 0$, then $\mathbf ι_x^!\sheaf F = Γ(X,\lc {\overline x})$ and thus $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ by assumption.
-    For the induction step there are two cases:
-    If $\supp \lc {\overline x} \sheaf F = \overline x$, then $H^k(\mathbf ι_x^!\sheaf F) = H^k(\mathbf ι_x^*\lc {\overline x} \sheaf F)$ vanishes if and only if $H^k(\lc {\overline x})$ vanishes and we are done.
-    If $\supp \lc {\overline x} \sheaf F ⊆ \overline x$ then the implication follows by induction and monotonicity of the perversity.
 
-    The last implication follows directly from the relation $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x} \sheaf F$.
+    Now assume that $\mathbf ι_x^* \lc {\overline x} \sheaf F ∈ D^{\ge p(x)}(\O_x)$.
+    Let $k$ be the smallest integer such that $H^k(\lc {\overline x}\sheaf F) \ne 0$.
+    Assume for contradiction that $k < p(x)$. 
+    Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
+    Then $Z \subsetneq \overline x$, as $ι_x^* H^k(\lc {\overline x}\sheaf F)$ vanishes.
+    Consider the distinguished triangle
+    \[
+        H^k(\lc {\overline x}\sheaf F)[-k] →
+        \lc {\overline x}\sheaf F →
+        τ^{>k}\lc {\overline x}\sheaf F \xrightarrow{+1},
+    \]
+    and apply $\lc Z$ to it:
+    \[
+        H^k(\lc {\overline x}\sheaf F)[-k] →
+        \lc Z \sheaf F →
+        τ^{>k}\lc {Z}\sheaf F \xrightarrow{+1}.
+    \]
+    Using induction, the Meyer-Vietoris sequence and monotonicity of the perversity function, we know that $\lc Y \sheaf F ∈ D^{\ge p(\dim Y)}(X)$ for all closed subvarieties $Y \subsetneq \overline x$.
+    In particular, $\lc Z \sheaf F$ is in degrees $\ge p(\dim Z) \ge p(x) > k$, as is $τ^{>k}\lc {Z}\sheaf F$.
+    Hence $H^k(\lc {\overline x}\sheaf F)$ has to vanish.
+
+    The reverse implication follows directly from the relation $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x} \sheaf F$.
 \end{proof}
 
 \begin{Prop}[{\cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
@@ -162,12 +180,14 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 
 \begin{proof}
     First we will show that (i) implies to (ii).
+    We will actually show that the implication is true in the larger category of quasi-coherent sheaves.
     We will do so by induction on $d = \dim\supp\sheaf F$.
     The statement is trivial for $d = 0$ as then $\lc Z\sheaf F = \sheaf F$ or vanishes.
 
     Since $\supp \sheaf F$ is always a union of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
     Let $U$ be the union of all $d$-dimensional orbits and let $Y$ be its complement.
     By assumption $U$ is open and $Y$ closed.
+    From adjunction, we get an injective morphism
     Give $Y$ the reduced subscheme structure.
     From adjunction we get a surjective morphism $φ\colon \sheaf F → {ι_Y}_* {ι_Y}^* \sheaf F$ (here ${ι_Y}_*$ and ${ι_Y}^*$ are the underived $\O$-module operations, sending coherent sheaves to coherent sheaves).
     Let $\sheaf G$ be the kernel of this map, so that we get a short exact sequence
