@@ -93,10 +93,14 @@ So we will prove it in the following proposition:
     Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)$.
 
     Now assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
-    We proceed by induction on $\dim x$.
+    We want to show that $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ X^{\mathrm{top}}$.
+    We will do so by induction on $\dim x$.
     If $\dim x = 0$, then $\mathbf ι_x^!\sheaf F = Γ(X,\lc {\overline x})$ and thus $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ by assumption.
 
-    Now assume that $\mathbf ι_x^* \lc {\overline x} \sheaf F ∈ D^{\ge p(x)}(\O_x)$.
+    Now assume that the statement is true for $\dim x \le d$, i.e.\ $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all such $x$.
+    In fact, using the Mayer-Vietoris sequence and monotonicity of the perversity function, we can actually assume that $\lc Y\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all closed subvarieties $Y \subseteq X$ with $\dim Y \le d$.
+
+    Let $x ∈ X^{\mathrm{top}}$ be of dimension $d+1$.
     Let $k$ be the smallest integer such that $H^k(\lc {\overline x}\sheaf F) \ne 0$.
     Assume for contradiction that $k < p(x)$. 
     Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
@@ -113,8 +117,7 @@ So we will prove it in the following proposition:
         \lc Z \sheaf F →
         τ^{>k}\lc {Z}\sheaf F \xrightarrow{+1}.
     \]
-    Using induction, the Meyer-Vietoris sequence and monotonicity of the perversity function, we know that $\lc Y \sheaf F ∈ D^{\ge p(\dim Y)}(X)$ for all closed subvarieties $Y \subsetneq \overline x$.
-    In particular, $\lc Z \sheaf F$ is in degrees $\ge p(\dim Z) \ge p(x) > k$, as is $τ^{>k}\lc {Z}\sheaf F$.
+    Since $\dim Z \le d$, we can use the induction hypothesis to deduce that $\lc Z \sheaf F$ is in degrees at least $p(\dim Z) \ge p(x) > k$, as is $τ^{>k}\lc {Z}\sheaf F$.
     Hence $H^k(\lc {\overline x}\sheaf F)$ has to vanish.
 
     The reverse implication follows directly from the relation $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x} \sheaf F$.
