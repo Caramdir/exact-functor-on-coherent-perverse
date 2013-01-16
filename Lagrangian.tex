@@ -66,7 +66,7 @@ Recall that Bezrukavnikov (following Deligne) \cite{Bezrukavnikov:arXiv:Perverse
 \end{align*}
 The heart of this t-structure is called the category of perverse sheaves (with respect to the perversity $p$).
 
-In \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{coh}(X)$.
+$0 ¿ \overline p(x) = \dim(Z¿\overline x) ¿ \dim x$In \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{coh}(X)$.
 The two definitions match (up to a shift by $\dim X$), but there doesn't seem to be a reference for this is the literature.
 So we will prove it in the following proposition:
 
@@ -137,15 +137,14 @@ If $U_{n}$ is the union of all $n$-dimensional orbits, then we assume that $\big
 
 \begin{Def}
     Let $p$ be a perversity.
-    A \emph{$p$-measuring subvariety} of $X$ is an irreducible smooth\footnote{Actually it should suffice that the intersection of $Z$ with each orbit is smooth. This should make it easier to show the existence of measuring subvarieties.} subvariety $Z$ of $X$ such that $\dim(\overline x ∩ Z) = p(x) + \dim x$ for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$.
+    A \emph{$p$-measuring subvariety} of $X$ is a subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
+    \begin{itemize}
+        \item $\dim(\overline x ∩ Z) = p(x) + \dim x$;
+        \item $\overline x ∩ Z$ is the underlying variety of a regularly embedded subscheme\footnote{I.e., up to radical it is locally defined by exactly $-p(x)$ functions.} in $\overline x$.
+    \end{itemize}
 
     We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $x ∈ X^{\mathrm{top}}$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ \overline x \ne 0$.
 \end{Def}
-
-
-\begin{Q}
-    Under which conditions does $X$ have enough $p$-measuring subvarieties?
-\end{Q}
 
 \begin{Rem}
     Let $Z$ be a $p$-measuring subvariety.
@@ -153,15 +152,10 @@ If $U_{n}$ is the union of all $n$-dimensional orbits, then we assume that $\big
     Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
     Monotonicity of $p$ then further says that $\dim (\overline x ∩ Z) - \dim (\overline y ∩ Z) ≤ \dim x - \dim y$.
     This makes it plausible that it should be possible to inductively construct $p$-measuring subvarieties.
-    
-    If the $G$-action has a fixed point, then clearly we need to insist on $p(0) = 0$.
-    By the monotonicity and comonotonicity of $p$ this is enough to have $\dim (\overline x ∩ Z) ≤ \dim x$ for all $x ∈ X^{\mathrm{top}}$.
+   
+    Clearly, we need to have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
+    We will show in Theorem~\ref{thm:existance} that this condition is actually sufficient, at least when $X$ is affine.
 \end{Rem}
-
-\begin{Conjecture}
-    Let $p$ be a monotone and comonotone perversity such that $p(0) = 0$.
-    Then $X$ has enough $p$-measuring subvarieties.
-\end{Conjecture}
 
 Our main theorem will easily follow from the next two lemmas.
 
@@ -179,36 +173,23 @@ Our main theorem will easily follow from the next two lemmas.
 Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the complex $R\lc Z\sheaf F$.
 
 \begin{proof}
-    First we will show that (i) implies to (ii).
-    We will actually show that the implication is true in the larger category of quasi-coherent sheaves.
-    We will do so by induction on $d = \dim\supp\sheaf F$.
-    The statement is trivial for $d = 0$ as then $\lc Z\sheaf F = \sheaf F$ or vanishes.
-
     Since $\supp \sheaf F$ is always a union of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
-    Let $U$ be the union of all $d$-dimensional orbits and let $Y$ be its complement.
-    By assumption $U$ is open and $Y$ closed.
-    From adjunction, we get an injective morphism
-    Give $Y$ the reduced subscheme structure.
-    From adjunction we get a surjective morphism $φ\colon \sheaf F → {ι_Y}_* {ι_Y}^* \sheaf F$ (here ${ι_Y}_*$ and ${ι_Y}^*$ are the underived $\O$-module operations, sending coherent sheaves to coherent sheaves).
-    Let $\sheaf G$ be the kernel of this map, so that we get a short exact sequence
-    \[
-    0 → \sheaf G → \sheaf F → {ι_Y}_* {ι_Y}^* \sheaf F → 0
-    \]
-    in $\catCoh{X^G}$.
-    Since $p$ is decreasing we have $p(\dim \supp {ι_Y}_* {ι_Y}^* \sheaf F) ≥ p(\dim \supp \sheaf F) ≥n$ so that $H^\ell(\lc Z{ι_Y}_* {ι_Y}^*\sheaf F) = 0$ for all $\ell ≥ -n+1$ by induction.
-    So we only need to show that $H^\ell(\lc Z\sheaf G) = 0$ for all $\ell ≥ -n + 1$.
-    Since $\sheaf G$ is supported on the open set $U$, we can restrict to $U$ and compute $\lc {Z∩U}\res{\sheaf G}U$.
-    By regularity, $Z∩U$ is (locally) defined by $-p(\dim U)$ equations\footnote{Reference?}.
-    Thus \cite[Theorem~3.3.1]{BrodmannSharp:1998:LocalCohomology} says that $H^\ell(\lc {Z∩U}\res{\sheaf G}U) = 0$ for $\ell > -p(\dim U)$ and hence in particular for all $\ell > -n$, as required.
+
+    First assume that $p(\dim \supp \sheaf F) = p(\dim X) ≥ n$.
+    This means that, up to radical, $Z$ can be locally defined by at most $-n$ equations.
+    Thus \cite[Theorem~3.3.1]{BrodmannSharp:1998:LocalCohomology} implies immediately that $H^\ell(\lc Z\sheaf F) = 0$ for $\ell > -n$. 
 
     Now assume conversely that $H^\ell(\lc Z\sheaf F) = 0$ for all $\ell ≥ -n+1$ and all measuring subvarieties $Z$.
     We have to show that $p(\dim \supp \sheaf F) ≥ n$.
     Assume that this is not true and set $d = \dim \supp \sheaf F$.
     Hence $p(d) \lneq n$.
-    As before, we can assume that $X = \supp \sheaf F$.
     Choose a $p$-measuring subvariety $Z$.
     Then $\codim_Z X = -p(d) ≥ -n + 1$.
-    We can assume that $X$ is affine and write $X = \Spec A$.\footnote{There should be a reference for local cohomology of schemes where this assumption is not necessary.} 
+    We want to show that $H^{H^{-p(d)}(\lc Z \sheaf F)} \ne 0$.
+    Take some affine subset $Y \subseteq X$ such that $Y \cap Z$ is irreducible in $Y$.
+    It suffices to show that the cohomology is non-zero in $Y$.
+    Thus we can assume without loss of generality that $X$ is affine, say $X = \Spec A$, and $Z$ is irreducible.
+    Write $Z = V(\ideal p)$ for some prime ideal $\ideal p$ of $A$.
     By flat base change,
     \[
     Γ(X,H^{-p(d)}(\lc Z \sheaf F))_{\ideal p} = 
@@ -216,8 +197,8 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     H_{\ideal p_{\ideal p}}^{-p(d)}(Γ(X,\sheaf F)_{\ideal p})
     \]
     By the Grothendieck non-vanishing theorem
-    %\cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
-    \cite[Théorème~V.3.1]{SGA2}
+    \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
+    %\cite[Théorème~V.3.1]{SGA2}
     this is non-zero\footnote{Add an argument that $Γ(X,\sheaf F)_{\ideal p} \ne 0$ by equivariance.}, and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$, contradicting the assumption.
 \end{proof}
 
@@ -306,6 +287,40 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     For the trivial perversity $p = 0$ we recover the standard definition of $\catCoh{X^G} \hookrightarrow D_c^b(X^G)$.
     For $p(n) = -n$ (i.e.\ $p(x) = -\dim x$), we recover the definition of Cohen-Macaulay sheaves.
 \end{Ex}
+
+\begin{Thm}
+    \label{thm:existance}%
+    Assume that $X$ is affine and the perversity $p$ satisfies $-n \le p(n) \le 0$ and is monotone and comonotone.
+    Then $X$ has enough $p$-measuring subvarieties.
+\end{Thm}
+
+\begin{proof}
+    Let $X = \Spec A$.
+    We will use induction on dimension $d$.
+    More precisely, we will induct on the following statement:
+    \begin{quote}
+        There exists a closed subvariety $Z_d$ of $X$ such that
+        \begin{itemize}
+            \item $Z_d$ intersects $\overline x$ for all $x ∈ X^{\mathrm{top}}$ with $\dim x \le d$;
+            \item $Z_d$ fulfills the $p$-measurement conditions for all $x ∈ X^{\mathrm{top}}$ with $\dim x \le d$;
+            \item the codimension of $Z_d$ in $\overline x$ is at most $-p(x)$ for all $x ∈ X^{\mathrm{top}}$ with $\dim x > d$.
+        \end{itemize}
+    \end{quote}
+    We set $p(-1) = 0$.
+    The statement is trivially true for $d = -1$, e.g.~take $Z = X$.
+    Assume that the statement is true for some $d \ge -1$.
+    We want to show it for $d+1 \le \dim X$.
+
+    If $p(d+1) = p(d) - 1$, then the $Z$ constructed for $d$ will still work for $d+1$.
+    So we only have to consider the case that $p(d+1) = p(d)$.
+    Let $k^- \le d$ be the largest integer such that there exists $x ∈ X^{\top}$ with $\dim x = k^-$ (or $-1$ if no such $x$ exists).
+    Set $S^- = \bigcup \{ x ∈ X^{\mathrm{top}} : \dim x = k^-\}$.
+    Similarly, let $k^+ \ge d+1$ be the smallest integer such that there exists $x ∈ X^{\top}$ with $\dim x = k^+$ and set $S^+ = \bigcup \{ x ∈ X^{\mathrm{top}} : \dim x = k^-\}$.
+    Since there are only finitely many orbits, the sets $S^-$ and $S^+$ are closed.
+    Let $\ideal a^-$ and $\ideal a^+$ be the ideals of $A$ defining these subvarieties.
+    Choose a non-constant function $f ∈ \ideal a^- \setminus \ideal a^+$, i.e.~a function that vanishes on all of $S^-$, but is not identically $0$ on $S^+$.
+    Then the subvariety $Z_{d+1} = Z_d \cap V(f)$ fulfills the conditions for $d+1$.
+\end{proof}
 
 \begin{Ex}
     Assume that all $G$-orbits are finite dimensional (e.g.\ when $X$ is the nilpotent cone of a semisimple complex Lie-algebra).
