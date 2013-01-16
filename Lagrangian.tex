@@ -323,7 +323,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     \begin{quote}
         There exists a closed subvariety $Z_d$ of $X$ such that
         \begin{itemize}
-            \item $Z_d$ intersects $\overline x$ for all $x ∈ X^{\mathrm{top}}$ with $\dim x \le d$;
+            \item $Z_d$ intersects all $G$-orbits of dimension at most $d$;
             \item $Z_d$ fulfills the $p$-measurement conditions for all $x ∈ X^{\mathrm{top}}$ with $\dim x \le d$;
             \item the codimension of $Z_d$ in $\overline x$ is at most $-p(x)$ for all $x ∈ X^{\mathrm{top}}$ with $\dim x > d$.
         \end{itemize}
@@ -335,9 +335,9 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 
     If $p(d+1) = p(d) - 1$, then the $Z$ constructed for $d$ will still work for $d+1$.
     So we only have to consider the case that $p(d+1) = p(d)$.
-    Let $k^- \le d$ be the largest integer such that there exists $x ∈ X^{\top}$ with $\dim x = k^-$ (or $-1$ if no such $x$ exists).
+    Let $k^- \le d$ be the largest integer such that there exists $x ∈ X^{\mathrm{top}}$ with $\dim x = k^-$ (or $-1$ if no such $x$ exists).
     Set $S^- = \bigcup \{ x ∈ X^{\mathrm{top}} : \dim x = k^-\}$.
-    Similarly, let $k^+ \ge d+1$ be the smallest integer such that there exists $x ∈ X^{\top}$ with $\dim x = k^+$ and set $S^+ = \bigcup \{ x ∈ X^{\mathrm{top}} : \dim x = k^-\}$.
+    Similarly, let $k^+ \ge d+1$ be the smallest integer such that there exists $x ∈ X^{\mathrm{top}}$ with $\dim x = k^+$ and set $S^+ = \bigcup \{ x ∈ X^{\mathrm{top}} : \dim x = k^-\}$.
     Since there are only finitely many orbits, the sets $S^-$ and $S^+$ are closed.
     Let $\ideal a^-$ and $\ideal a^+$ be the ideals of $A$ defining these subvarieties.
     Choose a non-constant function $f ∈ \ideal a^- \setminus \ideal a^+$, i.e.~a function that vanishes on all of $S^-$, but is not identically $0$ on $S^+$.
