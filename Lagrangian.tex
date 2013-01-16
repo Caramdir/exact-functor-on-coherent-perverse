@@ -140,13 +140,13 @@ If $U_{n}$ is the union of all $n$-dimensional orbits, then we assume that $\big
 
 \begin{Def}
     Let $p$ be a perversity.
-    A \emph{$p$-measuring subvariety} of $X$ is a subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
+    A \emph{$p$-measuring subvariety} of $X$ is an equi-dimensional subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
     \begin{itemize}
         \item $\dim(\overline x ∩ Z) = p(x) + \dim x$;
         \item $\overline x ∩ Z$ is the underlying variety of a regularly embedded subscheme\footnote{I.e., up to radical it is locally defined by exactly $-p(x)$ functions.} in $\overline x$.
     \end{itemize}
 
-    We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $x ∈ X^{\mathrm{top}}$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ \overline x \ne 0$.
+    We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $G$-orbit $U$ in $X$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ U \ne \emptyset$.
 \end{Def}
 
 \begin{Rem}
@@ -176,23 +176,24 @@ Our main theorem will easily follow from the next two lemmas.
 Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the complex $R\lc Z\sheaf F$.
 
 \begin{proof}
-    Since $\supp \sheaf F$ is always a union of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
+    Since $\supp \sheaf F$ is always a union of orbits, we can restrict to the support and assume that $\overline{\supp \sheaf F} = X$.
 
-    First assume that $p(\dim \supp \sheaf F) = p(\dim X) ≥ n$.
-    This means that, up to radical, $Z$ can be locally defined by at most $-n$ equations.
-    Thus \cite[Theorem~3.3.1]{BrodmannSharp:1998:LocalCohomology} implies immediately that $H^\ell(\lc Z\sheaf F) = 0$ for $\ell > -n$. 
+    First assume that $p(\dim X) = p(\dim \supp \sheaf F) ≥ n$.
+    By the definition of a $p$-measuring subvariety, this means that, up to radical, $Z$ can be locally defined by at most $-n$ equations.
+    Thus $H^\ell(\lc Z\sheaf F) = 0$ for $\ell > -n$ \cite[Theorem~3.3.1]{BrodmannSharp:1998:LocalCohomology}. 
 
     Now assume conversely that $H^\ell(\lc Z\sheaf F) = 0$ for all $\ell ≥ -n+1$ and all measuring subvarieties $Z$.
     We have to show that $p(\dim \supp \sheaf F) ≥ n$.
     Assume that this is not true and set $d = \dim \supp \sheaf F$.
     Hence $p(d) \lneq n$.
-    Choose a $p$-measuring subvariety $Z$.
+    Let $U$ be an open orbit in $X$ and choose a $p$-measuring subvariety $Z$ that intersects $U$.
     Then $\codim_Z X = -p(d) ≥ -n + 1$.
-    We want to show that $H^{H^{-p(d)}(\lc Z \sheaf F)} \ne 0$.
-    Take some affine subset $Y \subseteq X$ such that $Y \cap Z$ is irreducible in $Y$.
+    We want to show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$.
+    Take some affine subset $Y \subseteq U$ such that $Y \cap Z$ is irreducible in $Y$.
     It suffices to show that the cohomology is non-zero in $Y$.
     Thus we can assume without loss of generality that $X$ is affine, say $X = \Spec A$, and $Z$ is irreducible.
     Write $Z = V(\ideal p)$ for some prime ideal $\ideal p$ of $A$.
+    Note that by equivariance $Γ(X,\sheaf F)_{\ideal p} \ne 0$.
     By flat base change,
     \[
     Γ(X,H^{-p(d)}(\lc Z \sheaf F))_{\ideal p} = 
@@ -202,7 +203,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     By the Grothendieck non-vanishing theorem
     \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
     %\cite[Théorème~V.3.1]{SGA2}
-    this is non-zero\footnote{Add an argument that $Γ(X,\sheaf F)_{\ideal p} \ne 0$ by equivariance.}, and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$, contradicting the assumption.
+    this is non-zero and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$, contradicting the assumption.
 \end{proof}
 
 \begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
