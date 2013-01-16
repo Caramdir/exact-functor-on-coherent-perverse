@@ -269,18 +269,36 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     \end{equation}
     Fix a $k$.
     Let us first show the implication from \eqref{eq:main:+supp1} to \eqref{eq:main:+supp2}.
-    Since $H^k(\dualize \sheaf F)$ is $G$-equivariant, it suffices to show \eqref{eq:main:+supp2} assuming that $\overline x ⊆ \supp H^k(\dualize F)$.
-    But then $\overline x ∩ \supp\left( H^k(\dualize F) \right) = \overline x$ and $Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) = Z ∩ \overline x$.
-    Thus $\dim(Z ∩ \overline x) = -p(x) + \dim x ≤ -p(x) -k$, yields the implication.
-
+    Since $H^k(\dualize \sheaf F)$ is $G$-equivariant and there are only finitely many $G$-orbits, it suffices to show \eqref{eq:main:+supp2} assuming that $\overline x$ is contained in the closure of $\supp H^k(\dualize F)$.
+    But then $\dim\left(\overline x ∩ \supp\left( H^k(\dualize F) \right)\right) = \dim \overline x$.
+    Thus,
+    \begin{multline*}
+        \dim\left(Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) \le
+        \dim(Z ∩ \overline x) =
+        p(x) + \dim x = \\
+        p(x) + \dim\left(\overline x ∩ \supp\left( H^k(\dualize F) \right)\right) \le
+        p(x) - p(x) - k
+        =k.
+    \end{multline*}
+    
     Conversely, assume that \eqref{eq:main:+supp2} holds.
-    If $\overline x ⊆ \supp H^k(\dualize F)$, then the exact same argument as before shows that \eqref{eq:main:+supp1} holds for $x$.
-    Otherwise $\overline x ∩ \supp\left( H^k(\dualize F) \right) = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$.
+    Choose a $p$-measuring $Z$ that intersects $\supp H^k(\dualize F)$.
+    First assume that $\overline x$ is contained in the closure of $\supp H^k(\dualize F)$.
+    Then
+    \begin{multline*}
+        \dim\left(\overline x ∩ \supp\left( H^k(\dualize F) \right)\right) =
+        \dim x =
+        -p(x) + \dim(Z ∩ \overline x) = \\
+        -p(x) + \dim\left(Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) \le
+        -p(x) - k.
+    \end{multline*}
+    Otherwise $\overline x ∩ \overline{\supp\left( H^k(\dualize F) \right)} = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$ (or the intersection is empty, in which case \eqref{eq:main:+supp1} holds trivially).
     Then \eqref{eq:main:+supp1} holds for $y$ and hence
     \[
-    \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤
+    \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) =
+    \dim\left( \overline y ∩ \supp\left( H^k(\dualize F) \right) \right) ≤
     -p(y) - k ≤
-    -p(x) - k.
+    -p(x) - k
     \]
     by monotonicity of $p$.
     \qedhere
