@@ -19,7 +19,6 @@
 \section{Setup and notation}
 
 Let $X$ be a finite-dimensional Noetherian separated scheme over an algebraically closed field $k$.
-We write $\O = \O_X$ for the structure sheaf of $X$.
 Let $G$ be an algebraic group over $k$ acting on $X$.
 For the moment we include the possibility of the action being trivial.
 We write $X^{\mathrm{top}}$ for the subset of the topological space of $X$ consisting of generic points of $G$-invariant subschemes and equip $X^{\mathrm{top}}$ with the induced topology.
@@ -35,7 +34,8 @@ For an $\O_X$-module $\sheaf F$ we let $\lc Z\sheaf F$ be the subsheaf of $\shea
 %\[
 %\lc Z\sheaf F = \varinjlim_n \sheafHom_{\O_X}(\rquot{\O_X}{\sheaf I^n}, \sheaf F).
 %\]
-By abuse of notation, we will usually simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D(X) → D(X)$.
+By abuse of notation, we will usually simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) → D_{qc}(X)$.
+Note that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
 
 Let $x$ be a (not necessarily closed) point of $x$ and $\sheaf F ∈ D^b(X)$.
 Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ will denote the (derived) functor of talking stalks.
@@ -47,17 +47,17 @@ Then,
 \begin{itemize}
     \item the functor $\dualize$ takes $D^b_{c}(X)$ to $D^b_c(X)$ (resp.~$D_c^b(X^G)$ to $D_c^b(X^G)$);
     \item for $\sheaf F ∈ D^b_c(X)$ (or $D^b_c(X^G)$), the natural morphism $\sheaf F → \dualize\dualize F$ is an isomorphism;
-    \item for $x ∈ X$, $\mathbf ι_x^!(\sheaf R)$ is concentrated in $-\dim x$ (where $\dim x \coloneq \dim\overline x$).
+    \item for $x ∈ X$, $\mathbf ι_x^!(\sheaf R)$ is concentrated in degree $-\dim x$ (where $\dim x \coloneq \dim\overline x$).
 \end{itemize}
 
 \section{Perverse coherent sheaves}
 \label{sec:Kashiwara}%
 
-Choose a decreasing function $p\colon \{0,\dotsc,\dim X\} → ℤ$, called perversity, such that $\overline p(n) = -n - p(n)$ is also decreasing.
+We fix a decreasing function $p\colon \{0,\dotsc,\dim X\} → ℤ$, called \emph{perversity}, such that $\overline p(n) \coloneq -n - p(n)$ is also decreasing.
 For $x ∈ X^{\mathrm{top}}$ we set $p(x) = p(\dim x)$.
 Then $p\colon X^{\mathrm{top}} → ℤ$ is a monotone and comonotone perversity in the sense of \cite[Definition~3]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, i.e.\ if $x' ∈ \overline x$, then $p(x') ≥ p(x)$ and $\overline p(x') ≥ \overline p(x)$.
 
-Recall that Bezrukavnikov (following Deligne) \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves} defines a t-structure on $D_c^b(X^G)$ by taking the following full subcategories:
+Recall that Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X^G)$ by taking the following full subcategories (see \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}):
 \begin{align*}
     \perv[p] D^{≤0}(X) & = 
     \{ \sheaf F ∈ D_c^b(X^G) : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}, \\
@@ -66,7 +66,7 @@ Recall that Bezrukavnikov (following Deligne) \cite{Bezrukavnikov:arXiv:Perverse
 \end{align*}
 The heart of this t-structure is called the category of perverse sheaves (with respect to the perversity $p$).
 
-$0 ¿ \overline p(x) = \dim(Z¿\overline x) ¿ \dim x$In \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{coh}(X)$.
+In \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
 The two definitions match (up to a shift by $\dim X$), but there doesn't seem to be a reference for this is the literature.
 So we will prove it in the following proposition:
 
@@ -84,12 +84,12 @@ So we will prove it in the following proposition:
 
 \begin{proof}
     First let $\sheaf F ∈ \perv D^{≤0}(X)$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
-    Let $x$ be the generic point of an irreducible component of $\supp H^{k}(\sheaf F)$.
+    Let $x$ be the generic point of an irreducible component of the closure of $\supp H^{k}(\sheaf F)$.
     Then $\dim x = \dim \supp H^{k}(\sheaf F)$ and $H^k(\mathbf ι_x^* \sheaf F) \ne 0$.
     But $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$, a contradiction.
 
     Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$ and let $x ∈ X^{\mathrm{top}}$.
-    We have $H^k(\mathbf ι_x^*\sheaf F) \ne 0$ if and only if $\overline x ⊆ \supp H^{k}(\sheaf F)$ (and hence $\dim x ≤ \dim \supp H^{k}(\sheaf F)$).
+    If $H^k(\mathbf ι_x^*\sheaf F) \ne 0$, then $\dim x ≤ \dim \supp H^{k}(\sheaf F)$.
     Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)$.
 
     Now assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
@@ -103,7 +103,7 @@ So we will prove it in the following proposition:
     Let $x ∈ X^{\mathrm{top}}$ be of dimension $d+1$.
     Let $k$ be the smallest integer such that $H^k(\lc {\overline x}\sheaf F) \ne 0$.
     Assume for contradiction that $k < p(x)$. 
-    Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
+    Let $Z$ be the closure of $\supp H^k(\lc {\overline x}\sheaf F)$.
     Then $Z \subsetneq \overline x$, as $ι_x^* H^k(\lc {\overline x}\sheaf F)$ vanishes.
     Consider the distinguished triangle
     \[
@@ -124,7 +124,7 @@ So we will prove it in the following proposition:
 \end{proof}
 
 \begin{Prop}[{\cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
-    \label{cor:dualStandard}
+    \label{prop:dualStandard}
     The dualizing functor $\dualize_X$ sends the standard t-structure on $D_c^b(X^G)$ to the one associated to the perversity $p(n) = -\dim n$ (i.e.\ $p(x) = -\dim x$).
 \end{Prop}
 
@@ -140,7 +140,7 @@ If $U_{n}$ is the union of all $n$-dimensional orbits, then we assume that $\big
 
 \begin{Def}
     Let $p$ be a perversity.
-    A \emph{$p$-measuring subvariety} of $X$ is an equi-dimensional subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
+    A \emph{$p$-measuring subvariety} of $X$ is an equidimensional subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
     \begin{itemize}
         \item $\dim(\overline x ∩ Z) = p(x) + \dim x$;
         \item $\overline x ∩ Z$ is the underlying variety of a regularly embedded subscheme\footnote{I.e., up to radical it is locally defined by exactly $-p(x)$ functions.} in $\overline x$.
@@ -154,10 +154,8 @@ If $U_{n}$ is the union of all $n$-dimensional orbits, then we assume that $\big
     Then $\dim(\overline x ∩ Z) = -\overline p(x)$.
     Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
     Monotonicity of $p$ then further says that $\dim (\overline x ∩ Z) - \dim (\overline y ∩ Z) ≤ \dim x - \dim y$.
-    This makes it plausible that it should be possible to inductively construct $p$-measuring subvarieties.
-   
-    Clearly, we need to have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
-    We will show in Theorem~\ref{thm:existance} that this condition is actually sufficient, at least when $X$ is affine.
+    Further, we clearly have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
+    We will show in Theorem~\ref{thm:existance} that these condition are actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
 \end{Rem}
 
 Our main theorem will easily follow from the next two lemmas.
@@ -184,17 +182,16 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 
     Now assume conversely that $H^\ell(\lc Z\sheaf F) = 0$ for all $\ell ≥ -n+1$ and all measuring subvarieties $Z$.
     We have to show that $p(\dim \supp \sheaf F) ≥ n$.
-    Assume that this is not true and set $d = \dim \supp \sheaf F$.
-    Hence $p(d) \lneq n$.
+    Set $d = \dim \supp \sheaf F$.
     Let $U$ be an open orbit in $X$ and choose a $p$-measuring subvariety $Z$ that intersects $U$.
     Then $\codim_Z X = -p(d) ≥ -n + 1$.
-    We want to show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$.
+    We will to show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$ and hence $p(d) \ge n$ by assumption.
     Take some affine subset $Y \subseteq U$ such that $Y \cap Z$ is irreducible in $Y$.
     It suffices to show that the cohomology is non-zero in $Y$.
     Thus we can assume without loss of generality that $X$ is affine, say $X = \Spec A$, and $Z$ is irreducible.
     Write $Z = V(\ideal p)$ for some prime ideal $\ideal p$ of $A$.
     Note that by equivariance $Γ(X,\sheaf F)_{\ideal p} \ne 0$.
-    By flat base change,
+    By flat base change \cite[Theorem~4.3.2]{BrodmannSharp:1998:LocalCohomology},
     \[
     Γ(X,H^{-p(d)}(\lc Z \sheaf F))_{\ideal p} = 
     \left(H_{\ideal p}^{-p(d)}(Γ(X,\sheaf F))\right)_{\ideal p} =
@@ -203,7 +200,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     By the Grothendieck non-vanishing theorem
     \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
     %\cite[Théorème~V.3.1]{SGA2}
-    this is non-zero and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$, contradicting the assumption.
+    this is non-zero and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$ as required.
 \end{proof}
 
 \begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
@@ -213,8 +210,10 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 \end{Lem}
 
 \begin{proof}
-    The proof of \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} works for singular schemes as well --- just substitute $\dualize M$ for $M^*$ and Corollary \ref{cor:dualStandard} for \cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}.
+    The proof of \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} works for singular schemes as well --- just substitute $\dualize M$ for $M^*$ and Proposition~\ref{prop:dualStandard} for \cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}.
 \end{proof}
+
+We are now in a good position to prove the main theorem.
 
 \begin{Thm}
     \label{thm:main}%
@@ -241,20 +240,20 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     The equivalence is trivial for $k \ll 0$.
     For the induction step note that there is a distinguished triangle
     \[
-    τ_{≤ k-1} \sheaf F → \sheaf F → H^k(\sheaf F)[-k] \xrightarrow{+1}.
+    τ_{<k} \sheaf F → \sheaf F → H^k(\sheaf F)[-k] \xrightarrow{+1}.
     \]
-    Applying the functor $\lc Z$ and taking cohomology we obtain 
+    Applying the functor $\lc Z$ and taking cohomology we obtain an exact sequence
     \begin{multline*}
         \cdots →
-        H¹(\lc Z(τ_{≤ k-1} \sheaf F)) →
+        H¹(\lc Z(τ_{<k} \sheaf F)) →
         H¹(\lc Z\sheaf F) →
         H^{k+1}(\lc Z(H^k(\sheaf F))) → \\
-        H²(\lc Z(τ_{≤ k-1} \sheaf F)) →
+        H²(\lc Z(τ_{<k} \sheaf F)) →
         H²(\lc Z\sheaf F) →
         H^{k+2}(\lc Z(H^k(\sheaf F))) →
         \cdots.
     \end{multline*}
-    By induction, $H^\ell(\lc Z(τ_{≤ k-1} \sheaf F))$ vanishes for $\ell ≥ 1$ so that $H^\ell(\lc Z\sheaf F) \cong H^{k+\ell}(\lc Z(H^k(\sheaf F)))$ for $\ell ≥ 1$.
+    By induction, $H^\ell(\lc Z(τ_{<k} \sheaf F))$ vanishes for $\ell ≥ 1$ so that $H^\ell(\lc Z\sheaf F) \cong H^{k+\ell}(\lc Z(H^k(\sheaf F)))$ for $\ell ≥ 1$.
     Thus the statement follows from Lemma~\ref{lem:supportAndLocalCohomology-}.
 \item 
     By Proposition~\ref{prop:equivDeligneKashiwara} and Lemma~\ref{lem:supportAndLocalCohomology+}, $\sheaf F ∈ \perv D^{≥0}$ if and only if
@@ -263,14 +262,18 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
         \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k \quad \text{ for all $x ∈ X^{\mathrm{top}}$ and all $k$}.
     \end{equation}
     Using Lemma~\ref{lem:supportAndLocalCohomology+} for $\lc Z\sheaf F ∈ D^{≥0}(X)$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with
+    \begin{equation*}
+        \dim\left( Z ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k \quad \text{ for all $k$ and $p$-measuring $Z$}.
+    \end{equation*}
+    Since there are only finitely many orbits, this is in turn equivalent to
     \begin{equation}
         \label{eq:main:+supp2}%
         \dim\left( Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k \quad \text{ for all $x ∈ X^{\mathrm{top}}$, $k$ and $p$-measuring $Z$}.
     \end{equation}
-    Fix a $k$.
+    We will show the equivalence for each fixed $k$ separately.
     Let us first show the implication from \eqref{eq:main:+supp1} to \eqref{eq:main:+supp2}.
-    Since $H^k(\dualize \sheaf F)$ is $G$-equivariant and there are only finitely many $G$-orbits, it suffices to show \eqref{eq:main:+supp2} assuming that $\overline x$ is contained in the closure of $\supp H^k(\dualize F)$.
-    But then $\dim\left(\overline x ∩ \supp\left( H^k(\dualize F) \right)\right) = \dim \overline x$.
+    Since $H^k(\dualize \sheaf F)$ is $G$-equivariant and there are only finitely many $G$-orbits, it suffices to show \eqref{eq:main:+supp2} assuming that $\dim x \le \dim \supp H^k(\dualize F)$ and $\overline x \cap \supp H^k(\dualize F) \ne \emptyset$.
+    Then $\dim\left(\overline x ∩ \supp\left( H^k(\dualize F) \right)\right) = \dim \overline x$.
     Thus,
     \begin{multline*}
         \dim\left(Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) \le
@@ -281,8 +284,9 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
         =k.
     \end{multline*}
     
-    Conversely, assume that \eqref{eq:main:+supp2} holds.
-    Choose a $p$-measuring $Z$ that intersects $\supp H^k(\dualize F)$.
+    Conversely, assume that \eqref{eq:main:+supp2} holds for $k$.
+    If $\overline x \cap \supp H^k(\dualize F) = \emptyset$, then \eqref{eq:main:+supp1} is trivially true.
+    Otherwise choose a $p$-measuring $Z$ that intersects $\supp H^k(\dualize F)$.
     First assume that $\overline x$ is contained in the closure of $\supp H^k(\dualize F)$.
     Then
     \begin{multline*}
@@ -292,7 +296,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
         -p(x) + \dim\left(Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) \le
         -p(x) - k.
     \end{multline*}
-    Otherwise $\overline x ∩ \overline{\supp\left( H^k(\dualize F) \right)} = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$ (or the intersection is empty, in which case \eqref{eq:main:+supp1} holds trivially).
+    Otherwise $\overline x ∩ \overline{\supp\left( H^k(\dualize F) \right)} = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$.
     Then \eqref{eq:main:+supp1} holds for $y$ and hence
     \[
     \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) =
