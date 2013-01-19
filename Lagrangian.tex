@@ -82,11 +82,14 @@ So we will prove it in the following proposition:
     \end{align*}
 \end{Prop}
 
+A crucial, but well-know, fact that we will implicitly use quite often in the following is that the support of a coherent sheaf is closed.
+In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$.
+
 \begin{proof}
     First let $\sheaf F ∈ \perv D^{≤0}(X)$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
-    Let $x$ be the generic point of an irreducible component of the closure of $\supp H^{k}(\sheaf F)$.
-    Then $\dim x = \dim \supp H^{k}(\sheaf F)$ and $H^k(\mathbf ι_x^* \sheaf F) \ne 0$.
-    But $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$, a contradiction.
+    Let $x$ be the generic point of an irreducible component of $\supp H^{k}(\sheaf F)$.
+    Then $H^k(\mathbf ι_x^* \sheaf F) \ne 0$. 
+    But on the other hand, $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
 
     Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$ and let $x ∈ X^{\mathrm{top}}$.
     If $H^k(\mathbf ι_x^*\sheaf F) \ne 0$, then $\dim x ≤ \dim \supp H^{k}(\sheaf F)$.
@@ -103,8 +106,9 @@ So we will prove it in the following proposition:
     Let $x ∈ X^{\mathrm{top}}$ be of dimension $d+1$.
     Let $k$ be the smallest integer such that $H^k(\lc {\overline x}\sheaf F) \ne 0$.
     Assume for contradiction that $k < p(x)$. 
-    Let $Z$ be the closure of $\supp H^k(\lc {\overline x}\sheaf F)$.
-    Then $Z \subsetneq \overline x$, as $ι_x^* H^k(\lc {\overline x}\sheaf F)$ vanishes.
+    From \cite[Corollaire~VIII.2.2]{SGA2} and $\sheaf F ∈ \perv D^{≥0}(X)$ it follows that $H^k(\lc {\overline x}\sheaf F)$ is coherent.
+    Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
+    Then, since $ι_x^* H^k(\lc {\overline x}\sheaf F)$ vanishes, $Z$ is a proper closed subset of $\overline x$.
     Consider the distinguished triangle
     \[
         H^k(\lc {\overline x}\sheaf F)[-k] →
@@ -146,7 +150,7 @@ If $U_{n}$ is the union of all $n$-dimensional orbits, then we assume that $\big
         \item $\overline x ∩ Z$ is the underlying variety of a regularly embedded subscheme\footnote{I.e., up to radical it is locally defined by exactly $-p(x)$ functions.} in $\overline x$.
     \end{itemize}
 
-    We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $G$-orbit $U$ in $X$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ U \ne \emptyset$.
+    We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $x ∈ X^{\mathrm{top}}$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ \overline x \ne \emptyset$.
 \end{Def}
 
 \begin{Rem}
@@ -174,7 +178,7 @@ Our main theorem will easily follow from the next two lemmas.
 Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the complex $R\lc Z\sheaf F$.
 
 \begin{proof}
-    Since $\supp \sheaf F$ is always a union of orbits, we can restrict to the support and assume that $\overline{\supp \sheaf F} = X$.
+    Since $\supp \sheaf F$ is always a union of the closure of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
 
     First assume that $p(\dim X) = p(\dim \supp \sheaf F) ≥ n$.
     By the definition of a $p$-measuring subvariety, this means that, up to radical, $Z$ can be locally defined by at most $-n$ equations.
@@ -183,24 +187,24 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     Now assume conversely that $H^\ell(\lc Z\sheaf F) = 0$ for all $\ell ≥ -n+1$ and all measuring subvarieties $Z$.
     We have to show that $p(\dim \supp \sheaf F) ≥ n$.
     Set $d = \dim \supp \sheaf F$.
-    Let $U$ be an open orbit in $X$ and choose a $p$-measuring subvariety $Z$ that intersects $U$.
+    Choose any $p$-measuring subvariety $Z$ that intersects $U$.
     Then $\codim_Z X = -p(d) ≥ -n + 1$.
     We will to show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$ and hence $p(d) \ge n$ by assumption.
-    Take some affine subset $Y \subseteq U$ such that $Y \cap Z$ is irreducible in $Y$.
-    It suffices to show that the cohomology is non-zero in $Y$.
+    Take some affine open subset $U$ of $X$ such that $U \cap Z$ is irreducible in $U$.
+    It suffices to show that the cohomology is non-zero in $U$.
     Thus we can assume without loss of generality that $X$ is affine, say $X = \Spec A$, and $Z$ is irreducible.
     Write $Z = V(\ideal p)$ for some prime ideal $\ideal p$ of $A$.
-    Note that by equivariance $Γ(X,\sheaf F)_{\ideal p} \ne 0$.
     By flat base change \cite[Theorem~4.3.2]{BrodmannSharp:1998:LocalCohomology},
     \[
     Γ(X,H^{-p(d)}(\lc Z \sheaf F))_{\ideal p} = 
     \left(H_{\ideal p}^{-p(d)}(Γ(X,\sheaf F))\right)_{\ideal p} =
     H_{\ideal p_{\ideal p}}^{-p(d)}(Γ(X,\sheaf F)_{\ideal p})
     \]
-    By the Grothendieck non-vanishing theorem
+    Since $\dim_X \supp \sheaf F = \dim X = d$, the dimension of the $A_{\ideal p}$-module $Γ(X,\sheaf F)_{\ideal p}$ is $-p(d)$.
+    Thus by the Grothendieck non-vanishing theorem
     \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
     %\cite[Théorème~V.3.1]{SGA2}
-    this is non-zero and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$ as required.
+    $H_{\ideal p_{\ideal p}}^{-p(d)}(Γ(X,\sheaf F)_{\ideal p}) \ne 0$ and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$ as required.
 \end{proof}
 
 \begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
@@ -287,7 +291,7 @@ We are now in a good position to prove the main theorem.
     Conversely, assume that \eqref{eq:main:+supp2} holds for $k$.
     If $\overline x \cap \supp H^k(\dualize F) = \emptyset$, then \eqref{eq:main:+supp1} is trivially true.
     Otherwise choose a $p$-measuring $Z$ that intersects $\supp H^k(\dualize F)$.
-    First assume that $\overline x$ is contained in the closure of $\supp H^k(\dualize F)$.
+    First assume that $\overline x$ is contained in $\supp H^k(\dualize F)$.
     Then
     \begin{multline*}
         \dim\left(\overline x ∩ \supp\left( H^k(\dualize F) \right)\right) =
@@ -296,7 +300,7 @@ We are now in a good position to prove the main theorem.
         -p(x) + \dim\left(Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) \le
         -p(x) - k.
     \end{multline*}
-    Otherwise $\overline x ∩ \overline{\supp\left( H^k(\dualize F) \right)} = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$.
+    Otherwise $\overline x ∩ \supp\left( H^k(\dualize F) \right) = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$.
     Then \eqref{eq:main:+supp1} holds for $y$ and hence
     \[
     \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) =
