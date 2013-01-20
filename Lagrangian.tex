@@ -13,7 +13,7 @@
 
 \newif\ifcgs
 \cgsfalse
-\cgstrue
+%\cgstrue
 \usepackage{comment}
 \ifcgs
     \newcommand\textcgs[1]{{\small\color{black!60!green}#1}}
@@ -30,9 +30,32 @@
 \maketitle
 %\tableofcontents
 
+\begin{abstract}
+    Inspired by microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X^G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for a specific subvariety $Z$ of $X$.
+\end{abstract}
+
 \cgsIntro
 
 \section{Introduction}
+
+Consider a complex Kähler manifold $X$ and constructible sheaf $\sheaf F$ on $X$.
+Then whether $\sheaf F$ is perverse (with respect to the middle perversity) can be decided by looking at the vanishing cycles of $\sheaf F$ for enough functions $f\colon X → ℂ$.
+In particular it suffices to look at generic holomorphic Morse functions $f$, i.e.\ non-constant holomorphic functions $f$ with a single critical point $p$ and non-degenerate Hessian at $p$.
+For these functions we can reinterpret the vanishing cycle measurement in the following way.
+
+Let $C^\mp_{f,p}$ be the stable and unstable manifolds for the gradient of $\Re f$.
+These are Lagrangian submanifolds that intersect transversally in $p$.
+Let $i_p$ be the inclusion of $p$ and let $j^\pm_{f,p}\colon C^\pm_{f,p} \hookrightarrow X$.
+Then $\sheaf F$ is perverse if and only if $i_p^*{j_{p,f}^+}^!\sheaf F$ and $i_p^!{j_{p,f}^-}^*\sheaf F$ are concentrated in degree $0$ for all such pairs $f,p$.
+
+Forgetting about the function $f$, one formulate this statement in the following way:
+\begin{Thm}
+    Let $X$ a complex manifold and $\sheaf F$ a constructible sheaf on $X$.
+    Let $\setset S$ be a stratification of $X$ by complex submanifolds.
+    Then $\sheaf F$ is perverse with respect to $\setset S$ if and only if $RΓ_Z\sheaf F$ is concentrated in degree $0$ for each real submanifold $Z$ of $X$ such that $\dim(Z \cap S) = \frac12 \dim S$ (or empty) for each stratum $S$.
+\end{Thm}
+
+The goal of the present article is to formulate and prove an analogous condition for perverse coherent sheaves (see Theorem~\ref{thm:main}).
 
 \subsection{Setup and notation}
 
