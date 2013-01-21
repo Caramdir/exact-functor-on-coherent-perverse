@@ -11,20 +11,6 @@
 \newcommand\dualize{\mathbb D}
 \newcommand\lc[1]{\Gamma_{\mkern-3mu#1}}
 
-\newif\ifcgs
-\cgsfalse
-\cgstrue
-\usepackage{comment}
-\ifcgs
-    \newcommand\textcgs[1]{{\small\color{black!60!green}#1}}
-    \specialcomment{cgs}{\begingroup\small\color{black!60!green}}{\endgroup}
-    \newcommand\cgsIntro{}
-\else
-    \newcommand\textcgs[1]{}
-    \excludecomment{cgs}
-    \newcommand\cgsIntro{}
-\fi
-
 \begin{document}
 
 \maketitle
@@ -38,24 +24,26 @@
 
 \section{Introduction}
 
-Consider a complex Kähler manifold $X$ and constructible sheaf $\sheaf F$ on $X$.
-Then whether $\sheaf F$ is perverse (with respect to the middle perversity) can be decided by looking at the vanishing cycles of $\sheaf F$ for enough functions $f\colon X → ℂ$.
-In particular it suffices to look at generic holomorphic Morse functions $f$, i.e.\ non-constant holomorphic functions $f$ with a single critical point $p$ and non-degenerate Hessian at $p$.
-For these functions we can reinterpret the vanishing cycle measurement in the following way.
+Consider a complex Kähler manifold $X$ and perverse sheaf (with respect to the middle perversity) $\sheaf F$ on $X$ and let $f\colon X → ℂ$ be a holomorphic function.
+Then the vanishing cycle $φ_f(\sheaf F)$ is again perverse.
+Assume that $f$ has a single critical point $p$ with $f(p) = 0$ and that the Hessian of $f$ is non-degenerate at $p$.
+For such a function we can reinterpret the stalk at $p$ of the vanishing cycle measurement in the following way.
 
-Let $C^\mp_{f,p}$ be the stable and unstable manifolds for the gradient of $\Re f$.
+Let $C^\pm_{f,p}$ be the stable and unstable manifolds for the gradient of the Morse function $\Re f$.
 These are Lagrangian submanifolds that intersect transversally in $p$.
 Let $i_p$ be the inclusion of $p$ and let $j^\pm_{f,p}\colon C^\pm_{f,p} \hookrightarrow X$.
-Then $\sheaf F$ is perverse if and only if $i_p^*{j_{p,f}^+}^!\sheaf F$ and $i_p^!{j_{p,f}^-}^*\sheaf F$ are concentrated in degree $0$ for all such pairs $f,p$.
+Then $i_p^*(j_{p,f}^+)^!\sheaf F$ and $i_p^!(j_{p,f}^-)^*\sheaf F$ are concentrated in degree $0$.
 
-Forgetting about the function $f$, one could formulate this statement in the following way:
-\begin{Thm}
-    Let $X$ a complex manifold and $\sheaf F$ a constructible sheaf on $X$.
-    Let $\setset S$ be a stratification of $X$ by complex submanifolds.
-    Then $\sheaf F$ is perverse with respect to $\setset S$ if and only if $RΓ_Z\sheaf F$ is concentrated in degree $0$ for each real submanifold $Z$ of $X$ such that $\dim(Z \cap S) = \frac12 \dim S$ (or empty) for each stratum $S$.
-\end{Thm}
+We would like to give an analogous characterization of perverse coherent sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
+However on an arbitrary scheme it is not clear what \enquote{vanishing cycles of a holomorphic function} should be.
+On the other hand, one could try to translate \enquote{Lagrangian submanifold} as half-dimensional closed subscheme.
+It turns out that a statement like this can indeed be used to characterize perverse coherent sheaves.
 
-The goal of the present article is to formulate and prove an analogous condition for perverse coherent sheaves (see Theorem~\ref{thm:main}).
+Let $X$ be a variety with a group action so that all orbits are finite dimensional.
+Then there exits a \enquote{middle perversity} on $[X/G]$.
+We will define the notion of a \enquote{measuring subvariety} on $X$ (Definition~\ref{def:measuring}) and then show that a coherent sheaf $\sheaf F ∈ D^b_c(X^G)$ is perverse if and only if $RΓ_Z(\sheaf F)$ is concentrated in degree $0$ for all such measuring subvarieties (Theorem~\ref{thm:main}).
+Thus it is possible to define the category of perverse coherent sheaves can be defined directly by the single type of measurement $RΓ_Z$, instead of having to define a t-structure first.
+
 
 \subsection{Setup and notation}
 
@@ -239,6 +227,7 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
 From now on we will assume that the $G$-action has finitely many orbits.
 
 \begin{Def}
+    \label{def:measuring}%
     Let $p$ be a perversity.
     A \emph{$p$-measuring subvariety} of $X$ is an equidimensional subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
     \begin{itemize}
@@ -313,7 +302,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 \textcgs{An analogous lemma holds in the topological situations, see~\cite[Exercise~X.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.}
 
 \begin{proof}
-    The proof of \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} works for singular schemes as well --- just substitute $\dualize M$ for $M^*$ and Proposition~\ref{prop:dualStandard} for \cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} and note that the dual standard perversity is strictly monotone so that \ref{prop:equivDeligneKashiwara} can be applied.
+    The proof of \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} works for singular schemes as well --- just substitute $\dualize M$ for $M^*$ and Proposition~\ref{prop:dualStandard} for \cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} and note that the dual standard perversity is strictly monotone so that Proposition~\ref{prop:equivDeligneKashiwara} can be applied.
 \end{proof}
 
 We are now in a good position to prove the main theorem.
