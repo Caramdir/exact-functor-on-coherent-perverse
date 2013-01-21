@@ -21,3 +21,8 @@
 *.run.xml
 *.bcf
 *.fls
+comment.cut
+*._log
+*._aux
+*.vim
+.tmp
