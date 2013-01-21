@@ -13,7 +13,7 @@
 
 \newif\ifcgs
 \cgsfalse
-%\cgstrue
+\cgstrue
 \usepackage{comment}
 \ifcgs
     \newcommand\textcgs[1]{{\small\color{black!60!green}#1}}
@@ -48,7 +48,7 @@ These are Lagrangian submanifolds that intersect transversally in $p$.
 Let $i_p$ be the inclusion of $p$ and let $j^\pm_{f,p}\colon C^\pm_{f,p} \hookrightarrow X$.
 Then $\sheaf F$ is perverse if and only if $i_p^*{j_{p,f}^+}^!\sheaf F$ and $i_p^!{j_{p,f}^-}^*\sheaf F$ are concentrated in degree $0$ for all such pairs $f,p$.
 
-Forgetting about the function $f$, one formulate this statement in the following way:
+Forgetting about the function $f$, one could formulate this statement in the following way:
 \begin{Thm}
     Let $X$ a complex manifold and $\sheaf F$ a constructible sheaf on $X$.
     Let $\setset S$ be a stratification of $X$ by complex submanifolds.
@@ -139,16 +139,16 @@ While we work in Bezrukavnikov's setting (i.e.\ on the equivariant derived categ
 
 \begin{Prop}
     \label{prop:equivDeligneKashiwara}%
-    Let $\sheaf F ∈ D_c^b(X^G)$ and let $p$ be a perversity function.
+    Let $\sheaf F ∈ D_c^b(X^G)$ and let $p$ be a monotone and comonotone perversity function.
     \begin{enumerate}[(a)]
         \item
-            If $p$ is monotone, then the following are equivalent:
+            The following are equivalent:
             \begin{enumerate}[(i)]
                 \item $\sheaf F ∈ \perv D^{≤0}(X)$, i.e.\ $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ for all $x ∈ X^{\mathrm{top}}$;
                 \item $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$.
             \end{enumerate}
         \item
-            If $p$ is \emph{strictly} monotone, then the following are equivalent
+            If $p$ is strictly monotone, then the following are equivalent
             \begin{enumerate}[(i)]
                 \item $\sheaf F ∈ \perv D^{\ge 0}(X)$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ X^{\mathrm{top}}$;
                 \item $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ X^{\mathrm{top}}$;
@@ -157,8 +157,8 @@ While we work in Bezrukavnikov's setting (i.e.\ on the equivariant derived categ
     \end{enumerate}
 \end{Prop}
 
-A crucial, but well-know, fact that we will implicitly use quite often in the following is that the support of a coherent sheaf is closed.
-In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ \textcgs{reference?}.
+A crucial, but well-know, fact that we will implicitly use quite often in the following is that the support of a coherent sheaf is closed\textcgs{\ (e.g.~\cite[Exercise~II.5.6c]{Hartshorne:AG})}.
+In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U \subseteq \overline x$.
 
 \begin{proof}\leavevmode
     \begin{enumerate}[(a)]
@@ -180,9 +180,22 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
 
             Now let $\dim Y = d > 0$.
             We will first assume that $Y$ is irreducible, i.e.\ $Y = \overline x$ for some $x ∈ X^{\mathrm{top}}$.
-            Let $k$ be the smallest integer such that $H^k(\lc {\overline x}\sheaf F) \ne 0$.
-            Assume for contradiction that $k < p(x)$. 
-            From \cite[Corollaire~VIII.2.2]{SGA2} and $\sheaf F ∈ \perv D^{≥0}(X)$ it follows that $H^k(\lc {\overline x}\sheaf F)$ is coherent.
+            Let $k < p(x)$.
+            We have to show that $H^k(\lc {\overline x}\sheaf F) = 0$.
+
+            We will first show that $H^k(\lc {\overline x}\sheaf F)$ is coherent.
+            Let $j\colon X \setminus {\overline x} \hookrightarrow X$.
+            Consider the distinguished triangle
+            \[
+                \lc {\overline x} \sheaf F → \sheaf F → j_*j^* \sheaf F \xrightarrow{+1}.
+            \]
+            Applying cohomology to it we get an exact sequence
+            \[
+                H^{k-1}(j_*j^*\sheaf F) → H^k(\lc{\overline x} \sheaf F) → H^k(\sheaf F).
+            \]
+            Now, $k-1 < p(x) - 1 \le p(x) - 2$, so that $H^{k-1}(j_*j^*\sheaf F)$ is coherent by the Grothendieck finiteness theorem in the form of \cite[Corollary~3]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+            As $H^k(\sheaf F)$ is coherent by assumption, this implies that $H^k(\lc{\overline x} \sheaf F)$ also has to be coherent.
+
             Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
             Then, since $ι_x^* H^k(\lc {\overline x}\sheaf F)$ vanishes, $Z$ is a proper closed subset of $\overline x$.
             Consider the distinguished triangle
