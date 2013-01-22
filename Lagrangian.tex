@@ -1,6 +1,6 @@
 \documentclass[english,biblatex-alpha]{short-notes}
 
-\title{Perverse coherent sheaves and special subvarieties}
+\title{Perverse coherent sheaves and measuring subvarieties}
 \author{Clemens Koppensteiner}
 
 \usepackage{math-ag}
@@ -17,16 +17,16 @@
 %\tableofcontents
 
 \begin{abstract}
-    Inspired by microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X^G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for a specific subvariety $Z$ of $X$.
+    Inspired by microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X^G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
 \end{abstract}
 
 \cgsIntro
 
 \section{Introduction}
 
-Consider a complex Kähler manifold $X$ and perverse sheaf (with respect to the middle perversity) $\sheaf F$ on $X$ and let $f\colon X → ℂ$ be a holomorphic function.
-Then the vanishing cycle $φ_f(\sheaf F)$ is again perverse.
-Assume that $f$ has a single critical point $p$ with $f(p) = 0$ and that the Hessian of $f$ is non-degenerate at $p$.
+Consider a complex Kähler manifold $X$ and a perverse (constructible) sheaf $\sheaf F$ on $X$ with respect to the middle perversity.
+If $f\colon X → ℂ$ is a holomorphic function, then the vanishing cycles $φ_f(\sheaf F)$ is again perverse.
+Assume in addition that $f$ has a single critical point $p$ with $f(p) = 0$ and that the Hessian of $f$ is non-degenerate at $p$.
 For such a function we can reinterpret the stalk at $p$ of the vanishing cycle measurement in the following way.
 
 Let $C^\pm_{f,p}$ be the stable and unstable manifolds for the gradient of the Morse function $\Re f$.
@@ -34,28 +34,27 @@ These are Lagrangian submanifolds that intersect transversally in $p$.
 Let $i_p$ be the inclusion of $p$ and let $j^\pm_{f,p}\colon C^\pm_{f,p} \hookrightarrow X$.
 Then $i_p^*(j_{p,f}^+)^!\sheaf F$ and $i_p^!(j_{p,f}^-)^*\sheaf F$ are concentrated in degree $0$.
 
-We would like to give an analogous characterization of perverse coherent sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
-However on an arbitrary scheme it is not clear what \enquote{vanishing cycles of a holomorphic function} should be.
-On the other hand, one could try to translate \enquote{Lagrangian submanifold} as half-dimensional closed subscheme.
-It turns out that a statement like this can indeed be used to characterize perverse coherent sheaves.
+This observation can be used as a criterion for perversity of a constructible sheaf.
+The question arises, whether an analogous criterion can be given for perverse \emph{coherent} sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
+To do so we start from the Lagrangian $C^+_{f,p}$, rather than from the function $f$.
+The local cohomology along such a Lagrangian should give information about whether a sheaf is perverse.
 
-Let $X$ be a variety with a group action so that all orbits are finite dimensional.
-Then there exits a \enquote{middle perversity} on $[X/G]$.
-We will define the notion of a \enquote{measuring subvariety} on $X$ (Definition~\ref{def:measuring}) and then show that a coherent sheaf $\sheaf F ∈ D^b_c(X^G)$ is perverse if and only if $RΓ_Z(\sheaf F)$ is concentrated in degree $0$ for all such measuring subvarieties (Theorem~\ref{thm:main}).
-Thus it is possible to define the category of perverse coherent sheaves can be defined directly by the single type of measurement $RΓ_Z$, instead of having to define a t-structure first.
-
+In the coherent setting, in order to have a middle perversity, we need to take a variety $X$ with an action of a group $G$ such that all orbits are even dimensional.
+As an analogue of Lagrangian submanifolds, we define \enquote{measuring subvarieties} (Definition~\ref{def:measuring}), which are essentially closed subvarieties that intersect each $G$-orbit $U$ in half the dimension of $U$.
+Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X^G)$ is perverse if and only if $RΓ_Z(\sheaf F)$ is concentrated in degree $0$ for all measuring subvarieties $Z$ of $X$.
+Thus it is possible to define the category of perverse coherent sheaves as an Abelian subcategory of $D^b_c(X^G)$ directly by the single type of measurement $RΓ_Z$, instead of having to define a t-structure first.
 
 \subsection{Setup and notation}
 
 Let $X$ be a finite-dimensional Noetherian separated scheme over an algebraically closed field $k$.
 Let $G$ be an algebraic group over $k$ acting on $X$.
-For the moment we include the possibility of the action being trivial.
+For the moment we include the possibility of the action being trivial (this will change in Section~\ref{sec:measuring}).
 We write $X^{\mathrm{top}}$ for the subset of the topological space of $X$ consisting of generic points of $G$-invariant subschemes and equip $X^{\mathrm{top}}$ with the induced topology.
 
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
-The corresponding categories for $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) will be denoted $D(X^G)$, $D_{qc}(X^G)$ and $D_c(X^G)$.
-As usual, $D^b(X)$ (etc.) will be the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
-All functors will be derived, though we will usually drop the $R$ or $L$.
+The corresponding categories for $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X^G)$, $D_{qc}(X^G)$ and $D_c(X^G)$.
+As usual, $D^b(X)$ (etc.) is the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
+All functors are be derived, though we usually don't explicitly write the $R$ or $L$.
 
 \begin{cgs}
     Any basic introduction to derived categories will be sufficient in order to understand this article.
@@ -70,11 +69,11 @@ For an $\O_X$-module $\sheaf F$ we let $\lc Z\sheaf F$ be the subsheaf of $\shea
 %\[
 %\lc Z\sheaf F = \varinjlim_n \sheafHom_{\O_X}(\rquot{\O_X}{\sheaf I^n}, \sheaf F).
 %\]
-By abuse of notation, we will usually simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) → D_{qc}(X)$.
+By abuse of notation, we simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) → D_{qc}(X)$.
 Note that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
 
 Let $x$ be a (not necessarily closed) point of $x$ and $\sheaf F ∈ D^b(X)$.
-Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ will denote the (derived) functor of talking stalks.
+Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ denotes the (derived) functor of talking stalks.
 We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\cite[Varition~8 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 
 \begin{cgs}
@@ -99,11 +98,11 @@ For $\sheaf F ∈ D(X)$ (or $D(X^G)$) we write $\dualize \sheaf F = \sheafHom_
 \section{Perverse coherent sheaves}
 \label{sec:Kashiwara}%
 
-A function $p\colon \{0,\dotsc,\dim X\} → ℤ$ will be called \emph{perversity}.
+A \emph{perversity} is a function $p\colon \{0,\dotsc,\dim X\} → ℤ$.
 For $x ∈ X^{\mathrm{top}}$ we abuse notation and set $p(x) = p(\dim x)$.
 Then $p\colon X^{\mathrm{top}} → ℤ$ is a perversity function in the sense of \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
 Note that with our definition we insist that $p(x)$ solely depends on the dimension of $\overline x$.
-We will call a perversity \emph{monotone} if it is decreasing and \emph{comonotone} if the \emph{dual perversity} $\overline p(n) \coloneq -n - p(n)$ is decreasing.
+A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone} if the \emph{dual perversity} $\overline p(n) \coloneq -n - p(n)$ is decreasing.
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ X^{\mathrm{top}}$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional orbits).
 
@@ -124,6 +123,7 @@ The heart of this t-structure is called the category of perverse sheaves (with r
 
 In \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
 While we work in Bezrukavnikov's setting (i.e.\ on the equivariant derived category on a potentially singular scheme), we need a description of the perverse t-structure that is closer to the one Kashiwara uses.
+This is accomplished in the following proposition.
 
 \begin{Prop}
     \label{prop:equivDeligneKashiwara}%
@@ -145,8 +145,8 @@ While we work in Bezrukavnikov's setting (i.e.\ on the equivariant derived categ
     \end{enumerate}
 \end{Prop}
 
-A crucial, but well-know, fact that we will implicitly use quite often in the following is that the support of a coherent sheaf is closed\textcgs{\ (e.g.~\cite[Exercise~II.5.6c]{Hartshorne:AG})}.
-In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U \subseteq \overline x$.
+A crucial fact that we will implicitly use quite often in the following is that the support of a coherent sheaf is closed\textcgs{\ (e.g.~\cite[Exercise~II.5.6c]{Hartshorne:AG})}.
+In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
 
 \begin{proof}\leavevmode
     \begin{enumerate}[(a)]
@@ -162,16 +162,16 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
         \item
             The implications from (iii) to (ii) and (ii) to (i) are trivial, so we only need to show that (i) implies (iii).
             So assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
-            We will induct on the dimension of $Y$.
+            We induct on the dimension of $Y$.
             
             If $\dim Y = 0$, then $\mathbf ι_Y^!\sheaf F = Γ(X,\lc Y)$ and thus $\lc Y\sheaf F ∈ D^{≥p(x)}(X)$ by assumption.
 
             Now let $\dim Y = d > 0$.
-            We will first assume that $Y$ is irreducible, i.e.\ $Y = \overline x$ for some $x ∈ X^{\mathrm{top}}$.
+            We first assume that $Y$ is irreducible, i.e.\ $Y = \overline x$ for some $x ∈ X^{\mathrm{top}}$.
             Let $k < p(x)$.
             We have to show that $H^k(\lc {\overline x}\sheaf F) = 0$.
 
-            We will first show that $H^k(\lc {\overline x}\sheaf F)$ is coherent.
+            We first show that $H^k(\lc {\overline x}\sheaf F)$ is coherent.
             Let $j\colon X \setminus {\overline x} \hookrightarrow X$.
             Consider the distinguished triangle
             \[
@@ -223,8 +223,9 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
 \end{proof}
 
 \section{Measuring subvarieties}
+\label{sec:measuring}%
 
-From now on we will assume that the $G$-action has finitely many orbits.
+From now on we assume that the $G$-action has finitely many orbits.
 
 \begin{Def}
     \label{def:measuring}%
@@ -239,15 +240,27 @@ From now on we will assume that the $G$-action has finitely many orbits.
 \end{Def}
 
 \begin{Rem}
+    \label{rem:existence}%
     Let $Z$ be a $p$-measuring subvariety.
     Then $\dim(\overline x ∩ Z) = -\overline p(x)$.
     Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
     Monotonicity of $p$ then further says that $\dim (\overline x ∩ Z) - \dim (\overline y ∩ Z) ≤ \dim x - \dim y$.
     Further, we clearly have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
-    We will show in Theorem~\ref{thm:existance} that these condition are actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
+    We show in Theorem~\ref{thm:existance} that these condition are actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
 \end{Rem}
 
-Our main theorem will easily follow from the next two lemmas.
+\begin{Thm}
+    \label{thm:main}%
+    Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity and assume that $X$ has enough $p$-measuring subvarieties.
+    Then,
+    \begin{enumerate}
+        \item $\perv[p] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$;
+        \item $\perv[p] D^{≥0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$.
+    \end{enumerate}
+    Therefore are sheaf $\sheaf F ∈ D_c^b(X^G)$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
+\end{Thm}
+
+The following two lemmas are central for the proof of the two respective parts of the theorem.
 
 \begin{Lem}
     \label{lem:supportAndLocalCohomology-}%
@@ -275,7 +288,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     Set $d = \dim \supp \sheaf F$.
     Choose any $p$-measuring subvariety $Z$ that intersects $U$.
     Then $\codim_Z X = -p(d) ≥ -n + 1$.
-    We will to show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$ and hence $p(d) \ge n$ by assumption.
+    We will show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$ and hence $p(d) \ge n$ by assumption.
     Take some affine open subset $U$ of $X$ such that $U \cap Z$ is irreducible in $U$.
     It suffices to show that the cohomology is non-zero in $U$.
     Thus we can assume without loss of generality that $X$ is affine, say $X = \Spec A$, and $Z$ is irreducible.
@@ -305,29 +318,14 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     The proof of \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} works for singular schemes as well --- just substitute $\dualize M$ for $M^*$ and Proposition~\ref{prop:dualStandard} for \cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} and note that the dual standard perversity is strictly monotone so that Proposition~\ref{prop:equivDeligneKashiwara} can be applied.
 \end{proof}
 
-We are now in a good position to prove the main theorem.
-
-\begin{Thm}
-    \label{thm:main}%
-    Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity and assume that $X$ has enough $p$-measuring subvarieties.
-    Let $\sheaf F ∈ D_c^b(X^G)$.
-    Then $\sheaf F$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
-    More precisely,
-    \begin{enumerate}
-        \item $\perv[p] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$;
-        \item $\perv[p] D^{≥0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$.
-    \end{enumerate}
-\end{Thm}
-
-\begin{proof}
-    The first statement follows immediately from (i) and (ii), so we will prove those.
+\begin{proof}[Proof of Theorem~\ref{thm:main}]\leavevmode
 \begin{enumerate}
 \item 
-    We will use the description of $\perv[p] D^{≤0}(X)$ given by Proposition~\ref{prop:equivDeligneKashiwara}, i.e.
+    We use the description of $\perv[p] D^{≤0}(X)$ given by Proposition~\ref{prop:equivDeligneKashiwara}, i.e.
     \[
     \perv D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X^G) : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) ≥ n \text{ for all $n$}\right\}.
     \]
-    We will use induction on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv D^{≤0}$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all $p$-measuring subvarieties $Z$.
+    We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv D^{≤0}$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all $p$-measuring subvarieties $Z$.
 
     The equivalence is trivial for $k \ll 0$.
     For the induction step note that there is a distinguished triangle
@@ -406,6 +404,9 @@ We are now in a good position to prove the main theorem.
     For the dual standard perversity $p(n) = -n$ (i.e.\ $p(x) = -\dim x$), we recover the definition of Cohen-Macaulay sheaves.
 \end{Ex}
 
+Of course, for the theorem to have any content, one needs to show that $X$ has in fact enough $p$-measuring subvarieties.
+The next theorem shows that at least for affine varieties there are always enough measuring subvarieties whenever $p$ satisfies the obvious conditions (see Remark~\ref{rem:existence}).
+
 \begin{Thm}
     \label{thm:existance}%
     Assume that $X$ is affine and the perversity $p$ satisfies $-n \le p(n) \le 0$ and is monotone and comonotone.
@@ -414,8 +415,8 @@ We are now in a good position to prove the main theorem.
 
 \begin{proof}
     Let $X = \Spec A$.
-    We will use induction on dimension $d$.
-    More precisely, we will induct on the following statement:
+    We induct induct on the dimension $d$.
+    More precisely, we induct on the following statement:
     \begin{quote}
         There exists a closed equidimensional subvariety $Z_d$ of $X$ such that for all $x ∈ X^{\mathrm{top}}$ the following holds:
         \begin{itemize}
