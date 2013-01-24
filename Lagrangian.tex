@@ -140,7 +140,8 @@ This is accomplished in the following proposition.
             \begin{enumerate}[(i)]
                 \item $\sheaf F ∈ \perv D^{\ge 0}(X)$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ X^{\mathrm{top}}$;
                 \item $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ X^{\mathrm{top}}$;
-                \item $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant equidimensional closed subsets $Z$ of $X$.
+                \item $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant equidimensional closed subsets $Y$ of $X$;
+                \item $\dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k$ for all $x ∈ X^{\mathrm{top}}$ and all $k$.
             \end{enumerate}
     \end{enumerate}
 \end{Prop}
@@ -160,7 +161,8 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             If $H^k(\mathbf ι_x^*\sheaf F) \ne 0$, then $\dim x ≤ \dim \supp H^{k}(\sheaf F)$.
             Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)$.
         \item
-            The implications from (iii) to (ii) and (ii) to (i) are trivial, so we only need to show that (i) implies (iii).
+            The implications from (iii) to (ii) and (ii) to (i) are trivial and the equivalence of (ii) and (iv) follows from Lemma~\ref{lem:supportAndLocalCohomology+}.
+            Thus we only need to show that (i) implies (iii).
             So assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
             We induct on the dimension of $Y$.
             
@@ -212,14 +214,36 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
     \end{enumerate}
 \end{proof}
 
-\begin{Prop}[{\cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
-    \label{prop:dualStandard}
-    The dualizing functor $\dualize_X$ sends the standard t-structure on $D_c^b(X^G)$ to the one associated to the perversity $p(n) = -\dim n$ (i.e.\ $p(x) = -\dim x$).
-\end{Prop}
+\begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
+    \label{lem:supportAndLocalCohomology+}%
+    Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$ and $n$ an integer.
+    Then $\lc Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $\dim(Z∩\supp(H^k(\dualize \sheaf F))) \le - k - n$ for all $k$.
+\end{Lem}
+
+\textcgs{An analogous lemma holds in the topological situations, see~\cite[Exercise~X.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.}
+
+This lemma just states that \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} holds on singular varieties as well.
+The proof is same as for the smooth case, but we will include it here for completeness.
 
 \begin{proof}
-    The standard t-structure is given by the constant perversity $p(x) = 0$.
-    Thus the statement follows immediately from $\dualize \perv[p] D^{≤0}(X) = \perv[\overline p] D^{≥0}(X)$ \cite[Lemma~5]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+    By \cite[Proposition~VII.1.2]{SGA2}, $\lc Z\sheaf F ∈ D_{qc}^{\ge n}(X)$ if and only if 
+    \begin{equation}
+        \label{eq:supportAndCohomology+}%
+        \sheafHom(\sheaf G,\sheaf F) ∈ D_c^{\ge n}(X)
+    \end{equation}
+    for all $\sheaf G ∈ \catCoh{X}$ with $\supp \sheaf G \subseteq Z$.
+    Let $d(n) = -n$ be the dual standard perversity.
+    Then by \cite[Lemma~5a]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, \eqref{eq:supportAndCohomology+} holds if and only if $\dualize \sheafHom(\sheaf G,\sheaf F) ∈ \perv[d] D^{\le -n}(X)$.
+    By \cite[Proposition~V.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\O_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara}(a) we need to show that
+    \[
+        \dim \supp H^{k}\left(\sheaf G \otimes_{\O_X} \dualize \sheaf F\right) \le - k - n 
+    \]
+    for all $k$.
+    By \cite[Lemma~5.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} this is equivalent to
+    \[
+        \dim \left(Z∩\supp H^{k}(\dualize \sheaf F)\right) \le - k - n
+    \]
+    for all $k$ as required.
 \end{proof}
 
 \section{Measuring subvarieties}
@@ -260,7 +284,7 @@ From now on we assume that the $G$-action has finitely many orbits.
     Therefore are sheaf $\sheaf F ∈ D_c^b(X^G)$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
 \end{Thm}
 
-The following two lemmas are central for the proof of the two respective parts of the theorem.
+The following lemma encapsulates the central argument for the proof of the first part of the theorem.
 
 \begin{Lem}
     \label{lem:supportAndLocalCohomology-}%
@@ -306,18 +330,6 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     $H_{\ideal p_{\ideal p}}^{-p(d)}(Γ(X,\sheaf F)_{\ideal p}) \ne 0$ and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$ as required.
 \end{proof}
 
-\begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
-    \label{lem:supportAndLocalCohomology+}%
-    Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$ and $n$ an integer.
-    Then $\lc Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $-\dim(Z∩\supp(H^k(\dualize \sheaf F))) ≥ k + n$ for all $k$.
-\end{Lem}
-
-\textcgs{An analogous lemma holds in the topological situations, see~\cite[Exercise~X.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.}
-
-\begin{proof}
-    The proof of \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} works for singular schemes as well --- just substitute $\dualize M$ for $M^*$ and Proposition~\ref{prop:dualStandard} for \cite[Proposition~4.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} and note that the dual standard perversity is strictly monotone so that Proposition~\ref{prop:equivDeligneKashiwara} can be applied.
-\end{proof}
-
 \begin{proof}[Proof of Theorem~\ref{thm:main}]\leavevmode
 \begin{enumerate}
 \item 
@@ -346,7 +358,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     By induction, $H^\ell(\lc Z(τ_{<k} \sheaf F))$ vanishes for $\ell ≥ 1$ so that $H^\ell(\lc Z\sheaf F) \cong H^{k+\ell}(\lc Z(H^k(\sheaf F)))$ for $\ell ≥ 1$.
     Thus the statement follows from Lemma~\ref{lem:supportAndLocalCohomology-}.
 \item 
-    By Proposition~\ref{prop:equivDeligneKashiwara} and Lemma~\ref{lem:supportAndLocalCohomology+}, $\sheaf F ∈ \perv D^{≥0}$ if and only if
+    By Proposition~\ref{prop:equivDeligneKashiwara}(b), $\sheaf F ∈ \perv D^{≥0}$ if and only if
     \begin{align}
         \label{eq:main:+supp1}%
         & \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k &  \text{for all $x ∈ X^{\mathrm{top}}$ and all $k$}. \\
