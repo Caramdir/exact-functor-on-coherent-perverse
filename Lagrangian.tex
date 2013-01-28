@@ -1,6 +1,6 @@
 \documentclass[english,biblatex-alpha]{short-notes}
 
-\title{Perverse coherent sheaves and measuring subvarieties}
+\title{Exact functors on perverse coherent sheaves}
 \author{Clemens Koppensteiner}
 
 \usepackage{math-ag}
@@ -17,32 +17,45 @@
 %\tableofcontents
 
 \begin{abstract}
-    Inspired by microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X^G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
+    Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X^G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
+    These subvarieties are analogons of Lagrangians in the symplectic case.
 \end{abstract}
 
 \cgsIntro
 
 \section{Introduction}
 
-Consider a complex Kähler manifold $X$ and a perverse (constructible) sheaf $\sheaf F$ on $X$ with respect to the middle perversity.
-If $f\colon X → ℂ$ is a holomorphic function, then the vanishing cycles $φ_f(\sheaf F)$ is again perverse.
-Assume in addition that $f$ has a single critical point $p$ with $f(p) = 0$ and that the Hessian of $f$ is non-degenerate at $p$.
-For such a function we can reinterpret the stalk at $p$ of the vanishing cycle measurement in the following way.
+For motivation let us consider a complex manifold $X$ and the middle perversity on constructible sheaves on $X$.
+This is a t-structure on the derived category $D_{\mathrm{const}}^b(X)$ of constructible sheaves on $X$.
+A general way to obtain insights about the heart of a t-structure (e.g.\ perverse sheaves), it is useful to have a collection of exact functors on that t-structure.
+In the case of perverse sheaves on a complex manifolds, one can obtain a large amount of exact functors by taking vanishing cycles \cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}.
 
-Let $C^\pm_{f,p}$ be the stable and unstable manifolds for the gradient of the Morse function $\Re f$.
-These are Lagrangian submanifolds that intersect transversally in $p$.
-Let $i_p$ be the inclusion of $p$ and let $j^\pm_{f,p}\colon C^\pm_{f,p} \hookrightarrow X$.
-Then $i_p^*(j_{p,f}^+)^!\sheaf F$ and $i_p^!(j_{p,f}^-)^*\sheaf F$ are concentrated in degree $0$.
+Now consider a constructible perverse sheaf $\sheaf F$ on an affine Kähler manifold $X$, a point $x ∈ X$ and a suitably chosen holomorphic Morse function $f\colon X → ℂ$ with $f(x) = 0$ and single critical point $x$.
+Then the stalk $(ϕ_{\!f}\sheaf F)_x$ is concentrated in cohomological degree $0$.
+A more \enquote{geometric} formulation of this statement can be obtained in the following way.
+Let $L$ be the stable manifold for the gradient of the Morse function $\Re f$.
+Write $ι_x \colon \{x\} \hookrightarrow L$ and $ι_L\colon L \hookrightarrow X$ for the inclusions.
+Then $ι_x^*ι_L^! \sheaf F$ is concentrated in cohomological degree $0$.
+Note that $L$ is a Lagrangian with respect to the symplectic structure given by the Kähler form.
 
-This observation can be used as a criterion for perversity of a constructible sheaf.
-The question arises, whether an analogous criterion can be given for perverse \emph{coherent} sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
-To do so we start from the Lagrangian $C^+_{f,p}$, rather than from the function $f$.
-The local cohomology along such a Lagrangian should give information about whether a sheaf is perverse.
+Now consider a symplectic variety $X$ with an action by a group $G$ such that the $G$-orbits give a symplectic foliation of $X$.
+In this situation there is a middle perversity t-structure on the derived category $D_c^b(X^G)$ of \emph{coherent} $G$-equivariant sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
+Let $L$ be a Lagrangian on $X$, i.e.\ a smooth subvariety that intersect every symplectic leaf in a Lagrangian.
+Let $\sheaf F ∈ D_c^b(X^G)$ be a perverse coherent sheaf on $X$.
+Following the intuition obtained in the constructible case, we expect the !-restriction $ι_L^!\sheaf F$ of $\sheaf F$ to $L$ to be concentrated in degree $0$.
 
-In the coherent setting, in order to have a middle perversity, we need to take a variety $X$ with an action of a group $G$ such that all orbits are even dimensional.
-As an analogue of Lagrangian submanifolds, we define \enquote{measuring subvarieties} (Definition~\ref{def:measuring}), which are essentially closed subvarieties that intersect each $G$-orbit $U$ in half the dimension of $U$.
-Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X^G)$ is perverse if and only if $RΓ_Z(\sheaf F)$ is concentrated in degree $0$ for all measuring subvarieties $Z$ of $X$.
-Thus it is possible to define the category of perverse coherent sheaves as an Abelian subcategory of $D^b_c(X^G)$ directly by the single type of measurement $RΓ_Z$, instead of having to define a t-structure first.
+For an arbitrary variety $X$ with a $G$-action that has finitely many orbits, we define the notion of a \emph{measuring subvariety} as an analogon of a Lagrangian in the symplectic case (Definition~\ref{def:measuring}).
+Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X^G)$ is perverse if and only if $ι_Z^!\sheaf F$ is concentrated in cohomological degree $0$ for all measuring subvarieties $Z$ of $X$.
+
+\begin{Ex}
+    Let $N$ be the nilpotent cone in the complex Lie algebra $\liesl n$ and let $G = \SL n$ act on $N$ adjointly.
+    Then the dimensions of the $G$-orbits in $N$ are known to be even dimensional.
+    Thus there exists a middle perversity $p$ with $p(O) = \frac12 \dim O$ for each $G$-orbit $O$.
+    Let $X$ be the flag variety for $\liesl n$ and $μ\colon T^*X → N$ the Springer resolution.
+    Choose any point $x ∈ X$.
+    Then $T_x^*X$ is a Lagrangian in $T^*X$ and one can show explicitly that $μ(T_x^*X)$ is a measuring subvariety of $N$.
+    Thus a sheaf $\sheaf F ∈ D_c^b(N^G)$ is perverse if and only if $RΓ_{μ(T_x^*X)}\sheaf F$ is concentrated in degree $0$.
+\end{Ex}
 
 \subsection{Setup and notation}
 
