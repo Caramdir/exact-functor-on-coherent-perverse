@@ -470,6 +470,33 @@ The next theorem shows that at least for affine varieties there are always enoug
 %    In interesting cases, it should be possible to obtain such subvarieties as Lagrangians for (the resolution of) a symplectic structure on $X$.
 %\end{Ex}
 
+\appendix
+
+\section{Constructible sheaves}
+
+Let $X$ be a complex manifold and $\setset S$ a finite stratification of $X$ by complex submanifolds.
+We write $D^b_{\setset S}(X)$ for the bounded derived category of $\setset S$-constructible sheaves on $X$.
+We call a sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ perverse if it is perverse with respect to the middle perversity function on $\setset S$.
+We prove the following analogue of Theorem~\ref{thm:main}.
+
+\begin{Thm}
+    A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if the following condition holds:
+    \begin{quote}
+        For each real submanifold $Y$ of $X$ such that $\dim_ℝ(S ∩ Y) = \frac 12 \dim_ℝ S$ for each stratum $S ∈ \setset S$, the sheaf $\mathbf ι_Y^! \sheaf F$ is concentrated in cohomological degree $0$.
+    \end{quote}
+\end{Thm}
+
+\begin{proof}
+    First show that there are enough such submanifolds.
+
+    We induct on the number of strata.
+    If there is only one stratum $X$, then $ι_Y^! \sheaf F \cong ω_{Y/X} ι_Y^* \sheaf F$ and hence $ι_Y^! \sheaf F$ is in degree $0$ if and only if $\sheaf F$ is in degree $-\frac 12 \dim_ℝ X$.
+
+    In general, let $U$ be the open stratum and $F$ its complement.
+    By induction, the theorem holds on $U$ and $F$.
+    By recollement it suffices to show the conditions holds for a sheaf $F$ on $X$ if and only if it holds of $ι_U^*$, \ldots
+\end{proof}
+
 \printbibliography
 
 \end{document}
