@@ -57,6 +57,8 @@ Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sh
     Thus a sheaf $\sheaf F ∈ D_c^b(N^G)$ is perverse if and only if $R\lc{μ(T_x^*X)}\sheaf F$ is concentrated in degree $0$.
 \end{Ex}
 
+Since the motivating theorem about constructible perverse sheaves doesn't seem to be in the literature, we give a direct proof of the statement in the appendix.
+
 \subsection{Setup and notation}
 
 Let $X$ be a finite-dimensional Noetherian separated scheme over an algebraically closed field $k$.
@@ -76,6 +78,8 @@ All functors are be derived, though we usually don't explicitly write the $R$ or
     The equivariance condition forces the coherent sheaves to be vector bundles on each orbit and reduces the possible maps between sheaves so that the cone of a map is of that form (cf.~the introduction of \cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}).
 \end{cgs}
 
+For any subset $Y$ of a topological space $X$ we write $ι_Y$ for the inclusion of $Y$ into $X$. 
+If $x ∈ X$ is a point, then we simply write $ι_x$ for $ι_{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
 For an $\O_X$-module $\sheaf F$ we let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 %If $\sheaf F$ is quasi-coherent, then by \cite[Theorem~V.4.1]{Hartshorne:1966:ResiduesAndDuality} we have
@@ -477,24 +481,62 @@ The next theorem shows that at least for affine varieties there are always enoug
 Let $X$ be a complex manifold and $\setset S$ a finite stratification of $X$ by complex submanifolds.
 We write $D^b_{\setset S}(X)$ for the bounded derived category of $\setset S$-constructible sheaves on $X$.
 We call a sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ perverse if it is perverse with respect to the middle perversity function on $\setset S$.
-We prove the following analogue of Theorem~\ref{thm:main}.
+We are going to formulate and prove an analogue of Theorem~\ref{thm:main} in this situation.
+
+A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if for each stratum $S$ of $X$ either $Z ∩ \overline S = \emptyset$ or $\dim_ℝ Z ∩ S = \dim_ℂ S$.
 
 \begin{Thm}
-    A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if the following condition holds:
-    \begin{quote}
-        For each real submanifold $Y$ of $X$ such that $\dim_ℝ(S ∩ Y) = \frac 12 \dim_ℝ S$ for each stratum $S ∈ \setset S$, the sheaf $\mathbf ι_Y^! \sheaf F$ is concentrated in cohomological degree $0$.
-    \end{quote}
+    A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if $ι_Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each measuring submanifold $Z$ of $X$.
 \end{Thm}
 
 \begin{proof}
-    First show that there are enough such submanifolds.
+    Clearly it is enough to check the condition on a collection of measuring submanifolds $\{ Y_i \}$ such that each connected component of each stratum has non-empty intersection with at least on $Y_i$.
+    Similarly to Theorem~\ref{thm:existance}, one easily shows inductively that such a collection of submanifolds exists.
+    
+    Define two full subcategories $\perv[L] D^{\le 0}(X)$ and $\perv[L] D^{\ge 0}(X)$ of $D^b_{\setset S}(X)$ by
+    \begin{align*}
+        \perv[L] D^{≤0}(X) & = \left\{ \sheaf F ∈ D^b_{\setset S}(X) : ι_Z^! \sheaf F ∈ D^{≤0}(Z) \text{ for all measuring submanifolds $Z$} \right\}, \\
+        \perv[L] D^{≥0}(X) & = \left\{ \sheaf F ∈ D^b_{\setset S}(X) : ι_Z^! \sheaf F ∈ D^{≥0}(Z) \text{ for all measuring submanifolds $Z$} \right\}.
+    \end{align*}
+    We will show that these categories are the same as the categories $\perv D^{≤0}(X)$ and $\perv D^{≥0}(X)$ defining the perverse t-structure on $D^b_{\setset S}(X)$.
 
     We induct on the number of strata.
     If there is only one stratum $X$, then $ι_Y^! \sheaf F \cong ω_{Y/X} ι_Y^* \sheaf F$ and hence $ι_Y^! \sheaf F$ is in degree $0$ if and only if $\sheaf F$ is in degree $-\frac 12 \dim_ℝ X$.
-
-    In general, let $U$ be the open stratum and $F$ its complement.
-    By induction, the theorem holds on $U$ and $F$.
-    By recollement it suffices to show the conditions holds for a sheaf $F$ on $X$ if and only if it holds of $ι_U^*$, \ldots
+    So assume that $X$ has more then one stratum and let $U$ be the union of all open strata and $F$ its complement.
+    Both $U$ and $F$ are unions of strata of $X$.
+    Let $j$ be the inclusion of $U$ and $i$ the inclusion of $X$. 
+    
+    \begin{itemize}
+        \item 
+            If $\sheaf F ∈ \perv D^{≤0}(X)$, then $\sheaf F ∈ \perv[L] D^{≤0}$ follows in exactly the same way as in the coherent case.
+        \item 
+            Let $\sheaf F ∈ \perv D^{≥0}(X)$.
+            Then $i^! \sheaf F ∈ \perv D^{≥0}(F)$ and $j^*\sheaf F ∈ \perv D^{≥0}(U)$.
+            Let $Z$ be a measuring subvariety.
+            Consider the distinguished triangle 
+            \[ 
+                i_*i^! \sheaf F → \sheaf F → j_*j^*\sheaf F.
+            \]
+            Using base change, induction and the (left)-exactness of the push-forward functors one sees that $ι_Z^!$ of the outer sheaves in the triangle is concentrated in non-negative degrees.
+            Thus so is $ι_Z^! \sheaf F$.
+        \item 
+            Let $\sheaf F ∈ \perv[L] D^{≥0}(X)$.
+            Since all measurement are local this implies that $j^* \sheaf F ∈ \perv[L] D^{≥0}(U) = \perv D^{≥0}(U)$.
+            Using the same triangle and argument as in the last point, this implies that also $i^! \sheaf F ∈ \perv[L] D^{≥0}(F) = \perv D^{≥0}(F)$.
+            Hence, by recollement, $\sheaf F ∈ \perv D^{≥0}(X)$.
+        \item 
+            Finally, let $\sheaf F ∈ \perv[L] D^{≤0}(X)$.
+            Again this immediately implies that $j^* \sheaf F ∈ \perv[L] D^{≤0}(U) = \perv D^{≤0}(U)$.
+            Thus also $j_!j^*\sheaf F ∈ \perv D^{≤0}(X)$.
+            Let $Z$ be a measuring submanifold and consider the distinguished triangle
+            \[
+                ι_Z^! j_!j^*\sheaf F → ι_Z^! \sheaf F → ι_Z^! i_*i^* \sheaf F.
+            \]
+            By what we already know, the first sheaf is concentrated in non-positive degrees and hence so is $ι_Z^! i_*i^* \sheaf F$.
+            By base change and the exactness of $i_*$ this implies that $i^* \sheaf F ∈ \perv[L] D^{≤0}(F) = \perv D^{≤0}(F)$.
+            Hence, by recollement, $\sheaf F ∈ \perv D^{≤0}(X)$.
+            \qedhere
+    \end{itemize}
 \end{proof}
 
 \printbibliography
