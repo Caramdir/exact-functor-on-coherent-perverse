@@ -18,7 +18,7 @@
 
 \begin{abstract}
     Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X^G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
-    These subvarieties are analogons of Lagrangians in the symplectic case.
+    These subvarieties are analogs of Lagrangians in the symplectic case.
 \end{abstract}
 
 \cgsIntro
@@ -44,7 +44,7 @@ Let $L$ be a Lagrangian on $X$, i.e.\ a smooth subvariety that intersect every s
 Let $\sheaf F ∈ D_c^b(X^G)$ be a perverse coherent sheaf on $X$.
 Following the intuition obtained in the constructible case, we expect the !-restriction $ι_L^!\sheaf F$ of $\sheaf F$ to $L$ to be concentrated in degree $0$.
 
-For an arbitrary variety $X$ with a $G$-action that has finitely many orbits, we define the notion of a \emph{measuring subvariety} as an analogon of a Lagrangian in the symplectic case (Definition~\ref{def:measuring}).
+For an arbitrary variety $X$ with a $G$-action that has finitely many orbits, we define the notion of a \emph{measuring subvariety} as an analog of a Lagrangian in the symplectic case (Definition~\ref{def:measuring}).
 Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X^G)$ is perverse if and only if $ι_Z^!\sheaf F$ is concentrated in cohomological degree $0$ for all measuring subvarieties $Z$ of $X$.
 
 \begin{Ex}
@@ -63,7 +63,7 @@ Since the motivating theorem about constructible perverse sheaves doesn't seem t
 
 Let $X$ be a finite-dimensional Noetherian separated scheme over an algebraically closed field $k$.
 Let $G$ be an algebraic group over $k$ acting on $X$.
-For the moment we include the possibility of the action being trivial (this will change in Section~\ref{sec:measuring}).
+For the moment we include the possibility of the acting group being trivial (this will change in Section~\ref{sec:measuring}).
 We write $X^{\mathrm{top}}$ for the subset of the topological space of $X$ consisting of generic points of $G$-invariant subschemes and equip $X^{\mathrm{top}}$ with the induced topology.
 
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
@@ -82,10 +82,6 @@ For any subset $Y$ of a topological space $X$ we write $ι_Y$ for the inclusion 
 If $x ∈ X$ is a point, then we simply write $ι_x$ for $ι_{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
 For an $\O_X$-module $\sheaf F$ we let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
-%If $\sheaf F$ is quasi-coherent, then by \cite[Theorem~V.4.1]{Hartshorne:1966:ResiduesAndDuality} we have
-%\[
-%\lc Z\sheaf F = \varinjlim_n \sheafHom_{\O_X}(\rquot{\O_X}{\sheaf I^n}, \sheaf F).
-%\]
 By abuse of notation, we simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) → D_{qc}(X)$.
 Note that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
 
@@ -430,7 +426,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 \end{proof}
 
 \begin{Ex}
-    For the dual standard perversity $p(n) = -n$ (i.e.\ $p(x) = -\dim x$), we recover the definition of Cohen-Macaulay sheaves.
+    For the dual standard perversity $p(n) = -n$ (i.e.\ $p(x) = -\dim x$), we recover the definition of Cohen-Macaulay sheaves \cite[Section~IV.3]{Hartshorne:1966:ResiduesAndDuality}.
 \end{Ex}
 
 Of course, for the theorem to have any content, one needs to show that $X$ has in fact enough $p$-measuring subvarieties.
@@ -465,14 +461,6 @@ The next theorem shows that at least for affine varieties there are always enoug
     Since there are only finitely many orbits, we can choose a function $f$ \textcgs{(by choosing individual $f_i$ and multiplying them)} such that $f$ vanishes identically on $S$, $V(f)$ does not share a component with $Z_d$ and $V(f)$ intersects every $\overline x$ with $\dim x > d$.
     Then $Z_{d+1} = Z_d \cap V(f)$ satisfies the conditions.
 \end{proof}
-
-%\begin{Ex}
-%    Assume that all $G$-orbits are finite dimensional (e.g.\ when $X$ is the nilpotent cone of a semisimple complex Lie-algebra).
-%    Then we can define a \emph{middle perversity} $m$ by $m(x) = -\frac12 \dim x$.
-%    Note that $m = \overline m$ and hence $\dualize \perv[m] D^{≤0}(X) = \perv[m] D^{≥0}(X)$ \cite[Lemma~5(a)]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
-%    In this case $m$-measuring subvarieties $Z$ are \enquote{universally half-dimensional} subvarieties, i.e.\ they intersect every orbit in a half-dimensional subvariety.
-%    In interesting cases, it should be possible to obtain such subvarieties as Lagrangians for (the resolution of) a symplectic structure on $X$.
-%\end{Ex}
 
 \appendix
 
