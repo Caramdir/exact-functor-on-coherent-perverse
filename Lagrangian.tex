@@ -17,7 +17,7 @@
 %\tableofcontents
 
 \begin{abstract}
-    Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X^G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
+    Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X_G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
     These subvarieties are analogs of Lagrangians in the symplectic case.
 \end{abstract}
 
@@ -27,7 +27,7 @@
 
 For motivation let us consider a complex manifold $X$ and the middle perversity on constructible sheaves on $X$.
 This is a t-structure on the derived category $D_{\mathrm{const}}^b(X)$ of constructible sheaves on $X$.
-A general way to obtain insights about the heart of a t-structure (e.g.\ perverse sheaves), it is useful to have a collection of exact functors on that t-structure.
+One general way to obtain insights about the heart of a t-structure (e.g.\ perverse sheaves) is to study exact functors on the t-structure.
 In the case of perverse sheaves on a complex manifolds, one can obtain a large amount of exact functors by taking vanishing cycles \cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}.
 
 Now consider a constructible perverse sheaf $\sheaf F$ on an affine Kähler manifold $X$, a point $x ∈ X$ and a suitably chosen holomorphic Morse function $f\colon X → ℂ$ with $f(x) = 0$ and single critical point $x$.
@@ -35,26 +35,26 @@ Then the stalk $(ϕ_{\!f}\sheaf F)_x$ is concentrated in cohomological degree $0
 A more \enquote{geometric} formulation of this statement can be obtained in the following way.
 Let $L$ be the stable manifold for the gradient of the Morse function $\Re f$.
 Write $ι_x \colon \{x\} \hookrightarrow L$ and $ι_L\colon L \hookrightarrow X$ for the inclusions.
-Then $ι_x^*ι_L^! \sheaf F$ is concentrated in cohomological degree $0$.
+Then $ι_x^*ι_L^! \sheaf F$ is also concentrated in cohomological degree $0$.
 Note that $L$ is a Lagrangian with respect to the symplectic structure given by the Kähler form.
 
-Now consider a symplectic variety $X$ with an action by a group $G$ such that the $G$-orbits give a symplectic foliation of $X$.
-In this situation there is a middle perversity t-structure on the derived category $D_c^b(X^G)$ of \emph{coherent} $G$-equivariant sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
-Let $L$ be a Lagrangian on $X$, i.e.\ a smooth subvariety that intersect every symplectic leaf in a Lagrangian.
-Let $\sheaf F ∈ D_c^b(X^G)$ be a perverse coherent sheaf on $X$.
-Following the intuition obtained in the constructible case, we expect the !-restriction $ι_L^!\sheaf F$ of $\sheaf F$ to $L$ to be concentrated in degree $0$.
+Now consider a symplectic variety $X$ (in the sense of \cite{Beauville:2000:SymplecticSingularities}) with an action by a group $G$ such that the $G$-orbits give a symplectic foliation of $X$.
+In this situation there is a middle perversity t-structure on the derived category $D_c^b(X_G)$ of \emph{coherent} $G$-equivariant sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
+Let $L$ be a Lagrangian on $X$, i.e.\ a smooth subvariety that intersects every symplectic leaf in a Lagrangian.
+Let $\sheaf F ∈ D_c^b(X_G)$ be a perverse coherent sheaf on $X$.
+Following the intuition obtained in the constructible case, is natural to ask whether the !-restriction $ι_L^!\sheaf F$ of $\sheaf F$ to $L$ is concentrated in degree $0$.
 
 For an arbitrary variety $X$ with a $G$-action that has finitely many orbits, we define the notion of a \emph{measuring subvariety} as an analog of a Lagrangian in the symplectic case (Definition~\ref{def:measuring}).
-Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X^G)$ is perverse if and only if $ι_Z^!\sheaf F$ is concentrated in cohomological degree $0$ for all measuring subvarieties $Z$ of $X$.
+Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X_G)$ is perverse if and only if $ι_Z^!\sheaf F$ is concentrated in cohomological degree $0$ for all measuring subvarieties $Z$ of $X$.
 
 \begin{Ex}
     Let $N$ be the nilpotent cone in the complex Lie algebra $\liesl n$ and let $G = \SL n$ act on $N$ adjointly.
     Then the dimensions of the $G$-orbits in $N$ are known to be even dimensional.
     Thus there exists a middle perversity $p$ with $p(O) = \frac12 \dim O$ for each $G$-orbit $O$.
     Let $X$ be the flag variety for $\liesl n$ and $μ\colon T^*X → N$ the Springer resolution.
-    Choose any point $x ∈ X$.
+    Choose a point $x ∈ X$.
     Then $T_x^*X$ is a Lagrangian in $T^*X$ and one can show explicitly that $μ(T_x^*X)$ is a measuring subvariety of $N$.
-    Thus a sheaf $\sheaf F ∈ D_c^b(N^G)$ is perverse if and only if $R\lc{μ(T_x^*X)}\sheaf F$ is concentrated in degree $0$.
+    Thus a sheaf $\sheaf F ∈ D_c^b(N^G)$ is perverse if and only if $R\lc{μ(T_x^*X)}\sheaf F$ is concentrated in degree $0$ for all $x ∈ X$.
 \end{Ex}
 
 Since the motivating theorem about constructible perverse sheaves doesn't seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
@@ -64,10 +64,10 @@ Since the motivating theorem about constructible perverse sheaves doesn't seem t
 Let $X$ be a finite-dimensional Noetherian separated scheme over an algebraically closed field $k$.
 Let $G$ be an algebraic group over $k$ acting on $X$.
 For the moment we include the possibility of the acting group being trivial (this will change in Section~\ref{sec:measuring}).
-We write $X^{\mathrm{top}}$ for the subset of the topological space of $X$ consisting of generic points of $G$-invariant subschemes and equip $X^{\mathrm{top}}$ with the induced topology.
+We write $X^{\mathrm{top}}$ for the subset of the Zariski space of $X$ consisting of generic points of $G$-invariant subschemes and equip $X^{\mathrm{top}}$ with the induced topology.
 
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
-The corresponding categories for $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X^G)$, $D_{qc}(X^G)$ and $D_c(X^G)$.
+The corresponding categories for $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X_G)$, $D_{qc}(X_G)$ and $D_c(X_G)$.
 As usual, $D^b(X)$ (etc.) is the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
 All functors are be derived, though we usually don't explicitly write the $R$ or $L$.
 
@@ -97,13 +97,13 @@ We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\
 \end{cgs}
 
 We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see \cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized.
-For $\sheaf F ∈ D(X)$ (or $D(X^G)$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
+For $\sheaf F ∈ D(X)$ (or $D(X_G)$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
 
 \begin{cgs}
     Recall that the essential properties of the duality functor are:
     \begin{itemize}
-        \item the functor $\dualize$ takes $D^b_{c}(X)$ to $D^b_c(X)$ (resp.~$D_c^b(X^G)$ to $D_c^b(X^G)$);
-        \item for $\sheaf F ∈ D^b_c(X)$ (or $D^b_c(X^G)$), the natural morphism $\sheaf F → \dualize\dualize F$ is an isomorphism;
+        \item the functor $\dualize$ takes $D^b_{c}(X)$ to $D^b_c(X)$ (resp.~$D_c^b(X_G)$ to $D_c^b(X_G)$);
+        \item for $\sheaf F ∈ D^b_c(X)$ (or $D^b_c(X_G)$), the natural morphism $\sheaf F → \dualize\dualize F$ is an isomorphism;
         \item for $x ∈ X$, $\mathbf ι_x^!(\sheaf R)$ is concentrated in degree $-\dim x$ (where $\dim x \coloneq \dim\overline x$).
     \end{itemize}
 \end{cgs}
@@ -119,12 +119,12 @@ A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone}
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ X^{\mathrm{top}}$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional orbits).
 
-Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X^G)$ by taking the following full subcategories (see \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}):
+Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X_G)$ by taking the following full subcategories (see \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}):
 \begin{align*}
     \perv[p] D^{≤0}(X) & = 
-    \{ \sheaf F ∈ D_c^b(X^G) : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}, \\
+    \{ \sheaf F ∈ D_c^b(X_G) : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}, \\
     \perv[p] D^{≥0}(X) & = 
-    \{ \sheaf F ∈ D_c^b(X^G) : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}.
+    \{ \sheaf F ∈ D_c^b(X_G) : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}.
 \end{align*}
 The heart of this t-structure is called the category of perverse sheaves (with respect to the perversity $p$).
 
@@ -140,7 +140,7 @@ This is accomplished in the following proposition.
 
 \begin{Prop}
     \label{prop:equivDeligneKashiwara}%
-    Let $\sheaf F ∈ D_c^b(X^G)$ and let $p$ be a monotone and comonotone perversity function.
+    Let $\sheaf F ∈ D_c^b(X_G)$ and let $p$ be a monotone and comonotone perversity function.
     \begin{enumerate}[(a)]
         \item
             The following are equivalent:
@@ -291,17 +291,17 @@ From now on we assume that the $G$-action has finitely many orbits.
     Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity and assume that $X$ has enough $p$-measuring subvarieties.
     Then,
     \begin{enumerate}
-        \item $\perv[p] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$;
-        \item $\perv[p] D^{≥0}(X) = \{ \sheaf F ∈ D_c^b(X^G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$.
+        \item $\perv[p] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X_G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$;
+        \item $\perv[p] D^{≥0}(X) = \{ \sheaf F ∈ D_c^b(X_G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$.
     \end{enumerate}
-    Therefore are sheaf $\sheaf F ∈ D_c^b(X^G)$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
+    Therefore the sheaf $\sheaf F ∈ D_c^b(X_G)$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
 \end{Thm}
 
 The following lemma encapsulates the central argument for the proof of the first part of the theorem.
 
 \begin{Lem}
     \label{lem:supportAndLocalCohomology-}%
-    Let $\sheaf F ∈ \catCoh{X^G}$ be a $G$-equivariant coherent sheaf on $X$, let $p$ be a monotone perversity and let $n$ be an integer.
+    Let $\sheaf F ∈ \catCoh{X_G}$ be a $G$-equivariant coherent sheaf on $X$, let $p$ be a monotone perversity and let $n$ be an integer.
     Assume that $X$ has enough $p$-measuring subvarieties.
     Then the following are equivalent:
     \begin{enumerate}
@@ -348,7 +348,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 \item 
     We use the description of $\perv[p] D^{≤0}(X)$ given by Proposition~\ref{prop:equivDeligneKashiwara}, i.e.
     \[
-    \perv D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X^G) : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) ≥ n \text{ for all $n$}\right\}.
+    \perv D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X_G) : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) ≥ n \text{ for all $n$}\right\}.
     \]
     We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv D^{≤0}$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all $p$-measuring subvarieties $Z$.
 
