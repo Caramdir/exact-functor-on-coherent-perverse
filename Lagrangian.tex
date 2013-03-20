@@ -57,7 +57,7 @@ Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sh
     Thus a sheaf $\sheaf F ∈ D_c^b(N^G)$ is perverse if and only if $R\lc{μ(T_x^*X)}\sheaf F$ is concentrated in degree $0$ for all $x ∈ X$.
 \end{Ex}
 
-Since the motivating theorem about constructible perverse sheaves doesn't seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
+Since the motivating observation about constructible perverse sheaves doesn't seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
 
 \subsection{Setup and notation}
 
@@ -78,7 +78,7 @@ All functors are be derived, though we usually don't explicitly write the $R$ or
     The equivariance condition forces the coherent sheaves to be vector bundles on each orbit and reduces the possible maps between sheaves so that the cone of a map is of that form (cf.~the introduction of \cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}).
 \end{cgs}
 
-For any subset $Y$ of a topological space $X$ we write $ι_Y$ for the inclusion of $Y$ into $X$. 
+For a subset $Y$ of a topological space $X$ we write $ι_Y$ for the inclusion of $Y$ into $X$. 
 If $x ∈ X$ is a point, then we simply write $ι_x$ for $ι_{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
 For an $\O_X$-module $\sheaf F$ we let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
@@ -464,8 +464,9 @@ The next theorem shows that at least for affine varieties there are always enoug
 
 \appendix
 
-\section{Constructible sheaves}
+\section*{Appendix. Constructible sheaves}
 
+We return now to the claim about exact functors on the t-structure of constructible perverse sheaves made in the introduction.
 Let $X$ be a complex manifold and $\setset S$ a finite stratification of $X$ by complex submanifolds.
 We write $D^b_{\setset S}(X)$ for the bounded derived category of $\setset S$-constructible sheaves on $X$.
 We call a sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ perverse if it is perverse with respect to the middle perversity function on $\setset S$.
@@ -478,7 +479,7 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
 \end{Thm}
 
 \begin{proof}
-    Clearly it is enough to check the condition on a collection of measuring submanifolds $\{ Y_i \}$ such that each connected component of each stratum has non-empty intersection with at least on $Y_i$.
+    Clearly it is enough to check the condition on a collection of measuring submanifolds $\{ Y_i \}$ such that each connected component of each stratum has non-empty intersection with at least one $Y_i$.
     Similarly to Theorem~\ref{thm:existance}, one easily shows inductively that such a collection of submanifolds exists.
     
     Define two full subcategories $\perv[L] D^{\le 0}(X)$ and $\perv[L] D^{\ge 0}(X)$ of $D^b_{\setset S}(X)$ by
@@ -489,8 +490,10 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
     We will show that these categories are the same as the categories $\perv D^{≤0}(X)$ and $\perv D^{≥0}(X)$ defining the perverse t-structure on $D^b_{\setset S}(X)$.
 
     We induct on the number of strata.
-    If there is only one stratum $X$, then $ι_Y^! \sheaf F \cong ω_{Y/X} ι_Y^* \sheaf F$ and hence $ι_Y^! \sheaf F$ is in degree $0$ if and only if $\sheaf F$ is in degree $-\frac 12 \dim_ℝ X$.
-    So assume that $X$ has more then one stratum and let $U$ be the union of all open strata and $F$ its complement.
+    If $X$ consists of only one stratum and $Z$ is a measuring submanifold, then $ι_Z^! \sheaf F \cong ω_{Z/X} \otimes ι_Z^* \sheaf F$ and hence $ι_Z^! \sheaf F$ is in degree $0$ if and only if $\sheaf F$ is in degree $-\frac 12 \dim_ℝ X$.
+    So assume that $X$ has more then one stratum.
+    It suffices to check the case that $X$ is connected.
+    Let $U$ be the union of all open strata and $F$ its complement.
     Both $U$ and $F$ are unions of strata of $X$.
     Let $j$ be the inclusion of $U$ and $i$ the inclusion of $X$. 
     
@@ -505,17 +508,17 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
             \[ 
                 i_*i^! \sheaf F → \sheaf F → j_*j^*\sheaf F.
             \]
-            Using base change, induction and the (left)-exactness of the push-forward functors one sees that $ι_Z^!$ of the outer sheaves in the triangle is concentrated in non-negative degrees.
+            Using base change, induction and the (left)-exactness of the push-forward functors one sees that $ι_Z^!$ of the outer sheaves in the triangle are concentrated in non-negative degrees.
             Thus so is $ι_Z^! \sheaf F$.
         \item 
             Let $\sheaf F ∈ \perv[L] D^{≥0}(X)$.
-            Since all measurement are local this implies that $j^* \sheaf F ∈ \perv[L] D^{≥0}(U) = \perv D^{≥0}(U)$.
+            Since all measurements are local this implies that $j^* \sheaf F ∈ \perv[L] D^{≥0}(U) = \perv D^{≥0}(U)$.
             Using the same triangle and argument as in the last point, this implies that also $i^! \sheaf F ∈ \perv[L] D^{≥0}(F) = \perv D^{≥0}(F)$.
             Hence, by recollement, $\sheaf F ∈ \perv D^{≥0}(X)$.
         \item 
             Finally, let $\sheaf F ∈ \perv[L] D^{≤0}(X)$.
             Again this immediately implies that $j^* \sheaf F ∈ \perv[L] D^{≤0}(U) = \perv D^{≤0}(U)$.
-            Thus also $j_!j^*\sheaf F ∈ \perv D^{≤0}(X)$.
+            Thus $j_!j^*\sheaf F ∈ \perv D^{≤0}(X)$.
             Let $Z$ be a measuring submanifold and consider the distinguished triangle
             \[
                 ι_Z^! j_!j^*\sheaf F → ι_Z^! \sheaf F → ι_Z^! i_*i^* \sheaf F.
