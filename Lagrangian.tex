@@ -5,7 +5,7 @@
 
 \usepackage{math-ag}
 
-\addbibresource{global.bib}
+\addbibresource{all.bib}
 %\bibliography{global.bib}
 
 \newcommand\dualize{\mathbb D}
@@ -17,20 +17,20 @@
 %\tableofcontents
 
 \begin{abstract}
-    Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves as the category consisting of coherent sheaves $\sheaf F ∈ D^b_c(X_G)$ for which $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
-    These subvarieties are analogs of Lagrangians in the symplectic case.
+    Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves:
+    we show that a coherent sheaf is perverse if and only if $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
+    These subvarieties $Z$ are analogs of Lagrangians in the symplectic case.
 \end{abstract}
 
 \cgsIntro
 
 \section{Introduction}
 
-For motivation let us consider a complex manifold $X$ and the middle perversity on constructible sheaves on $X$.
-This is a t-structure on the derived category $D_{\mathrm{const}}^b(X)$ of constructible sheaves on $X$.
-One general way to obtain insights about the heart of a t-structure (e.g.\ perverse sheaves) is to study exact functors on the t-structure.
-In the case of perverse sheaves on a complex manifolds, one can obtain a large amount of exact functors by taking vanishing cycles \cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}.
+A general way to obtain insights about the heart of a t-structure is to study exact functors on the t-structure.
+For example, for the category of constructible perverse sheaves on a complex manifold, one can obtain a large amount of exact functors by taking vanishing cycles \cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}.
 
-Now consider a constructible perverse sheaf $\sheaf F$ on an affine Kähler manifold $X$, a point $x ∈ X$ and a suitably chosen holomorphic Morse function $f\colon X → ℂ$ with $f(x) = 0$ and single critical point $x$.
+Let $\sheaf F$ be a constructible (middle) perverse sheaf on an affine Kähler manifold $X$.
+Let $x ∈ X$ be point and $f\colon X → ℂ$ a suitably chosen holomorphic Morse function with $f(x) = 0$ and single critical point $x$.
 Then the stalk $(ϕ_{\!f}\sheaf F)_x$ is concentrated in cohomological degree $0$.
 A more \enquote{geometric} formulation of this statement can be obtained in the following way.
 Let $L$ be the stable manifold for the gradient of the Morse function $\Re f$.
@@ -39,7 +39,7 @@ Then $ι_x^*ι_L^! \sheaf F$ is also concentrated in cohomological degree $0$.
 Note that $L$ is a Lagrangian with respect to the symplectic structure given by the Kähler form.
 
 Now consider a symplectic variety $X$ (in the sense of \cite{Beauville:2000:SymplecticSingularities}) with an action by a group $G$ such that the $G$-orbits give a symplectic foliation of $X$.
-In this situation there is a middle perversity t-structure on the derived category $D_c^b(X_G)$ of \emph{coherent} $G$-equivariant sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
+In this situation there is a middle perversity t-structure on the derived category $D_c^b(X_G)$ of coherent $G$-equivariant sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
 Let $L$ be a Lagrangian on $X$, i.e.\ a smooth subvariety that intersects every symplectic leaf in a Lagrangian.
 Let $\sheaf F ∈ D_c^b(X_G)$ be a perverse coherent sheaf on $X$.
 Following the intuition obtained in the constructible case, is natural to ask whether the !-restriction $ι_L^!\sheaf F$ of $\sheaf F$ to $L$ is concentrated in degree $0$.
@@ -63,13 +63,14 @@ Since the motivating observation about constructible perverse sheaves doesn't se
 
 Let $X$ be a finite-dimensional Noetherian separated scheme over an algebraically closed field $k$.
 Let $G$ be an algebraic group over $k$ acting on $X$.
-For the moment we include the possibility of the acting group being trivial (this will change in Section~\ref{sec:measuring}).
+For the moment we include the possibility of $G$ being trivial (this will change in Section~\ref{sec:measuring}).
 We write $X^{\mathrm{top}}$ for the subset of the Zariski space of $X$ consisting of generic points of $G$-invariant subschemes and equip $X^{\mathrm{top}}$ with the induced topology.
+To simplify notation, if $x ∈ X^{\mathrm{top}}$ is any point, we write $\overline x$ for the closure $\overline{\{x\}}$ and $\dim x = \dim \overline x$.
 
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
-The corresponding categories for $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X_G)$, $D_{qc}(X_G)$ and $D_c(X_G)$.
+The corresponding categories of $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X_G)$, $D_{qc}(X_G)$ and $D_c(X_G)$.
 As usual, $D^b(X)$ (etc.) is the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
-All functors are be derived, though we usually don't explicitly write the $R$ or $L$.
+All functors are derived, though we usually don't explicitly mention it in the notation.
 
 \begin{cgs}
     Any basic introduction to derived categories will be sufficient in order to understand this article.
@@ -81,7 +82,7 @@ All functors are be derived, though we usually don't explicitly write the $R$ or
 For a subset $Y$ of a topological space $X$ we write $ι_Y$ for the inclusion of $Y$ into $X$. 
 If $x ∈ X$ is a point, then we simply write $ι_x$ for $ι_{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
-For an $\O_X$-module $\sheaf F$ we let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
+For an $\O_X$-module $\sheaf F$ let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 By abuse of notation, we simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) → D_{qc}(X)$.
 Note that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
 
@@ -114,7 +115,7 @@ For $\sheaf F ∈ D(X)$ (or $D(X_G)$) we write $\dualize \sheaf F = \sheafHom_
 A \emph{perversity} is a function $p\colon \{0,\dotsc,\dim X\} → ℤ$.
 For $x ∈ X^{\mathrm{top}}$ we abuse notation and set $p(x) = p(\dim x)$.
 Then $p\colon X^{\mathrm{top}} → ℤ$ is a perversity function in the sense of \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
-Note that with our definition we insist that $p(x)$ solely depends on the dimension of $\overline x$.
+Note that we insist that $p(x)$ only depends on the dimension of $\overline x$.
 A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone} if the \emph{dual perversity} $\overline p(n) \coloneq -n - p(n)$ is decreasing.
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ X^{\mathrm{top}}$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional orbits).
@@ -153,20 +154,20 @@ This is accomplished in the following proposition.
             \begin{enumerate}[(i)]
                 \item $\sheaf F ∈ \perv D^{\ge 0}(X)$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ X^{\mathrm{top}}$;
                 \item $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ X^{\mathrm{top}}$;
-                \item $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant equidimensional closed subsets $Y$ of $X$;
+                \item $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant closed subvarieties $Y$ of $X$;
                 \item $\dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k$ for all $x ∈ X^{\mathrm{top}}$ and all $k$.
             \end{enumerate}
     \end{enumerate}
 \end{Prop}
 
-A crucial fact that we will implicitly use quite often in the following is that the support of a coherent sheaf is closed\textcgs{\ (e.g.~\cite[Exercise~II.5.6c]{Hartshorne:AG})}.
+A crucial fact that we will implicitly use quite often in the following arguments is that the support of a coherent sheaf is always closed\textcgs{\ (e.g.~\cite[Exercise~II.5.6c]{Hartshorne:AG})}.
 In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
 
 \begin{proof}\leavevmode
     \begin{enumerate}[(a)]
         \item
             First let $\sheaf F ∈ \perv D^{≤0}(X)$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
-            Let $x$ be the generic point of an irreducible component of $\supp H^{k}(\sheaf F)$.
+            Let $x$ be the generic point of an irreducible component of maximal dimension of $\supp H^{k}(\sheaf F)$.
             Then $H^k(\mathbf ι_x^* \sheaf F) \ne 0$. 
             But on the other hand, $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
 
@@ -179,16 +180,15 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             So assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
             We induct on the dimension of $Y$.
             
-            If $\dim Y = 0$, then $\mathbf ι_Y^!\sheaf F = Γ(X,\lc Y)$ and thus $\lc Y\sheaf F ∈ D^{≥p(x)}(X)$ by assumption.
+            If $\dim Y = 0$, then $\mathbf ι_Y^!\sheaf F = Γ(X,\lc Y F)$ and thus $\lc Y\sheaf F ∈ D^{≥p(0)}(X)$ by assumption.
 
-            Now let $\dim Y = d > 0$.
+            Now let $\dim Y > 0$.
             We first assume that $Y$ is irreducible, i.e.\ $Y = \overline x$ for some $x ∈ X^{\mathrm{top}}$.
-            Let $k < p(x)$.
-            We have to show that $H^k(\lc {\overline x}\sheaf F) = 0$.
+            Let $k$ be the smallest integer such that $H^k(\lc {\overline x} \sheaf F) \ne 0$ and assume that $k < p(x)$.
+            We will show that this implies that $H^k(\lc {\overline x}\sheaf F) = 0$, giving a contradiction.
 
             We first show that $H^k(\lc {\overline x}\sheaf F)$ is coherent.
-            Let $j\colon X \setminus {\overline x} \hookrightarrow X$.
-            Consider the distinguished triangle
+            Let $j\colon X \setminus {\overline x} \hookrightarrow X$ and consider the distinguished triangle
             \[
                 \lc {\overline x} \sheaf F → \sheaf F → j_*j^* \sheaf F \xrightarrow{+1}.
             \]
@@ -196,7 +196,7 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             \[
                 H^{k-1}(j_*j^*\sheaf F) → H^k(\lc{\overline x} \sheaf F) → H^k(\sheaf F).
             \]
-            Now, $k-1 < p(x) - 1 \le p(x) - 2$, so that $H^{k-1}(j_*j^*\sheaf F)$ is coherent by the Grothendieck finiteness theorem in the form of \cite[Corollary~3]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+            Now, $k-1 \le p(x) - 2$, so that $H^{k-1}(j_*j^*\sheaf F)$ is coherent by the Grothendieck finiteness theorem in the form of \cite[Corollary~3]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
             As $H^k(\sheaf F)$ is coherent by assumption, this implies that $H^k(\lc{\overline x} \sheaf F)$ also has to be coherent.
 
             Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
@@ -205,15 +205,17 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             \[
                 H^k(\lc {\overline x}\sheaf F)[-k] →
                 \lc {\overline x}\sheaf F →
-                τ^{>k}\lc {\overline x}\sheaf F \xrightarrow{+1},
+                τ_{>k}\lc {\overline x}\sheaf F \xrightarrow{+1},
             \]
             and apply $\lc Z$ to it:
             \[
+                \lc Z H^k(\lc {\overline x}\sheaf F)[-k] =
                 H^k(\lc {\overline x}\sheaf F)[-k] →
                 \lc Z \sheaf F →
-                τ^{>k}\lc {Z}\sheaf F \xrightarrow{+1}.
+                \lc Z τ_{>k}\lc {\overline x}\sheaf F \xrightarrow{+1}.
             \]
-            Since $\dim Z < d$, we can use the induction hypothesis to deduce that $\lc Z \sheaf F$ is in degrees at least $p(\dim Z) \ge p(x) > k$, as is $τ^{>k}\lc {Z}\sheaf F$.
+            Since $\dim Z < \dim x$, we can use the induction hypothesis and monotonicity of $p$ to deduce that $\lc Z \sheaf F$ is in degrees at least $p(\dim Z) \ge p(x) > k$.
+            Clearly $\lc Z τ^{>k}\lc {Z}\sheaf F$ is also in degrees larger than $k$.
             Hence $H^k(\lc {\overline x}\sheaf F)$ has to vanish.
 
             If $Y$ is not irreducible, let $Y₁$ be an irreducible component of $Y$ and $Y₂$ be the union of the other components.
@@ -222,20 +224,20 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
                 \lc {Y₁\cap Y₂} \sheaf F → \lc {Y₁} \sheaf F \oplus \lc{Y₂}\sheaf F → \lc{Y} \sheaf F \xrightarrow{+1},
             \]
             where $\lc {Y₁\cap Y₂} \sheaf F ∈ D^{\ge p(\dim Y₁\cap Y₂)}(X) \subseteq D^{\ge p(\dim Y)+1}$ (by strict monotonicity of $p$) and $\lc{Y₁} \sheaf F$ and $\lc{Y₂} \sheaf F$ are in $D^{\ge p(\dim Y)}(X)$ by induction on the number of components of $Y$.
-            Thus $\lc Y \sheaf F ∈ D^{\ge p(\dim Y)}$, as required.
+            Thus $\lc Y \sheaf F ∈ D^{\ge p(\dim Y)}$ as required.
             \qedhere
     \end{enumerate}
 \end{proof}
 
 \begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
     \label{lem:supportAndLocalCohomology+}%
-    Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$ and $n$ an integer.
+    Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$, and $n$ an integer.
     Then $\lc Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $\dim(Z∩\supp(H^k(\dualize \sheaf F))) \le - k - n$ for all $k$.
 \end{Lem}
 
 \textcgs{An analogous lemma holds in the topological situations, see~\cite[Exercise~X.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.}
 
-This lemma just states that \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} holds on singular varieties as well.
+This lemma extends \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} to singular varieties.
 The proof is same as for the smooth case, but we will include it here for completeness.
 
 \begin{proof}
@@ -256,7 +258,7 @@ The proof is same as for the smooth case, but we will include it here for comple
     \[
         \dim \left(Z∩\supp H^{k}(\dualize \sheaf F)\right) \le - k - n
     \]
-    for all $k$ as required.
+    for all $k$, completing the proof.
 \end{proof}
 
 \section{Measuring subvarieties}
@@ -270,7 +272,7 @@ From now on we assume that the $G$-action has finitely many orbits.
     A \emph{$p$-measuring subvariety} of $X$ is an equidimensional subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
     \begin{itemize}
         \item $\dim(\overline x ∩ Z) = p(x) + \dim x$;
-        \item $\overline x ∩ Z$ is the underlying variety of a regularly embedded subscheme\footnote{I.e., up to radical it is locally defined by exactly $-p(x)$ functions.} in $\overline x$.
+        \item $\overline x ∩ Z$ is the underlying variety of a regularly embedded subscheme in $\overline x$, i.e., up to radical $\overline x ∩ Z$ it is locally defined in $\overline x$ by exactly $-p(x)$ functions.
     \end{itemize}
 
     We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $x ∈ X^{\mathrm{top}}$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ \overline x \ne \emptyset$.
@@ -282,7 +284,7 @@ From now on we assume that the $G$-action has finitely many orbits.
     Then $\dim(\overline x ∩ Z) = -\overline p(x)$.
     Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
     Monotonicity of $p$ then further says that $\dim (\overline x ∩ Z) - \dim (\overline y ∩ Z) ≤ \dim x - \dim y$.
-    Further, we clearly have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
+    We clearly have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
     We show in Theorem~\ref{thm:existance} that these condition are actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
 \end{Rem}
 
@@ -291,13 +293,13 @@ From now on we assume that the $G$-action has finitely many orbits.
     Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity and assume that $X$ has enough $p$-measuring subvarieties.
     Then,
     \begin{enumerate}
-        \item $\perv[p] D^{≤0}(X) = \{ \sheaf F ∈ D_c^b(X_G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$;
-        \item $\perv[p] D^{≥0}(X) = \{ \sheaf F ∈ D_c^b(X_G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\}$.
+        \item $\perv[p] D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X_G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$;
+        \item $\perv[p] D^{≥0}(X) = \left\{ \sheaf F ∈ D_c^b(X_G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$.
     \end{enumerate}
     Therefore the sheaf $\sheaf F ∈ D_c^b(X_G)$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
 \end{Thm}
 
-The following lemma encapsulates the central argument for the proof of the first part of the theorem.
+The following lemma encapsulates the central argument of the proof of the first part of the theorem.
 
 \begin{Lem}
     \label{lem:supportAndLocalCohomology-}%
@@ -323,10 +325,10 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     Now assume conversely that $H^\ell(\lc Z\sheaf F) = 0$ for all $\ell ≥ -n+1$ and all measuring subvarieties $Z$.
     We have to show that $p(\dim \supp \sheaf F) ≥ n$.
     Set $d = \dim \supp \sheaf F$.
-    Choose any $p$-measuring subvariety $Z$ that intersects $U$.
-    Then $\codim_Z X = -p(d) ≥ -n + 1$.
+    Choose any $p$-measuring subvariety $Z$.
+    Then $\codim_Z X = -p(d)$.
     We will show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$ and hence $p(d) \ge n$ by assumption.
-    Take some affine open subset $U$ of $X$ such that $U \cap Z$ is irreducible in $U$.
+    Take some affine open subset $U$ of $X$ such that $U \cap Z$ is non-empty and irreducible in $U$.
     It suffices to show that the cohomology is non-zero in $U$.
     Thus we can assume without loss of generality that $X$ is affine, say $X = \Spec A$, and $Z$ is irreducible.
     Write $Z = V(\ideal p)$ for some prime ideal $\ideal p$ of $A$.
@@ -336,7 +338,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     \left(H_{\ideal p}^{-p(d)}(Γ(X,\sheaf F))\right)_{\ideal p} =
     H_{\ideal p_{\ideal p}}^{-p(d)}(Γ(X,\sheaf F)_{\ideal p})
     \]
-    Since $\dim_X \supp \sheaf F = \dim X = d$, the dimension of the $A_{\ideal p}$-module $Γ(X,\sheaf F)_{\ideal p}$ is $-p(d)$.
+    Since $\dim \supp \sheaf F = \dim X = d$, the dimension of the $A_{\ideal p}$-module $Γ(X,\sheaf F)_{\ideal p}$ is $-p(d)$.
     Thus by the Grothendieck non-vanishing theorem
     \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
     %\cite[Théorème~V.3.1]{SGA2}
@@ -397,7 +399,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
         p(x) + \dim x = \\
         p(x) + \dim\left(\overline x ∩ \supp\left( H^k(\dualize F) \right)\right) \le
         p(x) - p(x) - k
-        =k.
+        = -k.
     \end{multline*}
     
     Conversely, assume that \eqref{eq:main:+supp2} holds for $k$.
@@ -413,7 +415,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
         -p(x) - k.
     \end{multline*}
     Otherwise $\overline x ∩ \supp\left( H^k(\dualize F) \right) = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$.
-    Then \eqref{eq:main:+supp1} holds for $y$ and hence
+    Then \eqref{eq:main:+supp1} holds for $y$ in place of $x$ and hence
     \[
     \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) =
     \dim\left( \overline y ∩ \supp\left( H^k(\dualize F) \right) \right) ≤
@@ -429,7 +431,7 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     For the dual standard perversity $p(n) = -n$ (i.e.\ $p(x) = -\dim x$), we recover the definition of Cohen-Macaulay sheaves \cite[Section~IV.3]{Hartshorne:1966:ResiduesAndDuality}.
 \end{Ex}
 
-Of course, for the theorem to have any content, one needs to show that $X$ has in fact enough $p$-measuring subvarieties.
+Of course, for the theorem to have any content, one needs to show that $X$ has enough $p$-measuring subvarieties.
 The next theorem shows that at least for affine varieties there are always enough measuring subvarieties whenever $p$ satisfies the obvious conditions (see Remark~\ref{rem:existence}).
 
 \begin{Thm}
@@ -440,7 +442,7 @@ The next theorem shows that at least for affine varieties there are always enoug
 
 \begin{proof}
     Let $X = \Spec A$.
-    We induct induct on the dimension $d$.
+    We induct on the dimension $d$.
     More precisely, we induct on the following statement:
     \begin{quote}
         There exists a closed equidimensional subvariety $Z_d$ of $X$ such that for all $x ∈ X^{\mathrm{top}}$ the following holds:
