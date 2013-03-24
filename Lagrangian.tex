@@ -18,7 +18,7 @@
 
 \begin{abstract}
     Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves:
-    we show that a coherent sheaf is perverse if and only if $RΓ_Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
+    we show that a coherent sheaf is perverse if and only if $R\lc Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
     These subvarieties $Z$ are analogs of Lagrangians in the symplectic case.
 \end{abstract}
 
@@ -57,7 +57,7 @@ Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sh
     Thus a sheaf $\sheaf F ∈ D_c^b(N^G)$ is perverse if and only if $R\lc{μ(T_x^*X)}\sheaf F$ is concentrated in degree $0$ for all $x ∈ X$.
 \end{Ex}
 
-Since the motivating observation about constructible perverse sheaves doesn't seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
+Since the motivating observation about constructible perverse sheaves does not seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
 
 \subsection{Setup and notation}
 
@@ -70,7 +70,7 @@ To simplify notation, if $x ∈ X^{\mathrm{top}}$ is any point, we write $\overl
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
 The corresponding categories of $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X_G)$, $D_{qc}(X_G)$ and $D_c(X_G)$.
 As usual, $D^b(X)$ (etc.) is the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
-All functors are derived, though we usually don't explicitly mention it in the notation.
+All functors are derived, though we usually do not explicitly mention it in the notation.
 
 \begin{cgs}
     Any basic introduction to derived categories will be sufficient in order to understand this article.
@@ -84,7 +84,7 @@ If $x ∈ X$ is a point, then we simply write $ι_x$ for $ι_{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
 For an $\O_X$-module $\sheaf F$ let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 By abuse of notation, we simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) → D_{qc}(X)$.
-Note that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
+Recall that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
 
 Let $x$ be a (not necessarily closed) point of $x$ and $\sheaf F ∈ D^b(X)$.
 Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ denotes the (derived) functor of talking stalks.
@@ -97,7 +97,7 @@ We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\
     However it should be pretty straightforward to translate the relevant results.
 \end{cgs}
 
-We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see \cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized.
+We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see \cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf ι_x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x ∈ X^{\mathrm{top}}$.
 For $\sheaf F ∈ D(X)$ (or $D(X_G)$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
 
 \begin{cgs}
@@ -118,7 +118,7 @@ Then $p\colon X^{\mathrm{top}} → ℤ$ is a perversity function in the sense 
 Note that we insist that $p(x)$ only depends on the dimension of $\overline x$.
 A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone} if the \emph{dual perversity} $\overline p(n) \coloneq -n - p(n)$ is decreasing.
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ X^{\mathrm{top}}$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
-Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional orbits).
+Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional $G$-orbits).
 
 Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X_G)$ by taking the following full subcategories (see \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}):
 \begin{align*}
@@ -136,7 +136,7 @@ The heart of this t-structure is called the category of perverse sheaves (with r
 \end{cgs}
 
 In \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
-While we work in Bezrukavnikov's setting (i.e.\ on the equivariant derived category on a potentially singular scheme), we need a description of the perverse t-structure that is closer to the one Kashiwara uses.
+While we work in Bezrukavnikov's setting (i.e.\ in the equivariant derived category on a potentially singular scheme), we need a description of the perverse t-structure that is closer to the one Kashiwara uses.
 This is accomplished in the following proposition.
 
 \begin{Prop}
@@ -175,7 +175,7 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             If $H^k(\mathbf ι_x^*\sheaf F) \ne 0$, then $\dim x ≤ \dim \supp H^{k}(\sheaf F)$.
             Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)$.
         \item
-            The implications from (iii) to (ii) and (ii) to (i) are trivial and the equivalence of (ii) and (iv) follows from Lemma~\ref{lem:supportAndLocalCohomology+}.
+            The implications from (iii) to (ii) and (ii) to (i) are trivial and the equivalence of (ii) and (iv) follows from Lemma~\ref{lem:supportAndLocalCohomology+} below.
             Thus we only need to show that (i) implies (iii).
             So assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
             We induct on the dimension of $Y$.
@@ -196,8 +196,8 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             \[
                 H^{k-1}(j_*j^*\sheaf F) → H^k(\lc{\overline x} \sheaf F) → H^k(\sheaf F).
             \]
-            Now, $k-1 \le p(x) - 2$, so that $H^{k-1}(j_*j^*\sheaf F)$ is coherent by the Grothendieck finiteness theorem in the form of \cite[Corollary~3]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
-            As $H^k(\sheaf F)$ is coherent by assumption, this implies that $H^k(\lc{\overline x} \sheaf F)$ also has to be coherent.
+            By assumption, $k-1 \le p(x) - 2$, so that $H^{k-1}(j_*j^*\sheaf F)$ is coherent by the Grothendieck finiteness theorem in the form of \cite[Corollary~3]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+            As $H^k(\sheaf F)$ is coherent by definition, this implies that $H^k(\lc{\overline x} \sheaf F)$ also has to be coherent.
 
             Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
             Then, since $ι_x^* H^k(\lc {\overline x}\sheaf F)$ vanishes, $Z$ is a proper closed subset of $\overline x$.
@@ -215,15 +215,15 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
                 \lc Z τ_{>k}\lc {\overline x}\sheaf F \xrightarrow{+1}.
             \]
             Since $\dim Z < \dim x$, we can use the induction hypothesis and monotonicity of $p$ to deduce that $\lc Z \sheaf F$ is in degrees at least $p(\dim Z) \ge p(x) > k$.
-            Clearly $\lc Z τ^{>k}\lc {Z}\sheaf F$ is also in degrees larger than $k$.
+            Clearly $\lc Z τ_{>k}\lc {\overline x}\sheaf F$ is also in degrees larger than $k$.
             Hence $H^k(\lc {\overline x}\sheaf F)$ has to vanish.
 
             If $Y$ is not irreducible, let $Y₁$ be an irreducible component of $Y$ and $Y₂$ be the union of the other components.
-            Then Mayer-Vietoris gives a distinguished triangle
+            Then there is a Mayer-Vietoris distinguished triangle
             \[
                 \lc {Y₁\cap Y₂} \sheaf F → \lc {Y₁} \sheaf F \oplus \lc{Y₂}\sheaf F → \lc{Y} \sheaf F \xrightarrow{+1},
             \]
-            where $\lc {Y₁\cap Y₂} \sheaf F ∈ D^{\ge p(\dim Y₁\cap Y₂)}(X) \subseteq D^{\ge p(\dim Y)+1}$ (by strict monotonicity of $p$) and $\lc{Y₁} \sheaf F$ and $\lc{Y₂} \sheaf F$ are in $D^{\ge p(\dim Y)}(X)$ by induction on the number of components of $Y$.
+            where $\lc {Y₁\cap Y₂} \sheaf F ∈ D^{\ge p(\dim Y₁\cap Y₂)}(X) \subseteq D^{\ge p(\dim Y)+1}$ (by the induction hypothesis and strict monotonicity of $p$) and $\lc{Y₁} \sheaf F$ and $\lc{Y₂} \sheaf F$ are in $D^{\ge p(\dim Y)}(X)$ by induction on the number of components of $Y$.
             Thus $\lc Y \sheaf F ∈ D^{\ge p(\dim Y)}$ as required.
             \qedhere
     \end{enumerate}
@@ -285,7 +285,7 @@ From now on we assume that the $G$-action has finitely many orbits.
     Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
     Monotonicity of $p$ then further says that $\dim (\overline x ∩ Z) - \dim (\overline y ∩ Z) ≤ \dim x - \dim y$.
     We clearly have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
-    We show in Theorem~\ref{thm:existance} that these condition are actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
+    We will show in Theorem~\ref{thm:existance} that these condition are actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
 \end{Rem}
 
 \begin{Thm}
@@ -458,7 +458,7 @@ The next theorem shows that at least for affine varieties there are always enoug
     We want to show it for $d+1 \le \dim X$.
 
     If $p(d) = p(d+1)$, then $Z_{d+1} = Z_{d}$ works.
-    Otherwise, by (co)monotonicity $p(d+1) = p(d) - 1$.
+    Otherwise, by (co)monotonicity, $p(d+1) = p(d) - 1$.
     Set $S = \bigcup \{ \overline x ∈ X^{\mathrm{top}} : \dim x \le d\}$.
     Since there are only finitely many orbits, we can choose a function $f$ \textcgs{(by choosing individual $f_i$ and multiplying them)} such that $f$ vanishes identically on $S$, $V(f)$ does not share a component with $Z_d$ and $V(f)$ intersects every $\overline x$ with $\dim x > d$.
     Then $Z_{d+1} = Z_d \cap V(f)$ satisfies the conditions.
@@ -471,8 +471,8 @@ The next theorem shows that at least for affine varieties there are always enoug
 We return now to the claim about exact functors on the t-structure of constructible perverse sheaves made in the introduction.
 Let $X$ be a complex manifold and $\setset S$ a finite stratification of $X$ by complex submanifolds.
 We write $D^b_{\setset S}(X)$ for the bounded derived category of $\setset S$-constructible sheaves on $X$.
-We call a sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ perverse if it is perverse with respect to the middle perversity function on $\setset S$.
-We are going to formulate and prove an analogue of Theorem~\ref{thm:main} in this situation.
+We call a sheaf $\sheaf F ∈ \smash[t]{D^b_{\setset S}(X)}$ perverse if it is perverse with respect to the middle perversity function on $\setset S$.
+We are going to formulate and prove an analog of Theorem~\ref{thm:main} in this situation.
 
 A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if for each stratum $S$ of $X$ either $Z ∩ \overline S = \emptyset$ or $\dim_ℝ Z ∩ S = \dim_ℂ S$.
 
@@ -494,7 +494,7 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
     We induct on the number of strata.
     If $X$ consists of only one stratum and $Z$ is a measuring submanifold, then $ι_Z^! \sheaf F \cong ω_{Z/X} \otimes ι_Z^* \sheaf F$ and hence $ι_Z^! \sheaf F$ is in degree $0$ if and only if $\sheaf F$ is in degree $-\frac 12 \dim_ℝ X$.
     So assume that $X$ has more then one stratum.
-    It suffices to check the case that $X$ is connected.
+    Without loss of generality we can assume that $X$ is connected.
     Let $U$ be the union of all open strata and $F$ its complement.
     Both $U$ and $F$ are unions of strata of $X$.
     Let $j$ be the inclusion of $U$ and $i$ the inclusion of $X$. 
@@ -531,6 +531,10 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
             \qedhere
     \end{itemize}
 \end{proof}
+
+\begin{Rem}
+    The equality $\perv D^{≥0}(X) = \perv[L]D^{≥0}(X)$ could also be proved in exactly the same way as in the coherent case, using \cite[Exercise~X.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.
+\end{Rem}
 
 \printbibliography
 
