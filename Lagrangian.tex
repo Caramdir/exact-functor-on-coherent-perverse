@@ -4,8 +4,8 @@
 \author{Clemens Koppensteiner}
 
 \usepackage{math-ag}
-
-\addbibresource{all.bib}
+\usepackage[stable]{footmisc}
+\addbibresource{math.bib}
 %\bibliography{global.bib}
 
 \newcommand\dualize{\mathbb D}
@@ -480,7 +480,27 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
     A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if $ι_Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each measuring submanifold $Z$ of $X$.
 \end{Thm}
 
-\begin{proof}
+\begin{Lem}
+    \label{lem:constructible_local_vanishing}%
+    Let $\sheaf F$ be a constructible sheaf on a real manifold concentrated in degree $0$ and let $i\colon Z \hookrightarrow X$ be the inclusion of a closed submanifold.
+    Then $H^j(i^!\sheaf F) = 0$ for $j>\codim_XZ$.
+\end{Lem}
+
+\begin{proof}[Proof]\hspace{-1.3ex}{\it \footnotemark}\footnotetext{Following \url{http://mathoverflow.net/questions/129244}.}
+    By taking normal slices we can reduce to the case that $Z = \{z\}$ is a point.
+    Let $j$ be the inclusion of $X \setminus \{z\}$ into $X$ and consider the distinguished triangle
+    \[
+        i_!i^! \sheaf F → \sheaf F → j_*j^*\sheaf F \xrightarrow{+1}.
+    \]
+    By \cite[?]{KashiwaraSchapira} we have
+    \[
+        H^j(j_*j^*\sheaf F)_z = H^j(S^{\dim X - 1}_ε, \sheaf F)
+    \]
+    for a sphere $S^{\dim X - 1}_ε$ around $x$ of sufficiently small radius.
+    The latter cohomology vanishes for $j \ge \dim X$ and hence $H^j(i^! \sheaf F) = 0$ for $j>\dim X$ as required.
+\end{proof}
+
+\begin{proof}[Proof of Theorem]
     Clearly it is enough to check the condition on a collection of measuring submanifolds $\{ Y_i \}$ such that each connected component of each stratum has non-empty intersection with at least one $Y_i$.
     Similarly to Theorem~\ref{thm:existance}, one easily shows inductively that such a collection of submanifolds exists.
     
@@ -501,7 +521,7 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
     
     \begin{itemize}
         \item 
-            If $\sheaf F ∈ \perv D^{≤0}(X)$, then $\sheaf F ∈ \perv[L] D^{≤0}$ follows in exactly the same way as in the coherent case.
+            If $\sheaf F ∈ \perv D^{≤0}(X)$, then $\sheaf F ∈ \perv[L] D^{≤0}$ follows in exactly the same way as in the coherent case, using Lemma~\ref{lem:constructible_local_vanishing}.
         \item 
             Let $\sheaf F ∈ \perv D^{≥0}(X)$.
             Then $i^! \sheaf F ∈ \perv D^{≥0}(F)$ and $j^*\sheaf F ∈ \perv D^{≥0}(U)$.
