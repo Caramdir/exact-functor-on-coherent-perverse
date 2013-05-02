@@ -42,7 +42,7 @@ Now consider a symplectic variety $X$ (in the sense of \cite{Beauville:2000:Symp
 In this situation there is a middle perversity t-structure on the derived category $D_c^b(X_G)$ of coherent $G$-equivariant sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
 Let $L$ be a Lagrangian on $X$, i.e.\ a smooth subvariety that intersects every symplectic leaf in a Lagrangian.
 Let $\sheaf F ∈ D_c^b(X_G)$ be a perverse coherent sheaf on $X$.
-Following the intuition obtained in the constructible case, is natural to ask whether the !-restriction $ι_L^!\sheaf F$ of $\sheaf F$ to $L$ is concentrated in degree $0$.
+Following the intuition obtained in the constructible case, is natural to ask whether the\ !-restriction $ι_L^!\sheaf F$ of $\sheaf F$ to $L$ is concentrated in degree $0$.
 
 For an arbitrary variety $X$ with a $G$-action that has finitely many orbits, we define the notion of a \emph{measuring subvariety} as an analog of a Lagrangian in the symplectic case (Definition~\ref{def:measuring}).
 Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X_G)$ is perverse if and only if $ι_Z^!\sheaf F$ is concentrated in cohomological degree $0$ for all measuring subvarieties $Z$ of $X$.
@@ -76,7 +76,7 @@ All functors are derived, though we usually do not explicitly mention it in the 
     Any basic introduction to derived categories will be sufficient in order to understand this article.
     The correct construction of the derived category of equivariant sheaves is somewhat involved, but not really necessary here, since all constructions will factor through the forgetful functor to non-equivariant category.
     The $G$-action is only used as a way to introduce something akin to a stratification on $X$.
-    The equivariance condition forces the coherent sheaves to be vector bundles on each orbit and reduces the possible maps between sheaves so that the cone of a map is of that form (cf.~the introduction of \cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}).
+    The equivariance condition forces the coherent sheaves to be vector bundles on each orbit and reduces the possible maps between sheaves so that the cone of a map is of that form (cf.~the introduction of~\cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}).
 \end{cgs}
 
 For a subset $Y$ of a topological space $X$ we write $ι_Y$ for the inclusion of $Y$ into $X$. 
@@ -91,13 +91,13 @@ Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ denotes th
 We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\cite[Varition~8 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 
 \begin{cgs}
-    The original reference on local cohomology is \cite{SGA2}.
-    A good English book about it is \cite{BrodmannSharp:1998:LocalCohomology}.
+    The original reference on local cohomology is~\cite{SGA2}.
+    A good English book about it is~\cite{BrodmannSharp:1998:LocalCohomology}.
     Unfortunately, both texts don't use the formalism of derived categories and I don't know any comprehensive reference that develops local cohomology in that setting.
     However it should be pretty straightforward to translate the relevant results.
 \end{cgs}
 
-We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see \cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf ι_x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x ∈ X^{\mathrm{top}}$.
+We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see~\cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf ι_x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x ∈ X^{\mathrm{top}}$.
 For $\sheaf F ∈ D(X)$ (or $D(X_G)$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
 
 \begin{cgs}
@@ -112,20 +112,20 @@ For $\sheaf F ∈ D(X)$ (or $D(X_G)$) we write $\dualize \sheaf F = \sheafHom_
 \subsection{Acknowledgements}
 
 The topological motivation was explained to me by David Nadler.
-I would also like to thank Sam Gunningham for suggesting improvements. 
+I would also like to thank Sam Gunningham for valuable comments. 
 
 \section{Perverse coherent sheaves}
 \label{sec:Kashiwara}%
 
 A \emph{perversity} is a function $p\colon \{0,\dotsc,\dim X\} → ℤ$.
 For $x ∈ X^{\mathrm{top}}$ we abuse notation and set $p(x) = p(\dim x)$.
-Then $p\colon X^{\mathrm{top}} → ℤ$ is a perversity function in the sense of \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+Then $p\colon X^{\mathrm{top}} → ℤ$ is a perversity function in the sense of~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
 Note that we insist that $p(x)$ only depends on the dimension of $\overline x$.
 A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone} if the \emph{dual perversity} $\overline p(n) \coloneq -n - p(n)$ is decreasing.
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ X^{\mathrm{top}}$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional $G$-orbits).
 
-Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X_G)$ by taking the following full subcategories (see \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}):
+Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X_G)$ by taking the following full subcategories (see~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}):
 \begin{align*}
     \perv[p] D^{≤0}(X) & = 
     \{ \sheaf F ∈ D_c^b(X_G) : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}, \\
@@ -135,17 +135,16 @@ Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (f
 The heart of this t-structure is called the category of perverse sheaves (with respect to the perversity $p$).
 
 \begin{cgs}
-    The original paper \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves} is easier to understand (as it doesn't use stacks). 
-    However \cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves} uses better notation (in particular the $ℂ$-module and $\O$-module restriction functors are notationally differentiated).
+    The original paper~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves} is easier to understand (as it doesn't use stacks). 
+    However~\cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves} uses better notation (in particular the $ℂ$-module and $\O$-module restriction functors are notationally differentiated).
     So I'd recommend reading the two papers in parallel.
 \end{cgs}
 
-In \cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
+In~\cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
 While we work in Bezrukavnikov's setting (i.e.\ in the equivariant derived category on a potentially singular scheme), we need a description of the perverse t-structure that is closer to the one Kashiwara uses.
 This is accomplished in the following proposition.
 
-\begin{Prop}
-    \label{prop:equivDeligneKashiwara}%
+\begin{Prop}\label{prop:equivDeligneKashiwara}%
     Let $\sheaf F ∈ D_c^b(X_G)$ and let $p$ be a monotone and comonotone perversity function.
     \begin{enumerate}[(a)]
         \item
@@ -234,7 +233,7 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
     \end{enumerate}
 \end{proof}
 
-\begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]
+\begin{Lem}[{\cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}}]%
     \label{lem:supportAndLocalCohomology+}%
     Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$, and $n$ an integer.
     Then $\lc Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $\dim(Z∩\supp(H^k(\dualize \sheaf F))) \le - k - n$ for all $k$.
@@ -246,20 +245,20 @@ This lemma extends \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDM
 The proof is same as for the smooth case, but we will include it here for completeness.
 
 \begin{proof}
-    By \cite[Proposition~VII.1.2]{SGA2}, $\lc Z\sheaf F ∈ D_{qc}^{\ge n}(X)$ if and only if 
+    By~\cite[Proposition~VII.1.2]{SGA2}, $\lc Z\sheaf F ∈ D_{qc}^{\ge n}(X)$ if and only if 
     \begin{equation}
         \label{eq:supportAndCohomology+}%
         \sheafHom(\sheaf G,\sheaf F) ∈ D_c^{\ge n}(X)
     \end{equation}
     for all $\sheaf G ∈ \catCoh{X}$ with $\supp \sheaf G \subseteq Z$.
     Let $d(n) = -n$ be the dual standard perversity.
-    Then by \cite[Lemma~5a]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, \eqref{eq:supportAndCohomology+} holds if and only if $\dualize \sheafHom(\sheaf G,\sheaf F) ∈ \perv[d] D^{\le -n}(X)$.
-    By \cite[Proposition~V.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\O_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara}(a) we need to show that
+    Then by~\cite[Lemma~5a]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, \eqref{eq:supportAndCohomology+} holds if and only if $\dualize \sheafHom(\sheaf G,\sheaf F) ∈ \perv[d] D^{\le -n}(X)$.
+    By~\cite[Proposition~V.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\O_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara}(a) we need to show that
     \[
         \dim \supp H^{k}\left(\sheaf G \otimes_{\O_X} \dualize \sheaf F\right) \le - k - n 
     \]
     for all $k$.
-    By \cite[Lemma~5.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} this is equivalent to
+    By~\cite[Lemma~5.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} this is equivalent to
     \[
         \dim \left(Z∩\supp H^{k}(\dualize \sheaf F)\right) \le - k - n
     \]
@@ -271,8 +270,7 @@ The proof is same as for the smooth case, but we will include it here for comple
 
 From now on we assume that the $G$-action has finitely many orbits.
 
-\begin{Def}
-    \label{def:measuring}%
+\begin{Def}\label{def:measuring}%
     Let $p$ be a perversity.
     A \emph{$p$-measuring subvariety} of $X$ is an equidimensional subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
     \begin{itemize}
@@ -283,8 +281,7 @@ From now on we assume that the $G$-action has finitely many orbits.
     We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $x ∈ X^{\mathrm{top}}$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ \overline x \ne \emptyset$.
 \end{Def}
 
-\begin{Rem}
-    \label{rem:existence}%
+\begin{Rem}\label{rem:existence}%
     Let $Z$ be a $p$-measuring subvariety.
     Then $\dim(\overline x ∩ Z) = -\overline p(x)$.
     Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
@@ -293,21 +290,19 @@ From now on we assume that the $G$-action has finitely many orbits.
     We will show in Theorem~\ref{thm:existance} that these condition are actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
 \end{Rem}
 
-\begin{Thm}
-    \label{thm:main}%
+\begin{Thm}\label{thm:main}%
     Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity and assume that $X$ has enough $p$-measuring subvarieties.
     Then,
     \begin{enumerate}
         \item $\perv[p] D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X_G) : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$;
         \item $\perv[p] D^{≥0}(X) = \left\{ \sheaf F ∈ D_c^b(X_G) : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$.
     \end{enumerate}
-    Therefore the sheaf $\sheaf F ∈ D_c^b(X_G)$ is perverse with respect to $p$ if and only if\/ $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
+    Therefore the sheaf $\sheaf F ∈ D_c^b(X_G)$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
 \end{Thm}
 
 The following lemma encapsulates the central argument of the proof of the first part of the theorem.
 
-\begin{Lem}
-    \label{lem:supportAndLocalCohomology-}%
+\begin{Lem}\label{lem:supportAndLocalCohomology-}%
     Let $\sheaf F ∈ \catCoh{X_G}$ be a $G$-equivariant coherent sheaf on $X$, let $p$ be a monotone perversity and let $n$ be an integer.
     Assume that $X$ has enough $p$-measuring subvarieties.
     Then the following are equivalent:
@@ -337,15 +332,14 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
     It suffices to show that the cohomology is non-zero in $U$.
     Thus we can assume without loss of generality that $X$ is affine, say $X = \Spec A$, and $Z$ is irreducible.
     Write $Z = V(\ideal p)$ for some prime ideal $\ideal p$ of $A$.
-    By flat base change \cite[Theorem~4.3.2]{BrodmannSharp:1998:LocalCohomology},
+    By flat base change~\cite[Theorem~4.3.2]{BrodmannSharp:1998:LocalCohomology},
     \[
     Γ(X,H^{-p(d)}(\lc Z \sheaf F))_{\ideal p} = 
     \left(H_{\ideal p}^{-p(d)}(Γ(X,\sheaf F))\right)_{\ideal p} =
     H_{\ideal p_{\ideal p}}^{-p(d)}(Γ(X,\sheaf F)_{\ideal p})
     \]
     Since $\dim \supp \sheaf F = \dim X = d$, the dimension of the $A_{\ideal p}$-module $Γ(X,\sheaf F)_{\ideal p}$ is $-p(d)$.
-    Thus by the Grothendieck non-vanishing theorem
-    \cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
+    Thus by the Grothendieck non-vanishing theorem~\cite[Theorem~6.1.4]{BrodmannSharp:1998:LocalCohomology}
     %\cite[Théorème~V.3.1]{SGA2}
     $H_{\ideal p_{\ideal p}}^{-p(d)}(Γ(X,\sheaf F)_{\ideal p}) \ne 0$ and hence $Γ(X,H^{-p(d)}(\lc Z \sheaf F)) \ne 0$ as required.
 \end{proof}
@@ -433,14 +427,13 @@ Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the co
 \end{proof}
 
 \begin{Ex}
-    For the dual standard perversity $p(n) = -n$ (i.e.\ $p(x) = -\dim x$), we recover the definition of Cohen-Macaulay sheaves \cite[Section~IV.3]{Hartshorne:1966:ResiduesAndDuality}.
+    For the dual standard perversity $p(n) = -n$ (i.e.\ $p(x) = -\dim x$), we recover the definition of Cohen-Macaulay sheaves~\cite[Section~IV.3]{Hartshorne:1966:ResiduesAndDuality}.
 \end{Ex}
 
 Of course, for the theorem to have any content, one needs to show that $X$ has enough $p$-measuring subvarieties.
 The next theorem shows that at least for affine varieties there are always enough measuring subvarieties whenever $p$ satisfies the obvious conditions (see Remark~\ref{rem:existence}).
 
-\begin{Thm}
-    \label{thm:existance}%
+\begin{Thm}\label{thm:existance}%
     Assume that $X$ is affine and the perversity $p$ satisfies $-n \le p(n) \le 0$ and is monotone and comonotone.
     Then $X$ has enough $p$-measuring subvarieties.
 \end{Thm}
@@ -485,8 +478,7 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
     A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if $ι_Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each measuring submanifold $Z$ of $X$.
 \end{Thm}
 
-\begin{Lem}
-    \label{lem:constructible_local_vanishing}%
+\begin{Lem}\label{lem:constructible_local_vanishing}%
     Let $\sheaf F$ be a constructible sheaf on a real manifold concentrated in degree $0$ and let $i\colon Z \hookrightarrow X$ be the inclusion of a closed submanifold.
     Then $H^j(i^!\sheaf F) = 0$ for $j>\codim_XZ$.
 \end{Lem}
@@ -497,7 +489,7 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
     \[
         i_!i^! \sheaf F → \sheaf F → j_*j^*\sheaf F \xrightarrow{+1}.
     \]
-    By \cite[?]{KashiwaraSchapira} we have
+    By~\cite[Lemma~8.4.7]{KashiwaraSchapira:1994:SheavesOnManifolds} we have
     \[
         H^j(j_*j^*\sheaf F)_z = H^j(S^{\dim X - 1}_ε, \sheaf F)
     \]
@@ -558,7 +550,7 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
 \end{proof}
 
 \begin{Rem}
-    The equality $\perv D^{≥0}(X) = \perv[L]D^{≥0}(X)$ could also be proved in exactly the same way as in the coherent case, using \cite[Exercise~X.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.
+    The equality $\perv D^{≥0}(X) = \perv[L]D^{≥0}(X)$ could also be proved in exactly the same way as in the coherent case, using~\cite[Exercise~X.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.
 \end{Rem}
 
 \printbibliography
