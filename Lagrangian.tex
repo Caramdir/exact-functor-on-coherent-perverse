@@ -82,13 +82,13 @@ All functors are derived, though we usually do not explicitly mention it in the 
 For a subset $Y$ of a topological space $X$ we write $ι_Y$ for the inclusion of $Y$ into $X$. 
 If $x ∈ X$ is a point, then we simply write $ι_x$ for $ι_{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
-For an $\O_X$-module $\sheaf F$ let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Varition~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
+For an $\O_X$-module $\sheaf F$ let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Variation~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 By abuse of notation, we simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) → D_{qc}(X)$.
 Recall that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
 
-Let $x$ be a (not necessarily closed) point of $x$ and $\sheaf F ∈ D^b(X)$.
+Let $x$ be a (not necessarily closed) point of $X$ and $\sheaf F ∈ D^b(X)$.
 Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ denotes the (derived) functor of talking stalks.
-We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\cite[Varition~8 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
+We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\cite[Variation~8 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 
 \begin{cgs}
     The original reference on local cohomology is~\cite{SGA2}.
@@ -111,7 +111,7 @@ For $\sheaf F ∈ D(X)$ (or $D(X_G)$) we write $\dualize \sheaf F = \sheafHom_
 
 \subsection{Acknowledgements}
 
-The topological motivation was explained to me by David Nadler.
+The motivating observation about constructible sheaves was suggested to me by my advisor, David Nadler.
 I would also like to thank Sam Gunningham for valuable comments. 
 
 \section{Perverse coherent sheaves}
@@ -132,7 +132,7 @@ Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (f
     \perv[p] D^{≥0}(X) & = 
     \{ \sheaf F ∈ D_c^b(X_G) : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\}.
 \end{align*}
-The heart of this t-structure is called the category of perverse sheaves (with respect to the perversity $p$).
+The heart of this t-structure is called the category of perverse sheaves with respect to the perversity $p$.
 
 \begin{cgs}
     The original paper~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves} is easier to understand (as it doesn't use stacks). 
@@ -312,9 +312,6 @@ The following lemma encapsulates the central argument of the proof of the first 
     \end{enumerate}
 \end{Lem}
 
-Note that $H^\ell(\lc Z\sheaf F)$ means the $\ell$-th cohomology sheaf of the complex $R\lc Z\sheaf F$.
-\textcgs{Also note that the lemma is only interesting for $n<0$.}
-
 \begin{proof}
     Since $\supp \sheaf F$ is always a union of the closure of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
 
@@ -479,11 +476,11 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
 \end{Thm}
 
 \begin{Lem}\label{lem:constructible_local_vanishing}%
-    Let $\sheaf F$ be a constructible sheaf on a real manifold concentrated in degree $0$ and let $i\colon Z \hookrightarrow X$ be the inclusion of a closed submanifold.
+    Let $X$ be a real manifold, $\sheaf F$ be a constructible sheaf (concentrated in degree $0$) on $X$ and let $i\colon Z \hookrightarrow X$ be the inclusion of a closed submanifold.
     Then $H^j(i^!\sheaf F) = 0$ for $j>\codim_XZ$.
 \end{Lem}
 
-\begin{proof}[Proof]\hspace{-1.3ex}{\it \footnotemark}\footnotetext{Following \url{http://mathoverflow.net/questions/129244}.}
+\begin{proof}[Proof]\hspace{-1.3ex}{\it \footnotemark}\footnotetext{Following \url{http://mathoverflow.net/questions/129244} by Geordie Williamson.}
     By taking normal slices we can reduce to the case that $Z = \{z\}$ is a point.
     Let $j$ be the inclusion of $X \setminus \{z\}$ into $X$ and consider the distinguished triangle
     \[
