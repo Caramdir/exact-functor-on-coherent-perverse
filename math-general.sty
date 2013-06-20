@@ -1,0 +1,122 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-general}[2011/12/05 Useful commands for writing texts about mathematics]
+
+% Normalize Greek letters
+\newunicodechar{ϱ}{ρ}
+\newunicodechar{ϑ}{θ}
+\newunicodechar{ϕ}{φ}
+
+% constants
+\renewcommand\i{\mathfrak i}        % imaginary unit (was dot-less i)
+\newcommand\e{\mathrm e}
+
+% often used operators
+\DeclareMathOperator\rank{rank}
+\DeclareMathOperator\supp{supp}     % support
+\DeclareMathOperator\sign{sgn}      % sign
+\DeclareMathOperator\trace{tr}      % trace
+\newcommand\proj[1]{\operatorname{pr}_{#1}} % projection on a factor
+
+\newcommand\abs[1]{\left|#1\right|} % absolute value
+\AtBeginDocument{%
+    \renewcommand\Re{\mathfrak{Re}}%    % real part
+    \renewcommand\Im{\mathfrak{Im}}%    % imaginary part
+}
+
+\newcommand\res[2]{\mathchoice{\left.#1\right|_{#2}}{#1|_{#2}}{#1|_{#2}}{#1|_{#2}}}
+
+\def\cotimes{\amalg}
+
+% arrows
+\newcommand\onto\twoheadrightarrow  % surjections
+\newcommand\isoto\similarrightarrow % isomorphisms
+
+% morphisms
+\newcommand\id[1][]{{\mathrm{Id}_{#1}}}   % identity map
+\DeclareMathOperator\Hom{Hom}       
+\DeclareMathOperator\Aut{Aut}       
+\DeclareMathOperator\End{End}       
+\DeclareMathOperator\coker{coker}   % cokernel       
+\DeclareMathOperator\im{im}         % image       
+
+% Quotient #1 / #2.
+\newcommand\rquot[2]{%
+    \mathchoice%
+        {\left.#1\kern-0.2ex\middle/\kern-0.3ex\lower0.7ex\hbox{$\displaystyle #2$}\right.}%
+        {\left.#1\middle/#2\right.}%
+        {\left.#1\middle/#2\right.}%
+        {\left.#1\middle/#2\right.}%
+}
+\newcommand\dquot[3]{%
+    \mathchoice%
+        {\left.\lower0.7ex\hbox{$\displaystyle #1$}\kern-0.3ex\middle\backslash\kern-0.2ex #2 \kern-0.2ex\middle/\kern-0.3ex\lower0.7ex\hbox{$\displaystyle #3$}\right.}%
+        {\left. #1 \middle\backslash #2 \middle/ #3 \right.}%
+        {\left. #1 \middle\backslash #2 \middle/ #3 \right.}%
+        {\left. #1 \middle\backslash #2 \middle/ #3 \right.}%
+}
+
+\newcommand\cconj\overline      % complex conjugation
+
+% vector spaces
+\newcommand\linspan[1]{\left\langle #1 \right\rangle}
+\renewcommand\vec\mathsf
+\newcommand\ip[2]{\left\langle #1,\,#2 \right\rangle} % inner product
+\newcommand\orth\perp
+\newcommand\dual{∨}
+
+\newcommand\SymAlg{\operatorname{Sym}}
+
+% matrices
+\newcommand\idm[1][]{\mathrm{Id}_{#1}}          % identity matrix
+\newcommand\diag[1]{\operatorname{diag}(#1)}    % diagonal matrix
+\newcommand\transpose[1]{{#1}^{\mathrm{T}}}
+\newcommand\GL[2]{\ensuremath{\mathrm{GL}_{#1}(#2)}}
+\newcommand\SL[2]{\ensuremath{\mathrm{SL}_{#1}(#2)}}
+\newcommand\PGL[2]{\ensuremath{\mathrm{PGL}_{#1}(#2)}}
+
+% topology
+\newcommand\setclosure\overline         % closure of a subset of a topological space
+\newcommand\sheaf\mathcal
+\newcommand\cover\mathfrak
+\newcommand\setset\mathfrak             % a set of subsets
+
+% sets of numbers
+\newcommand\units{\times}               % for use in ℂ^\units
+
+% category theory
+\newcommand\cat{\mathbf}
+\newcommand\catover[2]{\cat{#1}{∕}#2}   % Category #1/#2
+\def\@catover#1{\@ifnextchar[{\@@catover{#1}}{\cat{#1}}}     % Only use \catover when optional argument is present.
+\def\@@catover#1[#2]{\catover{#1}{#2}}
+\newcommand\commacat\catover            % Comma category
+\newcommand\oppcat[1]{#1^{\mathrm{op}}} % opposite category
+\newcommand\catopp[1]{\oppcat{\cat #1}} % opposite category with automatic formatting
+
+\DeclareMathOperator\colim{colim}       % colimit
+\newcommand\equalizer[2]{\operatorname{Eq}(#1,#2)}      % equalizer
+\newcommand\coequalizer[2]{\operatorname{Coeq}(#1,#2)}  % equalizer
+\newcommand\leftadjointto{\dashv}
+\newcommand\rightadjointto{\vdash}
+
+% common categories
+\newcommand\catCat{\cat{Cat}}
+\newcommand\catSet{\cat{Set}}
+\newcommand\catPointedSet{\cat{Set_*}}
+\newcommand\catTop{\cat{Top}}
+\newcommand\catPointedTop{\cat{Top_*}}
+\newcommand\catGroup{\cat{Grp}}
+\newcommand\catAbGroup{\cat{Ab}}
+\newcommand\catVect[1][]{\cat{Vect}_{#1}}
+\newcommand\catGroupoids{\cat{Groupoids}}
+\newcommand\catOpenSubsets[1]{\cat{Open}(#1)}
+\newcommand\catRing{\cat{Ring}}
+\newcommand\catCRing{\cat{CRing}}
+
+\newcommand\Forget{\operatorname{Forg}}   % forgetful functor
+
+% misc
+\newcommand\cocolon{%                   % colon on the right side (i.e. for an adjunction)
+    \nobreak \mskip 6muplus1mu \mathpunct {}\nonscript \mkern -\thinmuskip{:}\mskip 2mu\relax%
+}
+\newcommand\powerseries[2]{#1\lBrack #2\rBrack} % power series
+\newcommand\property{\mathcal}          % some (abstract) property 

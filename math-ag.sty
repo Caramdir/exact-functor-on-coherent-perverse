@@ -1,0 +1,51 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-ag}[2011/11/26 Useful commands for writing texts about algebraic geometry]
+\RequirePackage{math-ca}
+
+\newcommand\codim{\operatorname{codim}}
+
+% sheaves
+\renewcommand\O{\sheaf O}
+\newcommand\sheafHom{\sheaf{H}\mkern-1.8mu o\mkern-0.5mu m}
+\let\shHom\sheafHom                             % depreciated
+\newcommand\sheafEnd{\sheaf{E\mkern-1.2mu n\mkern-2mu d}}
+\newcommand\sheafify[1]{#1^a}                   % sheafification
+
+
+\newcommand\sheafcat{\mathbfscr}
+\newcommand\stack\sheafcat
+
+\newcommand\catSchemes{\@catover{Sch}}          % category of schemes
+\newcommand\catAffine{\@catover{Aff}}           % category of affine schemes
+\newcommand\catStacks[1]{\catover{Stacks}{#1}}  % category of stacks
+\newcommand\catSheaves[1]{\cat{Sh}(#1)}         % category of sheaves
+\newcommand\catPresheaves[1]{\cat{PreSh}(#1)}     % category of presheaves
+\newcommand\catAbSheaves[1]{\cat{Ab}(#1)}       % category of Abelian sheaves
+\newcommand\catAbPresheaves[1]{\cat{PreAb}(#1)}   % category of Abelian presheaves
+\newcommand\catCoh[2][]{\cat{Coh}^{#1}(#2)}     % category of coherent sheaves
+\newcommand\catQCoh[2][]{\cat{QCoh}^{#1}(#2)}   % category of quasicoherent sheaves
+\newcommand\catPerf[1]{\cat{Perf}(#1)}          % category of perfect sheaves
+\newcommand\catSing[1]{\cat{Sing}(#1)}          % singularity category of a space
+
+\newcommand\as[2][]{\mathbb A^{#2}_{#1}}        % affine space
+\newcommand\ps[2][]{\mathbb P^{#2}_{#1}}        % projective space
+\newcommand\Proj{\operatorname{Proj}}           
+
+\newcommand\Grass[2]{\operatorname{Grass}(#1,#2)}   % Grassmannian
+
+\newcommand\Sym[2]{\operatorname{Sym}^{#1}#2}   % symmetric product
+
+% algebraic groups
+\renewcommand\GL[2][]{\operatorname{GL}_#2\ifx#1\@empty\else(#1)\fi}
+\renewcommand\SL[2][]{\operatorname{SL}_#2\ifx#1\@empty\else(#1)\fi}
+\renewcommand\PGL[2][]{\operatorname{PGL}_#2\ifx#1\@empty\else(#1)\fi}
+
+% cohomology
+\newcommand\cech\check
+
+% perverse sheaves
+\newcommand\perv[1][p]{\mkern1mu{}^{#1}\mkern-3mu}
+\newcommand\singsupp{\operatorname{singsupp}}   % singular support of a sheaf
+
+% Grothendieck topologies
+\newcommand\coverings[1]{\operatorname{Cov}(#1)}% coverings
