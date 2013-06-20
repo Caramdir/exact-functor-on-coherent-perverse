@@ -1,0 +1,260 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{anyt}
+    \entry{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=08bab3ee92ca25f782687adb12f02d01}{{Arinkin}}{A\bibinitperiod}{Dmitry}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=2c213d25dc93fba120b8b5d92744edcf}{{Bezrukavnikov}}{B\bibinitperiod}{Roman}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=08bab3ee92ca25f782687adb12f02d01}{{Arinkin}}{A\bibinitperiod}{Dmitry}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=2c213d25dc93fba120b8b5d92744edcf}{{Bezrukavnikov}}{B\bibinitperiod}{Roman}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{45f84003709f910bfafcfbe010611735}
+      \strng{fullhash}{45f84003709f910bfafcfbe010611735}
+      \field{labelalpha}{AB09}
+      \field{sortinit}{A}
+      \field{labeltitle}{{Perverse coherent sheaves}}
+      \field{eprintclass}{math.AG}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{ArXiv e-prints}
+      \field{month}{02}
+      \field{title}{{Perverse coherent sheaves}}
+      \field{year}{2009}
+      \verb{eprint}
+      \verb 0902.0349
+      \endverb
+      \keyw{Mathematics - Algebraic Geometry, Mathematics - Representation Theory}
+    \endentry
+    \entry{Beauville:2000:SymplecticSingularities}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=63b9e8bc2c576ca9763336b6d305b740}{Beauville}{B\bibinitperiod}{Arnaud}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=63b9e8bc2c576ca9763336b6d305b740}{Beauville}{B\bibinitperiod}{Arnaud}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{63b9e8bc2c576ca9763336b6d305b740}
+      \strng{fullhash}{63b9e8bc2c576ca9763336b6d305b740}
+      \field{labelalpha}{Bea00}
+      \field{sortinit}{B}
+      \field{labeltitle}{Symplectic singularities}
+      \field{journaltitle}{Inventiones mathematicae}
+      \field{number}{3}
+      \field{title}{Symplectic singularities}
+      \field{volume}{139}
+      \field{year}{2000}
+      \field{pages}{541\bibrangedash 549}
+      \verb{doi}
+      \verb 10.1007/s002229900043
+      \endverb
+    \endentry
+    \entry{Bezrukavnikov:arXiv:PerverseCoherentSheaves}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=2c213d25dc93fba120b8b5d92744edcf}{{Bezrukavnikov}}{B\bibinitperiod}{Roman}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=2c213d25dc93fba120b8b5d92744edcf}{{Bezrukavnikov}}{B\bibinitperiod}{Roman}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{2c213d25dc93fba120b8b5d92744edcf}
+      \strng{fullhash}{2c213d25dc93fba120b8b5d92744edcf}
+      \field{labelalpha}{Bez00}
+      \field{sortinit}{B}
+      \field{labeltitle}{{Perverse coherent sheaves (after Deligne)}}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{ArXiv e-prints}
+      \field{month}{05}
+      \field{title}{{Perverse coherent sheaves (after Deligne)}}
+      \field{year}{2000}
+      \verb{eprint}
+      \verb math/0005152
+      \endverb
+      \keyw{Mathematics - Algebraic Geometry, Mathematics - Geometric Topology, Mathematics - Representation Theory}
+    \endentry
+    \entry{BrodmannSharp:1998:LocalCohomology}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=dbdfcb78eb02c9653420367ada9237f4}{Brodmann}{B\bibinitperiod}{M.\bibnamedelimi P.}{M\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{hash=124d2a219587ec0a7c8988446015a2b0}{Sharp}{S\bibinitperiod}{R.\bibnamedelimi Y.}{R\bibinitperiod\bibinitdelim Y\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=dbdfcb78eb02c9653420367ada9237f4}{Brodmann}{B\bibinitperiod}{M.\bibnamedelimi P.}{M\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{hash=124d2a219587ec0a7c8988446015a2b0}{Sharp}{S\bibinitperiod}{R.\bibnamedelimi Y.}{R\bibinitperiod\bibinitdelim Y\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{ba3d36b6f01519e26c9dea6c298053dd}
+      \strng{fullhash}{ba3d36b6f01519e26c9dea6c298053dd}
+      \field{labelalpha}{BS98}
+      \field{sortinit}{B}
+      \field{labeltitle}{Local cohomology: an algebraic introduction with geometric applications}
+      \field{isbn}{0-521-37286-0}
+      \field{number}{60}
+      \field{series}{Cambridge Studies in Advanced Mathematics}
+      \field{title}{Local cohomology: an algebraic introduction with geometric applications}
+      \field{year}{1998}
+      \verb{doi}
+      \verb 10.1017/CBO9780511629204
+      \endverb
+    \endentry
+    \entry{Hartshorne:1966:ResiduesAndDuality}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=ee65baaab88f9233fbad3d51c399ee25}{Hartshorne}{H\bibinitperiod}{Robin}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=ee65baaab88f9233fbad3d51c399ee25}{Hartshorne}{H\bibinitperiod}{Robin}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{ee65baaab88f9233fbad3d51c399ee25}
+      \strng{fullhash}{ee65baaab88f9233fbad3d51c399ee25}
+      \field{labelalpha}{Har66}
+      \field{sortinit}{H}
+      \field{labeltitle}{Residues and Duality}
+      \field{number}{20}
+      \field{pagetotal}{vii+423}
+      \field{series}{Lecture Notes in Mathematics}
+      \field{title}{Residues and Duality}
+      \field{year}{1966}
+    \endentry
+    \entry{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=b7bb8fb56d75656703f28621f0b6f412}{Kashiwara}{K\bibinitperiod}{Masaki}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=b7bb8fb56d75656703f28621f0b6f412}{Kashiwara}{K\bibinitperiod}{Masaki}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b7bb8fb56d75656703f28621f0b6f412}
+      \strng{fullhash}{b7bb8fb56d75656703f28621f0b6f412}
+      \field{labelalpha}{Kas04}
+      \field{sortinit}{K}
+      \field{labeltitle}{$t$-structures on the derived categories of holonomic $\sheaf{D}$-modules and coherent $\sheaf{O}$-modules}
+      \field{journaltitle}{Moscow Mathematical Journal}
+      \field{number}{4}
+      \field{title}{$t$-structures on the derived categories of holonomic $\sheaf{D}$-modules and coherent $\sheaf{O}$-modules}
+      \field{volume}{4}
+      \field{year}{2004}
+      \field{pages}{847\bibrangedash 868}
+      \verb{url}
+      \verb http://mi.mathnet.ru/eng/mmj173
+      \endverb
+    \endentry
+    \entry{KashiwaraSchapira:1994:SheavesOnManifolds}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=b7bb8fb56d75656703f28621f0b6f412}{Kashiwara}{K\bibinitperiod}{Masaki}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=293299db3b6075e5092ae25eeea861ae}{Schapira}{S\bibinitperiod}{Pierre}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=b7bb8fb56d75656703f28621f0b6f412}{Kashiwara}{K\bibinitperiod}{Masaki}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=293299db3b6075e5092ae25eeea861ae}{Schapira}{S\bibinitperiod}{Pierre}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{635bcffc280fb5c48749bcb90f36612a}
+      \strng{fullhash}{635bcffc280fb5c48749bcb90f36612a}
+      \field{labelalpha}{KS94}
+      \field{sortinit}{K}
+      \field{labeltitle}{Sheaves on manifolds}
+      \field{isbn}{3-540-51861-4}
+      \field{note}{With a chapter in French by Christian Houzel, Corrected reprint of the 1990 original}
+      \field{number}{292}
+      \field{pagetotal}{x+512}
+      \field{series}{Grundlehren der Mathematischen Wissenschaften}
+      \field{title}{Sheaves on manifolds}
+      \field{year}{1994}
+    \endentry
+    \entry{MirkovicVilonen:2007:GLdualityRepresentations}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=046d430d5f41d8593bdf2696e3821c1a}{Mirković}{M\bibinitperiod}{I.}{I\bibinitperiod}{}{}{}{}}%
+        {{hash=d32e7c3c7b5987853c81c98fe0831843}{Vilonen}{V\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=046d430d5f41d8593bdf2696e3821c1a}{Mirković}{M\bibinitperiod}{I.}{I\bibinitperiod}{}{}{}{}}%
+        {{hash=d32e7c3c7b5987853c81c98fe0831843}{Vilonen}{V\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{284716b61e98dffba73b162f4cefe83c}
+      \strng{fullhash}{284716b61e98dffba73b162f4cefe83c}
+      \field{labelalpha}{MV07}
+      \field{sortinit}{M}
+      \field{labeltitle}{Geometric {L}anglands duality and representations of algebraic groups over commutative rings}
+      \field{issn}{0003-486X}
+      \field{journaltitle}{Annals of Mathematics. Second Series}
+      \field{number}{1}
+      \field{shortjournal}{Ann. of Math. (2)}
+      \field{title}{Geometric {L}anglands duality and representations of algebraic groups over commutative rings}
+      \field{volume}{166}
+      \field{year}{2007}
+      \field{pages}{95\bibrangedash 143}
+      \verb{doi}
+      \verb 10.4007/annals.2007.166.95
+      \endverb
+    \endentry
+    \entry{SGA2}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=fb0e3184fdd2fcd28fa74ca67d7cdcc1}{Grothendieck}{G\bibinitperiod}{Alexander}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=ca5bb714cb35f6e8ec5d52f37ff1b7b0}{Raynaud}{R\bibinitperiod}{Michele}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=fb0e3184fdd2fcd28fa74ca67d7cdcc1}{Grothendieck}{G\bibinitperiod}{Alexander}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=ca5bb714cb35f6e8ec5d52f37ff1b7b0}{Raynaud}{R\bibinitperiod}{Michele}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=c2cbb309cb5f7d6d42f8c0dc98988daf}{Laszlo}{L\bibinitperiod}{Yves}{Y\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Paris}%
+      }
+      \list{publisher}{1}{%
+        {Société Mathématique de France}%
+      }
+      \strng{namehash}{07fb3cc8d6d6916091490a571ff7ccb9}
+      \strng{fullhash}{07fb3cc8d6d6916091490a571ff7ccb9}
+      \field{labelalpha}{SGA2}
+      \field{sortinit}{S}
+      \field{labeltitle}{Cohomologie locale des faisceaux cohérents et théorèmes de {L}efschetz locaux et globaux ({SGA} 2)}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{2-85629-169-4}
+      \field{note}{Séminaire de Géométrie Algébrique du Bois Marie, 1962. Augmenté d'un exposé de Michèle Raynaud. Revised reprint of the 1968 French original}
+      \field{number}{4}
+      \field{origyear}{1968}
+      \field{pagetotal}{x+208}
+      \field{series}{Documents Mathématiques (Paris)}
+      \field{shorthand}{SGA2}
+      \field{title}{Cohomologie locale des faisceaux cohérents et théorèmes de {L}efschetz locaux et globaux ({SGA} 2)}
+      \field{year}{2005}
+      \verb{eprint}
+      \verb math/0511279
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
