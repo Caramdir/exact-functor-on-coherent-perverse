@@ -2,7 +2,7 @@ dist:
 	tar czvf microlocal_perverse.tar.gz *.tex *.bbl *.sty *.cls b* cbx lbx
 
 prepare:
-	sed -i -e 's/ι/\\iota /g' microlocal_perverse.tex
+	sed -i -e 's/ι/i /g' microlocal_perverse.tex
 	sed -i -e 's/μ/\\mu /g' microlocal_perverse.tex
 	sed -i -e 's/ϕ/\\Phi /g' microlocal_perverse.tex
 	sed -i -e 's/Γ/\\Gamma /g' microlocal_perverse.tex
@@ -19,3 +19,6 @@ prepare:
 	sed -i -e 's/₁/_1/g' microlocal_perverse.tex
 	sed -i -e 's/₂/_2/g' microlocal_perverse.tex
 	sed -i -e 's/→/\\to /g' microlocal_perverse.tex
+
+copy_biblatex:
+	cp -r /usr/local/texlive/2013/texmf-dist/tex/latex/biblatex/* .

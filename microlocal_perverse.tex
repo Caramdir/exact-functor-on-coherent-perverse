@@ -1,6 +1,6 @@
 \documentclass[english,biblatex-alpha,bw]{short-notes}
 
-\title{Exact functors on perverse coherent sheaves}
+\title{exact functors on perverse coherent sheaves}
 \author{Clemens Koppensteiner}
 
 \usepackage{math-ag}
@@ -32,18 +32,18 @@ Let $x \in  X$ be point and $f\colon X \to  \mathbb{C}$ a suitably chosen ho
 Then the stalk $(\Phi _{\!f}\sheaf F)_x$ is concentrated in cohomological degree $0$.
 A more \enquote{geometric} formulation of this statement can be obtained in the following way.
 Let $L$ be the stable manifold for the gradient of the Morse function $\Re f$.
-Write $\iota _x \colon \{x\} \hookrightarrow L$ and $\iota _L\colon L \hookrightarrow X$ for the inclusions.
-Then $\iota _x^*\iota _L^! \sheaf F$ is also concentrated in cohomological degree $0$.
+Write $i _x \colon \{x\} \hookrightarrow L$ and $i _L\colon L \hookrightarrow X$ for the inclusions.
+Then $i _x^*i _L^! \sheaf F$ is also concentrated in cohomological degree $0$.
 Note that $L$ is a Lagrangian with respect to the symplectic structure given by the Kähler form.
 
 Now consider a symplectic variety $X$ (in the sense of \cite{Beauville:2000:SymplecticSingularities}) with an action by a group $G$ such that the $G$-orbits give a symplectic foliation of $X$.
-In this situation there is a middle perversity t-structure on the derived category $D_c^b(X_G)$ of coherent $G$-equivariant sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
+In this situation there is a middle perversity t-structure on the derived category $D_c^b(X)^G$ of coherent $G$-equivariant sheaves (see Section~\ref{sec:Kashiwara} for a review of the theory of perverse coherent sheaves).
 Let $L$ be a Lagrangian on $X$, i.e.\ a smooth subvariety that intersects every symplectic leaf in a Lagrangian.
-Let $\sheaf F \in  D_c^b(X_G)$ be a perverse coherent sheaf on $X$.
-Following the intuition obtained in the constructible case, is natural to ask whether the\ !-restriction $\iota _L^!\sheaf F$ of $\sheaf F$ to $L$ is concentrated in degree $0$.
+Let $\sheaf F \in  D_c^b(X)^G$ be a perverse coherent sheaf on $X$.
+Following the intuition obtained in the constructible case, is natural to ask whether the\ !-restriction $i _L^!\sheaf F$ of $\sheaf F$ to $L$ is concentrated in degree $0$.
 
 For an arbitrary variety $X$ with a $G$-action that has finitely many orbits, we define the notion of a \emph{measuring subvariety} as an analog of a Lagrangian in the symplectic case (Definition~\ref{def:measuring}).
-Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F \in  D^b_c(X_G)$ is perverse if and only if $\iota _Z^!\sheaf F$ is concentrated in cohomological degree $0$ for all measuring subvarieties $Z$ of $X$.
+Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F \in  D^b_c(X)^G$ is perverse if and only if $i _Z^!\sheaf F$ is concentrated in cohomological degree $0$ for all measuring subvarieties $Z$ of $X$.
 
 \begin{Ex}
     Let $N$ be the nilpotent cone in the complex Lie algebra $\liesl n$ and let $G = \SL n$ act on $N$ adjointly.
@@ -52,10 +52,10 @@ Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sh
     Let $X$ be the flag variety for $\liesl n$ and $\mu \colon T^*X \to  N$ the Springer resolution.
     Choose a point $x \in  X$.
     Then $T_x^*X$ is a Lagrangian in $T^*X$ and one can show explicitly that $\mu (T_x^*X)$ is a measuring subvariety of $N$.
-    Thus a sheaf $\sheaf F \in  D_c^b(N^G)$ is perverse if and only if $R\lc{\mu (T_x^*X)}\sheaf F$ is concentrated in degree $0$ for all $x \in  X$.
+    Thus a sheaf $\sheaf F \in  D_c^b(N)^G$ is perverse if and only if $R\lc{\mu (T_x^*X)}\sheaf F$ is concentrated in degree $0$ for all $x \in  X$.
 \end{Ex}
 
-Since the motivating observation about constructible perverse sheaves does not seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is in the same spirit), we give a direct proof of the statement in the appendix.
+Since the motivating observation about constructible perverse sheaves does not seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
 
 \subsection{Setup and notation}
 
@@ -66,23 +66,23 @@ We write $X^{\mathrm{top}}$ for the subset of the Zariski space of $X$ consistin
 To simplify notation, if $x \in  X^{\mathrm{top}}$ is any point, we write $\overline x$ for the closure $\overline{\{x\}}$ and $\dim x = \dim \overline x$.
 
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
-The corresponding categories of $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X_G)$, $D_{qc}(X_G)$ and $D_c(X_G)$.
+The corresponding categories of $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X)^G$, $D_{qc}(X)^G$ and $D_c(X)^G$.
 As usual, $D^b(X)$ (etc.) is the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
 All functors are derived, though we usually do not explicitly mention it in the notation.
 
-For a subset $Y$ of a topological space $X$ we write $\iota _Y$ for the inclusion of $Y$ into $X$. 
-If $x \in  X$ is a point, then we simply write $\iota _x$ for $\iota _{\{x\}}$.
+For a subset $Y$ of a topological space $X$ we write $i _Y$ for the inclusion of $Y$ into $X$. 
+If $x \in  X$ is a point, then we simply write $i _x$ for $i _{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
 For an $\O_X$-module $\sheaf F$ let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Variation~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 By abuse of notation, we simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) \to  D_{qc}(X)$.
 Recall that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
 
 Let $x$ be a (not necessarily closed) point of $X$ and $\sheaf F \in  D^b(X)$.
-Then $\mathbf \iota _x^*\sheaf F = \sheaf F_x \in  D^b(\catModules{\O_x})$ denotes the (derived) functor of talking stalks.
-We further set $\mathbf \iota _x^!\sheaf F = \mathbf \iota _x^*\lc {\overline x}$, cf.~\cite[Variation~8 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
+Then $\mathbf i _x^*\sheaf F = \sheaf F_x \in  D^b(\catModules{\O_x})$ denotes the (derived) functor of talking stalks.
+We further set $\mathbf i _x^!\sheaf F = \mathbf i _x^*\lc {\overline x}$, cf.~\cite[Variation~8 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 
-We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see~\cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf \iota _x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x \in  X^{\mathrm{top}}$.
-For $\sheaf F \in  D(X)$ (or $D(X_G)$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
+We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see~\cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf i _x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x \in  X^{\mathrm{top}}$.
+For $\sheaf F \in  D(X)$ (or $D(X)^G$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
 
 \subsection{Acknowledgements}
 
@@ -100,12 +100,12 @@ A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone}
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y \in  X^{\mathrm{top}}$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional $G$-orbits).
 
-Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X_G)$ by taking the following full subcategories (see~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}):
+Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X)^G$ by taking the following full subcategories (see~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}):
 \begin{align*}
     \perv[p] D^{\leq 0}(X) & = 
-    \{ \sheaf F \in  D_c^b(X_G) : \mathbf \iota _x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\O_x}) \text{ for all $x \in  X^{\mathrm{top}}$}\}, \\
+    \{ \sheaf F \in  D_c^b(X)^G : \mathbf i _x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\O_x}) \text{ for all $x \in  X^{\mathrm{top}}$}\}, \\
     \perv[p] D^{\geq 0}(X) & = 
-    \{ \sheaf F \in  D_c^b(X_G) : \mathbf \iota _x^!\sheaf F \in  D^{\geq p(x)}(\catModules{\O_x}) \text{ for all $x \in  X^{\mathrm{top}}$}\}.
+    \{ \sheaf F \in  D_c^b(X)^G : \mathbf i _x^!\sheaf F \in  D^{\geq p(x)}(\catModules{\O_x}) \text{ for all $x \in  X^{\mathrm{top}}$}\}.
 \end{align*}
 The heart of this t-structure is called the category of perverse sheaves with respect to the perversity $p$.
 
@@ -114,18 +114,18 @@ While we work in Bezrukavnikov's setting (i.e.\ in the equivariant derived categ
 This is accomplished in the following proposition.
 
 \begin{Prop}\label{prop:equivDeligneKashiwara}%
-    Let $\sheaf F \in  D_c^b(X_G)$ and let $p$ be a monotone and comonotone perversity function.
+    Let $\sheaf F \in  D_c^b(X)^G$ and let $p$ be a monotone and comonotone perversity function.
     \begin{enumerate}[(a)]
         \item
             The following are equivalent:
             \begin{enumerate}[(i)]
-                \item $\sheaf F \in  \perv D^{\leq 0}(X)$, i.e.\ $\mathbf \iota _x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\O_x})$ for all $x \in  X^{\mathrm{top}}$;
+                \item $\sheaf F \in  \perv D^{\leq 0}(X)$, i.e.\ $\mathbf i _x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\O_x})$ for all $x \in  X^{\mathrm{top}}$;
                 \item $p(\dim \supp H^{k}(\sheaf F)) \geq  k$ for all $k$.
             \end{enumerate}
         \item
             If $p$ is strictly monotone, then the following are equivalent
             \begin{enumerate}[(i)]
-                \item $\sheaf F \in  \perv D^{\ge 0}(X)$, i.e.\ $\mathbf \iota _x^!\sheaf F \in  D^{\geq p(x)}(\catModules{\O_x})$ for all $x \in  X^{\mathrm{top}}$;
+                \item $\sheaf F \in  \perv D^{\ge 0}(X)$, i.e.\ $\mathbf i _x^!\sheaf F \in  D^{\geq p(x)}(\catModules{\O_x})$ for all $x \in  X^{\mathrm{top}}$;
                 \item $\lc {\overline x}\sheaf F \in  D^{\geq p(x)}(X)$ for all $x \in  X^{\mathrm{top}}$;
                 \item $\lc {Y}\sheaf F \in  D^{\geq p(\dim Y)}(X)$ for all $G$-invariant closed subvarieties $Y$ of $X$;
                 \item $\dim\left( \overline x \cap  \supp\left( H^k(\dualize F) \right) \right) \leq  -p(x) - k$ for all $x \in  X^{\mathrm{top}}$ and all $k$.
@@ -134,7 +134,7 @@ This is accomplished in the following proposition.
 \end{Prop}
 
 A crucial fact that we will implicitly use quite often in the following arguments is that the support of a coherent sheaf is always closed.
-In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf \iota _x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
+In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf i _x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
 
 \pagebreak
 \begin{proof}\leavevmode
@@ -142,11 +142,11 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
         \item
             First let $\sheaf F \in  \perv D^{\leq 0}(X)$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
             Let $x$ be the generic point of an irreducible component of maximal dimension of $\supp H^{k}(\sheaf F)$.
-            Then $H^k(\mathbf \iota _x^* \sheaf F) \ne 0$. 
-            But on the other hand, $\mathbf \iota _x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\O_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
+            Then $H^k(\mathbf i _x^* \sheaf F) \ne 0$. 
+            But on the other hand, $\mathbf i _x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\O_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
 
             Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) \geq  k$ for all $k$ and let $x \in  X^{\mathrm{top}}$.
-            If $H^k(\mathbf \iota _x^*\sheaf F) \ne 0$, then $\dim x \leq  \dim \supp H^{k}(\sheaf F)$.
+            If $H^k(\mathbf i _x^*\sheaf F) \ne 0$, then $\dim x \leq  \dim \supp H^{k}(\sheaf F)$.
             Thus monotonicity of the perversity implies that $\sheaf F \in  \perv D^{\leq 0}(X)$.
         \item
             The implications from (iii) to (ii) and (ii) to (i) are trivial and the equivalence of (ii) and (iv) follows from Lemma~\ref{lem:supportAndLocalCohomology+} below.
@@ -154,7 +154,7 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             So assume that $\sheaf F \in  \perv D^{\geq 0}(X)$.
             We induct on the dimension of $Y$.
             
-            If $\dim Y = 0$, then $\mathbf \iota _Y^!\sheaf F = \Gamma (X,\lc Y F)$ and thus $\lc Y\sheaf F \in  D^{\geq p(0)}(X)$ by assumption.
+            If $\dim Y = 0$, then $\Gamma (X,\lc Y F) = \bigoplus_{y \in  Y} \mathbf i _y^!\sheaf F$ and thus $\lc Y\sheaf F \in  D^{\geq p(0)}(X)$ by assumption.
 
             Now let $\dim Y > 0$.
             We first assume that $Y$ is irreducible, i.e.\ $Y = \overline x$ for some $x \in  X^{\mathrm{top}}$.
@@ -174,7 +174,7 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             As $H^k(\sheaf F)$ is coherent by definition, this implies that $H^k(\lc{\overline x} \sheaf F)$ also has to be coherent.
 
             Set $Z = \supp H^k(\lc {\overline x}\sheaf F)$.
-            Then, since $\iota _x^* H^k(\lc {\overline x}\sheaf F)$ vanishes, $Z$ is a proper closed subset of $\overline x$.
+            Then, since $i _x^* H^k(\lc {\overline x}\sheaf F)$ vanishes, $Z$ is a proper closed subset of $\overline x$.
             Consider the distinguished triangle
             \[
                 H^k(\lc {\overline x}\sheaf F)[-k] \to 
@@ -262,16 +262,16 @@ From now on we assume that the $G$-action has finitely many orbits.
     Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity and assume that $X$ has enough $p$-measuring subvarieties.
     Then,
     \begin{enumerate}
-        \item $\perv[p] D^{\leq 0}(X) = \left\{ \sheaf F \in  D_c^b(X_G) : \lc Z\sheaf F \in  D^{\leq 0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$;
-        \item $\perv[p] D^{\geq 0}(X) = \left\{ \sheaf F \in  D_c^b(X_G) : \lc Z\sheaf F \in  D^{\geq 0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$.
+        \item $\perv[p] D^{\leq 0}(X) = \left\{ \sheaf F \in  D_c^b(X)^G : \lc Z\sheaf F \in  D^{\leq 0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$;
+        \item $\perv[p] D^{\geq 0}(X) = \left\{ \sheaf F \in  D_c^b(X)^G : \lc Z\sheaf F \in  D^{\geq 0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$.
     \end{enumerate}
-    Therefore the sheaf $\sheaf F \in  D_c^b(X_G)$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
+    Therefore the sheaf $\sheaf F \in  D_c^b(X)^G$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
 \end{Thm}
 
 The following lemma encapsulates the central argument of the proof of the first part of the theorem.
 
 \begin{Lem}\label{lem:supportAndLocalCohomology-}%
-    Let $\sheaf F \in  \catCoh{X_G}$ be a $G$-equivariant coherent sheaf on $X$, let $p$ be a monotone perversity and let $n$ be an integer.
+    Let $\sheaf F \in  \catCoh{X}^G$ be a $G$-equivariant coherent sheaf on $X$, let $p$ be a monotone perversity and let $n$ be an integer.
     Assume that $X$ has enough $p$-measuring subvarieties.
     Then the following are equivalent:
     \begin{enumerate}
@@ -314,7 +314,7 @@ The following lemma encapsulates the central argument of the proof of the first 
 \item 
     We use the description of $\perv[p] D^{\leq 0}(X)$ given by Proposition~\ref{prop:equivDeligneKashiwara}, i.e.
     \[
-    \perv D^{\leq 0}(X) = \left\{ \sheaf F \in  D_c^b(X_G) : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) \geq  n \text{ for all $n$}\right\}.
+    \perv D^{\leq 0}(X) = \left\{ \sheaf F \in  D_c^b(X)^G : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) \geq  n \text{ for all $n$}\right\}.
     \]
     We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F \in  \perv D^{\leq 0}$ if and only if $\lc Z\sheaf F \in  D^{\leq 0}(X)$ for all $p$-measuring subvarieties $Z$.
 
@@ -440,7 +440,7 @@ We are going to formulate and prove an analog of Theorem~\ref{thm:main} in this 
 A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if for each stratum $S$ of $X$ either $Z \cap  \overline S = \emptyset$ or $\dim_\mathbb{R} Z \cap  S = \dim_\mathbb{C} S$.
 
 \begin{Thm}
-    A sheaf $\sheaf F \in  D^b_{\setset S}(X)$ is perverse if and only if $\iota _Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each measuring submanifold $Z$ of $X$.
+    A sheaf $\sheaf F \in  D^b_{\setset S}(X)$ is perverse if and only if $i _Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each measuring submanifold $Z$ of $X$.
 \end{Thm}
 
 \begin{Lem}\label{lem:constructible_local_vanishing}%
@@ -468,13 +468,13 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
     
     Define two full subcategories $\perv[L] D^{\le 0}(X)$ and $\perv[L] D^{\ge 0}(X)$ of $D^b_{\setset S}(X)$ by
     \begin{align*}
-        \perv[L] D^{\leq 0}(X) & = \left\{ \sheaf F \in  D^b_{\setset S}(X) : \iota _Z^! \sheaf F \in  D^{\leq 0}(Z) \text{ for all measuring submanifolds $Z$} \right\}, \\
-        \perv[L] D^{\geq 0}(X) & = \left\{ \sheaf F \in  D^b_{\setset S}(X) : \iota _Z^! \sheaf F \in  D^{\geq 0}(Z) \text{ for all measuring submanifolds $Z$} \right\}.
+        \perv[L] D^{\leq 0}(X) & = \left\{ \sheaf F \in  D^b_{\setset S}(X) : i _Z^! \sheaf F \in  D^{\leq 0}(Z) \text{ for all measuring submanifolds $Z$} \right\}, \\
+        \perv[L] D^{\geq 0}(X) & = \left\{ \sheaf F \in  D^b_{\setset S}(X) : i _Z^! \sheaf F \in  D^{\geq 0}(Z) \text{ for all measuring submanifolds $Z$} \right\}.
     \end{align*}
     We will show that these categories are the same as the categories $\perv D^{\leq 0}(X)$ and $\perv D^{\geq 0}(X)$ defining the perverse t-structure on $D^b_{\setset S}(X)$.
 
     We induct on the number of strata.
-    If $X$ consists of only one stratum and $Z$ is a measuring submanifold, then $\iota _Z^! \sheaf F \cong \omega _{Z/X} \otimes \iota _Z^* \sheaf F$ and hence $\iota _Z^! \sheaf F$ is in degree $0$ if and only if $\sheaf F$ is in degree $-\frac 12 \dim_\mathbb{R} X$.
+    If $X$ consists of only one stratum and $Z$ is a measuring submanifold, then $i _Z^! \sheaf F \cong \omega _{Z/X} \otimes i _Z^* \sheaf F$ and hence $i _Z^! \sheaf F$ is in degree $0$ if and only if $\sheaf F$ is in degree $-\frac 12 \dim_\mathbb{R} X$.
     So assume that $X$ has more then one stratum.
     Without loss of generality we can assume that $X$ is connected.
     Let $U$ be the union of all open strata and $F$ its complement.
@@ -492,8 +492,8 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
             \[ 
                 i_*i^! \sheaf F \to  \sheaf F \to  j_*j^*\sheaf F.
             \]
-            Using base change, induction and the (left)-exactness of the push-forward functors one sees that $\iota _Z^!$ of the outer sheaves in the triangle are concentrated in non-negative degrees.
-            Thus so is $\iota _Z^! \sheaf F$.
+            Using base change, induction and the (left)-exactness of the push-forward functors one sees that $i _Z^!$ of the outer sheaves in the triangle are concentrated in non-negative degrees.
+            Thus so is $i _Z^! \sheaf F$.
         \item 
             Let $\sheaf F \in  \perv[L] D^{\geq 0}(X)$.
             Since all measurements are local this implies that $j^* \sheaf F \in  \perv[L] D^{\geq 0}(U) = \perv D^{\geq 0}(U)$.
@@ -505,9 +505,9 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
             Thus $j_!j^*\sheaf F \in  \perv D^{\leq 0}(X)$.
             Let $Z$ be a measuring submanifold and consider the distinguished triangle
             \[
-                \iota _Z^! j_!j^*\sheaf F \to  \iota _Z^! \sheaf F \to  \iota _Z^! i_*i^* \sheaf F.
+                i _Z^! j_!j^*\sheaf F \to  i _Z^! \sheaf F \to  i _Z^! i_*i^* \sheaf F.
             \]
-            By what we already know, the first sheaf is concentrated in non-positive degrees and hence so is $\iota _Z^! i_*i^* \sheaf F$.
+            By what we already know, the first sheaf is concentrated in non-positive degrees and hence so is $i _Z^! i_*i^* \sheaf F$.
             By base change and the exactness of $i_*$ this implies that $i^* \sheaf F \in  \perv[L] D^{\leq 0}(F) = \perv D^{\leq 0}(F)$.
             Hence, by recollement, $\sheaf F \in  \perv D^{\leq 0}(X)$.
             \qedhere
