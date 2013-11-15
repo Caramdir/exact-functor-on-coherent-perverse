@@ -99,6 +99,7 @@
   \begingroup
   \let\blx@dm@type\@empty
   \let\blx@dm@datatype\@empty
+  \let\blx@dm@format\@empty
   \boolfalse{dmskipout}%
   \let\blx@tempa\@empty
   \setkeys{blx@datamodel@field}{#1}%
@@ -157,6 +158,9 @@
 \define@key{blx@datamodel@field}{datatype}{% characters
   \eappto\blx@tempa{ datatype="#1"}%
   \def\blx@dm@datatype{#1}}
+\define@key{blx@datamodel@field}{format}{% characters
+  \eappto\blx@tempa{ format="#1"}%
+  \def\blx@dm@format{#1}}
 \define@key{blx@datamodel@field}{nullok}[true]{% true|false
   \ifstrequal{#1}{true}
     {\appto\blx@tempa{ nullok="true"}}
@@ -295,6 +299,7 @@
   movie,
   music,
   mvcollection,
+  mvreference,
   mvbook,
   online,
   patent,
@@ -315,7 +320,9 @@
 
 \DeclareDatamodelEntrytypes[skipout]{xdata}
 
-\DeclareDatamodelFields[type=field, datatype=integer]{
+\DeclareDatamodelFields[type=field, datatype=datepart]{
+  month,
+  year,
   day,
   endday,
   endmonth,
@@ -349,6 +356,7 @@
   eprintclass,
   eprinttype,
   eventtitle,
+  eventtitleaddon,
   gender,
   howpublished,
   hyphenation,
@@ -370,14 +378,12 @@
   mainsubtitle,
   maintitle,
   maintitleaddon,
-  month,
   nameaddon,
   note,
   number,
   origtitle,
   pagetotal,
   part,
-  related,
   relatedstring,
   relatedtype,
   reprinttitle,
@@ -399,10 +405,9 @@
   venue,
   version,
   volume,
-  volumes,
-  year}
+  volumes}
 
-\DeclareDatamodelFields[type=field, datatype=integer, nullok]{
+\DeclareDatamodelFields[type=field, datatype=datepart, nullok]{
   urlendyear,
   endyear,
   eventendyear,
@@ -413,8 +418,7 @@
   sortshorthand,
   sortyear,
   sortkey,
-  presort,
-  entryset}
+  presort}
 
 \DeclareDatamodelFields[type=list, datatype=literal]{
   institution,
@@ -473,8 +477,6 @@
   crossref,
   xref}
 
-\DeclareDatamodelFields[type=list, datatype=entrykey, skipout]{xdata, ids}
-
 \DeclareDatamodelFields[type=field, datatype=date, skipout]{
   date,
   eventdate,
@@ -491,9 +493,14 @@
 
 \DeclareDatamodelFields[type=field, datatype=uri]{url}
 
-\DeclareDatamodelFields[type=field, datatype=csv]{keywords}
-\DeclareDatamodelFields[type=field, datatype=csv, skipout]{options, relatedoptions}
+\DeclareDatamodelFields[type=field, format=csv, datatype=entrykey, skipout]{xdata, ids, entryset}
+\DeclareDatamodelFields[type=field, format=csv, datatype=entrykey]{related}
+
+\DeclareDatamodelFields[type=field, format=csv, datatype=keyword]{keywords}
+
+\DeclareDatamodelFields[type=field, format=csv, datatype=option, skipout]{options, relatedoptions}
 \DeclareDatamodelFields[type=field, datatype=range]{pages}
+
 \DeclareDatamodelFields[type=field, datatype=code]{execute}
 
 \DeclareDatamodelEntryfields{
@@ -1168,6 +1175,7 @@
   eventmonth,
   eventyear,
   eventtitle,
+  eventtitleaddon,
   isbn,
   language,
   location,
@@ -1212,6 +1220,7 @@
   eventmonth,
   eventyear,
   eventtitle,
+  eventtitleaddon,
   isbn,
   language,
   location,
@@ -1266,6 +1275,7 @@
   eventmonth,
   eventyear,
   eventtitle,
+  eventtitleaddon,
   isbn,
   language,
   location,

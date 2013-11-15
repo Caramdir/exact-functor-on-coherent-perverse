@@ -1,7 +1,12 @@
 \ProvidesFile{authoryear-comp.cbx}
 [\abx@cbxid]
 
-\ExecuteBibliographyOptions{labelyear,uniquename,uniquelist,sortcites,autocite=inline}
+\ExecuteBibliographyOptions{labeldate,uniquename,uniquelist,sortcites,
+  autocite=inline}
+
+\renewcommand*{\iffinalcitedelim}{%
+  \ifnumequal{\value{textcitecount}}{\value{textcitetotal}-1}}
+
 \newbool{cbx:parens}
 
 \newbibmacro*{cite:init}{%
@@ -12,7 +17,7 @@
     {\iffieldundef{prenote}
        {}
        {\global\undef\cbx@lasthash
-	\global\undef\cbx@lastyear}}}
+        \global\undef\cbx@lastyear}}}
 
 \newbibmacro*{cite:reinit}{%
   \global\undef\cbx@lasthash
@@ -22,8 +27,8 @@
   \iffieldundef{shorthand}
     {\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}}
        {\usebibmacro{cite:label}%
-	\setunit{\addspace}%
-	\usebibmacro{cite:labelyear+extrayear}%
+        \setunit{\addspace}%
+        \usebibmacro{cite:labelyear+extrayear}%
         \usebibmacro{cite:reinit}}
        {\iffieldequals{namehash}{\cbx@lasthash}
           {\ifthenelse{\iffieldequals{labelyear}{\cbx@lastyear}\AND
@@ -34,7 +39,7 @@
               \usebibmacro{cite:labelyear+extrayear}%
               \savefield{labelyear}{\cbx@lastyear}}}
           {\printnames{labelname}%
-  	   \setunit{\nameyeardelim}%
+           \setunit{\nameyeardelim}%
            \usebibmacro{cite:labelyear+extrayear}%
            \savefield{namehash}{\cbx@lasthash}%
            \savefield{labelyear}{\cbx@lastyear}}}}
@@ -78,34 +83,35 @@
     {\ifnameundef{labelname}
        {\iffieldundef{shorthand}
           {\usebibmacro{cite:label}%
-	   \setunit{%
-	     \global\booltrue{cbx:parens}%
-	     \addspace\bibopenparen}%
-	   \ifnumequal{\value{citecount}}{1}
-	     {\usebibmacro{prenote}}
-	     {}%
-	   \usebibmacro{cite:labelyear+extrayear}}
+           \setunit{%
+             \global\booltrue{cbx:parens}%
+             \addspace\bibopenparen}%
+           \ifnumequal{\value{citecount}}{1}
+             {\usebibmacro{prenote}}
+             {}%
+           \usebibmacro{cite:labelyear+extrayear}}
           {\usebibmacro{cite:shorthand}}}
        {\printnames{labelname}%
-	\setunit{%
-	  \global\booltrue{cbx:parens}%
-	  \addspace\bibopenparen}%
-	\ifnumequal{\value{citecount}}{1}
-	  {\usebibmacro{prenote}}
-	  {}%
+        \setunit{%
+          \global\booltrue{cbx:parens}%
+          \addspace\bibopenparen}%
+        \ifnumequal{\value{citecount}}{1}
+          {\usebibmacro{prenote}}
+          {}%
         \iffieldundef{shorthand}
           {\iffieldundef{labelyear}
              {\usebibmacro{cite:label}}
              {\usebibmacro{cite:labelyear+extrayear}}%
            \savefield{labelyear}{\cbx@lastyear}}
           {\usebibmacro{cite:shorthand}%
-           \global\undef\cbx@lastyear}%
-        \savefield{namehash}{\cbx@lasthash}}}%
+           \global\undef\cbx@lastyear}}%
+     \stepcounter{textcitecount}%
+     \savefield{namehash}{\cbx@lasthash}}%
   \setunit{%
     \ifbool{cbx:parens}
       {\bibcloseparen\global\boolfalse{cbx:parens}}
       {}%
-    \multicitedelim}}
+    \textcitedelim}}
 
 \newbibmacro*{cite:shorthand}{%
   \printtext[bibhyperref]{\printfield{shorthand}}}
@@ -133,13 +139,13 @@
     {\setunit{}%
      \printtext{%
        \ifbool{cbx:parens}
-	 {\bibcloseparen\global\boolfalse{cbx:parens}}
-	 {}}}
+         {\bibcloseparen\global\boolfalse{cbx:parens}}
+         {}}}
     {\setunit{%
        \ifbool{cbx:parens}
-	 {\bibcloseparen\global\boolfalse{cbx:parens}}
-	 {}%
-       \multicitedelim}}}
+         {\bibcloseparen\global\boolfalse{cbx:parens}}
+         {}%
+       \textcitedelim}}}
 
 \DeclareCiteCommand{\cite}
   {\usebibmacro{cite:init}%
@@ -197,19 +203,51 @@
   {}
   {\usebibmacro{postnote}}
 
-\DeclareCiteCommand{\textcite}
+\DeclareCiteCommand{\cbx@textcite}
   {\usebibmacro{cite:init}}
   {\usebibmacro{citeindex}%
    \usebibmacro{textcite}}
   {}
   {\usebibmacro{textcite:postnote}}
 
+\DeclareCiteCommand{\textcite}[\cbx@textcite@init\cbx@textcite]
+  {\gdef\cbx@savedkeys{}%
+   \citetrackerfalse%
+   \pagetrackerfalse%
+   \DeferNextCitekeyHook%
+   \usebibmacro{cite:init}}
+  {\ifthenelse{\iffirstcitekey\AND\value{multicitetotal}>0}
+     {\protected@xappto\cbx@savedcites{()(\thefield{multipostnote})}%
+      \global\clearfield{multipostnote}}
+     {}%
+   \xappto\cbx@savedkeys{\thefield{entrykey},}%
+   \iffieldequals{namehash}{\cbx@lasthash}
+     {}
+     {\stepcounter{textcitetotal}%
+      \savefield{namehash}{\cbx@lasthash}}}
+  {}
+  {\protected@xappto\cbx@savedcites{%
+     [\thefield{prenote}][\thefield{postnote}]{\cbx@savedkeys}}}
+
+\newrobustcmd{\cbx@textcite@init}[2]{%
+  \setcounter{textcitetotal}{0}%
+  \setcounter{textcitecount}{0}%
+  \def\cbx@savedcites{#1}#2\cbx@savedcites\empty}
+
+\DeclareMultiCiteCommand{\cbx@textcites}{\cbx@textcite}{}
+\DeclareMultiCiteCommand{\textcites}[\cbx@textcites@init\cbx@textcites]{\textcite}{}
+
+\let\cbx@textcites@init\cbx@textcite@init
+\pretocmd{\cbx@textcites@init}{\UseNextMultiCiteHook}{}{}
+
 \DeclareMultiCiteCommand{\cites}{\cite}{\setunit{\multicitedelim}}
-\DeclareMultiCiteCommand{\parencites}[\mkbibparens]{\parencite}{\setunit{\multicitedelim}}
-\DeclareMultiCiteCommand{\footcites}[\mkbibfootnote]{\footcite}{\setunit{\multicitedelim}}
-\DeclareMultiCiteCommand{\footcitetexts}[\mkbibfootnotetext]{\footcitetext}{\setunit{\multicitedelim}}
-\DeclareMultiCiteCommand{\smartcites}[\iffootnote\mkbibparens\mkbibfootnote]{\smartcite}
-                                     {\setunit{\multicitedelim}}
-\DeclareMultiCiteCommand{\textcites}{\textcite}{}
+\DeclareMultiCiteCommand{\parencites}[\mkbibparens]{\parencite}
+  {\setunit{\multicitedelim}}
+\DeclareMultiCiteCommand{\footcites}[\mkbibfootnote]{\footcite}
+  {\setunit{\multicitedelim}}
+\DeclareMultiCiteCommand{\footcitetexts}[\mkbibfootnotetext]
+  {\footcitetext}{\setunit{\multicitedelim}}
+\DeclareMultiCiteCommand{\smartcites}[\iffootnote\mkbibparens\mkbibfootnote]
+  {\smartcite}{\setunit{\multicitedelim}}
 
 \endinput

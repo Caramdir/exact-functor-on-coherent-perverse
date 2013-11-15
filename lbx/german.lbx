@@ -9,6 +9,7 @@
     \textendash\penalty\hyphenpenalty}% breakable dash
   \protected\def\bibdatedash{\bibrangedash}%
   \let\finalandcomma=\empty
+  \let\finalandsemicolon=\empty
   \protected\def\mkbibordinal#1{\stripzeros{#1}\adddot}%
   \protected\def\mkbibmascord{\mkbibordinal}%
   \protected\def\mkbibfemord{\mkbibordinal}%
@@ -22,7 +23,7 @@
       {}
       {\mkbibmonth{\thefield{#2}}%
        \iffieldundef{#1}{}{\space}}%
-    \stripzeros{\thefield{#1}}}%
+    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\stripzeros{\thefield{#1}}}}%
   \protected\def\mkbibdateshort#1#2#3{%
     \iffieldundef{#3}
       {}
@@ -34,7 +35,7 @@
        \iffieldundef{#1}
 	 {}
 	 {\iffieldundef{#3}{/}{\adddot\thinspace}}}%
-    \mkdatezeros{\thefield{#1}}}%
+    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\mkdatezeros{\thefield{#1}}}}%
   \savecommand\lbx@lfromlang
   \savecommand\lbx@sfromlang
   \def\lbx@lfromlang{%
@@ -222,7 +223,7 @@
   bycompiler       = {{kompiliert von}{komp\adddotspace von}},
   byredactor       = {{bearbeitet von}{bearb\adddotspace von}},
   byreviser        = {{\"uberarbeitet von}{\"uberarb\adddotspace von}},
-% byreviewer       = {{}{}}, % FIXME: missing
+% byreviewer       = {{}{}},% FIXME: missing
   byfounder        = {{begr\"undet von}{begr\adddotspace von}},
   bycontinuator    = {{fortgef\"urt von}{fortgef\adddotspace von}},
   bycollaborator   = {{unter Mitarbeit von}{unter Mitarb\adddotspace von}},
@@ -307,7 +308,7 @@
   andmore          = {{u.\,a\adddot}{u.\,a\adddot}},
   volume           = {{Band}{Bd\adddot}},
   volumes          = {{B\"ande}{Bde\adddot}},
-  involumes        = {{in}{in}}, % FIXME: unsure
+  involumes        = {{in}{in}},% FIXME: unsure
   jourvol          = {{Jahrgang}{Jg\adddot}},
   jourser          = {{Serie}{Ser\adddot}},
   book             = {{Buch}{Buch}},
@@ -319,21 +320,22 @@
   reprint          = {{Nachdruck}{Nachdr\adddot}},
   reprintof        = {{Nachdruck von}{Nachdr\adddotspace von}},
   reprintas        = {{Nachdruck unter dem Titel}{Nachdr\adddotspace unter dem Titel}},
-% reprintfrom      = {{}{}}, % FIXME: missing
-% translationof    = {{}{}}, % FIXME: missing
-% translationas    = {{}{}}, % FIXME: missing
-% translationfrom  = {{}{}}, % FIXME: missing
-% reviewof         = {{}{}}, % FIXME: missing
-% origpubas        = {{}{}}, % FIXME: missing
-% origpubin        = {{}{}}, % FIXME: missing
-% astitle          = {{}{}}, % FIXME: missing
-% bypublisher      = {{}{}}, % FIXME: missing
+% reprintfrom      = {{}{}},% FIXME: missing
+% translationof    = {{}{}},% FIXME: missing
+% translationas    = {{}{}},% FIXME: missing
+% translationfrom  = {{}{}},% FIXME: missing
+% reviewof         = {{}{}},% FIXME: missing
+% origpubas        = {{}{}},% FIXME: missing
+% origpubin        = {{}{}},% FIXME: missing
+% astitle          = {{}{}},% FIXME: missing
+% bypublisher      = {{}{}},% FIXME: missing
   page             = {{Seite}{S\adddot}},
   pages            = {{Seiten}{S\adddot}},
   column           = {{Spalte}{Sp\adddot}},
   columns          = {{Spalten}{Sp\adddot}},
   line             = {{Zeile}{Z\adddot}},
   lines            = {{Zeilen}{Z\adddot}},
+  nodate           = {{ohne\space Datum}{{}o\adddot D\adddot}},
   verse            = {{Vers}{V\adddot}},
   verses           = {{Verse}{V\adddot}},
   section          = {{Paragraph}{\S}},
@@ -347,15 +349,15 @@
   chapter          = {{Kapitel}{Kap\adddot}},
   mathesis         = {{Magisterarbeit}{Magisterarb\adddot}},
   phdthesis        = {{Dissertation}{Diss\adddot}},
-% candthesis       = {{}{}}, % FIXME: missing
+% candthesis       = {{}{}},% FIXME: missing
   resreport        = {{Forschungsbericht}{Forschungsber\adddot}},
   techreport       = {{Technischer Bericht}{Techn\adddotspace Ber\adddot}},
   software         = {{Com\-pu\-ter-Soft\-ware}{Soft\-ware}},
   datacd           = {{CD-ROM}{CD-ROM}},
   audiocd          = {{Audio-CD}{Audio-CD}},
   version          = {{Version}{Version}},
-  url              = {{url}{url}},
-%  url              = {{Adresse}{Adresse}},
+  url              = {{Adresse}{Adresse}},
+% urlfrom          = {{}{}},% FIXME: missing
   urlseen          = {{besucht am}{besucht am}},
   inpreparation    = {{in Vorbereitung}{in Vorbereitung}},
   submitted        = {{eingereicht}{eingereicht}},
@@ -399,7 +401,9 @@
   december         = {{Dezember}{Dez\adddot}},
   langamerican     = {{Amerikanisch}{Amerikanisch}},
   langbrazilian    = {{Brasilianisch}{Brasilianisch}},
+% langcatalan      = {{}{}},% FIXME: missing
   langcroatian     = {{Kroatisch}{Kroatisch}},
+% langczech        = {{}{}},% FIXME: missing
   langdanish       = {{D\"anisch}{D\"anisch}},
   langdutch        = {{Niederl\"andisch}{Niederl\"andisch}},
   langenglish      = {{Englisch}{Englisch}},
@@ -410,13 +414,16 @@
   langitalian      = {{Italienisch}{Italienisch}},
   langlatin        = {{Lateinisch}{Lateinisch}},
   langnorwegian    = {{Norwegisch}{Norwegisch}},
+% langpolish       = {{}{}},% FIXME: missing
   langportuguese   = {{Portugiesisch}{Portugiesisch}},
   langrussian      = {{Russisch}{Russisch}},
   langspanish      = {{Spanisch}{Spanisch}},
   langswedish      = {{Schwedisch}{Schwedisch}},
   fromamerican     = {{aus dem Amerikanischen}{aus dem Amerikanischen}},
   frombrazilian    = {{aus dem Brasilianischen}{aus dem Brasilianischen}},
+% fromcatalan      = {{}{}},% FIXME: missing
   fromcroatian     = {{aus dem Kroatischen}{aus dem Kroatischen}},
+% fromczech        = {{}{}},% FIXME: missing
   fromdanish       = {{aus dem D\"anischen}{aus dem D\"anischen}},
   fromdutch        = {{aus dem Niederl\"andischen}{aus dem Niederl\"andischen}},
   fromenglish      = {{aus dem Englischen}{aus dem Englischen}},
@@ -427,6 +434,7 @@
   fromitalian      = {{aus dem Italienischen}{aus dem Italienischen}},
   fromlatin        = {{aus dem Lateinischen}{aus dem Lateinischen}},
   fromnorwegian    = {{aus dem Norwegischen}{aus dem Norwegischen}},
+% frompolish       = {{}{}},% FIXME: missing
   fromportuguese   = {{aus dem Portugiesischen}{aus dem Portugiesischen}},
   fromrussian      = {{aus dem Russischen}{aus dem Russischen}},
   fromspanish      = {{aus dem Spanischen}{aus dem Spanischen}},

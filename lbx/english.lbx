@@ -9,6 +9,7 @@ canadian,australian,newzealand,USenglish,UKenglish}
     \textendash\penalty\hyphenpenalty}% breakable dash
   \protected\def\bibdatedash{\bibrangedash}%
   \def\finalandcomma{\addcomma}%
+  \def\finalandsemicolon{\addsemicolon}%
   \protected\def\mkbibordinal#1{%
     \begingroup
     \@tempcnta0#1\relax\number\@tempcnta
@@ -32,19 +33,23 @@ canadian,australian,newzealand,USenglish,UKenglish}
       {}
       {\stripzeros{\thefield{#3}}%
        \iffieldundef{#1}{}{,\space}}%
-    \stripzeros{\thefield{#1}}}%
+     \iffieldbibstring{#1}
+       {\bibstring{\thefield{#1}}}
+       {\stripzeros{\thefield{#1}}}}%
   \protected\def\mkbibdateshort#1#2#3{%
     \iffieldundef{#2}
       {}
       {\mkdatezeros{\thefield{#2}}%
        \iffieldundef{#3}
          {\iffieldundef{#1}{}{/}}
-	 {/}}%
+         {/}}%
     \iffieldundef{#3}
       {}
       {\mkdatezeros{\thefield{#3}}%
        \iffieldundef{#1}{}{/}}%
-    \mkdatezeros{\thefield{#1}}}%
+     \iffieldbibstring{#1}
+       {\bibstring{\thefield{#1}}}
+       {\mkdatezeros{\thefield{#1}}}}%
   \savecommand\mkbibrangecomp
   \savecommand\mkbibrangecompextra
   \savecommand\mkbibrangeterse
@@ -80,10 +85,10 @@ canadian,australian,newzealand,USenglish,UKenglish}
   revisers         = {{revisers}{rev\adddot}},
   founder          = {{founder}{found\adddot}},
   founders         = {{founders}{found\adddot}},
-  continuator      = {{continued}{cont\adddot}}, % FIXME: unsure
-  continuators     = {{continued}{cont\adddot}}, % FIXME: unsure
-  collaborator     = {{collaborator}{collab\adddot}},  % FIXME: unsure
-  collaborators    = {{collaborators}{collab\adddot}}, % FIXME: unsure
+  continuator      = {{continued}{cont\adddot}},% FIXME: unsure
+  continuators     = {{continued}{cont\adddot}},% FIXME: unsure
+  collaborator     = {{collaborator}{collab\adddot}},% FIXME: unsure
+  collaborators    = {{collaborators}{collab\adddot}},% FIXME: unsure
   translator       = {{translator}{trans\adddot}},
   translators      = {{translators}{trans\adddot}},
   commentator      = {{commentator}{comm\adddot}},
@@ -239,7 +244,7 @@ canadian,australian,newzealand,USenglish,UKenglish}
   byreviewer       = {{reviewed by}{rev\adddotspace by}},
   byfounder        = {{founded by}{found\adddotspace by}},
   bycontinuator    = {{continued by}{cont\adddotspace by}},
-  bycollaborator   = {{in collaboration with}{in collab\adddotspace with}}, % FIXME: unsure
+  bycollaborator   = {{in collaboration with}{in collab\adddotspace with}},% FIXME: unsure
   bytranslator     = {{translated \lbx@lfromlang\ by}{trans\adddot\ \lbx@sfromlang\ by}},
   bycommentator    = {{commented by}{comm\adddot\ by}},
   byannotator      = {{annotated by}{annot\adddot\ by}},
@@ -348,6 +353,7 @@ canadian,australian,newzealand,USenglish,UKenglish}
   columns          = {{columns}{cols\adddot}},
   line             = {{line}{l\adddot}},
   lines            = {{lines}{ll\adddot}},
+  nodate           = {{no date}{n\adddot d\adddot}},
   verse            = {{verse}{v\adddot}},
   verses           = {{verses}{vv\adddot}},
   section          = {{section}{\S}},
@@ -368,7 +374,8 @@ canadian,australian,newzealand,USenglish,UKenglish}
   datacd           = {{CD-ROM}{CD-ROM}},
   audiocd          = {{audio CD}{audio CD}},
   version          = {{version}{version}},
-  url              = {{url}{url}},
+  url              = {{address}{address}},
+  urlfrom          = {{available from}{available from}},
   urlseen          = {{visited on}{visited on}},
   inpreparation    = {{in preparation}{in preparation}},
   submitted        = {{submitted}{submitted}},
@@ -412,7 +419,9 @@ canadian,australian,newzealand,USenglish,UKenglish}
   december         = {{December}{Dec\adddot}},
   langamerican     = {{American}{American}},
   langbrazilian    = {{Brazilian}{Brazilian}},
+  langcatalan      = {{Catalan}{Catalan}},
   langcroatian     = {{Croatian}{Croatian}},
+  langczech        = {{Czech}{Czech}},
   langdanish       = {{Danish}{Danish}},
   langdutch        = {{Dutch}{Dutch}},
   langenglish      = {{English}{English}},
@@ -423,13 +432,16 @@ canadian,australian,newzealand,USenglish,UKenglish}
   langitalian      = {{Italian}{Italian}},
   langlatin        = {{Latin}{Latin}},
   langnorwegian    = {{Norwegian}{Norwegian}},
+  langpolish       = {{Polish}{Polish}},
   langportuguese   = {{Portuguese}{Portuguese}},
   langrussian      = {{Russian}{Russian}},
   langspanish      = {{Spanish}{Spanish}},
   langswedish      = {{Swedish}{Swedish}},
   fromamerican     = {{from the American}{from the American}},
   frombrazilian    = {{from the Brazilian}{from the Brazilian}},
+  fromcatalan      = {{from the Catalan}{from the Catalan}},
   fromcroatian     = {{from the Croatian}{from the Croatian}},
+  fromczech        = {{from the Czech}{from the Czech}},
   fromdanish       = {{from the Danish}{from the Danish}},
   fromdutch        = {{from the Dutch}{from the Dutch}},
   fromenglish      = {{from the English}{from the English}},
@@ -440,6 +452,7 @@ canadian,australian,newzealand,USenglish,UKenglish}
   fromitalian      = {{from the Italian}{from the Italian}},
   fromlatin        = {{from the Latin}{from the Latin}},
   fromnorwegian    = {{from the Norwegian}{from the Norwegian}},
+  frompolish       = {{from the Polish}{from the Polish}},
   fromportuguese   = {{from the Portuguese}{from the Portuguese}},
   fromrussian      = {{from the Russian}{from the Russian}},
   fromspanish      = {{from the Spanish}{from the Spanish}},
@@ -491,49 +504,49 @@ canadian,australian,newzealand,USenglish,UKenglish}
     {}
     {\printtext[#2date]{%
        \iffieldsequal{#2year}{#2endyear}
-	 {\csuse{mkbibdate#1}{}{#2month}{#2day}}
-	 {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}}%
+         {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+         {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}}%
        \iffieldundef{#2endyear}
-	 {}
-	 {\iffieldequalstr{#2endyear}{}
+         {}
+         {\iffieldequalstr{#2endyear}{}
             {\mbox{\bibdatedash}}
-	    {\bibdatedash
-	     \csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}}}}
+            {\bibdatedash
+             \csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}}}}
 
 \protected\gdef\lbx@us@mkbibrangetruncextra@long#1#2{%
   \iffieldundef{#2year}
     {}
     {\printtext[#2date]{%
        \iffieldsequal{#2year}{#2endyear}
-	 {\csuse{mkbibdate#1}{}{#2month}{#2day}}
-	 {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}}%
+         {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+         {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}}%
        \iffieldundef{#2endyear}
-	 {\printfield{extrayear}}
-	 {\iffieldequalstr{#2endyear}{}
+         {\printfield{extrayear}}
+         {\iffieldequalstr{#2endyear}{}
             {\printfield{extrayear}%
-	     \mbox{\bibdatedash}}
-	    {\bibdatedash
-	     \iffieldsequal{#2year}{#2endyear}
-	       {\iffieldsequal{#2month}{#2endmonth}
-        	  {\csuse{mkbibdate#1}{#2endyear}{}{#2endday}}
-		  {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
-	       {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}%
-	     \printfield{extrayear}}}}}}
+             \mbox{\bibdatedash}}
+            {\bibdatedash
+             \iffieldsequal{#2year}{#2endyear}
+               {\iffieldsequal{#2month}{#2endmonth}
+                  {\csuse{mkbibdate#1}{#2endyear}{}{#2endday}}
+                  {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+               {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}%
+             \printfield{extrayear}}}}}}
 
 \protected\gdef\lbx@us@mkbibrangetruncextra@short#1#2{%
   \iffieldundef{#2year}
     {}
     {\printtext[#2date]{%
        \iffieldsequal{#2year}{#2endyear}
-	 {\csuse{mkbibdate#1}{}{#2month}{#2day}}
-	 {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}}%
+         {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+         {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}}%
        \iffieldundef{#2endyear}
-	 {\printfield{extrayear}}
-	 {\iffieldequalstr{#2endyear}{}
+         {\printfield{extrayear}}
+         {\iffieldequalstr{#2endyear}{}
             {\printfield{extrayear}%
-	     \mbox{\bibdatedash}}
-	    {\bibdatedash
-	     \csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}%
-	     \printfield{extrayear}}}}}}
+          \mbox{\bibdatedash}}
+         {\bibdatedash
+          \csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}%
+       \printfield{extrayear}}}}}}
 
 \endinput

@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.1 $
+% $ biblatex bbl format version 2.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -42,7 +42,7 @@
       \verb{eprint}
       \verb 0902.0349
       \endverb
-      \keyw{Mathematics - Algebraic Geometry, Mathematics - Representation Theory}
+      \keyw{Mathematics - Algebraic Geometry,Mathematics - Representation Theory}
     \endentry
     \entry{Beauville:2000:SymplecticSingularities}{article}{}
       \name{labelname}{1}{}{%
@@ -86,7 +86,7 @@
       \verb{eprint}
       \verb math/0005152
       \endverb
-      \keyw{Mathematics - Algebraic Geometry, Mathematics - Geometric Topology, Mathematics - Representation Theory}
+      \keyw{Mathematics - Algebraic Geometry,Mathematics - Geometric Topology,Mathematics - Representation Theory}
     \endentry
     \entry{BrodmannSharp:1998:LocalCohomology}{book}{}
       \name{labelname}{2}{}{%

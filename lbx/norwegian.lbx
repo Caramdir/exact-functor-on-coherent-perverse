@@ -8,6 +8,7 @@
     \textendash\penalty\hyphenpenalty}% breakable dash
   \protected\def\bibdatedash{\bibrangedash}%
   \let\finalandcomma=\empty
+  \let\finalandsemicolon=\empty
   \protected\def\mkbibordinal#1{\stripzeros{#1}\adddot}%
   \protected\def\mkbibmascord{\mkbibordinal}%
   \protected\def\mkbibfemord{\mkbibordinal}%
@@ -21,7 +22,7 @@
       {}
       {\mkbibmonth{\thefield{#2}}%
        \iffieldundef{#1}{}{\space}}%
-    \stripzeros{\thefield{#1}}}%
+    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\stripzeros{\thefield{#1}}}}%
   \protected\def\mkbibdateshort#1#2#3{%
     \iffieldundef{#3}
       {}
@@ -30,7 +31,7 @@
       {}
       {\mkdatezeros{\thefield{#2}}%
        \iffieldundef{#1}{}{\adddot}}%
-    \mkdatezeros{\thefield{#1}}}%
+    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\mkdatezeros{\thefield{#1}}}}%
 }
 
 \DeclareBibliographyStrings{%
@@ -315,6 +316,7 @@
   columns          = {{spalter}{sp\adddot}},
   line             = {{linje}{l\adddot}},
   lines            = {{linjer}{l\adddot}},
+  nodate           = {{udatert}{udatert}},
   verse            = {{vers}{v\adddot}},
   verses           = {{vers}{v\adddot}},
   section          = {{avsnitt}{avsn\adddot}},
@@ -327,7 +329,7 @@
   number           = {{nummer}{nr\adddot}},
   chapter          = {{kapittel}{kap\adddot}},
   mathesis         = {{masteroppgave}{masteroppg\adddot}},
-  phdthesis        = {{ph.d-avhandling}{ph.d.-avh\adddot}},
+  phdthesis        = {{ph.d.-avhandling}{ph.d.-avh\adddot}},
   candthesis       = {{hovedoppgave}{hovedoppg\adddot}},
   resreport        = {{forskningsrapport}{forskn.rapp\adddot}},
   techreport       = {{teknisk rapport}{tekn\adddotspace rapp\adddot}},
@@ -335,8 +337,8 @@
   datacd           = {{data-cd}{data-cd}},
   audiocd          = {{lyd-cd}{lyd-cd}},
   version          = {{versjon}{versjon}},
-  url              = {{url}{url}},
-%  url              = {{side}{side}},
+  url              = {{side}{side}},
+  urlfrom          = {{tilgjengelig fra}{tilgj\adddotspace fra}},
   urlseen          = {{sjekket}{sjekket}},
   inpreparation    = {{under utarbeidelse}{under utarb\adddot}},
   submitted        = {{innsendt}{innsendt}},
@@ -380,7 +382,9 @@
   december         = {{desember}{des\adddot}},
   langamerican     = {{amerikansk-engelsk}{amerikansk-engelsk}},
   langbrazilian    = {{brasiliansk-portugisisk}{brasiliansk-portugisisk}},
+  langcatalan      = {{katalansk}{katalansk}},
   langcroatian     = {{kroatisk}{kroatisk}},
+  langczech        = {{tsjekkisk}{tsjekkisk}},
   langdanish       = {{dansk}{dansk}},
   langdutch        = {{nederlandsk}{nederlandsk}},
   langenglish      = {{engelsk}{engelsk}},
@@ -391,13 +395,16 @@
   langitalian      = {{italiensk}{italiensk}},
   langlatin        = {{latin}{latin}},
   langnorwegian    = {{norsk}{norsk}},
+% langpolish       = {{}{}},% FIXME: missing
   langportuguese   = {{portugisisk}{portugisisk}},
   langrussian      = {{russisk}{russisk}},
   langspanish      = {{spansk}{spansk}},
   langswedish      = {{svensk}{svensk}},
   fromamerican     = {{fra amerikansk-engelsk}{fra amerikansk-engelsk}},
   frombrazilian    = {{fra brasiliansk-portugisisk}{fra brasiliansk-portugisisk}},
+  fromcatalan      = {{fra katalansk}{fra katalansk}},
   fromcroatian     = {{fra kroatisk}{fra kroatisk}},
+  fromczech        = {{fra tsjekkisk}{fra tsjekkisk}},
   fromdanish       = {{fra dansk}{fra dansk}},
   fromdutch        = {{fra nederlandsk}{fra nederlandsk}},
   fromenglish      = {{fra engelsk}{fra engelsk}},
@@ -408,6 +415,7 @@
   fromitalian      = {{fra italiensk}{fra italiensk}},
   fromlatin        = {{fra latin}{fra latin}},
   fromnorwegian    = {{fra norsk}{fra norsk}},
+% frompolish       = {{}{}},% FIXME: missing
   fromportuguese   = {{fra portugisisk}{fra portugisisk}},
   fromrussian      = {{fra russisk}{fra russisk}},
   fromspanish      = {{fra spansk}{fra spansk}},

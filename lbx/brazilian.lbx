@@ -8,6 +8,7 @@
     \textendash\penalty\hyphenpenalty}% breakable dash
   \protected\def\bibdatedash{\bibrangedash}%
   \let\finalandcomma=\empty
+  \let\finalandsemicolon=\empty
   \def\mkbibordinal{\mkbibmascord}%
   \protected\def\mkbibmascord#1{%
     \stripzeros{#1}\textordmasculine}% \textordmasculine -> textcomp.sty
@@ -23,7 +24,7 @@
       {}
       {\mkbibmonth{\thefield{#2}}%
        \iffieldundef{#1}{}{\nobreakspace de\space}}%
-    \stripzeros{\thefield{#1}}}%
+    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\stripzeros{\thefield{#1}}}}%
   \protected\def\mkbibdateshort#1#2#3{%
     \iffieldundef{#3}
       {}
@@ -33,7 +34,7 @@
       {}
       {\mkdatezeros{\thefield{#2}}%
        \iffieldundef{#1}{}{/}}%
-    \mkdatezeros{\thefield{#1}}}%
+    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\mkdatezeros{\thefield{#1}}}}%
   \savecommand\mkbibordedition
   \savecommand\mkbibordseries
   \def\mkbibordedition{\mkbibfemord}%
@@ -327,6 +328,7 @@
   columns          = {{colunas}{cols\adddot}},
   line             = {{linha}{l\adddot}},
   lines            = {{linhas}{ll\adddot}},
+  nodate           = {{sem\space data}{s\adddot d\adddot}},
   verse            = {{verso}{v\adddot}},
   verses           = {{versos}{vv\adddot}},
   section          = {{se\c{c}\~ao}{\S}},
@@ -340,7 +342,7 @@
   chapter          = {{cap\'\i tulo}{cap\adddot}},
   mathesis         = {{disserta\c{c}\~ao de mestrado}{diss\adddot\ de mestrado}},
   phdthesis        = {{tese de doutorado}{tese de doutorado}},
-% candthesis       = {{}{}}, % FIXME: missing
+% candthesis       = {{}{}},% FIXME: missing
   resreport        = {{relat\'orio de pesquisa}{rel\adddotspace de pesquisa}},
   techreport       = {{relat\'orio t\'ecnico}{rel\adddotspace t\'ec\adddot}},
   software         = {{software}{software}},
@@ -348,12 +350,13 @@
   audiocd          = {{CD de \'audio}{CD de \'audio}},
   version          = {{vers\~ao}{vers\~ao}},
   url              = {{endere\c{c}o eletr\^onico}{endere\c{c}o}},
+% urlfrom          = {{}{}},% FIXME: missing
   urlseen          = {{acesso em}{acesso em}},
   inpreparation    = {{em prepara\c{c}\~ao}{em prep\adddot}},
   submitted        = {{submetido}{subm\adddot}},
   forthcoming      = {{aceito para publica\c{c}\~ao}{aceito para publ\adddot}},
   inpress          = {{no prelo}{no prelo}},
-  prepublished     = {{pr\'e-publicado}{pr\'e-publ\adddot}}, % FIXME: missing
+% prepublished     = {{pr\'e-publicado}{pr\'e-publ\adddot}},% FIXME: missing
   citedas          = {{doravante citado como}{doravante citado como}},
   seenote          = {{ver nota}{ver nota}},
   quotedin         = {{apud}{apud}},
@@ -390,7 +393,9 @@
   december         = {{dezembro}{dez\adddot}},
   langamerican     = {{ingl\^es}{ingl\^es}},
   langbrazilian    = {{portugu{\^e}s}{portugu{\^e}s}},
+% langcatalan      = {{}{}},% FIXME: missing
   langcroatian     = {{croata}{croata}},
+% langczech        = {{}{}},% FIXME: missing
   langdanish       = {{dinamarqu\^es}{dinamarqu\^es}},
   langdutch        = {{holand{\^e}s}{holand{\^e}s}},
   langenglish      = {{ingl\^es}{ingl\^es}},
@@ -401,13 +406,16 @@
   langitalian      = {{italiano}{italiano}},
   langlatin        = {{latim}{latim}},
   langnorwegian    = {{noruegu\^es}{noruegu\^es}},
+% langpolish       = {{}{}},% FIXME: missing
   langportuguese   = {{portugu{\^e}s}{portugu{\^e}s}},
   langrussian      = {{russo}{russo}},
   langspanish      = {{espanhol}{espanhol}},
   langswedish      = {{sueco}{sueco}},
   fromamerican     = {{do ingl\^es}{do ingl\^es}},
   frombrazilian    = {{do portugu{\^e}s}{do portugu{\^e}s}},
+% fromcatalan      = {{}{}},% FIXME: missing
   fromcroatian     = {{do croata}{do croata}},
+% fromczech        = {{}{}},% FIXME: missing
   fromdanish       = {{do dinamarqu\^es}{do dinamarqu\^es}},
   fromdutch        = {{do holand{\^e}s}{do holand{\^e}s}},
   fromenglish      = {{do ingl\^es}{do ingl\^es}},
@@ -418,6 +426,7 @@
   fromitalian      = {{do italiano}{do italiano}},
   fromlatin        = {{do latim}{do latim}},
   fromnorwegian    = {{do noruegu\^es}{do noruegu\^es}},
+% frompolish       = {{}{}},% FIXME: missing
   fromportuguese   = {{do portugu{\^e}s}{do portugu{\^e}s}},
   fromrussian      = {{do russo}{do russo}},
   fromspanish      = {{do espanhol}{do espanhol}},
