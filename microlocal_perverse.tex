@@ -476,12 +476,15 @@ A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if
     A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if $ι_Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each measuring submanifold $Z$ of $X$.
 \end{Thm}
 
+The proof of the following lemma is based on a MathOverflow post by Geordie Williamson \cite{MO:VanishingShriekRestrictionConstructible}.
+The author takes responsibility for possible mistakes.
+
 \begin{Lem}\label{lem:constructible_local_vanishing}%
     Let $X$ be a real manifold, $\sheaf F$ be a constructible sheaf (concentrated in degree $0$) on $X$ and let $i\colon Z \hookrightarrow X$ be the inclusion of a closed submanifold.
     Then $H^j(i^!\sheaf F) = 0$ for $j>\codim_XZ$.
 \end{Lem}
 
-\begin{proof}[Proof]\hspace{-1.3ex}{\it \footnotemark}\footnotetext{Following \url{http://mathoverflow.net/questions/129244} by Geordie Williamson.}%
+\begin{proof}
     By taking normal slices we can reduce to the case that $Z = \{z\}$ is a point.
     Let $j$ be the inclusion of $X \setminus \{z\}$ into $X$ and consider the distinguished triangle
     \[
