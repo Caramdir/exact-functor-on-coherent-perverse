@@ -273,7 +273,7 @@ From now on we assume that the $G$-action has finitely many orbits.
 
 \begin{Def}\label{def:measuring}%
     Let $p$ be a perversity.
-    A \emph{$p$-measuring subvariety} of $X$ is an equidimensional subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
+    A \emph{$p$-measuring subvariety} of $X$ is a closed subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
     \begin{itemize}
         \item $\dim(\overline x ∩ Z) = p(x) + \dim x$;
         \item $\overline x ∩ Z$ is the underlying variety of a regularly embedded subscheme in $\overline x$, i.e., up to radical $\overline x ∩ Z$ it is locally defined in $\overline x$ by exactly $-p(x)$ functions.
@@ -309,7 +309,8 @@ The following lemma encapsulates the central argument of the proof of the first 
     Then the following are equivalent:
     \begin{enumerate}
         \item $p(\dim \supp \sheaf F) ≥ n$;
-        \item $H^i(\lc Z\sheaf F) = 0$ for all $i ≥ -n+1$ and all measuring subvarieties $Z$.
+        \item \label{li:lem:supportAndLocalCohomology-:2}%
+            $H^i(\lc Z\sheaf F) = 0$ for all $i ≥ -n+1$ and all measuring subvarieties $Z$.
     \end{enumerate}
 \end{Lem}
 
@@ -317,7 +318,8 @@ The following lemma encapsulates the central argument of the proof of the first 
     Since $\supp \sheaf F$ is always a union of the closure of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
 
     First assume that $p(\dim X) = p(\dim \supp \sheaf F) ≥ n$.
-    By the definition of a $p$-measuring subvariety, this means that, up to radical, $Z$ can be locally defined by at most $-n$ equations.
+    Using a Mayer-Vietoris argument it suffices to check condition (\ref{li:lem:supportAndLocalCohomology-:2}) in the case that $X$ is irreducible.
+    By the definition of a $p$-measuring subvariety and monotonicity of $p$, this implies that, up to radical, $Z$ can be locally defined by at most $-n$ equations.
     Thus $H^i(\lc Z\sheaf F) = 0$ for $i > -n$ \cite[Theorem~3.3.1]{BrodmannSharp:1998:LocalCohomology}. 
 
     Now assume conversely that $H^i(\lc Z\sheaf F) = 0$ for all $i ≥ -n+1$ and all measuring subvarieties $Z$.
@@ -441,7 +443,7 @@ The next theorem shows that at least for affine varieties there are always enoug
     We induct on the dimension $d$.
     More precisely, we induct on the following statement:
     \begin{quote}
-        There exists a closed equidimensional subvariety $Z_d$ of $X$ such that for all $x ∈ X^{\mathrm{top}}$ the following holds:
+        There exists a closed subvariety $Z_d$ of $X$ such that for all $x ∈ X^{\mathrm{top}}$ the following holds:
         \begin{itemize}
             \item $Z_d \cap \overline x \ne \emptyset$ and $Z_d \cap \overline x$ is regularly embedded in $\overline x$;
             \item if $\dim x \le d$, then $\dim(\overline x ∩ Z_d) = p(x) + \dim x$;
