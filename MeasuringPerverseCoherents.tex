@@ -24,8 +24,6 @@
     These subvarieties $Z$ are analogs of Lagrangians in the symplectic case.
 \end{abstract}
 
-\cgsIntro
-
 \section{introduction}
 
 A general way to obtain insights about the heart of a t-structure is to study exact functors on the t-structure.
@@ -74,13 +72,6 @@ The corresponding categories of $G$-equivariant sheaves (i.e.\ the categories fo
 As usual, $D^b(X)$ (etc.) is the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
 All functors are derived, though we usually do not explicitly mention it in the notation.
 
-\begin{cgs}
-    Any basic introduction to derived categories will be sufficient in order to understand this article.
-    The correct construction of the derived category of equivariant sheaves is somewhat involved, but not really necessary here, since all constructions will factor through the forgetful functor to non-equivariant category.
-    The $G$-action is only used as a way to introduce something akin to a stratification on $X$.
-    The equivariance condition forces the coherent sheaves to be vector bundles on each orbit and reduces the possible maps between sheaves so that the cone of a map is of that form (cf.~the introduction of~\cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}).
-\end{cgs}
-
 For a subset $Y$ of a topological space $X$ we write $ι_Y$ for the inclusion of $Y$ into $X$. 
 If $x ∈ X$ is a point, then we simply write $ι_x$ for $ι_{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
@@ -92,24 +83,8 @@ Let $x$ be a (not necessarily closed) point of $X$ and $\sheaf F ∈ D^b(X)$.
 Then $\mathbf ι_x^*\sheaf F = \sheaf F_x ∈ D^b(\catModules{\O_x})$ denotes the (derived) functor of talking stalks.
 We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\cite[Variation~8 in \textsc{iv}.1]{Hartshorne:1966:ResiduesAndDuality}.
 
-\begin{cgs}
-    The original reference on local cohomology is~\cite{SGA2}.
-    A good English book about it is~\cite{BrodmannSharp:1998:LocalCohomology}.
-    Unfortunately, both texts don't use the formalism of derived categories and I don't know any comprehensive reference that develops local cohomology in that setting.
-    However it should be pretty straightforward to translate the relevant results.
-\end{cgs}
-
 We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see~\cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf ι_x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x ∈ \Xtop$.
 For $\sheaf F ∈ D(X)$ (or $D(X)^G$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
-
-\begin{cgs}
-    Recall that the essential properties of the duality functor are:
-    \begin{itemize}
-        \item the functor $\dualize$ takes $D^b_{c}(X)$ to $D^b_c(X)$ (resp.~$D_c^b(X)^G$ to $D_c^b(X)^G$);
-        \item for $\sheaf F ∈ D^b_c(X)$ (or $D^b_c(X)^G$), the natural morphism $\sheaf F → \dualize\dualize F$ is an isomorphism;
-        \item for $x ∈ X$, $\mathbf ι_x^!(\sheaf R)$ is concentrated in degree $-\dim x$ (where $\dim x \coloneqq \dim\overline x$).
-    \end{itemize}
-\end{cgs}
 
 \subsection{acknowledgements}
 
@@ -135,12 +110,6 @@ Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (f
     \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}.
 \end{align*}
 The heart of this t-structure is called the category of perverse sheaves with respect to the perversity $p$.
-
-\begin{cgs}
-    The original paper~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves} is easier to understand (as it doesn't use stacks). 
-    However~\cite{ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves} uses better notation (in particular the $ℂ$-module and $\O$-module restriction functors are notationally differentiated).
-    So I'd recommend reading the two papers in parallel.
-\end{cgs}
 
 In~\cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
 While we work in Bezrukavnikov's setting (i.e.\ in the equivariant derived category on a potentially singular scheme), we need a description of the perverse t-structure that is closer to the one Kashiwara uses.
@@ -172,7 +141,7 @@ This is accomplished in the following proposition.
     \end{enumerate}
 \end{Prop}
 
-A crucial fact that we will implicitly use quite often in the following arguments is that the support of a coherent sheaf is always closed\textcgs{\ (e.g.~\cite[Exercise~II.5.6c]{Hartshorne:AG})}.
+A crucial fact that we will implicitly use quite often in the following arguments is that the support of a coherent sheaf is always closed.
 In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
 
 \pagebreak
@@ -247,8 +216,6 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
     Let $\sheaf F ∈ D_c^b(X)$, $Z$ a closed subset of $X$, and $n$ an integer.
     Then $\lc Z\sheaf F ∈ D_{qc}^{≥n}(X)$ if and only if $\dim(Z∩\supp(H^k(\dualize \sheaf F))) \le - k - n$ for all $k$.
 \end{Lem}
-
-\textcgs{An analogous lemma holds in the topological situations, see~\cite[Exercise~X.10]{KashiwaraSchapira:1994:SheavesOnManifolds}.}
 
 This lemma extends \cite[Proposition~5.2]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} to singular varieties.
 The proof is same as for the smooth case, but we will include it here for completeness.
@@ -468,7 +435,7 @@ The next theorem shows that at least for affine varieties there are always enoug
     If $p(d) = p(d+1)$, then $Z_{d+1} = Z_{d}$ works.
     Otherwise, by (co)monotonicity, $p(d+1) = p(d) - 1$.
     Set $S = \bigcup \{ \overline x ∈ \Xtop : \dim x \le d\}$.
-    Since there are only finitely many orbits, we can choose a function $f$ \textcgs{(by choosing individual $f_i$ and multiplying them)}such that $f$ vanishes identically on $S$, $V(f)$ does not share a component with $Z_d$ and $V(f)$ intersects every $\overline x$ with $\dim x > d$.
+    Since there are only finitely many orbits, we can choose a function $f$ such that $f$ vanishes identically on $S$, $V(f)$ does not share a component with $Z_d$ and $V(f)$ intersects every $\overline x$ with $\dim x > d$.
     Then $Z_{d+1} = Z_d \cap V(f)$ satisfies the conditions.
 \end{proof}
 
