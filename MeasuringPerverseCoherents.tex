@@ -10,6 +10,7 @@
 
 \newcommand\dualize{\mathbb D}
 \newcommand\lc[1]{\Gamma_{\mkern-3mu#1}}
+\newcommand\measuringFam{\mathfrak S}
 
 \begin{document}
 
@@ -45,7 +46,7 @@ Let $\sheaf F ∈ D_c^b(X)^G$ be a perverse coherent sheaf on $X$.
 Following the intuition obtained in the constructible case, is natural to ask whether the\ !-restriction $ι_L^!\sheaf F$ of $\sheaf F$ to $L$ is concentrated in degree $0$.
 
 For an arbitrary variety $X$ with a $G$-action that has finitely many orbits, we define the notion of a \emph{measuring subvariety} as an analog of a Lagrangian in the symplectic case (Definition~\ref{def:measuring}).
-Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X)^G$ is perverse if and only if $ι_Z^!\sheaf F$ is concentrated in cohomological degree $0$ for all measuring subvarieties $Z$ of $X$.
+Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sheaf F ∈ D^b_c(X)^G$ is perverse if and only if $ι_Z^!\sheaf F$ is concentrated in cohomological degree $0$ for sufficiently many measuring subvarieties $Z$ of $X$.
 
 \begin{Ex}
     Let $N$ be the nilpotent cone in the complex Lie algebra $\liesl n$ and let $G = \SL n$ act on $N$ adjointly.
@@ -279,7 +280,8 @@ From now on we assume that the $G$-action has finitely many orbits.
         \item $\overline x ∩ Z$ is the underlying variety of a regularly embedded subscheme in $\overline x$, i.e., up to radical $\overline x ∩ Z$ it is locally defined in $\overline x$ by exactly $-p(x)$ functions.
     \end{itemize}
 
-    We say that $X$ has \emph{enough $p$-measuring subvarieties} if for each $x ∈ X^{\mathrm{top}}$ there exists a $p$-measuring subvariety $Z$ with $Z ∩ \overline x \ne \emptyset$.
+    A \emph{$p$-measuring family of subvarieties} is a family $\measuringFam$ of $p$-measuring subvarieties of $X$ such that for each $x ∈ X^{\mathrm{top}}$ there exists $Z ∈ \measuringFam$ with $Z ∩ \overline x \ne \emptyset$.
+    We say that $X$ has \emph{enough $p$-measuring subvarieties} if there exists a $p$-measuring family of subvarieties of $X$.
 \end{Def}
 
 \begin{Rem}\label{rem:existence}%
@@ -293,24 +295,25 @@ From now on we assume that the $G$-action has finitely many orbits.
 
 \begin{Thm}\label{thm:main}%
     Let $p$ be a strictly monotone and (not necessarily strictly) comonotone perversity and assume that $X$ has enough $p$-measuring subvarieties.
+    Let $\measuringFam$ be a $p$-measuring family of subvarieties of $X$.
     Then,
     \begin{enumerate}
-        \item $\perv[p] D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X)^G : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$;
-        \item $\perv[p] D^{≥0}(X) = \left\{ \sheaf F ∈ D_c^b(X)^G : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $p$-measuring subvarieties $Z$}\right\}$.
+        \item $\perv[p] D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X)^G : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $Z ∈ \measuringFam$}\right\}$;
+        \item $\perv[p] D^{≥0}(X) = \left\{ \sheaf F ∈ D_c^b(X)^G : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $Z ∈ \measuringFam$}\right\}$.
     \end{enumerate}
-    Therefore the sheaf $\sheaf F ∈ D_c^b(X)^G$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z$.
+    Therefore the sheaf $\sheaf F ∈ D_c^b(X)^G$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z ∈ \measuringFam$.
 \end{Thm}
 
 The following lemma encapsulates the central argument of the proof of the first part of the theorem.
 
 \begin{Lem}\label{lem:supportAndLocalCohomology-}%
     Let $\sheaf F ∈ \catCoh{X}^G$ be a $G$-equivariant coherent sheaf on $X$, let $p$ be a monotone perversity and let $n$ be an integer.
-    Assume that $X$ has enough $p$-measuring subvarieties.
+    Assume that $X$ has enough $p$-measuring subvarieties and let $\measuringFam$ be a $p$-measuring family of subvarieties of $X$.
     Then the following are equivalent:
     \begin{enumerate}
         \item $p(\dim \supp \sheaf F) ≥ n$;
         \item \label{li:lem:supportAndLocalCohomology-:2}%
-            $H^i(\lc Z\sheaf F) = 0$ for all $i ≥ -n+1$ and all measuring subvarieties $Z$.
+            $H^i(\lc Z\sheaf F) = 0$ for all $i ≥ -n+1$ and all $Z ∈ \measuringFam$.
     \end{enumerate}
 \end{Lem}
 
@@ -322,10 +325,10 @@ The following lemma encapsulates the central argument of the proof of the first 
     By the definition of a $p$-measuring subvariety and monotonicity of $p$, this implies that, up to radical, $Z$ can be locally defined by at most $-n$ equations.
     Thus $H^i(\lc Z\sheaf F) = 0$ for $i > -n$ \cite[Theorem~3.3.1]{BrodmannSharp:1998:LocalCohomology}. 
 
-    Now assume conversely that $H^i(\lc Z\sheaf F) = 0$ for all $i ≥ -n+1$ and all measuring subvarieties $Z$.
+    Now assume conversely that $H^i(\lc Z\sheaf F) = 0$ for all $i ≥ -n+1$ and all measuring subvarieties $Z ∈ \measuringFam$.
     We have to show that $p(\dim X) ≥ n$.
     Set $d = \dim X$.
-    Choose any $p$-measuring subvariety $Z$.
+    Choose any $p$-measuring subvariety $Z ∈ \measuringFam$.
     Then $\codim_X Z = -p(d)$.
     We will show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$ and hence $p(d) \ge n$ by assumption.
     Take some affine open subset $U$ of $X$ such that $U \cap Z$ is non-empty and irreducible in $U$.
@@ -351,7 +354,7 @@ The following lemma encapsulates the central argument of the proof of the first 
     \[
     \perv D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X)^G : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) ≥ n \text{ for all $n$}\right\}.
     \]
-    We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv D^{≤0}(X)$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all $p$-measuring subvarieties $Z$.
+    We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv D^{≤0}(X)$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all $p$-measuring subvarieties $Z ∈ \measuringFam$.
 
     The equivalence is trivial for $k \ll 0$.
     For the induction step note that there is a distinguished triangle
@@ -375,17 +378,17 @@ The following lemma encapsulates the central argument of the proof of the first 
     By Proposition~\ref{prop:equivDeligneKashiwara}(b), $\sheaf F ∈ \perv D^{≥0}$ if and only if
     \begin{align}
         \label{eq:main:+supp1}%
-        & \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k &  \text{for all $x ∈ X^{\mathrm{top}}$ and all $k$}. \\
+        & \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k &&  \text{for all $x ∈ X^{\mathrm{top}}$ and all $k$}. \\
         %
         \intertext{Using Lemma~\ref{lem:supportAndLocalCohomology+} for $\lc Z\sheaf F ∈ D^{≥0}(X)$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with}
         %
         \notag
-        & \dim\left( Z ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k & \quad \text{ for all $k$ and $p$-measuring $Z$}. \\
+        & \dim\left( Z ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k && \text{ for all $k$ and all $Z ∈ \measuringFam$}. \\
         %
         \intertext{Since there are only finitely many orbits, this is in turn equivalent to}
         %
         \label{eq:main:+supp2}%
-        & \dim\left( Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k & \text{ $\forall\, x ∈ X^{\mathrm{top}}$, $k$ and $p$-measuring $Z$}.
+        & \dim\left( Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k && \text{ $\forall\, x ∈ X^{\mathrm{top}}$, $k$ and $Z ∈ \measuringFam$}.
     \end{align}
     We will show the equivalence for each fixed $k$ separately.
     Let us first show the implication from \eqref{eq:main:+supp1} to \eqref{eq:main:+supp2}.
