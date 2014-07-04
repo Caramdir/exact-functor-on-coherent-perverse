@@ -11,6 +11,7 @@
 \newcommand\dualize{\mathbb D}
 \newcommand\lc[1]{\Gamma_{\mkern-3mu#1}}
 \newcommand\measuringFam{\mathfrak S}
+\newcommand\Xtop[1][X]{#1^{G,\mathrm{top}}}
 
 \begin{document}
 
@@ -65,8 +66,8 @@ Since the motivating observation about constructible perverse sheaves does not s
 Let $X$ be a Noetherian separated scheme of finite type over an algebraically closed field $k$.
 Let $G$ be an algebraic group over $k$ acting on $X$.
 Until Section~\ref{sec:measuring} we include the possibility of $G$ being trivial.
-We write $X^{\mathrm{top}}$ for the subset of the Zariski space of $X$ consisting of generic points of $G$-invariant subschemes and equip $X^{\mathrm{top}}$ with the induced topology.
-To simplify notation, if $x ∈ X^{\mathrm{top}}$ is any point, we write $\overline x$ for the closure $\overline{\{x\}}$ and $\dim x = \dim \overline x$.
+We write $\Xtop$ for the subset of the Zariski space of $X$ consisting of generic points of $G$-invariant subschemes and equip $\Xtop$ with the induced topology.
+To simplify notation, if $x ∈ \Xtop$ is any point, we write $\overline x$ for the closure $\overline{\{x\}}$ and $\dim x = \dim \overline x$.
 
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
 The corresponding categories of $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X)^G$, $D_{qc}(X)^G$ and $D_c(X)^G$.
@@ -98,7 +99,7 @@ We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\
     However it should be pretty straightforward to translate the relevant results.
 \end{cgs}
 
-We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see~\cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf ι_x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x ∈ X^{\mathrm{top}}$.
+We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see~\cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf ι_x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x ∈ \Xtop$.
 For $\sheaf F ∈ D(X)$ (or $D(X)^G$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
 
 \begin{cgs}
@@ -119,19 +120,19 @@ I would also like to thank Sam Gunningham for valuable comments and Geordie Will
 \label{sec:Kashiwara}%
 
 By a \emph{perversity} we mean a function $p\colon \{0,\dotsc,\dim X\} → ℤ$.
-For $x ∈ X^{\mathrm{top}}$ we abuse notation and set $p(x) = p(\dim x)$.
-Then $p\colon X^{\mathrm{top}} → ℤ$ is a perversity function in the sense of~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
+For $x ∈ \Xtop$ we abuse notation and set $p(x) = p(\dim x)$.
+Then $p\colon \Xtop → ℤ$ is a perversity function in the sense of~\cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves}.
 Note that we insist that $p(x)$ only depends on the dimension of $\overline x$.
 A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone} if the \emph{dual perversity} $\overline p(n) = -n - p(n)$ is decreasing.
-It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ X^{\mathrm{top}}$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
+It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y ∈ \Xtop$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional $G$-orbits).
 
 Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X)^G$ by taking the following full subcategories \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}:
 \begin{align*}
-    \perv[p] D^{≤0}(X) & = 
-    \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\bigr\}, \\
-    \perv[p] D^{≥0}(X) & = 
-    \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ X^{\mathrm{top}}$}\bigr\}.
+    \perv[p] D^{≤0}(X)^G & = 
+    \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}, \\
+    \perv[p] D^{≥0}(X)^G & = 
+    \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}.
 \end{align*}
 The heart of this t-structure is called the category of perverse sheaves with respect to the perversity $p$.
 
@@ -151,16 +152,16 @@ This is accomplished in the following proposition.
         \item
             The following are equivalent:
             \begin{enumerate}[(i)]
-                \item $\sheaf F ∈ \perv D^{≤0}(X)$, i.e.\ $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ for all $x ∈ X^{\mathrm{top}}$;
+                \item $\sheaf F ∈ \perv D^{≤0}(X)^G$, i.e.\ $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
                 \item $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$.
             \end{enumerate}
         \item
             If $p$ is strictly monotone, then the following are equivalent
             \begin{enumerate}[(i)]
-                \item $\sheaf F ∈ \perv D^{\ge 0}(X)$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ X^{\mathrm{top}}$;
-                \item $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ X^{\mathrm{top}}$;
+                \item $\sheaf F ∈ \perv D^{\ge 0}(X)^G$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
+                \item $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ \Xtop$;
                 \item $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant closed subvarieties $Y$ of $X$;
-                \item $\dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k$ for all $x ∈ X^{\mathrm{top}}$ and all $k$.
+                \item $\dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k$ for all $x ∈ \Xtop$ and all $k$.
             \end{enumerate}
     \end{enumerate}
 \end{Prop}
@@ -172,24 +173,24 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
 \begin{proof}\leavevmode
     \begin{enumerate}[(a)]
         \item
-            First let $\sheaf F ∈ \perv D^{≤0}(X)$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
+            First let $\sheaf F ∈ \perv D^{≤0}(X)^G$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
             Let $x$ be the generic point of an irreducible component of maximal dimension of $\supp H^{k}(\sheaf F)$.
             Then $H^k(\mathbf ι_x^* \sheaf F) \ne 0$. 
             But on the other hand, $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
 
-            Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$ and let $x ∈ X^{\mathrm{top}}$.
+            Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$ and let $x ∈ \Xtop$.
             If $H^k(\mathbf ι_x^*\sheaf F) \ne 0$, then $\dim x ≤ \dim \supp H^{k}(\sheaf F)$.
-            Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)$.
+            Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)^G$.
         \item
             The implications from (iii) to (ii) and (ii) to (i) are trivial and the equivalence of (ii) and (iv) follows from Lemma~\ref{lem:supportAndLocalCohomology+} below.
             Thus we only need to show that (i) implies (iii).
-            So assume that $\sheaf F ∈ \perv D^{≥0}(X)$.
+            So assume that $\sheaf F ∈ \perv D^{≥0}(X)^G$.
             We induct on the dimension of $Y$.
             
-            If $\dim Y = 0$, then $Γ(X,\lc Y \sheaf F) = \bigoplus_{y ∈ Y^{\mathrm{top}}} \mathbf ι_y^!\sheaf F$ and thus $\lc Y\sheaf F ∈ D^{≥p(0)}(X)$ by assumption.
+            If $\dim Y = 0$, then $Γ(X,\lc Y \sheaf F) = \bigoplus_{y ∈ \Xtop[Y]} \mathbf ι_y^!\sheaf F$ and thus $\lc Y\sheaf F ∈ D^{≥p(0)}(X)$ by assumption.
 
             Now let $\dim Y > 0$.
-            We first assume that $Y$ is irreducible with generic point $x ∈ X^{\mathrm{top}}$.
+            We first assume that $Y$ is irreducible with generic point $x ∈ \Xtop$.
             Let $k$ be the smallest integer such that $H^k(\lc {\overline x} \sheaf F) \ne 0$ and assume that $k < p(x)$.
             We will show that this implies that $H^k(\lc {\overline x}\sheaf F) = 0$, giving a contradiction.
 
@@ -274,13 +275,13 @@ From now on we assume that the $G$-action has finitely many orbits.
 
 \begin{Def}\label{def:measuring}%
     Let $p$ be a perversity.
-    A \emph{$p$-measuring subvariety} of $X$ is a closed subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ X^{\mathrm{top}}$ with $\overline x ∩ Z \ne \emptyset$:
+    A \emph{$p$-measuring subvariety} of $X$ is a closed subvariety $Z$ of $X$ such that the following conditions hold for each $x ∈ \Xtop$ with $\overline x ∩ Z \ne \emptyset$:
     \begin{itemize}
         \item $\dim(\overline x ∩ Z) = p(x) + \dim x$;
         \item $\overline x ∩ Z$ is a set-theoretic local complete intersection in $\overline x$, i.e. up to radical $\overline x ∩ Z$ is locally defined in $\overline x$ by exactly $-p(x)$ functions.
     \end{itemize}
 
-    A \emph{$p$-measuring family of subvarieties} is a family $\measuringFam$ of $p$-measuring subvarieties of $X$ such that for each $x ∈ X^{\mathrm{top}}$ there exists $Z ∈ \measuringFam$ with $Z ∩ \overline x \ne \emptyset$.
+    A \emph{$p$-measuring family of subvarieties} is a family $\measuringFam$ of $p$-measuring subvarieties of $X$ such that for each $x ∈ \Xtop$ there exists $Z ∈ \measuringFam$ with $Z ∩ \overline x \ne \emptyset$.
     We say that $X$ has \emph{enough $p$-measuring subvarieties} if there exists a $p$-measuring family of subvarieties of $X$.
 \end{Def}
 
@@ -298,8 +299,8 @@ From now on we assume that the $G$-action has finitely many orbits.
     Let $\measuringFam$ be a $p$-measuring family of subvarieties of $X$.
     Then,
     \begin{enumerate}
-        \item $\perv[p] D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X)^G : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $Z ∈ \measuringFam$}\right\}$;
-        \item $\perv[p] D^{≥0}(X) = \left\{ \sheaf F ∈ D_c^b(X)^G : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $Z ∈ \measuringFam$}\right\}$.
+        \item $\perv[p] D^{≤0}(X)^G = \left\{ \sheaf F ∈ D_c^b(X)^G : \lc Z\sheaf F ∈ D^{≤0}(X) \text{ for all $Z ∈ \measuringFam$}\right\}$;
+        \item $\perv[p] D^{≥0}(X)^G = \left\{ \sheaf F ∈ D_c^b(X)^G : \lc Z\sheaf F ∈ D^{≥0}(X) \text{ for all $Z ∈ \measuringFam$}\right\}$.
     \end{enumerate}
     Therefore the sheaf $\sheaf F ∈ D_c^b(X)^G$ is perverse with respect to $p$ if and only if $\lc Z\sheaf F$ is cohomologically concentrated in degree $0$ for each $p$-measuring subvariety $Z ∈ \measuringFam$.
 \end{Thm}
@@ -350,11 +351,11 @@ The following lemma encapsulates the central argument of the proof of the first 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]\leavevmode
 \begin{enumerate}
 \item 
-    We use the description of $\perv[p] D^{≤0}(X)$ given by Proposition~\ref{prop:equivDeligneKashiwara}, i.e.
+    We use the description of $\perv[p] D^{≤0}(X)^G$ given by Proposition~\ref{prop:equivDeligneKashiwara}, i.e.
     \[
-    \perv D^{≤0}(X) = \left\{ \sheaf F ∈ D_c^b(X)^G : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) ≥ n \text{ for all $n$}\right\}.
+    \perv D^{≤0}(X)^G = \left\{ \sheaf F ∈ D_c^b(X)^G : p\left(\dim\left( \supp H^{n}(\sheaf F) \right)\right) ≥ n \text{ for all $n$}\right\}.
     \]
-    We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv D^{≤0}(X)$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all $p$-measuring subvarieties $Z ∈ \measuringFam$.
+    We induct on the largest $k$ such that $H^k(\sheaf F) \ne 0$ to show that $\sheaf F ∈ \perv D^{≤0}(X)^G$ if and only if $\lc Z\sheaf F ∈ D^{≤0}(X)$ for all $p$-measuring subvarieties $Z ∈ \measuringFam$.
 
     The equivalence is trivial for $k \ll 0$.
     For the induction step note that there is a distinguished triangle
@@ -375,10 +376,10 @@ The following lemma encapsulates the central argument of the proof of the first 
     By induction, $H^j(\lc Z(τ_{<k} \sheaf F))$ vanishes for $j ≥ 1$ so that $H^j(\lc Z\sheaf F) \cong H^{k+j}(\lc Z(H^k(\sheaf F)))$ for $j ≥ 1$.
     Thus the statement follows from Lemma~\ref{lem:supportAndLocalCohomology-}.
 \item 
-    By Proposition~\ref{prop:equivDeligneKashiwara}(b), $\sheaf F ∈ \perv D^{≥0}$ if and only if
+    By Proposition~\ref{prop:equivDeligneKashiwara}(b), $\sheaf F ∈ \perv D^{≥0}(X)^G$ if and only if
     \begin{align}
         \label{eq:main:+supp1}%
-        & \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k &&  \text{for all $x ∈ X^{\mathrm{top}}$ and all $k$}. \\
+        & \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k &&  \text{for all $x ∈ \Xtop$ and all $k$}. \\
         %
         \intertext{Using Lemma~\ref{lem:supportAndLocalCohomology+} for $\lc Z\sheaf F ∈ D^{≥0}(X)$, we see that we have to show the equivalence of \eqref{eq:main:+supp1} with}
         %
@@ -388,7 +389,7 @@ The following lemma encapsulates the central argument of the proof of the first 
         \intertext{Since there are only finitely many orbits, this is in turn equivalent to}
         %
         \label{eq:main:+supp2}%
-        & \dim\left( Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k && \text{ $\forall\, x ∈ X^{\mathrm{top}}$, $k$ and $Z ∈ \measuringFam$}.
+        & \dim\left( Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ - k && \text{ $\forall\, x ∈ \Xtop$, $k$ and $Z ∈ \measuringFam$}.
     \end{align}
     We will show the equivalence for each fixed $k$ separately.
     Let us first show the implication from \eqref{eq:main:+supp1} to \eqref{eq:main:+supp2}.
@@ -416,7 +417,7 @@ The following lemma encapsulates the central argument of the proof of the first 
         -p(x) + \dim\left(Z ∩ \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) \le
         -p(x) - k.
     \end{multline*}
-    Otherwise $\overline x ∩ \supp\left( H^k(\dualize F) \right) = \overline y$ for some $y ∈ X^{\mathrm{top}}$ with $\dim y < \dim x$.
+    Otherwise $\overline x ∩ \supp\left( H^k(\dualize F) \right) = \overline y$ for some $y ∈ \Xtop$ with $\dim y < \dim x$.
     Then \eqref{eq:main:+supp1} holds for $y$ in place of $x$ and hence
     \[
     \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) =
@@ -446,7 +447,7 @@ The next theorem shows that at least for affine varieties there are always enoug
     We induct on the dimension $d$.
     More precisely, we induct on the following statement:
     \begin{quote}
-        There exists a closed subvariety $Z_d$ of $X$ such that for all $x ∈ X^{\mathrm{top}}$ the following holds:
+        There exists a closed subvariety $Z_d$ of $X$ such that for all $x ∈ \Xtop$ the following holds:
         \begin{itemize}
             \item $Z_d \cap \overline x \ne \emptyset$ and $Z_d \cap \overline x$ is a set-theoretic local complete intersection in $\overline x$;
             \item if $\dim x \le d$, then $\dim(\overline x ∩ Z_d) = p(x) + \dim x$;
@@ -460,7 +461,7 @@ The next theorem shows that at least for affine varieties there are always enoug
 
     If $p(d) = p(d+1)$, then $Z_{d+1} = Z_{d}$ works.
     Otherwise, by (co)monotonicity, $p(d+1) = p(d) - 1$.
-    Set $S = \bigcup \{ \overline x ∈ X^{\mathrm{top}} : \dim x \le d\}$.
+    Set $S = \bigcup \{ \overline x ∈ \Xtop : \dim x \le d\}$.
     Since there are only finitely many orbits, we can choose a function $f$ \textcgs{(by choosing individual $f_i$ and multiplying them)}such that $f$ vanishes identically on $S$, $V(f)$ does not share a component with $Z_d$ and $V(f)$ intersects every $\overline x$ with $\dim x > d$.
     Then $Z_{d+1} = Z_d \cap V(f)$ satisfies the conditions.
 \end{proof}
