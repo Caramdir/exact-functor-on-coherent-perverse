@@ -148,20 +148,26 @@ This is accomplished in the following proposition.
 
 \begin{Prop}\label{prop:equivDeligneKashiwara}%
     Let $\sheaf F ∈ D_c^b(X)^G$ and let $p$ be a monotone and comonotone perversity function.
-    \begin{enumerate}[(a)]
-        \item
+    \begin{enumerate}
+        \item \label{li:prop:equivDeligneKashiwara:le}%
             The following are equivalent:
-            \begin{enumerate}[(i)]
-                \item $\sheaf F ∈ \perv D^{≤0}(X)^G$, i.e.\ $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
-                \item $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$.
+            \begin{enumerate}
+                \item \label{li:prop:equivDeligneKashiwara:le:1}%
+                    $\sheaf F ∈ \perv D^{≤0}(X)^G$, i.e.\ $\mathbf ι_x^*\sheaf F ∈ D^{≤p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
+                \item \label{li:prop:equivDeligneKashiwara:le:2}%
+                    $p(\dim \supp H^{k}(\sheaf F)) ≥ k$ for all $k$.
             \end{enumerate}
-        \item
+        \item \label{li:prop:equivDeligneKashiwara:ge}%
             If $p$ is strictly monotone, then the following are equivalent
-            \begin{enumerate}[(i)]
-                \item $\sheaf F ∈ \perv D^{\ge 0}(X)^G$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
-                \item $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ \Xtop$;
-                \item $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant closed subvarieties $Y$ of $X$;
-                \item $\dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k$ for all $x ∈ \Xtop$ and all $k$.
+            \begin{enumerate}
+                \item \label{li:prop:equivDeligneKashiwara:ge:1}%
+                    $\sheaf F ∈ \perv D^{\ge 0}(X)^G$, i.e.\ $\mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x})$ for all $x ∈ \Xtop$;
+                \item \label{li:prop:equivDeligneKashiwara:ge:2}%
+                    $\lc {\overline x}\sheaf F ∈ D^{≥p(x)}(X)$ for all $x ∈ \Xtop$;
+                \item \label{li:prop:equivDeligneKashiwara:ge:3}%
+                    $\lc {Y}\sheaf F ∈ D^{≥p(\dim Y)}(X)$ for all $G$-invariant closed subvarieties $Y$ of $X$;
+                \item \label{li:prop:equivDeligneKashiwara:ge:4}%
+                    $\dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k$ for all $x ∈ \Xtop$ and all $k$.
             \end{enumerate}
     \end{enumerate}
 \end{Prop}
@@ -171,7 +177,7 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
 
 \pagebreak
 \begin{proof}\leavevmode
-    \begin{enumerate}[(a)]
+    \begin{enumerate}
         \item
             First let $\sheaf F ∈ \perv D^{≤0}(X)^G$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
             Let $x$ be the generic point of an irreducible component of maximal dimension of $\supp H^{k}(\sheaf F)$.
@@ -182,8 +188,8 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             If $H^k(\mathbf ι_x^*\sheaf F) \ne 0$, then $\dim x ≤ \dim \supp H^{k}(\sheaf F)$.
             Thus monotonicity of the perversity implies that $\sheaf F ∈ \perv D^{≤0}(X)^G$.
         \item
-            The implications from (iii) to (ii) and (ii) to (i) are trivial and the equivalence of (ii) and (iv) follows from Lemma~\ref{lem:supportAndLocalCohomology+} below.
-            Thus we only need to show that (i) implies (iii).
+            The implications from \ref{li:prop:equivDeligneKashiwara:ge:3} to \ref{li:prop:equivDeligneKashiwara:ge:2} and \ref{li:prop:equivDeligneKashiwara:ge:2} to \ref{li:prop:equivDeligneKashiwara:ge:1} are trivial and the equivalence of \ref{li:prop:equivDeligneKashiwara:ge:2} and \ref{li:prop:equivDeligneKashiwara:ge:4} follows from Lemma~\ref{lem:supportAndLocalCohomology+} below.
+            Thus we only need to show that \ref{li:prop:equivDeligneKashiwara:ge:1} implies \ref{li:prop:equivDeligneKashiwara:ge:3}.
             So assume that $\sheaf F ∈ \perv D^{≥0}(X)^G$.
             We induct on the dimension of $Y$.
             
@@ -256,7 +262,7 @@ The proof is same as for the smooth case, but we will include it here for comple
     for all $\sheaf G ∈ \catCoh{X}$ with $\supp \sheaf G \subseteq Z$.
     Let $d(n) = -n$ be the dual standard perversity.
     Then by~\cite[Lemma~5a]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, \eqref{eq:supportAndCohomology+} holds if and only if $\dualize \sheafHom(\sheaf G,\sheaf F) ∈ \perv[d] D^{\le -n}(X)$.
-    By~\cite[Proposition~\textsc{v}.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\O_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara}(a) we need to show that
+    By~\cite[Proposition~\textsc{v}.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\O_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara}\ref{li:prop:equivDeligneKashiwara:le} we need to show that
     \[
         \dim \supp H^{k}\left(\sheaf G \otimes_{\O_X} \dualize \sheaf F\right) \le - k - n 
     \]
@@ -322,7 +328,7 @@ The following lemma encapsulates the central argument of the proof of the first 
     Since $\supp \sheaf F$ is always a union of the closure of orbits, we can restrict to the support and assume that $\supp \sheaf F = X$.
 
     First assume that $p(\dim X) = p(\dim \supp \sheaf F) ≥ n$.
-    Using a Mayer-Vietoris argument it suffices to check condition (\ref{li:lem:supportAndLocalCohomology-:2}) in the case that $X$ is irreducible.
+    Using a Mayer-Vietoris argument it suffices to check condition \ref{li:lem:supportAndLocalCohomology-:2} in the case that $X$ is irreducible.
     By the definition of a $p$-measuring subvariety and monotonicity of $p$, this implies that, up to radical, $Z$ can be locally defined by at most $-n$ equations.
     Thus $H^i(\lc Z\sheaf F) = 0$ for $i > -n$ \cite[Theorem~3.3.1]{BrodmannSharp:1998:LocalCohomology}. 
 
@@ -376,7 +382,7 @@ The following lemma encapsulates the central argument of the proof of the first 
     By induction, $H^j(\lc Z(τ_{<k} \sheaf F))$ vanishes for $j ≥ 1$ so that $H^j(\lc Z\sheaf F) \cong H^{k+j}(\lc Z(H^k(\sheaf F)))$ for $j ≥ 1$.
     Thus the statement follows from Lemma~\ref{lem:supportAndLocalCohomology-}.
 \item 
-    By Proposition~\ref{prop:equivDeligneKashiwara}(b), $\sheaf F ∈ \perv D^{≥0}(X)^G$ if and only if
+    By Proposition~\ref{prop:equivDeligneKashiwara}\ref{li:prop:equivDeligneKashiwara:ge}, $\sheaf F ∈ \perv D^{≥0}(X)^G$ if and only if
     \begin{align}
         \label{eq:main:+supp1}%
         & \dim\left( \overline x ∩ \supp\left( H^k(\dualize F) \right) \right) ≤ -p(x) - k &&  \text{for all $x ∈ \Xtop$ and all $k$}. \\
