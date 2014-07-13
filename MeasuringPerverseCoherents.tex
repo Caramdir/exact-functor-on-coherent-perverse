@@ -1,13 +1,65 @@
-\documentclass[english,biblatex-alpha,bw]{short-notes}
+\documentclass{compositio}
 
-\title{exact functors on perverse coherent sheaves}
+\title{Exact functors on perverse coherent sheaves}
 \author{Clemens Koppensteiner}
+\email{clemens@math.northwestern.edu}
+\address{Department of Mathematics, Northwestern University, 2033 Sheridan Rd, Evanston, IL 60208, USA}
+\classification{14F05 (primary), 18E30, 14B15 (secondary)}
+\keywords{perverse coherent sheaves, local cohomology}
 
-\usepackage{math-ag}
-\usepackage[stable]{footmisc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{csquotes}
+\usepackage{amsmath,amsfonts,amssymb,amsthm, mathtools}
+\usepackage[backend=biber,
+    maxnames=100,
+    style=alphabetic
+    ]{biblatex}
+\usepackage{etoolbox}
+\usepackage{microtype}
+
+
+\usepackage{comment}
+\newcommand\textcgs[1]{}
+\excludecomment{cgs}
+\newcommand\cgsIntro{}
+
+\usepackage[colorlinks=false,unicode=true]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{Thm}{Theorem}
+\newtheorem{Prop}[Thm]{Proposition}
+\newtheorem{Cor}[Thm]{Corollary}
+\newtheorem{Lem}[Thm]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{Def}[Thm]{Definition}
+\newtheorem*{Notation}{Notation}
+
+\theoremstyle{remark}
+\newtheorem{Rem}[Thm]{Remark}
+\newtheorem{Ex}[Thm]{Example}
+
 \addbibresource{math.bib}
 %\bibliography{global.bib}
 
+
+\newcommand\sheaf{\mathcal}
+\newcommand\liesl[1]{\mathfrak{sl}_#1}
+\newcommand\SL[1]{\mathrm{SL}_#1}
+\newcommand\sO{\sheaf{O}}
+\newcommand\cat{\mathbf}
+\newcommand\catModules[1]{#1\text{-}\cat{Mod}}
+\newcommand\catCoh[2][]{\cat{Coh}^{#1}(#2)}
+\newcommand\sheafHom{\underline{\operatorname{Hom}}}
+\newcommand\supp{\operatorname{supp}}
+\newcommand\res[2]{\mathchoice{\left.#1\right|_{#2}}{#1|_{#2}}{#1|_{#2}}{#1|_{#2}}}
+\newcommand\codim{\operatorname{codim}}
+\DeclareMathOperator\Spec{Spec}
+\newcommand\ideal\mathfrak
+\newcommand\setset\mathfrak
+\newcommand\perv[1][p]{\mkern1mu{}^{#1}\mkern-3mu}
 \newcommand\dualize{\mathbb D}
 \newcommand\lc[1]{\Gamma_{\mkern-3mu#1}}
 \newcommand\measuringFam{\mathfrak M}
@@ -15,16 +67,15 @@
 
 \begin{document}
 
-\maketitle
-%\tableofcontents
-
 \begin{abstract}
     Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves:
     we show that a coherent sheaf is perverse if and only if $R\lc Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
     These subvarieties $Z$ are analogs of Lagrangians in the symplectic case.
 \end{abstract}
 
-\section{introduction}
+\maketitle
+
+\section{Introduction}
 
 A general way to obtain insights about the heart of a t-structure is to study exact functors on the t-structure.
 For example, for the category of constructible perverse sheaves on a complex manifold, one can obtain a large amount of exact functors by taking vanishing cycles \cite[Corollary~10.3.13]{KashiwaraSchapira:1994:SheavesOnManifolds}.
@@ -61,7 +112,7 @@ While a thorough examination of the symplectic case would be interesting, we do 
 
 Since the motivating observation about constructible perverse sheaves does not seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
 
-\subsection{setup and notation}
+\subsection{Setup and notation}
 
 Let $X$ be a Noetherian separated scheme of finite type over an algebraically closed field $k$.
 Let $G$ be an algebraic group over $k$ acting on $X$.
@@ -88,13 +139,13 @@ We further set $\mathbf ι_x^!\sheaf F = \mathbf ι_x^*\lc {\overline x}$, cf.~\
 We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see~\cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf ι_x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x ∈ \Xtop$.
 For $\sheaf F ∈ D(X)$ (or $D(X)^G$) we write $\dualize \sheaf F = \sheafHom_{\O_X}(\sheaf F,\sheaf R)$ for its dual.
 
-\subsection{acknowledgements}
+\subsection{Acknowledgements}
 
 The motivating observation about constructible sheaves was suggested to me by my advisor, David Nadler.
 I would also like to thank Sam Gunningham for valuable comments and Geordie Williamson for answering a question on MathOverflow (see Lemma~\ref{lem:constructible_local_vanishing}).
 Finally, I am grateful for the helpful comments and suggestions by the anonymous referee.
 
-\section{perverse coherent sheaves}
+\section{Perverse coherent sheaves}
 \label{sec:Kashiwara}%
 
 By a \emph{perversity} we mean a function $p\colon \{0,\dotsc,\dim X\} → ℤ$.
@@ -147,7 +198,6 @@ This is accomplished in the following proposition.
 A crucial fact that we will implicitly use quite often in the following arguments is that the support of a coherent sheaf is always closed.
 In particular, this means that if $x$ is a generic point and $\sheaf F$ a coherent sheaf, then $\mathbf ι_x^* \sheaf F = 0$ if and only if $\res{\sheaf F}U = 0$ for some open set $U$ intersecting $\overline x$.
 
-\pagebreak
 \begin{proof}\leavevmode
     \begin{enumerate}
         \item
@@ -244,7 +294,7 @@ The proof is same as for the smooth case, but we will include it here for comple
     for all $k$, completing the proof.
 \end{proof}
 
-\section{measuring subvarieties}
+\section{Measuring subvarieties}
 \label{sec:measuring}%
 
 From now on we assume that the $G$-action has finitely many orbits.
@@ -442,9 +492,7 @@ The next theorem shows that at least for affine varieties there are always enoug
     Then $Z_{d+1} = Z_d \cap V(f)$ satisfies the conditions.
 \end{proof}
 
-\appendix
-
-\section*{appendix. constructible sheaves}
+\section*{Appendix. Constructible sheaves}
 
 We return now to the claim about exact functors on the t-structure of constructible perverse sheaves made in the introduction.
 Let $X$ be a complex manifold and $\setset S$ a finite stratification of $X$ by complex submanifolds.
