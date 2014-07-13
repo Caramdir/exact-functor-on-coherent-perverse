@@ -452,9 +452,12 @@ We call a sheaf $\sheaf F ∈ \smash[t]{D^b_{\setset S}(X)}$ perverse if it is
 We are going to formulate and prove an analog of Theorem~\ref{thm:main} in this situation.
 
 A closed real submanifold $Z$ of $X$ is called a \emph{measuring submanifold} if for each stratum $S$ of $X$ either $Z ∩ \overline S = \emptyset$ or $\dim_ℝ Z ∩ S = \dim_ℂ S$.
+A \emph{measuring family} is a collection of measuring submanifolds $\{ Y_i \}$ such that each connected component of each stratum has non-empty intersection with at least one $Y_i$.
+Similarly to Theorem~\ref{thm:existance}, one shows inductively that such a collection of submanifolds always exists.
 
 \begin{Thm}
-    A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if $ι_Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each measuring submanifold $Z$ of $X$.
+    Let $\measuringFam$ be a measuring family of submanifolds of $X$.
+    A sheaf $\sheaf F ∈ D^b_{\setset S}(X)$ is perverse if and only if $ι_Z^! \sheaf F$ is concentrated in cohomological degree $0$ for each submanifold $Z ∈ \measuringFam$.
 \end{Thm}
 
 The proof of the following lemma is based on a MathOverflow post by Geordie Williamson \cite{MO:VanishingShriekRestrictionConstructible}.
@@ -480,13 +483,10 @@ The author takes responsibility for possible mistakes.
 \end{proof}
 
 \begin{proof}[Proof of Theorem]
-    Clearly it is enough to check the condition on a collection of measuring submanifolds $\{ Y_i \}$ such that each connected component of each stratum has non-empty intersection with at least one $Y_i$.
-    Similarly to Theorem~\ref{thm:existance}, one shows inductively that such a collection of submanifolds exists.
-    
     Define two full subcategories $\perv[L] D^{\le 0}(X)$ and $\perv[L] D^{\ge 0}(X)$ of $D^b_{\setset S}(X)$ by
     \begin{align*}
-        \perv[L] D^{≤0}(X) & = \left\{ \sheaf F ∈ D^b_{\setset S}(X) : ι_Z^! \sheaf F ∈ D^{≤0}(Z) \text{ for all measuring submanifolds $Z$} \right\}, \\
-        \perv[L] D^{≥0}(X) & = \left\{ \sheaf F ∈ D^b_{\setset S}(X) : ι_Z^! \sheaf F ∈ D^{≥0}(Z) \text{ for all measuring submanifolds $Z$} \right\}.
+        \perv[L] D^{≤0}(X) & = \left\{ \sheaf F ∈ D^b_{\setset S}(X) : ι_Z^! \sheaf F ∈ D^{≤0}(Z) \text{ for all $Z ∈ \measuringFam$} \right\}, \\
+        \perv[L] D^{≥0}(X) & = \left\{ \sheaf F ∈ D^b_{\setset S}(X) : ι_Z^! \sheaf F ∈ D^{≥0}(Z) \text{ for all $Z ∈ \measuringFam$} \right\}.
     \end{align*}
     We will show that these categories are the same as the categories $\perv D^{≤0}(X)$ and $\perv D^{≥0}(X)$ defining the perverse t-structure on $D^b_{\setset S}(X)$.
 
