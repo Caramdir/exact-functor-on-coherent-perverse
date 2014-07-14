@@ -19,8 +19,8 @@
 %\tableofcontents
 
 \begin{abstract}
-    Inspired by symplectic geometry and a microlocal characterizations of constructible perverse sheaves we consider an alternative definition of perverse coherent sheaves:
-    we show that a coherent sheaf is perverse if and only if $R\lc Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
+    Inspired by symplectic geometry and a microlocal characterizations of perverse (constructible) sheaves we consider an alternative definition of perverse coherent sheaves.
+    We show that a coherent sheaf is perverse if and only if $R\lc Z\sheaf F$ is concentrated in degree $0$ for special subvarieties $Z$ of $X$.
     These subvarieties $Z$ are analogs of Lagrangians in the symplectic case.
 \end{abstract}
 
@@ -47,7 +47,6 @@ Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sh
 An instructive example of measuring subvarieties can be seen on a symplectic variety $X$ (in the sense of \cite{Beauville:2000:SymplecticSingularities}) with an action by a group $G$ such that the $G$-orbits give a symplectic foliation of $X$.
 Here any Lagrangian on $X$ (i.e.\ any smooth subvariety that intersects every symplectic leaf in a Lagrangian) is a measuring subvariety for the middle perverse t-structure on $D_c^b(X)^G$.
 Thus we have a clear analogy with the constructible setting, giving an indication that a kind of \enquote{microlocal characterization} of perverse coherent sheaves might be possible.
-While a thorough examination of the symplectic case would be interesting, we do not provide one in the present paper.
 
 \begin{Ex}
     Let $N$ be the nilpotent cone in the complex Lie algebra $\liesl n$ and let $G = \SL n$ act on $N$ adjointly.
@@ -59,7 +58,8 @@ While a thorough examination of the symplectic case would be interesting, we do 
     Thus a sheaf $\sheaf F ∈ D_c^b(N)^G$ is perverse if and only if $R\lc{μ(T_x^*X)}\sheaf F$ is concentrated in degree $0$ for all $x ∈ X$.
 \end{Ex}
 
-Since the motivating observation about constructible perverse sheaves does not seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
+While a thorough examination of the symplectic case would be interesting, we do not provide one in the present paper.
+However, since the motivating observation about constructible perverse sheaves does not seem to be in the literature (though \cite[Theorem~3.5]{MirkovicVilonen:2007:GLdualityRepresentations} is is the same spirit), we give a direct proof of the statement in the appendix.
 
 \subsection{setup and notation}
 
@@ -67,7 +67,7 @@ Let $X$ be a Noetherian separated scheme of finite type over an algebraically cl
 Let $G$ be an algebraic group over $k$ acting on $X$.
 Until Section~\ref{sec:measuring} we include the possibility of $G$ being trivial.
 We write $\Xtop$ for the subset of the Zariski space of $X$ consisting of generic points of $G$-invariant subschemes and equip $\Xtop$ with the induced topology.
-To simplify notation, if $x ∈ \Xtop$ is any point, we write $\overline x$ for the closure $\overline{\{x\}}$ and $\dim x = \dim \overline x$.
+To simplify notation, if $x ∈ \Xtop$ is any point, we write $\overline x$ for the closure $\overline{\{x\}}$ and set $\dim x = \dim \overline x$.
 
 We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\O_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
 The corresponding categories of $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X)^G$, $D_{qc}(X)^G$ and $D_c(X)^G$.
@@ -112,7 +112,7 @@ Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (f
     \perv[p] D^{≥0}(X)^G & = 
     \bigl\{ \sheaf F ∈ D_c^b(X)^G : \mathbf ι_x^!\sheaf F ∈ D^{≥p(x)}(\catModules{\O_x}) \text{ for all $x ∈ \Xtop$}\bigr\}.
 \end{align*}
-The heart of this t-structure is called the category of perverse sheaves with respect to the perversity $p$.
+The heart of this t-structure is called the category of \emph{perverse sheaves} with respect to the perversity $p$.
 
 In~\cite{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules}, Kashiwara also gives a definition of a perverse t-structure on $D^b_{c}(X)$.
 While we work in Bezrukavnikov's setting (i.e.\ in the equivariant derived category on a potentially singular scheme), we need a description of the perverse t-structure that is closer to the one Kashiwara uses.
@@ -236,7 +236,7 @@ The proof is same as for the smooth case, but we will include it here for comple
         \dim \supp H^{k}\left(\sheaf G \otimes_{\O_X} \dualize \sheaf F\right) \le - k - n 
     \]
     for all $k$.
-    By~\cite[Lemma~5.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} this is equivalent to
+    By~\cite[Lemma~5.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} (whose proof does not use the smoothness assumption) this is equivalent to
     \[
         \dim \left(Z∩\supp H^{k}(\dualize \sheaf F)\right) \le - k - n
     \]
@@ -266,7 +266,7 @@ From now on we assume that the $G$-action has finitely many orbits.
     Thus comonotonicity of $p$ ensures that if $\dim y ≤ \dim x$ then $\dim (\overline y ∩ Z) ≤ \dim (\overline x ∩ Z)$ for each $p$-measuring $Z$.
     Monotonicity of $p$ then further says that $\dim (\overline x ∩ Z) - \dim (\overline y ∩ Z) ≤ \dim x - \dim y$.
     We clearly have $0 \le \dim(\overline x ∩ Z) \le \dim x$ and hence $-\dim x \le p(x) \le 0$.
-    We will show in Theorem~\ref{thm:existance} that these condition are actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
+    We will show in Theorem~\ref{thm:existance} that this condition is actually sufficient for the existence of enough $p$-measuring subvarieties, at least when $X$ is affine.
 \end{Rem}
 
 \begin{Thm}\label{thm:main}%
@@ -307,7 +307,7 @@ The following lemma encapsulates the central argument of the proof of the first 
     Choose any $p$-measuring subvariety $Z ∈ \measuringFam$ that intersects a maximal component of $X$ non-trivially.
     Then $\codim_X Z = -p(d)$.
     We will show that $H^{-p(d)}(\lc Z \sheaf F) \ne 0$ and hence $p(d) \ge n$ by assumption.
-    Take some affine open subset $U$ of $X$ such that $U \cap Z$ is non-empty and irreducible in $U$.
+    Take some affine open subset $U$ of $X$ such that $U \cap Z$ is non-empty, irreducible and of codimension $-p(d)$ in $U$.
     It suffices to show that the cohomology is non-zero in $U$.
     Thus we can assume without loss of generality that $X$ is affine, say $X = \Spec A$, and $Z$ is irreducible.
     Write $Z = V(\ideal p)$ for some prime ideal $\ideal p$ of $A$.
@@ -478,7 +478,7 @@ The author takes responsibility for possible mistakes.
     \[
         H^j(j_*j^*\sheaf F)_z = H^j(S^{\dim X - 1}_ε, \sheaf F)
     \]
-    for a sphere $S^{\dim X - 1}_ε$ around $x$ of sufficiently small radius.
+    for a sphere $S^{\dim X - 1}_ε$ around $z$ of sufficiently small radius.
     The latter cohomology vanishes for $j \ge \dim X$ and hence $H^j(i^! \sheaf F) = 0$ for $j>\dim X$ as required.
 \end{proof}
 
