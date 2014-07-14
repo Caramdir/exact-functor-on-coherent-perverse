@@ -21,7 +21,7 @@ all:
 	sed -i -e 's/→/\\to /g' MeasuringPerverseCoherents.tex
 	sed -i -e 's/ / /g' MeasuringPerverseCoherents.tex
 	sed -i -e 's/ / /g' MeasuringPerverseCoherents.tex
-	sed -i -e 's/\\O/\\sheaf{O}/g' MeasuringPerverseCoherents.tex
+	sed -i -e 's/\\O/\\sO/g' MeasuringPerverseCoherents.tex
 	sed -i -e 's/\\textsc{iv}/IV/g' MeasuringPerverseCoherents.tex
 	latexmk --pdf MeasuringPerverseCoherents.tex
 

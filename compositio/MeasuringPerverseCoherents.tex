@@ -16,26 +16,17 @@
     maxnames=100,
     style=alphabetic
     ]{biblatex}
-\usepackage{etoolbox}
 \usepackage{microtype}
-
-
-\usepackage{comment}
-\newcommand\textcgs[1]{}
-\excludecomment{cgs}
-\newcommand\cgsIntro{}
 
 \usepackage[colorlinks=false,unicode=true]{hyperref}
 
 \theoremstyle{plain}
 \newtheorem{Thm}{Theorem}
 \newtheorem{Prop}[Thm]{Proposition}
-\newtheorem{Cor}[Thm]{Corollary}
 \newtheorem{Lem}[Thm]{Lemma}
 
 \theoremstyle{definition}
 \newtheorem{Def}[Thm]{Definition}
-\newtheorem*{Notation}{Notation}
 
 \theoremstyle{remark}
 \newtheorem{Rem}[Thm]{Remark}
@@ -126,7 +117,7 @@ Until Section~\ref{sec:measuring} we include the possibility of $G$ being trivia
 We write $\Xtop$ for the subset of the Zariski space of $X$ consisting of generic points of $G$-invariant subschemes and equip $\Xtop$ with the induced topology.
 To simplify notation, if $x \in  \Xtop$ is any point, we write $\overline x$ for the closure $\overline{\{x\}}$ and set $\dim x = \dim \overline x$.
 
-We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\sheaf{O}_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
+We write $D(X)$, $D_{qc}(X)$ and $D_c(X)$ for the derived category of $\sO_X$-modules and its full subcategories consisting of complexes with quasi-coherent and coherent cohomology sheaves respectively.
 The corresponding categories of $G$-equivariant sheaves (i.e.\ the categories for the quotient stack $[X/G]$) are denoted $D(X)^G$, $D_{qc}(X)^G$ and $D_c(X)^G$.
 As usual, $D^b(X)$ (etc.) is the full subcategory of $D(X)$ consisting of complexes with cohomology in only finitely many degrees.
 All functors are derived, though we usually do not explicitly mention it in the notation.
@@ -134,16 +125,16 @@ All functors are derived, though we usually do not explicitly mention it in the 
 For a subset $Y$ of a topological space $X$ we write $i_Y$ for the inclusion of $Y$ into $X$. 
 If $x \in  X$ is a point, then we simply write $i_x$ for $i_{\{x\}}$.
 Let $Z$ be a closed subset of $X$.
-For an $\sheaf{O}_X$-module $\sheaf F$ let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Variation~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
+For an $\sO_X$-module $\sheaf F$ let $\lc Z\sheaf F$ be the subsheaf of $\sheaf F$ of sections with support in $Z$ \cite[Variation~3 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 By abuse of notation, we simply write $\lc Z$ for the right-derived functor $R\lc Z\colon D_{qc}(X) \to  D_{qc}(X)$.
 Recall that $\lc Z$ only depends on the closed subset $Z$, and not on the structure of $Z$ as a subscheme.
 
 Let $x$ be a (not necessarily closed) point of $X$ and $\sheaf F \in  D^b(X)$.
-Then $\mathbf i_x^*\sheaf F = \sheaf F_x \in  D^b(\catModules{\sheaf{O}_x})$ denotes the (derived) functor of talking stalks.
+Then $\mathbf i_x^*\sheaf F = \sheaf F_x \in  D^b(\catModules{\sO_x})$ denotes the (derived) functor of talking stalks.
 We further set $\mathbf i_x^!\sheaf F = \mathbf i_x^*\lc {\overline x}$, cf.~\cite[Variation~8 in IV.1]{Hartshorne:1966:ResiduesAndDuality}.
 
 We assume that $X$ has a $G$-equivariant dualizing complex $\sheaf R$ (see~\cite[Definition~1]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}) which we assume to be normalized, i.e.\ $\mathbf i_x^! \sheaf R$ is concentrated in degree $-\dim x$ for all $x \in  \Xtop$.
-For $\sheaf F \in  D(X)$ (or $D(X)^G$) we write $\dualize \sheaf F = \sheafHom_{\sheaf{O}_X}(\sheaf F,\sheaf R)$ for its dual.
+For $\sheaf F \in  D(X)$ (or $D(X)^G$) we write $\dualize \sheaf F = \sheafHom_{\sO_X}(\sheaf F,\sheaf R)$ for its dual.
 
 \subsection{Acknowledgements}
 
@@ -165,9 +156,9 @@ Note that a strictly monotone perversity is not necessarily strictly decreasing 
 Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X)^G$ by taking the following full subcategories \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}:
 \begin{align*}
     \perv[p] D^{\leq 0}(X)^G & = 
-    \bigl\{ \sheaf F \in  D_c^b(X)^G : \mathbf i_x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\sheaf{O}_x}) \text{ for all $x \in  \Xtop$}\bigr\}, \\
+    \bigl\{ \sheaf F \in  D_c^b(X)^G : \mathbf i_x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\sO_x}) \text{ for all $x \in  \Xtop$}\bigr\}, \\
     \perv[p] D^{\geq 0}(X)^G & = 
-    \bigl\{ \sheaf F \in  D_c^b(X)^G : \mathbf i_x^!\sheaf F \in  D^{\geq p(x)}(\catModules{\sheaf{O}_x}) \text{ for all $x \in  \Xtop$}\bigr\}.
+    \bigl\{ \sheaf F \in  D_c^b(X)^G : \mathbf i_x^!\sheaf F \in  D^{\geq p(x)}(\catModules{\sO_x}) \text{ for all $x \in  \Xtop$}\bigr\}.
 \end{align*}
 The heart of this t-structure is called the category of \emph{perverse sheaves} with respect to the perversity $p$.
 
@@ -182,7 +173,7 @@ This is accomplished in the following proposition.
             The following are equivalent:
             \begin{enumerate}
                 \item \label{li:prop:equivDeligneKashiwara:le:1}%
-                    $\sheaf F \in  \perv D^{\leq 0}(X)^G$, i.e.\ $\mathbf i_x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\sheaf{O}_x})$ for all $x \in  \Xtop$;
+                    $\sheaf F \in  \perv D^{\leq 0}(X)^G$, i.e.\ $\mathbf i_x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\sO_x})$ for all $x \in  \Xtop$;
                 \item \label{li:prop:equivDeligneKashiwara:le:2}%
                     $p(\dim \supp H^{k}(\sheaf F)) \geq  k$ for all $k$.
             \end{enumerate}
@@ -190,7 +181,7 @@ This is accomplished in the following proposition.
             If $p$ is strictly monotone, then the following are equivalent
             \begin{enumerate}
                 \item \label{li:prop:equivDeligneKashiwara:ge:1}%
-                    $\sheaf F \in  \perv D^{\ge 0}(X)^G$, i.e.\ $\mathbf i_x^!\sheaf F \in  D^{\geq p(x)}(\catModules{\sheaf{O}_x})$ for all $x \in  \Xtop$;
+                    $\sheaf F \in  \perv D^{\ge 0}(X)^G$, i.e.\ $\mathbf i_x^!\sheaf F \in  D^{\geq p(x)}(\catModules{\sO_x})$ for all $x \in  \Xtop$;
                 \item \label{li:prop:equivDeligneKashiwara:ge:2}%
                     $\lc {\overline x}\sheaf F \in  D^{\geq p(x)}(X)$ for all $x \in  \Xtop$;
                 \item \label{li:prop:equivDeligneKashiwara:ge:3}%
@@ -210,7 +201,7 @@ In particular, this means that if $x$ is a generic point and $\sheaf F$ a cohere
             First let $\sheaf F \in  \perv D^{\leq 0}(X)^G$ and assume for contradiction that there exists an integer $k$ such that $p(\dim \supp H^{k}(\sheaf F)) < k$.
             Let $x$ be the generic point of an irreducible component of maximal dimension of $\supp H^{k}(\sheaf F)$.
             Then $H^k(\mathbf i_x^* \sheaf F) \ne 0$. 
-            But on the other hand, $\mathbf i_x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\sheaf{O}_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
+            But on the other hand, $\mathbf i_x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\sO_x})$ and $p(x) = p(\dim \supp H^{k}(\sheaf F)) < k$, yielding a contradiction.
 
             Conversely assume that $p(\dim \supp H^{k}(\sheaf F)) \geq  k$ for all $k$ and let $x \in  \Xtop$.
             If $H^k(\mathbf i_x^*\sheaf F) \ne 0$, then $\dim x \leq  \dim \supp H^{k}(\sheaf F)$.
@@ -288,9 +279,9 @@ The proof is same as for the smooth case, but we will include it here for comple
     for all $\sheaf G \in  \catCoh{X}$ with $\supp \sheaf G \subseteq Z$.
     Let $d(n) = -n$ be the dual standard perversity.
     Then by~\cite[Lemma~5a]{Bezrukavnikov:arXiv:PerverseCoherentSheaves}, \eqref{eq:supportAndCohomology+} holds if and only if $\dualize \sheafHom(\sheaf G,\sheaf F) \in  \perv[d] D^{\le -n}(X)$.
-    By~\cite[Proposition~\textsc{v}.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\sheaf{O}_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara}\ref{li:prop:equivDeligneKashiwara:le} we need to show that
+    By~\cite[Proposition~\textsc{v}.2.6]{Hartshorne:1966:ResiduesAndDuality}, $\dualize \sheafHom(\sheaf G,\sheaf F) = \sheaf G \otimes_{\sO_X} \dualize \sheaf F$, so that by Proposition~\ref{prop:equivDeligneKashiwara}\ref{li:prop:equivDeligneKashiwara:le} we need to show that
     \[
-        \dim \supp H^{k}\left(\sheaf G \otimes_{\sheaf{O}_X} \dualize \sheaf F\right) \le - k - n 
+        \dim \supp H^{k}\left(\sheaf G \otimes_{\sO_X} \dualize \sheaf F\right) \le - k - n 
     \]
     for all $k$.
     By~\cite[Lemma~5.3]{Kashiwara:2004:tStructureOnHolonomicDModuleCoherentOModules} (whose proof does not use the smoothness assumption) this is equivalent to
