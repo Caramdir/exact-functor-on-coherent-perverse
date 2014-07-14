@@ -65,6 +65,12 @@
 \newcommand\measuringFam{\mathfrak M}
 \newcommand\Xtop[1][X]{#1^{G,\mathrm{top}}}
 
+% overwrite some choices of the compositio document class.
+\makeatletter
+\renewcommand\p@enumii{}
+\renewcommand\theenumi{(\@roman\c@enumi)}
+\makeatother
+
 \begin{document}
 
 \begin{abstract}
