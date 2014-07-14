@@ -22,4 +22,7 @@ all:
 	sed -i -e 's/ / /g' MeasuringPerverseCoherents.tex
 	sed -i -e 's/ / /g' MeasuringPerverseCoherents.tex
 	sed -i -e 's/\\O/\\sheaf{O}/g' MeasuringPerverseCoherents.tex
-	latexmk MeasuringPerverseCoherents.tex
+	latexmk --pdf MeasuringPerverseCoherents.tex
+
+clean:
+	rm *.aux *.bbl *.bcf *.blg *.fdb_latexmk *.fls *.log *.out *.pdf *.run.xml
