@@ -23,7 +23,9 @@ all:
 	sed -i -e 's/ / /g' MeasuringPerverseCoherents.tex
 	sed -i -e 's/\\O/\\sO/g' MeasuringPerverseCoherents.tex
 	sed -i -e 's/\\textsc{iv}/IV/g' MeasuringPerverseCoherents.tex
+	cp -r /usr/local/texlive/2014/texmf-dist/tex/latex/biblatex/* .
 	latexmk --pdf MeasuringPerverseCoherents.tex
+	tar czvf MeasuringPerverseCoherents_arXiv.tar.gz *.tex *.bbl *.sty *.cls b* cbx lbx
 
 clean:
 	rm *.aux *.bbl *.bcf *.blg *.fdb_latexmk *.fls *.log *.out *.pdf *.run.xml

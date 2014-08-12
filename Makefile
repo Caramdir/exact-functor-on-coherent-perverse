@@ -1,7 +1,7 @@
 all:
-	mkdir -p compositio
-	cp MeasuringPerverseCoherents.tex compositio
-	$(MAKE) -C compositio all
+	mkdir -p arXiv
+	cp MeasuringPerverseCoherents.tex arXiv
+	$(MAKE) -C arXiv all
 
 clean:
-	$(MAKE) -C compositio clean
+	$(MAKE) -C arXiv clean
