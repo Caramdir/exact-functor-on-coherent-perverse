@@ -37,7 +37,8 @@
 
 
 \newcommand\sheaf{\mathcal}
-\newcommand\liesl[1]{\mathfrak{sl}_#1}
+\newcommand\liealg[1]{\mathfrak{#1}}
+\newcommand\liesl[1]{\liealg{sl}_#1}
 \newcommand\SL[1]{\mathrm{SL}_#1}
 \newcommand\sO{\sheaf{O}}
 \newcommand\cat{\mathbf}
@@ -96,10 +97,11 @@ Our main theorem (Theorem~\ref{thm:main}) then states that a coherent sheaf $\sh
     Let $N$ be the nilpotent cone in the complex Lie algebra $\liesl n$ and let $G = \SL n$ act on $N$ adjointly.
     Then the dimensions of the $G$-orbits in $N$ are known to be even dimensional.
     Thus there exists a middle perversity $p$ with $p(O) = \frac12 \dim O$ for each $G$-orbit $O$.
-    Let $X$ be the flag variety for $\liesl n$ and $\mu \colon T^*X \to  N$ the Springer resolution.
-    Choose a point $x \in  X$.
-    Then $T_x^*X$ is a Lagrangian in $T^*X$ and one can show explicitly that $\mu (T_x^*X)$ is a measuring subvariety of $N$.
-    Thus a sheaf $\sheaf F \in  D_c^b(N)^G$ is perverse if and only if $R\lc{\mu (T_x^*X)}\sheaf F$ is concentrated in degree $0$ for all $x \in  X$.
+    It is know that any maximal nilpotent subalgebra $\liealg n$ intersects each $G$-orbit closure in $N$ in a Lagrangian.
+    So $\liealg n$ fulfills the first condition for being a measuring subvariety.
+
+    However, as far as we know the second, technical, condition on a measuring subvariety (i.e.~that $\liealg n$ is a set-theoretic local complete intersection in each orbit closure) is still an open problem for general $n$.
+    If it is shown to hold, then the theorem implies that a sheaf $\sheaf F \in  D_c^b(N)^G$ is perverse if and only if $R\lc{\liealg n}\sheaf F$ is concentrated in degree $0$.
 \end{Ex}
 
 We expect that in general interesting examples of measuring subvarieties are provided by Lagrangians on (singular) symplectic varieties in the sense of \cite{Beauville:2000:SymplecticSingularities}.
@@ -153,7 +155,7 @@ A perversity is called \emph{monotone} if it is decreasing and \emph{comonotone}
 It is \emph{strictly monotone} (resp.~\emph{strictly comonotone}) if for all $x,y \in  \Xtop$ with $\dim x < \dim y$ one has $p(x) > p(y)$ (resp.~$\overline p(x) > \overline p(y)$).
 Note that a strictly monotone perversity is not necessarily strictly decreasing (e.g.~if $X$ only has even-dimensional $G$-orbits).
 
-Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X)^G$ by taking the following full subcategories \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:arXiv:PerverseCoherentSheaves}:
+Recall that if $p$ is a monotone and comonotone perversity then Bezrukavnikov (following Deligne) defines a t-structure on $D_c^b(X)^G$ by taking the following full subcategories \cite{Bezrukavnikov:arXiv:PerverseCoherentSheaves,ArinkinBezrukavnikov:2010:PerverseCoherentSheaves}:
 \begin{align*}
     \perv[p] D^{\leq 0}(X)^G & = 
     \bigl\{ \sheaf F \in  D_c^b(X)^G : \mathbf i_x^*\sheaf F \in  D^{\leq p(x)}(\catModules{\sO_x}) \text{ for all $x \in  \Xtop$}\bigr\}, \\
@@ -187,7 +189,7 @@ This is accomplished in the following proposition.
                 \item \label{li:prop:equivDeligneKashiwara:ge:3}%
                     $\lc {Y}\sheaf F \in  D^{\geq p(\dim Y)}(X)$ for all $G$-invariant closed subvarieties $Y$ of $X$;
                 \item \label{li:prop:equivDeligneKashiwara:ge:4}%
-                    $\dim\left( \overline x \cap  \supp\left( H^k(\dualize F) \right) \right) \leq  -p(x) - k$ for all $x \in  \Xtop$ and all $k$.
+                    $\dim\left( \overline x \cap  \supp\left( H^k(\dualize \sheaf F) \right) \right) \leq  -p(x) - k$ for all $x \in  \Xtop$ and all $k$.
             \end{enumerate}
     \end{enumerate}
 \end{Prop}
@@ -461,7 +463,7 @@ Of course, for the theorem to have any content, one needs to show that $X$ has e
 The next theorem shows that at least for affine varieties there are always enough measuring subvarieties whenever $p$ satisfies the obvious conditions (see Remark~\ref{rem:existence}).
 
 \begin{Thm}\label{thm:existance}%
-    Assume that $X$ is affine and the perversity $p$ satisfies $-n \le p(n) \le 0$ and is monotone and comonotone.
+    Assume that $X$ is affine and the perversity $p$ is monotone and comonotone and satisfies $-n \le p(n) \le 0$ for $n \in  \{0,\dotsc,\dim X\}$.
     Then $X$ has enough $p$-measuring subvarieties.
 \end{Thm}
 
