@@ -442,6 +442,51 @@ The next theorem shows that at least for affine varieties there are always enoug
     Then $Z_{d+1} = Z_d \cap V(f)$ satisfies the conditions.
 \end{proof}
 
+\section{One-sided measurements}%
+\label{sec:one-sided}
+
+\begin{Def}\label{def:one-sided:measuring}%
+    Let $p$ be a perversity.
+    A \emph{right $p$-measuring subvariety} of $X$ is a closed subvariety $Z$ of $X$ such that $\dim(\overline x ∩ Z) = - p(x)$ for each $x ∈ \Xtop$ with $\overline x ∩ Z \ne \emptyset$.
+    A \emph{left $p$-measuring subvariety} of $X$ is a closed subvariety $Z$ of $X$ such that $\codim_{\overline x}(\overline x ∩ Z) = -p(x)$ (i.e.~$\dim(\overline x ∩ Z) = p(x) + \dim x$) for each $x ∈ \Xtop$ with $\overline x ∩ Z \ne \emptyset$.
+\end{Def}
+
+\begin{Rem}
+    If all $G$-orbits are even dimensional and $p$ is the middle perversity, then right and left $p$-measuring subvarieties coincide.
+\end{Rem}
+
+In the following $i_Z^*$ and $i_Z^!$ are the (derived) $\O$-module pullback functors given by
+\[
+    ι_Z^*\sheaf F = \O_Z \otimes_{\O_X} \sheaf F
+    \qquad
+    ι_Z^!\sheaf F = \sheafHom_{\O_X}(\O_Z, \sheaf F).
+\]
+
+\begin{Thm}
+    Let $X$ have enough left and right $p$-measuring varieties.
+    Let $\sheaf F \in D_c^b(X)^G$.
+    Then the following hold:
+    \begin{enumerate}
+        \item $\sheaf F \in \perv D^{≤0}(X)^G$ if and only if $\lc{p}i_Z^*\sheaf F \in D^{≤0}(Z)$ for all right $p$-measuring $Z$ and all $p \in Z$.
+        \item $\sheaf F \in \perv D^{≥0}(X)^G$ if and only if $i_Z^!\sheaf F \in D^{≥0}(Z)$ for all left $p$-measuring $Z$ and all $p \in Z$.
+    \end{enumerate}
+\end{Thm}
+
+To prove this, we need corresponding versions of Lemmas~\ref{lem:supportAndLocalCohomology-} and~\ref{lem:supportAndLocalCohomology+}.
+Alternatively, we can show directly for the second part that $i_Z^!\sheaf F \in D^{≥0}(Z)$ if and only if $\lc Z \sheaf F \in D^{≥0}(X)$.
+
+\begin{Lem}\label{lem:one-sided:supportAndLocalCohomology-}%
+    Let $\sheaf F ∈ \catCoh{X}^G$ be a $G$-equivariant coherent sheaf on $X$, let $p$ be a monotone perversity and let $n$ be an integer.
+    Assume that $X$ has enough right $p$-measuring subvarieties and let $\measuringFam$ be a right $p$-measuring family of subvarieties of $X$.
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item $p(\dim \supp \sheaf F) ≥ n$;
+        \item \label{li:lem:one-sided:supportAndLocalCohomology-:2}%
+            $H^i(\lc{p}ι_{Z}^*\sheaf F) = 0$ for all $i ≥ -n+1$, all $Z ∈ \measuringFam$ and all $p \in Z$.
+    \end{enumerate}
+\end{Lem}
+
+
 \appendix
 
 \section*{appendix. constructible sheaves}
