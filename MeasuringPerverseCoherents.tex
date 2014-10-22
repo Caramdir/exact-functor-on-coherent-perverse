@@ -486,6 +486,32 @@ Alternatively, we can show directly for the second part that $i_Z^!\sheaf F \in 
     \end{enumerate}
 \end{Lem}
 
+\begin{proof}
+    As before we can assume that $\supp \sheaf F = X$.
+
+    First assume that $p(\dim X) = p(\dim \supp \sheaf F) \ge n$.
+    The functor $ι_Z^*$ is right exact, so that $ι_Z^*\sheaf F ∈ D^b_c(Z)$.
+    By assumption, $\dim ι_Z^*\sheaf F \le \dim Z = -p(\dim X) \le -n$.
+    Thus by Grothendieck's vanishing theorem \cite[Theorem~6.1.2]{BrodmannSharp:1998:LocalCohomology}, $H^i(\lc{p}ι_Z^*\sheaf F) = 0$ for all $i > \dim ι_Z^*\sheaf F \ge -n$.
+
+    Conversely, assume that $p(\dim X) = k < n$.
+    We have to show that there exists a right $p$-measuring variety $Z$ and a point $z ∈ Z$ such that $H^{-k}(\lc{z}ι_{Z}^*\sheaf F) \ne 0$.
+    Pick $Z$ such that $\dim H^0(ι_Z^*\sheaf F) = \dim (\O_Z \otimes_{\O_X} \sheaf F) = \dim Z$.
+    For ease of notation, we set $\sheaf G = H^0(ι_Z^*\sheaf F)$.
+    Pick $z ∈ Z$ such that $\sheaf G_z$ still has dimension $\dim Z = -k$ [e.g.~take $z$ in an open orbit].
+
+    It suffices to show that $H^{-k}(\lc{z}\sheaf G)_z \ne 0$.
+    By flat base change,
+    \[
+        H^{-k}(\lc{z}\sheaf G)_z = H^{-k}(\lc{z}(\sheaf G_z)).
+    \]
+    Since $\dim\sheaf G_z = -k$, the Grothendieck non-vanishing theorem implies that the latter is non-zero.
+\end{proof}
+
+\begin{Rem}
+    As defined in Definition~\ref{def:one-sided:measuring}, right measuring subvarieties don't need to intersect each orbit non-trivially (only their closure).
+    What exactly are the minimal conditions such that we always have a correct pair $z ∈ Z$ for the implication (ii) $\implies$ (i)?
+\end{Rem}
 
 \appendix
 
