@@ -27,3 +27,4 @@ comment.cut
 *.vim
 .tmp
 *.swp
+*.pdf
