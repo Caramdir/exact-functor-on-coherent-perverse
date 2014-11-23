@@ -482,7 +482,7 @@ Alternatively, we can show directly for the second part that $i_Z^!\sheaf F \in 
     \begin{enumerate}
         \item $p(\dim \supp \sheaf F) ≥ n$;
         \item \label{li:lem:one-sided:supportAndLocalCohomology-:2}%
-            $H^i(\lc{p}ι_{Z}^*\sheaf F) = 0$ for all $i ≥ -n+1$, all $Z ∈ \measuringFam$ and all $p \in Z$.
+            $H^i(\lc{x}ι_{Z}^*\sheaf F) = 0$ for all $i ≥ -n+1$, all $Z ∈ \measuringFam$ and all $x \in Z$.
     \end{enumerate}
 \end{Lem}
 
@@ -492,20 +492,22 @@ Alternatively, we can show directly for the second part that $i_Z^!\sheaf F \in 
     First assume that $p(\dim X) = p(\dim \supp \sheaf F) \ge n$.
     The functor $ι_Z^*$ is right exact, so that $ι_Z^*\sheaf F ∈ D^b_c(Z)$.
     By assumption, $\dim ι_Z^*\sheaf F \le \dim Z = -p(\dim X) \le -n$.
-    Thus by Grothendieck's vanishing theorem \cite[Theorem~6.1.2]{BrodmannSharp:1998:LocalCohomology}, $H^i(\lc{p}ι_Z^*\sheaf F) = 0$ for all $i > \dim ι_Z^*\sheaf F \ge -n$.
+    Thus by Grothendieck's vanishing theorem \cite[Theorem~6.1.2]{BrodmannSharp:1998:LocalCohomology}\footnote{Show that the theorem holds for the derived case.}, $H^i(\lc{p}ι_Z^*\sheaf F) = 0$ for all $i > \dim ι_Z^*\sheaf F \ge -n$.
 
     Conversely, assume that $p(\dim X) = k < n$.
     We have to show that there exists a right $p$-measuring variety $Z$ and a point $z ∈ Z$ such that $H^{-k}(\lc{z}ι_{Z}^*\sheaf F) \ne 0$.
-    Pick $Z$ such that $\dim H^0(ι_Z^*\sheaf F) = \dim (\O_Z \otimes_{\O_X} \sheaf F) = \dim Z$.
+    Pick $Z$ intersecting a maximal component of $X$ non-trivially.
+    Then $\dim H^0(ι_Z^*\sheaf F) = \dim (\O_Z \otimes_{\O_X} \sheaf F) = \dim Z$.
     For ease of notation, we set $\sheaf G = H^0(ι_Z^*\sheaf F)$.
-    Pick $z ∈ Z$ such that $\sheaf G_z$ still has dimension $\dim Z = -k$ [e.g.~take $z$ in an open orbit].
+    Pick $x$ in a maximal component of $Z$.
+    Then $\sheaf G_x$ still has dimension $\dim Z = -k$ as an $\O_{Z,x}$-module.
 
-    It suffices to show that $H^{-k}(\lc{z}\sheaf G)_z \ne 0$.
+    It suffices to show that $H^{-k}(\lc{x}\sheaf G)_x \ne 0$.
     By flat base change,
     \[
-        H^{-k}(\lc{z}\sheaf G)_z = H^{-k}(\lc{z}(\sheaf G_z)).
+        H^{-k}(\lc{x}\sheaf G)_x = H^{-k}(\lc{x}(\sheaf G_x)).
     \]
-    Since $\dim\sheaf G_z = -k$, the Grothendieck non-vanishing theorem implies that the latter is non-zero.
+    Since $\dim\sheaf G_x = -k$, the Grothendieck non-vanishing theorem\footnote{Again need it in the derived case.} implies that the latter is non-zero.
 \end{proof}
 
 \begin{Rem}
